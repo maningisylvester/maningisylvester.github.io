@@ -8,589 +8,293 @@
 <style>
   :root {
     --navy: #0a1628;
-    --blue: #1a3a6b;
-    --mid-blue: #2563a8;
-    --accent: #3b82d4;
-    --light-blue: #dbeafe;
-    --white: #ffffff;
-    --off-white: #f8fafd;
-    --gray: #64748b;
-    --light-gray: #e2e8f0;
-    --text: #1e293b;
+    --mid-blue: #1a4a8a;
+    --accent: #2563a8;
+    --light-blue: #a8c4e0;
+    --page-bg: #c8d9ee;
+    --section-alt: #b8ccdf;
+    --card-bg: #ffffff;
+    --gray: #3d5a7a;
+    --light-gray: #a0b8d0;
+    --text: #0d2137;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--white);
+    background: var(--page-bg);
     color: var(--text);
     overflow-x: hidden;
   }
 
   /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(200,217,238,0.97);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--light-gray);
   }
 
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--navy);
-    letter-spacing: 0.02em;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.02em;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
   .nav-links a {
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--gray);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    text-decoration: none; font-size: 0.82rem; font-weight: 600;
+    color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase;
     transition: color 0.2s;
   }
-
-  .nav-links a:hover { color: var(--mid-blue); }
+  .nav-links a:hover { color: var(--navy); }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+    min-height: 100vh; display: flex; align-items: center;
     padding: 8rem 5% 5rem;
-    background: var(--off-white);
-    position: relative;
-    overflow: hidden;
+    background: var(--section-alt);
+    position: relative; overflow: hidden;
   }
 
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(37,99,168,0.08) 0%, transparent 70%);
+    content: ''; position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,22,40,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(10,22,40,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    max-width: 700px;
-    animation: fadeUp 0.9s ease both;
-  }
+  .hero-content { max-width: 700px; animation: fadeUp 0.9s ease both; }
 
   .hero-tag {
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid-blue);
-    margin-bottom: 1.5rem;
+    display: inline-block; font-size: 0.76rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 1.5rem;
     padding: 0.4rem 1rem;
-    background: var(--light-blue);
+    background: rgba(10,22,40,0.1);
     border-radius: 2rem;
   }
 
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    color: var(--navy);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
+    font-size: clamp(3rem, 6vw, 5rem); font-weight: 600;
+    line-height: 1.1; color: var(--navy);
+    margin-bottom: 1.5rem; letter-spacing: -0.01em;
   }
-
-  .hero h1 span {
-    color: var(--mid-blue);
-  }
+  .hero h1 span { color: var(--mid-blue); }
 
   .hero p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--gray);
-    max-width: 540px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
+    font-size: 1.05rem; line-height: 1.8; color: var(--gray);
+    max-width: 540px; margin-bottom: 2.5rem; font-weight: 400;
   }
 
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn-primary {
-    padding: 0.85rem 2rem;
-    background: var(--navy);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border-radius: 3px;
-    transition: background 0.2s, transform 0.2s;
+    padding: 0.85rem 2rem; background: var(--navy); color: #ffffff;
+    text-decoration: none; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.04em; border-radius: 3px;
+    transition: background 0.2s, transform 0.2s; display: inline-block;
   }
-
-  .btn-primary:hover {
-    background: var(--mid-blue);
-    transform: translateY(-1px);
-  }
+  .btn-primary:hover { background: var(--mid-blue); transform: translateY(-1px); }
 
   .btn-outline {
-    padding: 0.85rem 2rem;
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border-radius: 3px;
-    transition: all 0.2s;
+    padding: 0.85rem 2rem; border: 2px solid var(--navy);
+    color: var(--navy); text-decoration: none; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 0.04em; border-radius: 3px;
+    transition: all 0.2s; display: inline-block;
   }
+  .btn-outline:hover { background: var(--navy); color: #ffffff; transform: translateY(-1px); }
 
-  .btn-outline:hover {
-    background: var(--navy);
-    color: var(--white);
-    transform: translateY(-1px);
-  }
-
-  /* SECTION COMMON */
-  section {
-    padding: 6rem 5%;
-  }
+  /* SECTIONS */
+  section { padding: 6rem 5%; }
 
   .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--mid-blue);
-    margin-bottom: 0.8rem;
+    font-size: 0.73rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--mid-blue); margin-bottom: 0.8rem;
   }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
+    color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
   }
 
   .section-subtitle {
-    font-size: 1rem;
-    color: var(--gray);
-    max-width: 500px;
-    line-height: 1.7;
-    font-weight: 300;
+    font-size: 1rem; color: var(--gray);
+    max-width: 500px; line-height: 1.7; font-weight: 400;
   }
 
-  .section-header {
-    margin-bottom: 4rem;
-  }
+  .section-header { margin-bottom: 4rem; }
 
   /* SERVICES */
-  .services {
-    background: var(--white);
-  }
+  .services { background: var(--page-bg); }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5px;
-    background: var(--light-gray);
-    border: 1.5px solid var(--light-gray);
+    gap: 2px; background: var(--light-gray);
+    border: 2px solid var(--light-gray); border-radius: 4px; overflow: hidden;
   }
 
   .service-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    transition: background 0.25s;
-    position: relative;
-    overflow: hidden;
+    background: var(--card-bg); padding: 2.5rem 2rem;
+    transition: background 0.2s; position: relative; overflow: hidden;
   }
 
-  .service-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--mid-blue);
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 3px; background: var(--navy);
     transition: width 0.3s ease;
   }
-
-  .service-card:hover::before { width: 100%; }
-  .service-card:hover { background: var(--off-white); }
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { background: #f4f8fd; }
 
   .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--light-blue);
-    line-height: 1;
-    margin-bottom: 1rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+    font-weight: 300; color: #c8d9ee; line-height: 1; margin-bottom: 1rem;
   }
 
-  .service-card h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.01em;
-  }
-
-  .service-card p {
-    font-size: 0.85rem;
-    color: var(--gray);
-    line-height: 1.7;
-    font-weight: 300;
-  }
+  .service-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.85rem; color: #5a7a9a; line-height: 1.7; }
 
   /* EXPERIENCE */
-  .experience {
-    background: var(--off-white);
-  }
-
-  .exp-grid {
-    display: grid;
-    gap: 2rem;
-  }
+  .experience { background: var(--section-alt); }
+  .exp-grid { display: grid; gap: 2rem; }
 
   .exp-card {
-    background: var(--white);
-    border: 1px solid var(--light-gray);
-    border-radius: 4px;
-    padding: 2.5rem;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
+    background: var(--card-bg); border: none;
+    border-radius: 6px; padding: 2.5rem;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;
+    box-shadow: 0 2px 20px rgba(10,22,40,0.08);
     transition: box-shadow 0.25s, transform 0.25s;
   }
-
-  .exp-card:hover {
-    box-shadow: 0 8px 40px rgba(10,22,40,0.08);
-    transform: translateY(-2px);
-  }
-
-  .exp-left {}
+  .exp-card:hover { box-shadow: 0 8px 40px rgba(10,22,40,0.15); transform: translateY(-2px); }
 
   .exp-company {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.3rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 600; color: var(--navy); margin-bottom: 0.3rem;
   }
 
   .exp-industry {
-    font-size: 0.78rem;
-    color: var(--mid-blue);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
+    font-size: 0.75rem; color: var(--mid-blue); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem;
   }
 
   .exp-type {
-    display: inline-block;
-    font-size: 0.75rem;
-    padding: 0.3rem 0.8rem;
-    background: var(--light-blue);
-    color: var(--mid-blue);
-    border-radius: 2rem;
-    font-weight: 500;
+    display: inline-block; font-size: 0.75rem; padding: 0.3rem 0.8rem;
+    background: var(--page-bg); color: var(--navy);
+    border-radius: 2rem; font-weight: 600;
   }
-
-  .exp-right {}
 
   .exp-role {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 0.8rem;
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #8aabcc; margin-bottom: 0.8rem;
   }
 
-  .exp-right h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-
-  .exp-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
 
   .exp-list li {
-    font-size: 0.88rem;
-    color: var(--gray);
-    padding-left: 1rem;
-    position: relative;
-    line-height: 1.6;
-    font-weight: 300;
+    font-size: 0.88rem; color: #3d5a7a;
+    padding-left: 1.2rem; position: relative; line-height: 1.6;
   }
-
   .exp-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--mid-blue);
-    font-size: 0.7rem;
-    top: 0.15rem;
+    content: '—'; position: absolute; left: 0;
+    color: var(--mid-blue); font-size: 0.75rem; top: 0.1rem;
   }
 
   /* SKILLS */
-  .skills-section {
-    background: var(--navy);
-    color: var(--white);
-  }
-
-  .skills-section .section-title { color: var(--white); }
-  .skills-section .section-label { color: var(--accent); }
+  .skills-section { background: var(--navy); }
+  .skills-section .section-title { color: #ffffff; }
+  .skills-section .section-label { color: var(--light-blue); }
   .skills-section .section-subtitle { color: rgba(255,255,255,0.5); }
 
   .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; margin-top: 3rem;
   }
 
   .skill-item {
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 1.5rem;
-    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.12); padding: 1.5rem; border-radius: 4px;
     transition: border-color 0.2s, background 0.2s;
   }
+  .skill-item:hover { border-color: var(--light-blue); background: rgba(200,217,238,0.08); }
 
-  .skill-item:hover {
-    border-color: var(--accent);
-    background: rgba(59,130,212,0.08);
-  }
-
-  .skill-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .skill-item h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 0.4rem;
-  }
-
-  .skill-item p {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.5;
-    font-weight: 300;
-  }
+  .skill-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+  .skill-item h4 { font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.4rem; }
+  .skill-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
 
   /* CERTIFICATIONS */
-  .certifications {
-    background: var(--white);
-  }
-
-  .cert-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 3rem;
-  }
+  .certifications { background: var(--page-bg); }
+  .cert-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; }
 
   .cert-badge {
     padding: 0.8rem 1.5rem;
-    border: 1.5px solid var(--light-gray);
-    border-radius: 3px;
-    font-size: 0.83rem;
-    font-weight: 500;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    border: 2px solid rgba(10,22,40,0.15);
+    border-radius: 3px; font-size: 0.83rem; font-weight: 600;
+    color: var(--navy); display: flex; align-items: center; gap: 0.6rem;
+    background: rgba(255,255,255,0.7);
     transition: border-color 0.2s, background 0.2s;
   }
-
-  .cert-badge:hover {
-    border-color: var(--mid-blue);
-    background: var(--light-blue);
-  }
-
-  .cert-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--mid-blue);
-    flex-shrink: 0;
-  }
+  .cert-badge:hover { border-color: var(--navy); background: #ffffff; }
+  .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mid-blue); flex-shrink: 0; }
 
   /* CONTACT */
-  .contact {
-    background: var(--off-white);
-  }
-
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+  .contact { background: var(--section-alt); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; }
 
   .contact-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--light-blue);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: rgba(10,22,40,0.1);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 1.1rem; flex-shrink: 0;
   }
 
-  .contact-item span {
-    font-size: 0.9rem;
-    color: var(--text);
-    font-weight: 400;
-  }
-
-  .contact-item a {
-    font-size: 0.9rem;
-    color: var(--mid-blue);
-    text-decoration: none;
-    font-weight: 400;
-  }
-
+  .contact-item span { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+  .contact-item a { font-size: 0.9rem; color: var(--mid-blue); text-decoration: none; font-weight: 500; }
   .contact-item a:hover { text-decoration: underline; }
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 3rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 
   .form-group label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gray);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray);
   }
 
-  .form-group input,
-  .form-group textarea {
+  .form-group input, .form-group textarea {
     padding: 0.85rem 1rem;
-    border: 1.5px solid var(--light-gray);
-    border-radius: 3px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    color: var(--text);
-    background: var(--white);
-    transition: border-color 0.2s;
-    outline: none;
+    border: 2px solid rgba(10,22,40,0.15);
+    border-radius: 3px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--text);
+    background: #ffffff;
+    transition: border-color 0.2s; outline: none;
   }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 130px; }
 
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--mid-blue);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  /* FOOTER */
   footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.4);
-    padding: 2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
+    background: var(--navy); color: rgba(255,255,255,0.4);
+    padding: 2rem 5%; display: flex;
+    justify-content: space-between; align-items: center; font-size: 0.8rem;
   }
+  footer span { color: #ffffff; font-weight: 600; }
 
-  footer span { color: var(--white); font-weight: 500; }
-
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .exp-card { grid-template-columns: 1fr; }
@@ -601,7 +305,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Maningi Sylvester</div>
   <ul class="nav-links">
@@ -612,7 +315,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-tag">Digital Marketing & Growth Specialist</div>
@@ -625,7 +327,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header fade-in">
     <div class="section-label">What I Do</div>
@@ -633,60 +334,19 @@
     <p class="section-subtitle">End-to-end digital marketing services designed to drive measurable business outcomes.</p>
   </div>
   <div class="services-grid fade-in">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>Google Ads Management</h3>
-      <p>High-intent search and display campaigns optimised for cost per booking and conversion rate.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>Meta Ads Management</h3>
-      <p>Facebook and Instagram campaigns built for brand awareness, lead generation, and direct bookings.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>Search Engine Optimisation</h3>
-      <p>On-page SEO, keyword strategy, and content optimisation to drive organic traffic and booking intent.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <h3>Social Media Marketing</h3>
-      <p>Content planning, community management, and short-form video strategy for Instagram and TikTok.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <h3>Email Marketing</h3>
-      <p>Segmented campaigns targeting past guests, corporate clients, and long-stay audiences to drive repeat bookings.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <h3>Content Strategy</h3>
-      <p>Blog content, SEO articles, and brand messaging designed to attract and convert high-intent audiences.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">07</div>
-      <h3>Analytics & Reporting</h3>
-      <p>Performance reporting across paid ads, SEO, social, and email — turning data into clear growth decisions.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">08</div>
-      <h3>Website & CMS Management</h3>
-      <p>WordPress site updates, landing page optimisation, and conversion-focused UX improvements.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">09</div>
-      <h3>Influencer Partnerships</h3>
-      <p>Identifying and managing micro-influencer collaborations aligned with your brand and target audience.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">10</div>
-      <h3>Growth Marketing Consulting</h3>
-      <p>Strategic digital marketing consulting to build structured, scalable growth systems for your brand.</p>
-    </div>
+    <div class="service-card"><div class="service-num">01</div><h3>Google Ads Management</h3><p>High-intent search and display campaigns optimised for cost per booking and conversion rate.</p></div>
+    <div class="service-card"><div class="service-num">02</div><h3>Meta Ads Management</h3><p>Facebook and Instagram campaigns built for brand awareness, lead generation, and direct bookings.</p></div>
+    <div class="service-card"><div class="service-num">03</div><h3>Search Engine Optimisation</h3><p>On-page SEO, keyword strategy, and content optimisation to drive organic traffic and booking intent.</p></div>
+    <div class="service-card"><div class="service-num">04</div><h3>Social Media Marketing</h3><p>Content planning, community management, and short-form video strategy for Instagram and TikTok.</p></div>
+    <div class="service-card"><div class="service-num">05</div><h3>Email Marketing</h3><p>Segmented campaigns targeting past guests, corporate clients, and long-stay audiences to drive repeat bookings.</p></div>
+    <div class="service-card"><div class="service-num">06</div><h3>Content Strategy</h3><p>Blog content, SEO articles, and brand messaging designed to attract and convert high-intent audiences.</p></div>
+    <div class="service-card"><div class="service-num">07</div><h3>Analytics & Reporting</h3><p>Performance reporting across paid ads, SEO, social, and email — turning data into clear growth decisions.</p></div>
+    <div class="service-card"><div class="service-num">08</div><h3>Website & CMS Management</h3><p>WordPress site updates, landing page optimisation, and conversion-focused UX improvements.</p></div>
+    <div class="service-card"><div class="service-num">09</div><h3>Influencer Partnerships</h3><p>Identifying and managing micro-influencer collaborations aligned with your brand and target audience.</p></div>
+    <div class="service-card"><div class="service-num">10</div><h3>Growth Marketing Consulting</h3><p>Strategic digital marketing consulting to build structured, scalable growth systems for your brand.</p></div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <div class="section-header fade-in">
     <div class="section-label">Case Studies</div>
@@ -694,7 +354,6 @@
     <p class="section-subtitle">Real work across hospitality and retail e-commerce in Nairobi.</p>
   </div>
   <div class="exp-grid">
-
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">Karen Plains Hotel</div>
@@ -713,7 +372,6 @@
         </ul>
       </div>
     </div>
-
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">L'Aziz Suites</div>
@@ -728,11 +386,11 @@
           <li>Oversaw social media content planning, posting and community management</li>
           <li>Managed WordPress (Divi) website updates and landing page optimisation</li>
           <li>Coordinated content creation including photoshoots</li>
-          <li>Achieved an SEO site score of 77/100 and generated 383 direct bookings in one year</li>
+          <li>Achieved an SEO site score of 77/100 and drove consistent direct booking growth</li>
         </ul>
+        <img src="laziz-seo.png.png" alt="L'Aziz Suites SEO Score 77/100" style="margin-top:1.5rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
       </div>
     </div>
-
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">Smoove Africa</div>
@@ -745,16 +403,15 @@
           <li>Planned and executed Google Ads and Meta campaigns to drive product inquiries</li>
           <li>Managed social media content and brand messaging across platforms</li>
           <li>Maintained website content and product visibility to improve user experience</li>
-          <li>Tracked campaign performance and produced optimization reports</li>
+          <li>Tracked campaign performance and produced optimisation reports</li>
           <li>Worked closely with the sales team to improve lead follow-up and conversion flow</li>
         </ul>
+        <img src="smoove-ads.png.png" alt="Smoove Africa Google Ads Performance" style="margin-top:1.5rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="skills-section" id="skills">
   <div class="section-header fade-in">
     <div class="section-label">Expertise</div>
@@ -762,40 +419,15 @@
     <p class="section-subtitle">Tools and capabilities I use to deliver measurable growth.</p>
   </div>
   <div class="skills-grid fade-in">
-    <div class="skill-item">
-      <div class="skill-icon">📊</div>
-      <h4>Paid Media</h4>
-      <p>Google Ads, Meta Ads, campaign structure, budget optimisation, A/B testing</p>
-    </div>
-    <div class="skill-item">
-      <div class="skill-icon">🔍</div>
-      <h4>SEO</h4>
-      <p>On-page optimisation, keyword strategy, content planning, Google Search Console</p>
-    </div>
-    <div class="skill-item">
-      <div class="skill-icon">📈</div>
-      <h4>Analytics</h4>
-      <p>Google Analytics, Google Tag Manager, funnel analysis, performance reporting</p>
-    </div>
-    <div class="skill-item">
-      <div class="skill-icon">📱</div>
-      <h4>Social Media</h4>
-      <p>Meta Business Suite, Instagram Reels, TikTok, content planning, community management</p>
-    </div>
-    <div class="skill-item">
-      <div class="skill-icon">✉️</div>
-      <h4>Email Marketing</h4>
-      <p>Audience segmentation, campaign automation, open rate and CTR optimisation</p>
-    </div>
-    <div class="skill-item">
-      <div class="skill-icon">🌐</div>
-      <h4>Website & CMS</h4>
-      <p>WordPress (Divi), on-page SEO, CRO, landing page management</p>
-    </div>
+    <div class="skill-item"><div class="skill-icon">📊</div><h4>Paid Media</h4><p>Google Ads, Meta Ads, campaign structure, budget optimisation, A/B testing</p></div>
+    <div class="skill-item"><div class="skill-icon">🔍</div><h4>SEO</h4><p>On-page optimisation, keyword strategy, content planning, Google Search Console</p></div>
+    <div class="skill-item"><div class="skill-icon">📈</div><h4>Analytics</h4><p>Google Analytics, Google Tag Manager, funnel analysis, performance reporting</p></div>
+    <div class="skill-item"><div class="skill-icon">📱</div><h4>Social Media</h4><p>Meta Business Suite, Instagram Reels, TikTok, content planning, community management</p></div>
+    <div class="skill-item"><div class="skill-icon">✉️</div><h4>Email Marketing</h4><p>Audience segmentation, campaign automation, open rate and CTR optimisation</p></div>
+    <div class="skill-item"><div class="skill-icon">🌐</div><h4>Website & CMS</h4><p>WordPress (Divi), Shopify, on-page SEO, CRO, landing page management</p></div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section class="certifications" id="certifications">
   <div class="section-header fade-in">
     <div class="section-label">Credentials</div>
@@ -812,7 +444,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div>
@@ -820,61 +451,26 @@
       <h2 class="section-title fade-in">Get In Touch</h2>
       <p class="section-subtitle fade-in">Open to performance marketing roles, consulting opportunities, and growth collaborations.</p>
       <div class="contact-info fade-in">
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <a href="mailto:maningisylvester@gmail.com">maningisylvester@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <span>+254 702 256 764</span>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">🔗</div>
-          <a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn Profile</a>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <span>Nairobi, Kenya</span>
-        </div>
+        <div class="contact-item"><div class="contact-icon">📧</div><a href="/cdn-cgi/l/email-protection#a3cec2cdcacdc4cad0dacfd5c6d0d7c6d1e3c4cec2cacf8dc0ccce"><span class="__cf_email__" data-cfemail="c0ada1aea9aea7a9b3b9acb6a5b3b4a5b280a7ada1a9aceea3afad">[email&#160;protected]</span></a></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><span>+254 702 256 764</span></div>
+        <div class="contact-item"><div class="contact-icon">🔗</div><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn Profile</a></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><span>Nairobi, Kenya</span></div>
       </div>
     </div>
     <div>
       <div class="contact-form fade-in">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about your project..."></textarea>
-        </div>
-        <a href="mailto:maningisylvester@gmail.com" class="btn-primary" style="text-align:center;">Send Message</a>
+        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" /></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+        <a href="/cdn-cgi/l/email-protection#701d111e191e171903091c06150304150230171d11191c5e131f1d" class="btn-primary" style="text-align:center;">Send Message</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>© 2026 Maningi Sylvester. All rights reserved.</div>
   <div>Built for growth. <span>Nairobi, Kenya.</span></div>
 </footer>
 
-<script>
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
