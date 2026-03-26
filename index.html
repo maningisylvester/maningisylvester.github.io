@@ -294,6 +294,49 @@
 
   .fade-in { opacity: 1; }
 
+  /* CASE STUDY EXPAND */
+  .cs-toggle {
+    margin-top: 1.2rem;
+    background: none;
+    border: 1.5px solid var(--mid-blue);
+    color: var(--mid-blue);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cs-toggle:hover { background: var(--mid-blue); color: #ffffff; }
+  .cs-toggle.open { background: var(--navy); color: #ffffff; border-color: var(--navy); }
+
+  .cs-body {
+    display: none;
+    margin-top: 1.5rem;
+    border-top: 1.5px solid var(--light-gray);
+    padding-top: 1.5rem;
+  }
+  .cs-body.open { display: block; }
+
+  .cs-block { margin-bottom: 1.5rem; }
+
+  .cs-block-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .cs-block p, .cs-block ul {
+    font-size: 0.87rem;
+    color: #3d5a7a;
+    line-height: 1.7;
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .exp-card { grid-template-columns: 1fr; }
@@ -353,6 +396,8 @@
     <p class="section-subtitle">Real work across hospitality and retail e-commerce in Nairobi.</p>
   </div>
   <div class="exp-grid">
+
+    <!-- KAREN PLAINS HOTEL -->
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">Karen Plains Hotel</div>
@@ -369,8 +414,37 @@
           <li>Developing SEO blog content and website conversion improvements</li>
           <li>Coordinating micro-influencer collaborations and weekly performance reporting</li>
         </ul>
+        <button class="cs-toggle" onclick="toggleCase('karen')">View Full Case Study ↓</button>
+        <div class="cs-body" id="karen">
+          <div class="cs-block">
+            <div class="cs-block-title">The Challenge</div>
+            <p>Karen Plains Hotel needed to increase direct bookings and online visibility in a competitive hospitality market. The digital presence required a full audit and a structured approach to demand generation across multiple channels.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Strategy & Approach</div>
+            <p>Launched a rapid audit-to-action plan — identifying friction points in the booking funnel, setting up high-intent Google Ads and Meta campaigns targeting travellers searching for hotels near Karen, the Giraffe Centre, Karen Blixen Museum, and Nairobi National Park. Supported by a consistent social media content strategy and SEO-focused blog content.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Execution</div>
+            <ul class="exp-list">
+              <li>Conducted a full digital marketing audit covering website, social media, ad campaigns and booking funnel</li>
+              <li>Set up and managed Google Ads and Meta campaigns focused on high-intent search and retargeting</li>
+              <li>Produced 4–5 short-form videos per week for Instagram Reels and TikTok</li>
+              <li>Built and launched email campaigns for past guests, corporate travellers and long-stay clients</li>
+              <li>Published SEO-optimised blog content targeting booking-intent keywords</li>
+              <li>Identified and onboarded micro-influencers for brand collaborations</li>
+              <li>Delivered weekly performance reports to hotel management covering all channels</li>
+            </ul>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Results & Impact</div>
+            <p>Ongoing engagement — digital marketing infrastructure fully built out across paid media, SEO, social, and email. Weekly reporting in place with clear performance tracking across all channels.</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- L'AZIZ SUITES -->
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">L'Aziz Suites</div>
@@ -387,9 +461,42 @@
           <li>Coordinated content creation including photoshoots</li>
           <li>Achieved an SEO site score of 77/100 and drove consistent direct booking growth</li>
         </ul>
-        <img src="laziz-seo.png.png" alt="L'Aziz Suites SEO Score 77/100" style="margin-top:1.5rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
+        <button class="cs-toggle" onclick="toggleCase('laziz')">View Full Case Study ↓</button>
+        <div class="cs-body" id="laziz">
+          <div class="cs-block">
+            <div class="cs-block-title">The Challenge</div>
+            <p>L'Aziz Suites had a dormant and inconsistent digital presence prior to engagement. The property needed increased brand awareness and booking inquiries in a competitive Nairobi hospitality market, with limited visibility across key digital platforms.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Strategy & Approach</div>
+            <p>Revived brand visibility across digital platforms, positioning the property clearly for both short-stay and long-stay guests. Used targeted campaigns to support booking inquiries and created consistent, high-quality content to reflect the brand's positioning.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Execution</div>
+            <ul class="exp-list">
+              <li>Developed and executed digital marketing campaigns across social media and Google Ads</li>
+              <li>Managed social media content planning, posting and community management</li>
+              <li>Coordinated and supported content creation including photoshoots</li>
+              <li>Managed WordPress (Divi) website updates, structure and landing page optimisation</li>
+              <li>Allocated and optimised ad budgets to support bookings and brand awareness</li>
+              <li>Set up analytics and performance reporting systems</li>
+            </ul>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Results & Impact</div>
+            <ul class="exp-list">
+              <li>Improved brand visibility and consistency across all digital platforms</li>
+              <li>Increased awareness and booking inquiries through targeted digital campaigns</li>
+              <li>Achieved an SEO site score of 77/100</li>
+              <li>Established a clear digital marketing direction for continued growth</li>
+            </ul>
+            <img src="laziz-seo.png.png" alt="L'Aziz Suites SEO Score 77/100" style="margin-top:1.2rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- SMOOVE AFRICA -->
     <div class="exp-card fade-in">
       <div class="exp-left">
         <div class="exp-company">Smoove Africa</div>
@@ -405,9 +512,40 @@
           <li>Tracked campaign performance and produced optimisation reports</li>
           <li>Worked closely with the sales team to improve lead follow-up and conversion flow</li>
         </ul>
-        <img src="smoove-ads.png.png" alt="Smoove Africa Google Ads Performance" style="margin-top:1.5rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
+        <button class="cs-toggle" onclick="toggleCase('smoove')">View Full Case Study ↓</button>
+        <div class="cs-body" id="smoove">
+          <div class="cs-block">
+            <div class="cs-block-title">The Challenge</div>
+            <p>Smoove Africa operated in a competitive retail and e-commerce space with price-sensitive customers. The business needed to increase visibility and trust for buying and selling pre-owned furniture online, while driving consistent inquiries through digital channels and aligning marketing closely with sales outcomes.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Strategy & Approach</div>
+            <p>Built consistent brand visibility across key digital touchpoints, used targeted campaigns to drive product interest and inquiries, and strengthened trust through clear messaging and product presentation. Marketing activities were closely aligned with sales to improve lead quality and conversion flow.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Execution</div>
+            <ul class="exp-list">
+              <li>Planned and executed Google Ads and Meta Ads campaigns to drive inquiries and product interest</li>
+              <li>Managed social media platforms with consistent content and brand messaging</li>
+              <li>Managed website content updates and product visibility to improve user experience</li>
+              <li>Tracked performance and produced optimisation reports</li>
+              <li>Worked closely with the sales team to support lead follow-up and improve conversion flow</li>
+            </ul>
+          </div>
+          <div class="cs-block">
+            <div class="cs-block-title">Results & Impact</div>
+            <ul class="exp-list">
+              <li>Increased digital engagement and visibility across key channels</li>
+              <li>Contributed to approximately 30% growth in online engagement</li>
+              <li>Supported a 15% increase in monthly inquiries through improved campaign performance</li>
+              <li>Improved consistency and structure across all digital marketing activities</li>
+            </ul>
+            <img src="smoove-ads.png.png" alt="Smoove Africa Google Ads Performance" style="margin-top:1.2rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -450,8 +588,8 @@
       <h2 class="section-title fade-in">Get In Touch</h2>
       <p class="section-subtitle fade-in">Open to performance marketing roles, consulting opportunities, and growth collaborations.</p>
       <div class="contact-info fade-in">
-        <div class="contact-item"><div class="contact-icon">📧</div><a href="/cdn-cgi/l/email-protection#a3cec2cdcacdc4cad0dacfd5c6d0d7c6d1e3c4cec2cacf8dc0ccce"><span class="__cf_email__" data-cfemail="c0ada1aea9aea7a9b3b9acb6a5b3b4a5b280a7ada1a9aceea3afad">[email&#160;protected]</span></a></div>
-        <div class="contact-item"><div class="contact-icon">📞</div><span>+254 702 256 764</span></div>
+        <div class="contact-item"><div class="contact-icon">📧</div><a id="email-link">maningisylvester&#64;gmail&#46;com</a></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+254702256764" style="color:var(--mid-blue);text-decoration:none;">+254 702 256 764</a></div>
         <div class="contact-item"><div class="contact-icon">🔗</div><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn Profile</a></div>
         <div class="contact-item"><div class="contact-icon">📍</div><span>Nairobi, Kenya</span></div>
       </div>
@@ -461,7 +599,7 @@
         <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" /></div>
         <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
         <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-        <a href="/cdn-cgi/l/email-protection#701d111e191e171903091c06150304150230171d11191c5e131f1d" class="btn-primary" style="text-align:center;">Send Message</a>
+        <a id="send-btn" class="btn-primary" style="text-align:center;">Send Message</a>
       </div>
     </div>
   </div>
@@ -471,6 +609,20 @@
   <div>© 2026 Maningi Sylvester. All rights reserved.</div>
   <div>Built for growth. <span>Nairobi, Kenya.</span></div>
 </footer>
+<script>
+  function toggleCase(id) {
+    var body = document.getElementById(id);
+    var btn = body.previousElementSibling;
+    body.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.textContent = body.classList.contains('open') ? 'Close Case Study ↑' : 'View Full Case Study ↓';
+  }
+  var u='maningisylvester';var d='gmail.com';
+  var el=document.getElementById('email-link');
+  el.href='mailto:'+u+'@'+d;
+  var btn=document.getElementById('send-btn');
+  btn.href='mailto:'+u+'@'+d;
+</script>
 
 
 
