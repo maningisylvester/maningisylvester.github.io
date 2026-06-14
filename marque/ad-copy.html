@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ad Copy Generator — Marque</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --espresso: #1A0D08;
+  --mahogany: #2C1509;
+  --caramel: #B87748;
+  --gold: #C9A26A;
+  --cream: #F5EDE0;
+  --nude: #EAD9C6;
+  --sand: #D9C8B4;
+  --surface: #FDFAF5;
+  --border: #E0D0BC;
+  --text: #1A0D08;
+  --text-mid: #6B4E3A;
+  --text-muted: #9E8068;
+  --warm-white: #FEFCF8;
+  --success: #3A7A52;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  height: 100vh;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* HEADER */
+.app-header {
+  background: var(--espresso); color: white;
+  padding: 0.85rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0; z-index: 10;
+}
+.app-header-left { display: flex; align-items: center; gap: 1.2rem; }
+.header-back {
+  color: rgba(254,252,248,0.45); text-decoration: none;
+  font-size: 0.75rem; letter-spacing: 0.05em; transition: color 0.2s;
+}
+.header-back:hover { color: rgba(254,252,248,0.8); }
+.header-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 600; letter-spacing: 0.22em;
+  color: rgba(254,252,248,0.65); text-transform: uppercase;
+}
+.header-title {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--warm-white);
+}
+.header-sep { color: rgba(254,252,248,0.2); font-size: 0.9rem; }
+.header-actions { display: flex; gap: 0.6rem; align-items: center; }
+.btn-sm {
+  padding: 0.45rem 1.1rem; font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+  border-radius: 2px; cursor: pointer; border: none; transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-generate { background: var(--caramel); color: white; }
+.btn-generate:hover { background: #A5693E; }
+.btn-reset {
+  background: none; color: rgba(254,252,248,0.4);
+  border: 1px solid rgba(254,252,248,0.15); font-size: 0.72rem;
+}
+.btn-reset:hover { color: rgba(254,252,248,0.8); border-color: rgba(254,252,248,0.35); }
+
+/* LAYOUT */
+.app-body { display: grid; grid-template-columns: 380px 1fr; flex: 1; overflow: hidden; }
+
+/* FORM PANEL */
+.form-panel { background: var(--warm-white); overflow-y: auto; border-right: 1px solid var(--border); }
+
+.form-section { border-bottom: 1px solid var(--border); }
+
+.form-section-header {
+  padding: 0.85rem 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.form-section-header:hover { background: var(--cream); }
+
+.form-section-title {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--espresso);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.section-arrow { font-size: 0.65rem; color: var(--sand); transition: transform 0.2s; }
+.form-section.collapsed .section-arrow { transform: rotate(-90deg); }
+
+.form-section-body { padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.form-section.collapsed .form-section-body { display: none; }
+
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.field.full { grid-column: 1 / -1; }
+
+label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+input[type="text"], input[type="number"], select, textarea {
+  padding: 0.55rem 0.8rem;
+  border: 1.5px solid var(--border); border-radius: 2px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+  color: var(--text); background: var(--warm-white);
+  outline: none; transition: border-color 0.2s; width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--caramel); }
+textarea { resize: vertical; min-height: 60px; line-height: 1.5; }
+
+/* USP checkboxes */
+.usp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+
+.usp-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 0.65rem; border: 1.5px solid var(--border);
+  border-radius: 2px; cursor: pointer; transition: all 0.15s;
+  font-size: 0.76rem; color: var(--text-mid); font-weight: 500;
+}
+.usp-item:hover { border-color: var(--caramel); background: rgba(184,119,72,0.04); }
+.usp-item.active { border-color: var(--caramel); background: rgba(184,119,72,0.07); color: var(--espresso); }
+.usp-item input { width: 14px; height: 14px; accent-color: var(--caramel); flex-shrink: 0; }
+
+/* Radio groups */
+.radio-group { display: flex; flex-direction: column; gap: 0.35rem; }
+.radio-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.5rem 0.75rem; border: 1.5px solid var(--border);
+  border-radius: 2px; cursor: pointer; font-size: 0.8rem; color: var(--text-mid);
+  transition: all 0.15s; font-weight: 500;
+}
+.radio-item:hover { border-color: var(--caramel); }
+.radio-item input[type="radio"] { accent-color: var(--caramel); }
+.radio-item.selected { border-color: var(--caramel); background: rgba(184,119,72,0.06); color: var(--espresso); }
+
+/* Channel toggles */
+.channel-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.channel-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 0.8rem; border: 1.5px solid var(--border);
+  border-radius: 2px; cursor: pointer; font-size: 0.82rem;
+  color: var(--text-mid); transition: all 0.15s; font-weight: 600;
+}
+.channel-item:hover { border-color: var(--caramel); }
+.channel-item.active { border-color: var(--caramel); background: rgba(184,119,72,0.07); color: var(--espresso); }
+.channel-item input { accent-color: var(--caramel); width: 16px; height: 16px; flex-shrink: 0; }
+
+/* OUTPUT PANEL */
+.output-panel { background: var(--cream); overflow-y: auto; padding: 2rem; }
+
+.output-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--sand); text-align: center; margin-bottom: 1.5rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center; padding: 6rem 2rem;
+  color: var(--sand);
+}
+.empty-icon { font-size: 3rem; margin-bottom: 1.2rem; }
+.empty-state h3 { font-size: 1.1rem; color: var(--nude); margin-bottom: 0.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.empty-state p { font-size: 0.83rem; color: var(--sand); line-height: 1.65; }
+
+/* Output sections */
+.output-section { margin-bottom: 2rem; }
+
+.output-section-title {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-muted);
+  padding-bottom: 0.7rem; margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.copy-all-btn {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--caramel);
+  background: none; border: 1px solid var(--caramel);
+  padding: 0.3rem 0.8rem; border-radius: 2px; cursor: pointer;
+  transition: all 0.2s;
+}
+.copy-all-btn:hover { background: var(--caramel); color: white; }
+
+/* Ad cards */
+.ad-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+.ad-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+}
+
+.ad-card-header {
+  padding: 0.7rem 1.1rem;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.ad-card-label {
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+.copy-btn {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--caramel);
+  background: none; border: none; cursor: pointer;
+  transition: color 0.2s; padding: 0;
+}
+.copy-btn:hover { color: #A5693E; }
+.copy-btn.copied { color: var(--success); }
+
+/* Google ad preview */
+.google-preview {
+  padding: 1.2rem;
+  font-family: Arial, sans-serif;
+}
+
+.gad-domain {
+  font-size: 0.72rem; color: #202124;
+  display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;
+}
+
+.gad-ad-label {
+  background: #fff; border: 1px solid #70757a;
+  font-size: 0.6rem; padding: 0.05rem 0.3rem; border-radius: 2px;
+  color: #70757a; font-weight: 400;
+}
+
+.gad-headline {
+  font-size: 1rem; color: #1a0dab; font-weight: 400;
+  line-height: 1.3; margin-bottom: 0.5rem;
+}
+
+.gad-desc {
+  font-size: 0.78rem; color: #4d5156; line-height: 1.5;
+}
+
+.gad-field-row {
+  display: grid; gap: 0.5rem; margin-bottom: 0.5rem;
+}
+
+.gad-field-label {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem;
+}
+
+.gad-field-value {
+  font-size: 0.84rem; color: var(--text); line-height: 1.4;
+}
+
+.gad-char-count {
+  font-size: 0.62rem; color: var(--text-muted); margin-top: 0.1rem;
+}
+.gad-char-count.over { color: #d93025; }
+
+/* Meta preview */
+.meta-preview { padding: 1.2rem; }
+
+.meta-card {
+  border: 1px solid #ddd; border-radius: 8px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 400px;
+}
+
+.meta-card-header {
+  padding: 0.75rem;
+  display: flex; align-items: center; gap: 0.6rem;
+  background: white;
+}
+
+.meta-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--espresso);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem; color: var(--warm-white); font-weight: 600; flex-shrink: 0;
+}
+
+.meta-hotel-name { font-size: 0.83rem; font-weight: 700; color: #050505; }
+.meta-sponsored { font-size: 0.7rem; color: #65676b; }
+
+.meta-image-placeholder {
+  background: linear-gradient(135deg, var(--nude) 0%, var(--sand) 100%);
+  height: 180px; display: flex; align-items: center; justify-content: center;
+}
+
+.meta-image-placeholder span { font-size: 2.5rem; opacity: 0.5; }
+
+.meta-text-body { padding: 0.75rem; background: white; }
+
+.meta-primary-text {
+  font-size: 0.83rem; color: #050505; line-height: 1.55;
+  margin-bottom: 0.75rem; white-space: pre-line;
+}
+
+.meta-link-card {
+  border: 1px solid #ddd; border-radius: 4px; padding: 0.6rem 0.75rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: #f0f2f5;
+}
+
+.meta-link-domain { font-size: 0.68rem; color: #65676b; text-transform: uppercase; letter-spacing: 0.04em; }
+.meta-link-headline { font-size: 0.83rem; font-weight: 700; color: #050505; }
+.meta-link-btn {
+  background: #1877f2; color: white; font-size: 0.72rem;
+  font-weight: 700; padding: 0.4rem 0.9rem; border-radius: 4px; white-space: nowrap;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 3px; }
+
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: 1fr; }
+  .form-panel { max-height: 50vh; border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-left">
+    <a href="/marque/" class="header-back">← Back</a>
+    <span class="header-brand">Marque</span>
+    <span class="header-sep">/</span>
+    <span class="header-title">Ad Copy Generator</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn-sm btn-reset" onclick="resetForm()">Reset</button>
+    <button class="btn-sm btn-generate" onclick="generateCopy()">Generate Ad Copy</button>
+  </div>
+</header>
+
+<div class="app-body">
+
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+
+    <!-- Hotel Details -->
+    <div class="form-section" id="sec-hotel">
+      <div class="form-section-header" onclick="toggleSection('sec-hotel')">
+        <div class="form-section-title">🏨 Hotel Details</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field">
+          <label>Hotel / Property Name</label>
+          <input type="text" id="hotel-name" placeholder="e.g. Karen Plains Hotel" oninput="liveUpdate()"/>
+        </div>
+        <div class="field">
+          <label>City / Location</label>
+          <input type="text" id="location" placeholder="e.g. Karen, Nairobi" oninput="liveUpdate()"/>
+        </div>
+        <div class="field">
+          <label>Website Domain (optional)</label>
+          <input type="text" id="domain" placeholder="e.g. karenplainshotel.com" oninput="liveUpdate()"/>
+        </div>
+        <div class="field">
+          <label>Special Offer (optional)</label>
+          <input type="text" id="offer" placeholder="e.g. 20% off this weekend, Free breakfast" oninput="liveUpdate()"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property Highlights -->
+    <div class="form-section" id="sec-usps">
+      <div class="form-section-header" onclick="toggleSection('sec-usps')">
+        <div class="form-section-title">✨ Property Highlights</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <label>Select all that apply</label>
+        <div class="usp-grid">
+          <label class="usp-item" id="usp-pool"><input type="checkbox" class="usp-check" value="Swimming Pool" onchange="toggleUsp('usp-pool',this);liveUpdate()"/> 🏊 Pool</label>
+          <label class="usp-item" id="usp-restaurant"><input type="checkbox" class="usp-check" value="Restaurant & Dining" onchange="toggleUsp('usp-restaurant',this);liveUpdate()"/> 🍽️ Restaurant</label>
+          <label class="usp-item" id="usp-spa"><input type="checkbox" class="usp-check" value="Spa & Wellness" onchange="toggleUsp('usp-spa',this);liveUpdate()"/> 💆 Spa</label>
+          <label class="usp-item" id="usp-breakfast"><input type="checkbox" class="usp-check" value="Free Breakfast" onchange="toggleUsp('usp-breakfast',this);liveUpdate()"/> 🥐 Free Breakfast</label>
+          <label class="usp-item" id="usp-wifi"><input type="checkbox" class="usp-check" value="Free WiFi" onchange="toggleUsp('usp-wifi',this);liveUpdate()"/> 📶 Free WiFi</label>
+          <label class="usp-item" id="usp-parking"><input type="checkbox" class="usp-check" value="Free Parking" onchange="toggleUsp('usp-parking',this);liveUpdate()"/> 🚗 Free Parking</label>
+          <label class="usp-item" id="usp-conference"><input type="checkbox" class="usp-check" value="Conference Facilities" onchange="toggleUsp('usp-conference',this);liveUpdate()"/> 💼 Conference</label>
+          <label class="usp-item" id="usp-transfer"><input type="checkbox" class="usp-check" value="Airport Transfer" onchange="toggleUsp('usp-transfer',this);liveUpdate()"/> ✈️ Airport Transfer</label>
+          <label class="usp-item" id="usp-garden"><input type="checkbox" class="usp-check" value="Garden & Outdoor Space" onchange="toggleUsp('usp-garden',this);liveUpdate()"/> 🌿 Garden</label>
+          <label class="usp-item" id="usp-pets"><input type="checkbox" class="usp-check" value="Pet Friendly" onchange="toggleUsp('usp-pets',this);liveUpdate()"/> 🐾 Pet Friendly</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign Settings -->
+    <div class="form-section" id="sec-campaign">
+      <div class="form-section-header" onclick="toggleSection('sec-campaign')">
+        <div class="form-section-title">🎯 Campaign Settings</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field">
+          <label>Target Audience</label>
+          <div class="radio-group" id="audience-group">
+            <label class="radio-item selected" onclick="selectRadio('audience-group',this,'leisure')"><input type="radio" name="audience" value="leisure" checked/> Leisure Travellers</label>
+            <label class="radio-item" onclick="selectRadio('audience-group',this,'business')"><input type="radio" name="audience" value="business"/> Business Travellers</label>
+            <label class="radio-item" onclick="selectRadio('audience-group',this,'couples')"><input type="radio" name="audience" value="couples"/> Couples</label>
+            <label class="radio-item" onclick="selectRadio('audience-group',this,'families')"><input type="radio" name="audience" value="families"/> Families</label>
+            <label class="radio-item" onclick="selectRadio('audience-group',this,'all')"><input type="radio" name="audience" value="all"/> All Travellers</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Campaign Goal</label>
+          <div class="radio-group" id="goal-group">
+            <label class="radio-item selected" onclick="selectRadio('goal-group',this,'bookings')"><input type="radio" name="goal" value="bookings" checked/> Drive Direct Bookings</label>
+            <label class="radio-item" onclick="selectRadio('goal-group',this,'awareness')"><input type="radio" name="goal" value="awareness"/> Build Brand Awareness</label>
+            <label class="radio-item" onclick="selectRadio('goal-group',this,'leads')"><input type="radio" name="goal" value="leads"/> Generate Leads / Enquiries</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Channels</label>
+          <div class="channel-group">
+            <label class="channel-item active" id="tog-google"><input type="checkbox" id="ch-google" checked onchange="toggleChannel('google');liveUpdate()"/> 📊 Google Ads</label>
+            <label class="channel-item active" id="tog-meta"><input type="checkbox" id="ch-meta" checked onchange="toggleChannel('meta');liveUpdate()"/> 📘 Meta Ads (Facebook & Instagram)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /FORM PANEL -->
+
+  <!-- OUTPUT PANEL -->
+  <div class="output-panel">
+    <div class="output-label">Generated Ad Copy — updates automatically</div>
+    <div id="ad-output">
+      <div class="empty-state">
+        <div class="empty-icon">✍️</div>
+        <h3>Your ad copy will appear here</h3>
+        <p>Enter your hotel name and details on the left,<br/>then click Generate Ad Copy or start typing.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var updateTimer = null;
+
+function liveUpdate() {
+  clearTimeout(updateTimer);
+  updateTimer = setTimeout(generateCopy, 150);
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+
+function toggleUsp(id, cb) {
+  document.getElementById(id).classList.toggle('active', cb.checked);
+}
+
+function toggleChannel(ch) {
+  var cb = document.getElementById('ch-' + ch);
+  document.getElementById('tog-' + ch).classList.toggle('active', cb.checked);
+}
+
+function selectRadio(groupId, el, value) {
+  document.querySelectorAll('#' + groupId + ' .radio-item').forEach(function(r) {
+    r.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  liveUpdate();
+}
+
+function val(id) {
+  var el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+function getRadio(name) {
+  var el = document.querySelector('input[name="' + name + '"]:checked');
+  return el ? el.value : '';
+}
+
+function getUSPs() {
+  var usps = [];
+  document.querySelectorAll('.usp-check:checked').forEach(function(cb) { usps.push(cb.value); });
+  return usps;
+}
+
+function trunc(str, max) {
+  if (!str) return '';
+  return str.length > max ? str.substring(0, max - 1) : str;
+}
+
+function charClass(str, max) {
+  return str.length > max ? ' over' : '';
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function resetForm() {
+  if (!confirm('Reset all fields?')) return;
+  document.querySelectorAll('.form-panel input[type="text"], .form-panel input[type="number"]').forEach(function(el) { el.value = ''; });
+  document.querySelectorAll('.usp-check').forEach(function(cb) { cb.checked = false; });
+  document.querySelectorAll('.usp-item').forEach(function(el) { el.classList.remove('active'); });
+  document.querySelectorAll('#ch-google, #ch-meta').forEach(function(cb) { cb.checked = true; });
+  document.querySelectorAll('.channel-item').forEach(function(el) { el.classList.add('active'); });
+  document.getElementById('ad-output').innerHTML = '<div class="empty-state"><div class="empty-icon">✍️</div><h3>Your ad copy will appear here</h3><p>Enter your hotel name and details on the left,<br/>then click Generate Ad Copy or start typing.</p></div>';
+}
+
+/* ── GENERATORS ── */
+
+function buildGoogleAds(name, location, domain, offer, audience, goal, usps) {
+  var d = domain || (name.toLowerCase().replace(/[^a-z0-9]/g,'') + '.com');
+  var usp1 = usps[0] || '';
+  var usp2 = usps[1] || '';
+
+  var headlinePools = {
+    base: [
+      trunc(name, 30),
+      trunc(name + ' | ' + location, 30),
+      trunc('Book ' + name + ' Direct', 30),
+      'Best Rate Guaranteed',
+      'Reserve Your Room Today',
+      'Book Now — Limited Rooms',
+      trunc(location + ' Hotel', 30),
+    ],
+    leisure: ['Your Perfect Getaway', trunc('Escape to ' + location, 30), 'Weekend Escape Awaits', 'Relax & Recharge'],
+    business: [trunc('Business Hotel ' + location, 30), 'Work & Stay in Comfort', 'Corporate Travel Sorted', 'Meeting Rooms Available'],
+    couples: [trunc('Romantic ' + location + ' Stay', 30), 'Romance & Comfort Await', 'Perfect Couple Retreat'],
+    families: ['Family-Friendly Hotel', 'Fun for the Whole Family', trunc('Kids Welcome in ' + location, 30)],
+    all: ['Comfort for Every Guest', trunc('Stay at ' + location, 30), 'All Guests Welcome'],
+    bookings: ['Book Direct & Save', 'Book Now — Best Rate', 'Direct Booking Benefits'],
+    awareness: [trunc('Discover ' + name, 30), trunc(name + ' — ' + location, 30), 'Experience True Comfort'],
+    leads: ['Enquire for Availability', 'Contact Us for Rates', 'Group & Event Bookings'],
+    usp: {
+      'Swimming Pool': ['Pool & Relaxation', 'Swim. Stay. Unwind.'],
+      'Restaurant & Dining': ['Dine In. Stay Over.', 'Award-Winning Dining'],
+      'Spa & Wellness': ['Spa, Wellness & Stays', 'Spa Hotel in ' + trunc(location, 15)],
+      'Free Breakfast': ['Free Breakfast Included', 'Start Your Day Right'],
+      'Free Parking': ['Free Parking On-Site', 'Easy Access & Parking'],
+      'Conference Facilities': ['Conference & Events', 'Meetings & Stays'],
+      'Airport Transfer': ['Airport Transfer Avail.', 'We Pick You Up'],
+      'Pet Friendly': ['Pets Welcome Here', 'Bring Your Pet Along'],
+    }
+  };
+
+  var pool = headlinePools.base.concat(headlinePools[audience] || [], headlinePools[goal] || []);
+  usps.slice(0, 2).forEach(function(u) {
+    if (headlinePools.usp[u]) pool = pool.concat(headlinePools.usp[u]);
+  });
+  if (offer) pool.push(trunc(offer, 30));
+
+  function pickHeadlines(skip) {
+    var available = pool.filter(function(h) { return skip.indexOf(h) === -1 && h.length <= 30; });
+    var picks = [];
+    var used = [];
+    for (var i = 0; i < 3; i++) {
+      var idx = (i * 3) % available.length;
+      picks.push(available[idx] || available[0]);
+      used.push(available[idx]);
+    }
+    return picks;
+  }
+
+  var descPool = {
+    bookings: [
+      'Stay at ' + trunc(name, 20) + ' in ' + trunc(location, 15) + '. ' + (offer ? offer + '. ' : '') + (usp1 ? usp1 + '. ' : '') + 'Book direct for the best rate.',
+      trunc(name, 22) + ' — your home in ' + trunc(location, 14) + '. ' + (usp1 || 'Exceptional comfort') + '. Reserve your room today.',
+    ],
+    awareness: [
+      'Discover ' + trunc(name, 20) + ', ' + trunc(location, 15) + '\'s premier hotel destination. ' + (usp1 || 'Exceptional service guaranteed') + '.',
+      trunc(name, 22) + ' in ' + trunc(location, 14) + '. Where hospitality meets comfort. Come experience the difference.',
+    ],
+    leads: [
+      'Planning a trip to ' + trunc(location, 16) + '? ' + trunc(name, 18) + ' has everything you need. Enquire for availability & rates.',
+      trunc(name, 22) + ' — ' + trunc(location, 14) + '. Group bookings, events & long stays. Contact us for packages.',
+    ]
+  };
+
+  var descs = descPool[goal] || descPool.bookings;
+
+  var ad1Headlines = pickHeadlines([]);
+  var ad2Headlines = pickHeadlines(ad1Headlines);
+
+  return [
+    { headlines: ad1Headlines, description: trunc(descs[0], 90), domain: d },
+    { headlines: ad2Headlines, description: trunc(descs[1] || descs[0], 90), domain: d },
+  ];
+}
+
+function buildMetaAds(name, location, offer, audience, goal, usps) {
+  var usp1 = usps[0] || '';
+  var usp2 = usps[1] || '';
+  var offerLine = offer ? '\n\n🎁 ' + offer + '.' : '';
+
+  var primary = {
+    bookings: {
+      leisure: [
+        '📍 ' + location + '\n\nYour next escape is waiting. ' + name + ' in ' + location + ' is everything you need — and more.\n' + (usp1 ? '✓ ' + usp1 + '\n' : '') + (usp2 ? '✓ ' + usp2 + '\n' : '') + offerLine + '\n\nBook direct and get the best rate. Link below 👇',
+        'Ready for a break? 🌿\n\n' + name + ' in ' + location + ' offers the kind of comfort that makes you never want to leave.' + offerLine + '\n\n' + (usp1 ? usp1 + ' included. ' : '') + 'Book via the link in bio.',
+        'Not all stays are created equal. 🏨\n\nAt ' + name + ', ' + location + ', every detail is designed for your comfort.' + (usp1 ? ' From ' + usp1.toLowerCase() + ' to' : ' From') + ' attentive service — we deliver it all.' + offerLine + '\n\nBook now. Link below.',
+      ],
+      business: [
+        '💼 Business travel, done right.\n\n' + name + ' in ' + location + ' has everything modern travellers need — fast connectivity, comfortable rooms, and ' + (usp1 || 'exceptional service') + '.' + offerLine + '\n\nBook your stay. Link below 👇',
+        'Work trips shouldn\'t feel like a compromise. 🏨\n\n' + name + ' is designed for business travellers in ' + location + '.' + (usp1 ? ' ' + usp1 + ' included.' : '') + offerLine + '\n\nBook direct for the best rate.',
+        '📍 ' + location + ' | ' + name + '\n\nFor business travellers who expect more. ' + (usp1 || 'Premium rooms') + ', fast WiFi, and a location that works for you.' + offerLine + '\n\nEnquire or book now. Link in bio.',
+      ],
+      couples: [
+        '❤️ Because some moments deserve the perfect setting.\n\n' + name + ' in ' + location + ' is the escape you\'ve been planning.' + (usp1 ? ' Featuring ' + usp1.toLowerCase() + '.' : '') + offerLine + '\n\nBook your romantic stay. Link below 👇',
+        'Plan the perfect getaway. 🌹\n\n' + name + ', ' + location + ' — where romance meets exceptional hospitality.' + (usp1 ? ' Enjoy ' + usp1.toLowerCase() + ' and more.' : '') + offerLine + '\n\nLink in bio to book.',
+        'Some places just feel like home. 🕯️\n\n' + name + ' in ' + location + ' was made for moments like these.' + offerLine + '\n\n' + (usp1 ? usp1 + ' available. ' : '') + 'Book your stay now.',
+      ],
+      families: [
+        '👨‍👩‍👧 Family trips made easy.\n\n' + name + ' in ' + location + ' has everything your family needs — space, comfort, and ' + (usp1 || 'great amenities') + '.' + offerLine + '\n\nBook your family stay. Link below 👇',
+        'Make memories that last. 🏨\n\n' + name + ' is the perfect family base in ' + location + '.' + (usp1 ? ' ' + usp1 + ' for everyone to enjoy.' : '') + offerLine + '\n\nBook via the link in bio.',
+        'Great stays for the whole family. 🌟\n\n' + name + ', ' + location + '. ' + (usp1 ? usp1 + '. ' : '') + (usp2 ? usp2 + '. ' : '') + 'Come as a family, leave as memories.' + offerLine + '\n\nBook now.',
+      ],
+    },
+    awareness: [
+      '✨ Meet ' + name + '.\n\nNestled in ' + location + ', we\'re redefining what a great stay looks like.' + (usp1 ? ' From ' + usp1.toLowerCase() + ' to ' + (usp2 || 'warm hospitality') + '.' : '') + '\n\nCome see what we\'re about. 👇',
+      '🏨 There\'s a hotel in ' + location + ' that does things differently.\n\n' + name + ' — where every guest is treated like the only guest.' + (usp1 ? ' Featuring ' + usp1.toLowerCase() + '.' : '') + '\n\nDiscover us. Link in bio.',
+      '📍 ' + location + ' has a new favourite stay.\n\n' + name + ' is open and ready to welcome you.' + (usp1 ? ' ' + usp1 + ' on-site.' : '') + ' Experience hospitality the way it should be.\n\nLink in bio.',
+    ],
+    leads: [
+      '📩 Planning a trip to ' + location + '?\n\n' + name + ' is ready to welcome you. Whether it\'s a weekend break, a business trip, or a long stay — we have the perfect package.' + offerLine + '\n\nSend us a message and we\'ll sort everything. 🙌',
+      '🏨 Looking for a hotel in ' + location + '?\n\n' + name + ' offers ' + (usp1 || 'exceptional comfort') + (usp2 ? ', ' + usp2.toLowerCase() : '') + ', and a team that goes the extra mile.' + offerLine + '\n\nDM us for availability and rates.',
+      'Groups, events, or corporate stays? 💼\n\n' + name + ' in ' + location + ' handles it all. Tell us what you need and we\'ll handle the rest.' + offerLine + '\n\nMessage us today. 📩',
+    ]
+  };
+
+  var headlines = {
+    bookings: [name + ' — Book Direct', 'Reserve Your Room Today', 'Best Rate. Book Direct.', 'Your Stay Awaits'],
+    awareness: ['Discover ' + name, name + ' | ' + location, 'Experience ' + name, location + '\'s Finest Hotel'],
+    leads: ['Enquire Now', 'Plan Your Stay Today', 'Get in Touch', 'We\'d Love to Host You'],
+  };
+
+  var goalPrimary = primary[goal] || primary.leads;
+  var audienceKey = (goal === 'bookings' && goalPrimary[audience]) ? audience : null;
+  var copies = audienceKey ? goalPrimary[audience] : (Array.isArray(goalPrimary) ? goalPrimary : goalPrimary.leisure || []);
+  var hls = headlines[goal] || headlines.bookings;
+
+  return [
+    { primary: copies[0] || '', headline: hls[0] || name, cta: goal === 'leads' ? 'Send Message' : 'Book Now' },
+    { primary: copies[1] || copies[0] || '', headline: hls[1] || name, cta: goal === 'leads' ? 'Learn More' : 'Book Now' },
+    { primary: copies[2] || copies[0] || '', headline: hls[2] || name, cta: goal === 'awareness' ? 'Learn More' : 'Book Now' },
+  ];
+}
+
+/* ── RENDER ── */
+
+function renderGoogleAd(ad, idx, hotelName) {
+  var initials = hotelName ? hotelName.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase() : 'H';
+  var headlineStr = ad.headlines.join(' | ');
+  var fullCopy = 'Headlines: ' + ad.headlines.join(' | ') + '\nDescription: ' + ad.description;
+
+  return '<div class="ad-card">' +
+    '<div class="ad-card-header">' +
+    '<span class="ad-card-label">Google Ads — Variation ' + (idx+1) + '</span>' +
+    '<button class="copy-btn" onclick="copyText(' + JSON.stringify(fullCopy) + ', this)">Copy Ad</button>' +
+    '</div>' +
+    '<div class="google-preview">' +
+    '<div class="gad-domain"><span class="gad-ad-label">Ad</span> ' + (ad.domain || 'yourhotel.com') + '</div>' +
+    '<div class="gad-headline" style="color:#1a0dab;">' + ad.headlines.map(function(h){ return '<span>' + h + '</span>'; }).join(' <span style="color:#70757a;">|</span> ') + '</div>' +
+    '<div class="gad-desc">' + ad.description + '</div>' +
+    '<div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--border);">' +
+    ad.headlines.map(function(h, i) {
+      return '<div style="margin-bottom:0.5rem;">' +
+        '<div class="gad-field-label">Headline ' + (i+1) + '</div>' +
+        '<div class="gad-field-value">' + h + '</div>' +
+        '<div class="gad-char-count' + charClass(h,30) + '">' + h.length + '/30 characters</div>' +
+        '</div>';
+    }).join('') +
+    '<div>' +
+    '<div class="gad-field-label">Description</div>' +
+    '<div class="gad-field-value">' + ad.description + '</div>' +
+    '<div class="gad-char-count' + charClass(ad.description,90) + '">' + ad.description.length + '/90 characters</div>' +
+    '</div></div></div></div>';
+}
+
+function renderMetaAd(ad, idx, hotelName) {
+  var initials = hotelName ? hotelName.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase() : 'HT';
+  var fullCopy = 'Primary Text:\n' + ad.primary + '\n\nHeadline: ' + ad.headline + '\nCTA: ' + ad.cta;
+
+  return '<div class="ad-card">' +
+    '<div class="ad-card-header">' +
+    '<span class="ad-card-label">Meta Ad — Variation ' + (idx+1) + '</span>' +
+    '<button class="copy-btn" onclick="copyText(' + JSON.stringify(fullCopy) + ', this)">Copy Ad</button>' +
+    '</div>' +
+    '<div class="meta-preview">' +
+    '<div class="meta-card">' +
+    '<div class="meta-card-header">' +
+    '<div class="meta-avatar">' + initials + '</div>' +
+    '<div><div class="meta-hotel-name">' + (hotelName || 'Your Hotel') + '</div><div class="meta-sponsored">Sponsored · <span style="color:#1877f2;">📣</span></div></div>' +
+    '</div>' +
+    '<div class="meta-image-placeholder"><span>🏨</span></div>' +
+    '<div class="meta-text-body">' +
+    '<div class="meta-primary-text">' + (ad.primary || '').replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' +
+    '<div class="meta-link-card">' +
+    '<div><div class="meta-link-domain">yourhotel.com</div><div class="meta-link-headline">' + ad.headline + '</div></div>' +
+    '<div class="meta-link-btn">' + ad.cta + '</div>' +
+    '</div></div></div></div></div>';
+}
+
+function generateCopy() {
+  var name = val('hotel-name');
+  var location = val('location');
+  var domain = val('domain');
+  var offer = val('offer');
+  var audience = getRadio('audience') || 'leisure';
+  var goal = getRadio('goal') || 'bookings';
+  var usps = getUSPs();
+  var showGoogle = document.getElementById('ch-google').checked;
+  var showMeta = document.getElementById('ch-meta').checked;
+
+  if (!name) {
+    document.getElementById('ad-output').innerHTML = '<div class="empty-state"><div class="empty-icon">✍️</div><h3>Your ad copy will appear here</h3><p>Enter your hotel name and details on the left,<br/>then click Generate Ad Copy or start typing.</p></div>';
+    return;
+  }
+
+  var html = '';
+
+  if (showGoogle) {
+    var gAds = buildGoogleAds(name, location, domain, offer, audience, goal, usps);
+    html += '<div class="output-section">' +
+      '<div class="output-section-title"><span>📊 Google Ads</span>' +
+      '<button class="copy-all-btn" onclick="copyAllGoogle()">Copy All</button></div>' +
+      '<div class="ad-cards" id="google-ads">' +
+      gAds.map(function(ad, i) { return renderGoogleAd(ad, i, name); }).join('') +
+      '</div></div>';
+    window._googleAds = gAds;
+  }
+
+  if (showMeta) {
+    var mAds = buildMetaAds(name, location, offer, audience, goal, usps);
+    html += '<div class="output-section">' +
+      '<div class="output-section-title"><span>📘 Meta Ads</span>' +
+      '<button class="copy-all-btn" onclick="copyAllMeta()">Copy All</button></div>' +
+      '<div class="ad-cards" id="meta-ads">' +
+      mAds.map(function(ad, i) { return renderMetaAd(ad, i, name); }).join('') +
+      '</div></div>';
+    window._metaAds = mAds;
+  }
+
+  if (!showGoogle && !showMeta) {
+    html = '<div class="empty-state"><div class="empty-icon">⚙️</div><h3>Select at least one channel</h3><p>Enable Google Ads and/or Meta Ads<br/>in Campaign Settings to generate copy.</p></div>';
+  }
+
+  document.getElementById('ad-output').innerHTML = html;
+}
+
+function copyAllGoogle() {
+  if (!window._googleAds) return;
+  var text = window._googleAds.map(function(ad, i) {
+    return 'VARIATION ' + (i+1) + '\nHeadlines: ' + ad.headlines.join(' | ') + '\nDescription: ' + ad.description;
+  }).join('\n\n');
+  navigator.clipboard.writeText(text);
+}
+
+function copyAllMeta() {
+  if (!window._metaAds) return;
+  var text = window._metaAds.map(function(ad, i) {
+    return 'VARIATION ' + (i+1) + '\n\nPrimary Text:\n' + ad.primary + '\n\nHeadline: ' + ad.headline + '\nCTA: ' + ad.cta;
+  }).join('\n\n' + '─'.repeat(40) + '\n\n');
+  navigator.clipboard.writeText(text);
+}
+</script>
+
+</body>
+</html>
