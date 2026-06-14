@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Marque — The Hospitality Marketing Platform</title>
+<meta name="description" content="Free marketing tools built specifically for hotels, suites, B&Bs and lodges. Generate reports, ad copy and social captions in seconds."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --espresso: #1A0D08;
+  --mahogany: #2C1509;
+  --caramel: #B87748;
+  --gold: #C9A26A;
+  --cream: #F5EDE0;
+  --nude: #EAD9C6;
+  --sand: #D9C8B4;
+  --surface: #FDFAF5;
+  --border: #E0D0BC;
+  --text: #1A0D08;
+  --text-mid: #6B4E3A;
+  --text-muted: #9E8068;
+  --warm-white: #FEFCF8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(245,237,224,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--sand);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600; letter-spacing: 0.22em;
+  color: var(--espresso); text-transform: uppercase; text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+
+.nav-links a {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--text-mid);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--espresso); }
+
+.nav-cta {
+  padding: 0.58rem 1.4rem;
+  background: var(--espresso);
+  color: var(--warm-white) !important;
+  border-radius: 2px; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--mahogany) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--espresso);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 10rem 5% 7rem;
+  position: relative; overflow: hidden; text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,162,106,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold);
+  border: 1px solid rgba(201,162,106,0.3);
+  padding: 0.45rem 1.3rem; border-radius: 2rem;
+  margin-bottom: 3rem;
+}
+
+.hero-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  font-weight: 300; letter-spacing: 0.28em;
+  color: var(--warm-white); text-transform: uppercase;
+  line-height: 1; margin-bottom: 2rem;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.85rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(254,252,248,0.5);
+  margin-bottom: 4rem; line-height: 1.4;
+  max-width: 560px;
+}
+
+.hero-tools {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 5rem;
+}
+
+.hero-btn {
+  padding: 0.8rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; border-radius: 2px;
+  text-decoration: none; transition: all 0.2s; cursor: pointer;
+  display: inline-block;
+}
+.hero-btn-primary {
+  background: var(--caramel); color: white;
+  border: 2px solid var(--caramel);
+}
+.hero-btn-primary:hover { background: #A5693E; border-color: #A5693E; }
+
+.hero-btn-ghost {
+  background: transparent; color: rgba(254,252,248,0.65);
+  border: 2px solid rgba(254,252,248,0.15);
+}
+.hero-btn-ghost:hover { border-color: rgba(254,252,248,0.4); color: var(--warm-white); }
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(254,252,248,0.2);
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, rgba(254,252,248,0.15), transparent);
+}
+
+/* SECTIONS */
+section { padding: 6rem 5%; }
+
+.section-label {
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--caramel); margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 500;
+  color: var(--espresso); line-height: 1.15;
+}
+
+.section-header { margin-bottom: 4rem; }
+
+/* INTRO */
+.intro-section {
+  background: var(--surface);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+
+.intro-body { display: flex; flex-direction: column; gap: 1rem; }
+
+.intro-text {
+  font-size: 0.95rem; color: var(--text-mid); line-height: 1.88;
+}
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+
+.stat { border-left: 2px solid var(--sand); padding-left: 1rem; }
+
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 600; color: var(--espresso); line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem;
+}
+
+.platform-preview {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(26,13,8,0.1);
+}
+
+.platform-preview-bar {
+  background: var(--espresso); padding: 0.9rem 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+
+.preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+.platform-preview-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+
+.preview-tool-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: 4px; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.preview-tool-row:hover { border-color: var(--caramel); background: var(--surface); }
+
+.preview-tool-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+.preview-tool-name {
+  font-size: 0.82rem; font-weight: 700; color: var(--espresso); margin-bottom: 0.1rem;
+}
+
+.preview-tool-desc {
+  font-size: 0.72rem; color: var(--text-muted);
+}
+
+.preview-tool-arrow {
+  margin-left: auto; color: var(--caramel);
+  font-size: 0.82rem; font-weight: 700;
+}
+
+/* TOOLS */
+.tools-section { background: var(--cream); }
+
+.tools-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+}
+
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: 4px;
+  display: flex; flex-direction: column;
+  text-decoration: none; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.tool-card:hover { box-shadow: 0 16px 56px rgba(26,13,8,0.13); transform: translateY(-4px); }
+
+.tool-card-body { padding: 2.5rem 2.2rem; flex: 1; }
+
+.tool-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem; font-weight: 300; color: var(--nude);
+  line-height: 1; margin-bottom: 1.5rem;
+}
+
+.tool-icon-box {
+  width: 50px; height: 50px;
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: 4px; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.4rem;
+}
+
+.tool-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem; font-weight: 600; color: var(--espresso);
+  margin-bottom: 0.6rem;
+}
+
+.tool-desc {
+  font-size: 0.84rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.2rem;
+}
+
+.tool-features { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+
+.tool-features li {
+  font-size: 0.76rem; color: var(--text-muted);
+  padding-left: 1rem; position: relative; line-height: 1.5;
+}
+.tool-features li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--caramel); font-size: 0.68rem;
+}
+
+.tool-card-footer {
+  padding: 1.1rem 2.2rem;
+  background: var(--cream); border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.tool-cta-text {
+  font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--caramel);
+}
+
+/* HOW IT WORKS */
+.how-section {
+  background: var(--espresso); color: white;
+}
+
+.how-section .section-label { color: var(--gold); }
+.how-section .section-title { color: var(--warm-white); }
+
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 0; margin-top: 4rem;
+}
+
+.step {
+  padding-right: 3rem; position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute; top: 1.8rem; right: 0;
+  width: 1px; height: 80px;
+  background: rgba(254,252,248,0.1);
+}
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem; font-weight: 300;
+  color: rgba(254,252,248,0.08); line-height: 1; margin-bottom: 1.5rem;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 600;
+  color: var(--warm-white); margin-bottom: 0.7rem;
+}
+
+.step-text {
+  font-size: 0.84rem; color: rgba(254,252,248,0.45); line-height: 1.78;
+}
+
+/* FOR WHO */
+.for-section { background: var(--surface); }
+
+.for-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1rem; margin-top: 3.5rem;
+}
+
+.for-card {
+  padding: 2rem 1.6rem;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--cream); transition: border-color 0.2s, transform 0.2s;
+}
+.for-card:hover { border-color: var(--caramel); transform: translateY(-2px); }
+
+.for-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+.for-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--espresso); margin-bottom: 0.4rem;
+}
+
+.for-text { font-size: 0.79rem; color: var(--text-muted); line-height: 1.65; }
+
+/* CTA */
+.cta-section {
+  background: var(--nude);
+  border-top: 1px solid var(--sand);
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400; font-style: italic; color: var(--espresso);
+  margin-bottom: 1.2rem; max-width: 700px;
+  margin-inline: auto; line-height: 1.2;
+}
+
+.cta-sub {
+  font-size: 0.95rem; color: var(--text-mid);
+  margin-bottom: 3rem; max-width: 400px;
+  margin-inline: auto; line-height: 1.75;
+}
+
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-dark {
+  padding: 0.92rem 2.2rem;
+  background: var(--espresso); color: var(--warm-white);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; border-radius: 2px;
+  text-decoration: none; border: 2px solid var(--espresso);
+  transition: background 0.2s;
+}
+.btn-dark:hover { background: var(--mahogany); border-color: var(--mahogany); }
+
+.btn-light {
+  padding: 0.92rem 2.2rem;
+  background: transparent; color: var(--espresso);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; border-radius: 2px;
+  text-decoration: none; border: 2px solid var(--espresso);
+  transition: all 0.2s;
+}
+.btn-light:hover { background: var(--espresso); color: var(--warm-white); }
+
+/* FOOTER */
+footer {
+  background: var(--espresso);
+  padding: 2.5rem 5%;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 600; letter-spacing: 0.22em;
+  color: rgba(254,252,248,0.45); text-transform: uppercase;
+  text-decoration: none;
+}
+
+.footer-center {
+  font-size: 0.72rem; color: rgba(254,252,248,0.25);
+  letter-spacing: 0.04em; text-align: center;
+}
+
+.footer-links { display: flex; gap: 2rem; }
+
+.footer-links a {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(254,252,248,0.28); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(254,252,248,0.65); }
+
+@media (max-width: 900px) {
+  .intro-section, .tools-grid, .steps-grid, .for-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .steps-grid .step::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/marque/" class="nav-logo">Marque</a>
+  <ul class="nav-links">
+    <li><a href="/marque/report.html">Reports</a></li>
+    <li><a href="/marque/ad-copy.html">Ad Copy</a></li>
+    <li><a href="/marque/captions.html">Captions</a></li>
+    <li><a href="/">By Maningi Sylvester</a></li>
+    <li><a href="/marque/ad-copy.html" class="nav-cta">Open Platform →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Hospitality Marketing Platform</div>
+  <div class="hero-wordmark">Marque</div>
+  <p class="hero-sub">Generate reports, ad copy &amp; social captions<br/>for your hotel — in seconds, not hours.</p>
+  <div class="hero-tools">
+    <a href="/marque/report.html" class="hero-btn hero-btn-primary">Weekly Reports →</a>
+    <a href="/marque/ad-copy.html" class="hero-btn hero-btn-ghost">Ad Copy</a>
+    <a href="/marque/captions.html" class="hero-btn hero-btn-ghost">Social Captions</a>
+  </div>
+  <div class="hero-scroll">Explore</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="intro-body">
+    <div class="section-label">Why Marque</div>
+    <h2 class="section-title">Built for hospitality.<br/>Not adapted for it.</h2>
+    <p class="intro-text">Most marketing tools are built for generic businesses. Marque is built specifically for hotels, suites, B&Bs, and lodges — with the language, formats, and workflows that hospitality marketing actually requires.</p>
+    <p class="intro-text">No generic outputs. No wasted hours adapting tools that don't speak your industry. Just clean, professional marketing assets, ready to use.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Free tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Setup required</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Generates instantly</div>
+      </div>
+    </div>
+  </div>
+  <div class="platform-preview">
+    <div class="platform-preview-bar">
+      <div class="preview-dot" style="background:#FF5F56;"></div>
+      <div class="preview-dot" style="background:#FFBD2E;"></div>
+      <div class="preview-dot" style="background:#27C93F;"></div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.15em;color:rgba(254,252,248,0.35);text-transform:uppercase;margin-left:0.5rem;">Marque Platform</span>
+    </div>
+    <div class="platform-preview-body">
+      <a href="/marque/report.html" class="preview-tool-row">
+        <span class="preview-tool-icon">📄</span>
+        <div>
+          <div class="preview-tool-name">Weekly Report Generator</div>
+          <div class="preview-tool-desc">Branded, print-ready client reports in minutes</div>
+        </div>
+        <span class="preview-tool-arrow">→</span>
+      </a>
+      <a href="/marque/ad-copy.html" class="preview-tool-row">
+        <span class="preview-tool-icon">✍️</span>
+        <div>
+          <div class="preview-tool-name">Ad Copy Generator</div>
+          <div class="preview-tool-desc">Google &amp; Meta ads written for your property</div>
+        </div>
+        <span class="preview-tool-arrow">→</span>
+      </a>
+      <a href="/marque/captions.html" class="preview-tool-row">
+        <span class="preview-tool-icon">📱</span>
+        <div>
+          <div class="preview-tool-name">Social Caption Generator</div>
+          <div class="preview-tool-desc">Engaging captions for Instagram, TikTok &amp; more</div>
+        </div>
+        <span class="preview-tool-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section">
+  <div class="section-header">
+    <div class="section-label">The Toolkit</div>
+    <h2 class="section-title">Everything you need to market your property</h2>
+  </div>
+  <div class="tools-grid">
+    <a href="/marque/report.html" class="tool-card">
+      <div class="tool-card-body">
+        <div class="tool-num">01</div>
+        <div class="tool-icon-box">📄</div>
+        <div class="tool-name">Weekly Report Generator</div>
+        <p class="tool-desc">Fill in your numbers across every channel and get a beautifully formatted, branded performance report — ready to send to hotel management in minutes.</p>
+        <ul class="tool-features">
+          <li>Google Ads, Meta, SEO, Social &amp; Email</li>
+          <li>Live preview updates as you type</li>
+          <li>One-click Print to PDF</li>
+          <li>Currency selector — KES, USD, GBP, EUR</li>
+        </ul>
+      </div>
+      <div class="tool-card-footer">
+        <span class="tool-cta-text">Open Tool</span>
+        <span style="color:var(--caramel);font-size:1.1rem;">→</span>
+      </div>
+    </a>
+    <a href="/marque/ad-copy.html" class="tool-card">
+      <div class="tool-card-body">
+        <div class="tool-num">02</div>
+        <div class="tool-icon-box">✍️</div>
+        <div class="tool-name">Ad Copy Generator</div>
+        <p class="tool-desc">Enter your hotel details, target audience, and campaign goal — get Google and Meta ad copy written specifically for hospitality, ready to paste straight into your ad manager.</p>
+        <ul class="tool-features">
+          <li>Google Ads headlines &amp; descriptions</li>
+          <li>Meta primary text &amp; headlines — 3 variations</li>
+          <li>Audience: leisure, business, couples, families</li>
+          <li>Goal: bookings, awareness or lead generation</li>
+        </ul>
+      </div>
+      <div class="tool-card-footer">
+        <span class="tool-cta-text">Open Tool</span>
+        <span style="color:var(--caramel);font-size:1.1rem;">→</span>
+      </div>
+    </a>
+    <a href="/marque/captions.html" class="tool-card">
+      <div class="tool-card-body">
+        <div class="tool-num">03</div>
+        <div class="tool-icon-box">📱</div>
+        <div class="tool-name">Social Caption Generator</div>
+        <p class="tool-desc">Choose your post type, tone and platform — get 3 caption variations with hashtags, ready to schedule. Works for Instagram, TikTok, Facebook and more.</p>
+        <ul class="tool-features">
+          <li>Post types: rooms, dining, offers, events &amp; more</li>
+          <li>Tones: luxury, friendly, excited, professional</li>
+          <li>Platform-specific formatting</li>
+          <li>Curated hashtag pack included</li>
+        </ul>
+      </div>
+      <div class="tool-card-footer">
+        <span class="tool-cta-text">Open Tool</span>
+        <span style="color:var(--caramel);font-size:1.1rem;">→</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From zero to ready in under two minutes</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Choose your tool</div>
+      <p class="step-text">Select the tool that matches your task — weekly report, ad copy, or social captions. No account, no login, no setup required.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Fill in your details</div>
+      <p class="step-text">Enter your hotel name, metrics, or campaign details. Every tool is designed around how hospitality marketing actually works — no generic fields.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Copy, export or print</div>
+      <p class="step-text">Your output is ready instantly. Copy it, export to PDF, or paste directly into your ad manager, social scheduler, or email client.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-section">
+  <div class="section-header">
+    <div class="section-label">Built For</div>
+    <h2 class="section-title">Who uses Marque</h2>
+  </div>
+  <div class="for-grid">
+    <div class="for-card">
+      <div class="for-icon">🏨</div>
+      <div class="for-title">Hotels &amp; Suites</div>
+      <p class="for-text">Boutique hotels, city suites, and resort properties managing their own digital marketing without a full agency.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">🛎️</div>
+      <div class="for-title">B&amp;Bs &amp; Lodges</div>
+      <p class="for-text">Owner-managed properties that need professional marketing output without the budget or team for an agency.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">💼</div>
+      <div class="for-title">Marketing Consultants</div>
+      <p class="for-text">Freelancers and consultants managing multiple hospitality clients who need faster, more consistent outputs.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">📊</div>
+      <div class="for-title">Hotel Marketing Teams</div>
+      <p class="for-text">In-house teams at hotel groups who need streamlined workflows and ready-to-use assets at scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Start marketing your property better, right now.</h2>
+  <p class="cta-sub">Three free tools. No account. No setup. Built for the hospitality industry.</p>
+  <div class="cta-btns">
+    <a href="/marque/report.html" class="btn-dark">Generate a Report →</a>
+    <a href="/marque/ad-copy.html" class="btn-light">Write Ad Copy</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/marque/" class="footer-logo">Marque</a>
+  <div class="footer-center">The Hospitality Marketing Platform · Free to use</div>
+  <div class="footer-links">
+    <a href="/marque/report.html">Reports</a>
+    <a href="/marque/ad-copy.html">Ad Copy</a>
+    <a href="/marque/captions.html">Captions</a>
+    <a href="/">Maningi Sylvester</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Social Caption Generator — Marque</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --espresso: #1A0D08;
+  --mahogany: #2C1509;
+  --caramel: #B87748;
+  --gold: #C9A26A;
+  --cream: #F5EDE0;
+  --nude: #EAD9C6;
+  --sand: #D9C8B4;
+  --surface: #FDFAF5;
+  --border: #E0D0BC;
+  --text: #1A0D08;
+  --text-mid: #6B4E3A;
+  --text-muted: #9E8068;
+  --warm-white: #FEFCF8;
+  --success: #3A7A52;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream); color: var(--text);
+  height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+}
+
+.app-header {
+  background: var(--espresso); color: white;
+  padding: 0.85rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0; z-index: 10;
+}
+.app-header-left { display: flex; align-items: center; gap: 1.2rem; }
+.header-back { color: rgba(254,252,248,0.45); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.05em; transition: color 0.2s; }
+.header-back:hover { color: rgba(254,252,248,0.8); }
+.header-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.22em; color: rgba(254,252,248,0.65); text-transform: uppercase; }
+.header-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; color: var(--warm-white); }
+.header-sep { color: rgba(254,252,248,0.2); }
+.header-actions { display: flex; gap: 0.6rem; align-items: center; }
+.btn-sm { padding: 0.45rem 1.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; border-radius: 2px; cursor: pointer; border: none; transition: all 0.2s; text-transform: uppercase; }
+.btn-generate { background: var(--caramel); color: white; }
+.btn-generate:hover { background: #A5693E; }
+.btn-reset { background: none; color: rgba(254,252,248,0.4); border: 1px solid rgba(254,252,248,0.15); font-size: 0.72rem; }
+.btn-reset:hover { color: rgba(254,252,248,0.8); border-color: rgba(254,252,248,0.35); }
+
+.app-body { display: grid; grid-template-columns: 380px 1fr; flex: 1; overflow: hidden; }
+
+/* FORM */
+.form-panel { background: var(--warm-white); overflow-y: auto; border-right: 1px solid var(--border); }
+.form-section { border-bottom: 1px solid var(--border); }
+.form-section-header { padding: 0.85rem 1.2rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; background: var(--surface); border-bottom: 1px solid var(--border); }
+.form-section-header:hover { background: var(--cream); }
+.form-section-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--espresso); display: flex; align-items: center; gap: 0.5rem; }
+.section-arrow { font-size: 0.65rem; color: var(--sand); transition: transform 0.2s; }
+.form-section.collapsed .section-arrow { transform: rotate(-90deg); }
+.form-section-body { padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.form-section.collapsed .form-section-body { display: none; }
+
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+
+input[type="text"], select, textarea {
+  padding: 0.55rem 0.8rem; border: 1.5px solid var(--border); border-radius: 2px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--text);
+  background: var(--warm-white); outline: none; transition: border-color 0.2s; width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--caramel); }
+textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+
+.radio-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+.radio-chip {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.5rem 0.6rem; border: 1.5px solid var(--border);
+  border-radius: 2px; cursor: pointer; font-size: 0.76rem;
+  color: var(--text-mid); transition: all 0.15s; font-weight: 600;
+  text-align: center; user-select: none;
+}
+.radio-chip:hover { border-color: var(--caramel); }
+.radio-chip.selected { border-color: var(--caramel); background: rgba(184,119,72,0.07); color: var(--espresso); }
+
+.toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 0.8rem; border: 1.5px solid var(--border); border-radius: 2px; cursor: pointer; transition: border-color 0.2s; }
+.toggle-row:hover { border-color: var(--caramel); }
+.toggle-label { font-size: 0.8rem; font-weight: 600; color: var(--text-mid); }
+.toggle-switch { width: 36px; height: 20px; background: var(--sand); border-radius: 10px; position: relative; transition: background 0.2s; flex-shrink: 0; }
+.toggle-switch.on { background: var(--caramel); }
+.toggle-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: white; transition: transform 0.2s; }
+.toggle-switch.on::after { transform: translateX(16px); }
+
+/* OUTPUT */
+.output-panel { background: var(--cream); overflow-y: auto; padding: 2rem; }
+.output-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); text-align: center; margin-bottom: 1.5rem; }
+
+.empty-state { text-align: center; padding: 6rem 2rem; color: var(--sand); }
+.empty-icon { font-size: 3rem; margin-bottom: 1.2rem; }
+.empty-state h3 { font-size: 1.1rem; color: var(--nude); margin-bottom: 0.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.empty-state p { font-size: 0.83rem; color: var(--sand); line-height: 1.65; }
+
+/* Caption cards grid */
+.captions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+
+.caption-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+.caption-card-header {
+  padding: 0.7rem 1rem;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.caption-card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+.copy-btn { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--caramel); background: none; border: none; cursor: pointer; transition: color 0.2s; }
+.copy-btn:hover { color: #A5693E; }
+.copy-btn.copied { color: var(--success); }
+
+/* Mock social post */
+.post-preview { padding: 0.9rem; }
+
+.post-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+
+.post-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--espresso); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem; color: var(--warm-white); font-weight: 600;
+}
+
+.post-handle { font-size: 0.78rem; font-weight: 700; color: var(--espresso); }
+.post-platform { font-size: 0.65rem; color: var(--text-muted); }
+
+.post-image {
+  background: linear-gradient(135deg, var(--nude) 0%, var(--sand) 100%);
+  height: 130px; border-radius: 4px; margin-bottom: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; opacity: 0.6;
+}
+
+.post-caption {
+  font-size: 0.8rem; color: var(--text); line-height: 1.6;
+  white-space: pre-line; margin-bottom: 0.6rem;
+}
+
+.post-hashtags {
+  font-size: 0.75rem; color: #1877f2; line-height: 1.6;
+  word-break: break-word;
+}
+
+.post-stats {
+  margin-top: 0.7rem; padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 1rem;
+  font-size: 0.7rem; color: var(--text-muted);
+}
+
+/* Hashtag section below captions */
+.hashtag-section {
+  margin-top: 1.5rem;
+  background: var(--warm-white);
+  border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+}
+
+.hashtag-section-header {
+  padding: 0.7rem 1rem;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.hashtag-section-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+.hashtag-body { padding: 1rem; font-size: 0.8rem; color: #1877f2; line-height: 1.8; word-break: break-word; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 3px; }
+
+@media (max-width: 1100px) { .captions-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: 1fr; }
+  .form-panel { max-height: 50vh; border-right: none; border-bottom: 1px solid var(--border); }
+  .captions-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-left">
+    <a href="/marque/" class="header-back">← Back</a>
+    <span class="header-brand">Marque</span>
+    <span class="header-sep">/</span>
+    <span class="header-title">Social Caption Generator</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn-sm btn-reset" onclick="resetForm()">Reset</button>
+    <button class="btn-sm btn-generate" onclick="generateCaptions()">Generate Captions</button>
+  </div>
+</header>
+
+<div class="app-body">
+
+  <!-- FORM -->
+  <div class="form-panel">
+
+    <!-- Hotel Info -->
+    <div class="form-section" id="sec-hotel">
+      <div class="form-section-header" onclick="toggleSection('sec-hotel')">
+        <div class="form-section-title">🏨 Hotel Info</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field">
+          <label>Hotel / Property Name</label>
+          <input type="text" id="hotel-name" placeholder="e.g. Karen Plains Hotel" oninput="liveUpdate()"/>
+        </div>
+        <div class="field">
+          <label>City / Location</label>
+          <input type="text" id="location" placeholder="e.g. Karen, Nairobi" oninput="liveUpdate()"/>
+        </div>
+        <div class="field">
+          <label>Social Media Handle</label>
+          <input type="text" id="handle" placeholder="e.g. @karenplainshotel" oninput="liveUpdate()"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Type -->
+    <div class="form-section" id="sec-type">
+      <div class="form-section-header" onclick="toggleSection('sec-type')">
+        <div class="form-section-title">📝 Post Type</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <label>What is this post about?</label>
+        <div class="radio-row" id="type-group">
+          <div class="radio-chip selected" onclick="selectChip('type-group',this,'room')">🛏️ Room / Property</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'dining')">🍽️ Dining</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'offer')">🎁 Offer / Promo</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'event')">🎉 Event</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'attraction')">📍 Local Attraction</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'testimonial')">💬 Guest Review</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'bts')">👀 Behind the Scenes</div>
+          <div class="radio-chip" onclick="selectChip('type-group',this,'pool')">🏊 Pool / Facilities</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tone & Platform -->
+    <div class="form-section" id="sec-tone">
+      <div class="form-section-header" onclick="toggleSection('sec-tone')">
+        <div class="form-section-title">🎨 Tone & Platform</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <label>Tone of Voice</label>
+        <div class="radio-row" id="tone-group">
+          <div class="radio-chip selected" onclick="selectChip('tone-group',this,'luxury')">✨ Luxury</div>
+          <div class="radio-chip" onclick="selectChip('tone-group',this,'friendly')">😊 Friendly</div>
+          <div class="radio-chip" onclick="selectChip('tone-group',this,'excited')">🔥 Excited</div>
+          <div class="radio-chip" onclick="selectChip('tone-group',this,'professional')">💼 Professional</div>
+        </div>
+        <label style="margin-top:0.3rem;">Platform</label>
+        <div class="radio-row" id="platform-group">
+          <div class="radio-chip selected" onclick="selectChip('platform-group',this,'instagram')">📸 Instagram</div>
+          <div class="radio-chip" onclick="selectChip('platform-group',this,'tiktok')">🎵 TikTok</div>
+          <div class="radio-chip" onclick="selectChip('platform-group',this,'facebook')">📘 Facebook</div>
+          <div class="radio-chip" onclick="selectChip('platform-group',this,'all')">📲 All</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Detail -->
+    <div class="form-section" id="sec-detail">
+      <div class="form-section-header" onclick="toggleSection('sec-detail')">
+        <div class="form-section-title">✏️ Post Detail</div>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field">
+          <label>Describe what the post is about</label>
+          <textarea id="custom-detail" rows="3" placeholder="e.g. Our Deluxe Suite with garden view, newly renovated, king bed..." oninput="liveUpdate()"></textarea>
+        </div>
+        <div class="field">
+          <label>Offer or Key Message (optional)</label>
+          <input type="text" id="offer" placeholder="e.g. 20% off this weekend, Free breakfast included" oninput="liveUpdate()"/>
+        </div>
+        <div class="toggle-row" id="hashtag-toggle" onclick="toggleHashtags()" style="cursor:pointer;">
+          <span class="toggle-label">Include Hashtags</span>
+          <div class="toggle-switch on" id="hashtag-switch"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="output-panel">
+    <div class="output-label">3 Caption Variations — updates automatically</div>
+    <div id="caption-output">
+      <div class="empty-state">
+        <div class="empty-icon">📱</div>
+        <h3>Your captions will appear here</h3>
+        <p>Fill in your hotel name and post details on the left,<br/>then click Generate Captions or start typing.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var updateTimer = null;
+var showHashtags = true;
+var chipValues = { 'type-group': 'room', 'tone-group': 'luxury', 'platform-group': 'instagram' };
+
+function liveUpdate() { clearTimeout(updateTimer); updateTimer = setTimeout(generateCaptions, 150); }
+
+function toggleSection(id) { document.getElementById(id).classList.toggle('collapsed'); }
+
+function selectChip(groupId, el, value) {
+  document.querySelectorAll('#' + groupId + ' .radio-chip').forEach(function(c) { c.classList.remove('selected'); });
+  el.classList.add('selected');
+  chipValues[groupId] = value;
+  liveUpdate();
+}
+
+function toggleHashtags() {
+  showHashtags = !showHashtags;
+  var sw = document.getElementById('hashtag-switch');
+  sw.classList.toggle('on', showHashtags);
+  liveUpdate();
+}
+
+function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function resetForm() {
+  if (!confirm('Reset all fields?')) return;
+  document.querySelectorAll('.form-panel input, .form-panel textarea').forEach(function(el) { el.value = ''; });
+  chipValues = { 'type-group': 'room', 'tone-group': 'luxury', 'platform-group': 'instagram' };
+  document.querySelectorAll('.radio-chip').forEach(function(c) { c.classList.remove('selected'); });
+  document.querySelectorAll('#type-group .radio-chip:first-child, #tone-group .radio-chip:first-child, #platform-group .radio-chip:first-child').forEach(function(c) { c.classList.add('selected'); });
+  showHashtags = true;
+  document.getElementById('hashtag-switch').classList.add('on');
+  document.getElementById('caption-output').innerHTML = '<div class="empty-state"><div class="empty-icon">📱</div><h3>Your captions will appear here</h3><p>Fill in your hotel name and post details on the left,<br/>then click Generate Captions or start typing.</p></div>';
+}
+
+function copyCaption(text, btn) {
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+/* ── TEMPLATES ── */
+function buildCaptions(name, location, type, tone, platform, detail, offer) {
+  var d = detail || ('your ' + (name || 'property'));
+  var loc = location ? ' in ' + location : '';
+  var offerLine = offer ? '\n\n🎁 ' + offer + '.' : '';
+  var cta = platform === 'tiktok' ? 'Link in bio 🔗' : 'Link in bio. 👇';
+
+  var templates = {
+    room: {
+      luxury: [
+        '✨ Some rooms don\'t just offer comfort — they offer an experience.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.\n\nEvery detail crafted for your rest.' + offerLine + '\n\nBook your stay. ' + cta,
+        'This is what you deserve. 🏨\n\n' + d + '. At ' + (name || 'our hotel') + ', we believe every stay should feel extraordinary.' + offerLine + '\n\nReserve now. ' + cta,
+        'Comfort, elegance, and ' + loc.trim() + ' — all in one stay. 🌿\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBook direct. ' + cta,
+      ],
+      friendly: [
+        'This could be your room tonight! 😍\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nCheck availability via ' + cta,
+        'We think you deserve a proper break. 🛏️\n\n' + d + '. Come stay with us at ' + (name || 'our hotel') + loc + '!' + offerLine + '\n\n' + cta,
+        'Spoil yourself! 🌟\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. It\'s even better in person.' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'okay can we talk about THIS. 😭🔥\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBOOK NOW: ' + cta,
+        'not us showing off again 😅✨\n\n' + d + '.\n\nIf you know, you know. ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'the rooms, the vibes, THE EVERYTHING 🙌🏨\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nLink in bio, go book! 🔥',
+      ],
+      professional: [
+        (name || 'Our property') + ' presents ' + d + loc + '.\n\nDesigned for comfort and crafted with care. Available to book via ' + cta,
+        'Introducing ' + d + ' at ' + (name || 'our hotel') + loc + '.\n\nFor reservations and availability, visit ' + cta,
+        (name || 'Our hotel') + loc + ' — ' + d + '.\n\nContact us to book your stay. ' + cta,
+      ]
+    },
+    dining: {
+      luxury: [
+        '🍽️ Fine dining, elevated.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. Every dish is a moment to savour.' + offerLine + '\n\nReservations via ' + cta,
+        'The table is set. The only thing missing is you. 🥂\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBook your table. ' + cta,
+        'A culinary experience as refined as your stay. 🌹\n\n' + d + '.' + offerLine + '\n\nAvailable at ' + (name || 'our hotel') + loc + '. ' + cta,
+      ],
+      friendly: [
+        'Good food makes everything better. 😋\n\n' + d + ' at ' + (name || 'our hotel') + loc + '!' + offerLine + '\n\nReservations: ' + cta,
+        'We might be biased but... the food here is AMAZING. 🍽️\n\n' + d + '.' + offerLine + '\n\nCome eat with us at ' + (name || 'our hotel') + '! ' + cta,
+        'Hungry? We\'ve got you covered. 😍\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'THE FOOD. 😭🍽️\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nCome eat NOW: ' + cta,
+        'okay we cannot stop talking about this. 🔥\n\n' + d + '. ' + (name || 'our hotel') + loc + ' hits different.' + offerLine + '\n\nReserve: ' + cta,
+        'your taste buds called. they want this. 😩🍽️\n\n' + d + '.' + offerLine + '\n\nBook a table at ' + (name || 'our hotel') + ': ' + cta,
+      ],
+      professional: [
+        (name || 'Our hotel') + ' is pleased to present ' + d + loc + '.\n\nFor dining reservations, please visit ' + cta,
+        'Our restaurant is now serving ' + d + '.\n\nReservations available at ' + (name || 'our hotel') + loc + '. ' + cta,
+        d + ' — available at ' + (name || 'our hotel') + loc + '.\n\nBook your table via ' + cta,
+      ]
+    },
+    offer: {
+      luxury: [
+        'An invitation to indulge. ✨\n\n' + (offer || d) + ' at ' + (name || 'our hotel') + loc + '.\n\nFor a limited time. Book via ' + cta,
+        'Because you deserve more than the ordinary. 🌹\n\n' + (offer || d) + '.\n\nAvailable at ' + (name || 'our hotel') + loc + '. ' + cta,
+        'A rare opportunity to experience ' + (name || 'our hotel') + loc + ' at its finest.\n\n' + (offer || d) + '.' + '\n\nBook now. ' + cta,
+      ],
+      friendly: [
+        'Great news — ' + (offer || d) + ' at ' + (name || 'our hotel') + '! 🎉\n\nDon\'t miss this one. Grab it before it\'s gone! ' + cta,
+        'We\'re in a generous mood. 😊\n\n' + (offer || d) + ' at ' + (name || 'our hotel') + loc + '.\n\nBook via ' + cta,
+        'Treat yourself (you deserve it). 🎁\n\n' + (offer || d) + '.\n\nAvailable at ' + (name || 'our hotel') + '. ' + cta,
+      ],
+      excited: [
+        'DROP EVERYTHING. 🚨\n\n' + (offer || d) + ' at ' + (name || 'our hotel') + '!!!' + '\n\nLink NOW: ' + cta,
+        'this deal is TOO good and we can\'t keep quiet about it. 🔥🔥\n\n' + (offer || d) + '.\n\nGO BOOK: ' + cta,
+        'LIMITED TIME ONLY ⏰\n\n' + (offer || d) + ' at ' + (name || 'our hotel') + loc + '.\n\nGrab it: ' + cta,
+      ],
+      professional: [
+        (name || 'Our hotel') + ' is pleased to offer ' + (offer || d) + loc + '.\n\nAvailable for a limited period. Book via ' + cta,
+        'Limited offer: ' + (offer || d) + ' at ' + (name || 'our hotel') + loc + '.\n\nFor enquiries and reservations: ' + cta,
+        d + '\n\n' + (offer ? offer + '. ' : '') + 'Contact ' + (name || 'our hotel') + ' to book. ' + cta,
+      ]
+    },
+    event: {
+      luxury: [
+        '🎉 An evening to remember.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nSecure your place. ' + cta,
+        'You\'re invited. ✨\n\n' + d + '.\n\n' + (name || 'Our hotel') + loc + '. ' + offerLine + '\n\nBook now: ' + cta,
+        'Some occasions deserve the perfect setting. 🥂\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
+      ],
+      friendly: [
+        'Join us! 🎊\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nSecure your spot: ' + cta,
+        'Something special is happening at ' + (name || 'our hotel') + '. 🎉\n\n' + d + '.' + offerLine + '\n\nDon\'t miss it. ' + cta,
+        'You\'re going to want to be there. 🌟\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'WE HAVE AN EVENT AND YOU NEED TO COME. 🙌🎉\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBOOK: ' + cta,
+        'mark your calendars NOW. 📅🔥\n\n' + d + '.' + offerLine + '\n\n' + (name || 'our hotel') + loc + '. ' + cta,
+        'this is your sign to come out. 🎊\n\n' + d + '.' + offerLine + '\n\nLink: ' + cta,
+      ],
+      professional: [
+        (name || 'Our hotel') + ' is hosting ' + d + loc + '.' + offerLine + '\n\nFor bookings and further details: ' + cta,
+        'Join us for ' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nRSVP via ' + cta,
+        d + ' — ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nContact us to reserve your place. ' + cta,
+      ]
+    },
+    attraction: {
+      luxury: [
+        '📍 Just moments from ' + d + '.\n\nStay at ' + (name || 'our hotel') + loc + ' and experience the best of ' + (location || 'the city') + '.' + offerLine + '\n\n' + cta,
+        'The perfect base for exploring ' + (location || 'the city') + '. 🗺️\n\n' + (name || 'Our hotel') + ' is located right next to ' + d + '.' + offerLine + '\n\nBook your stay: ' + cta,
+        'Discover ' + d + ' — and come home to ' + (name || 'our hotel') + loc + '. 🌿' + offerLine + '\n\nBook via ' + cta,
+      ],
+      friendly: [
+        'Did you know we\'re right next to ' + d + '? 📍\n\nStay at ' + (name || 'our hotel') + loc + ' and explore everything ' + (location || 'the city') + ' has to offer!' + offerLine + '\n\n' + cta,
+        'Perfect base for exploring ' + (location || 'the city') + '! 🗺️\n\n' + (name || 'Our hotel') + ' is a short walk/drive from ' + d + '.' + offerLine + '\n\nBook: ' + cta,
+        'Great stays + great locations = the best trips. 🌟\n\n' + (name || 'Our hotel') + ' is near ' + d + loc + '.' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'we are STEPS from ' + d + '. 😱📍\n\n' + (name || 'our hotel') + loc + ' is THE place to stay if you\'re exploring ' + (location || 'the city') + '.' + offerLine + '\n\n' + cta,
+        'location UNMATCHED. 🙌\n\nRight next to ' + d + ' — ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBOOK: ' + cta,
+        'explore ' + d + ' then come back to this. 😍\n\n' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+      ],
+      professional: [
+        (name || 'Our hotel') + ' is conveniently located near ' + d + loc + '.\n\nThe ideal base for exploring ' + (location || 'the area') + '. ' + offerLine + '\n\nBook via ' + cta,
+        'Ideally positioned for ' + d + '.\n\n' + (name || 'Our hotel') + loc + ' offers guests convenient access to the best of ' + (location || 'the city') + '.' + offerLine + '\n\n' + cta,
+        d + ' is right on our doorstep.\n\nStay at ' + (name || 'our hotel') + loc + ' and explore with ease.' + offerLine + '\n\n' + cta,
+      ]
+    },
+    testimonial: {
+      luxury: [
+        'Words from our guests mean everything to us. 💬\n\n"' + (d || 'An exceptional stay from beginning to end. I will be returning.') + '"\n\nWe\'re grateful. ' + (name || 'Our hotel') + loc + '. ' + cta,
+        'This is why we do what we do. ❤️\n\n"' + (d || 'The best hotel experience I\'ve had in years.') + '"\n\nThank you for choosing ' + (name || 'us') + loc + '. ' + cta,
+        'Our highest reward is a happy guest. 🌹\n\n"' + (d || 'Excellent service and stunning rooms.') + '"\n\n— A guest at ' + (name || 'our hotel') + loc + '. Book via ' + cta,
+      ],
+      friendly: [
+        'This made our day! 😊💛\n\n"' + (d || 'Loved every minute of our stay!') + '"\n\nThank you so much! See you again at ' + (name || 'our hotel') + '! ' + cta,
+        'We love hearing from our guests! 💬\n\n"' + (d || 'The staff were so warm and the rooms were beautiful.') + '"\n\nCome stay with us! ' + cta,
+        'Good reviews + great guests = everything. 🥰\n\n"' + (d || 'An amazing experience from check-in to check-out.') + '"\n\n' + (name || 'Our hotel') + loc + '. Book via ' + cta,
+      ],
+      excited: [
+        'okay this review sent us. 😭🙌\n\n"' + (d || 'Best hotel I\'ve ever stayed in — no comparison!') + '"\n\nTHANK YOU!! Come back soon!! 💛\n\n' + cta,
+        'WE\'RE NOT CRYING YOU\'RE CRYING 😭💛\n\n"' + (d || 'This place exceeded every expectation.') + '"\n\n' + (name || 'our hotel') + loc + '. ' + cta,
+        'the reviews are in and they\'re GLOWING 🔥💬\n\n"' + (d || 'Exceptional from start to finish.') + '"\n\nBOOK: ' + cta,
+      ],
+      professional: [
+        '"' + (d || 'An exceptional experience. Highly recommended.') + '"\n\nWe thank our guests for their continued trust in ' + (name || 'our hotel') + loc + '. ' + cta,
+        'Guest feedback at ' + (name || 'our hotel') + loc + ':\n\n"' + (d || 'Outstanding service and exceptional facilities.') + '"\n\nReservations: ' + cta,
+        'We are honoured by the words of our guests.\n\n"' + (d || 'A truly memorable stay.') + '"\n\n' + (name || 'Our hotel') + loc + '. ' + cta,
+      ]
+    },
+    bts: {
+      luxury: [
+        'Behind every exceptional stay is an exceptional team. 🌿\n\n' + d + ' — a glimpse into the craft behind ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'The details make the difference. ✨\n\n' + d + '.\n\nThis is what excellence looks like behind the scenes at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
+        'From preparation to perfection. 🎯\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nExperience it yourself. ' + cta,
+      ],
+      friendly: [
+        'Ever wonder what goes on behind the scenes? 👀\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. The magic is in the details! ✨' + offerLine + '\n\n' + cta,
+        'A little peek behind the curtain! 😊\n\n' + d + '.\n\nThis is how we make every stay special at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
+        'It all starts here. 🌟\n\n' + d + ' — the work that goes into every stay at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'POV: you get to see what really happens here 👀🔥\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
+        'behind the scenes drop ✨👀\n\n' + d + '.\n\n' + (name || 'our hotel') + loc + ' never stops. 🙌' + offerLine + '\n\n' + cta,
+        'we work hard so you can relax harder 💪😤\n\n' + d + '.' + offerLine + '\n\n' + (name || 'our hotel') + ': ' + cta,
+      ],
+      professional: [
+        'A look behind the scenes at ' + (name || 'our hotel') + loc + '.\n\n' + d + '.\n\nOur commitment to excellence extends beyond what our guests see. ' + cta,
+        d + ' — part of our commitment to delivering an exceptional guest experience at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'How we maintain our standards at ' + (name || 'our hotel') + loc + ':\n\n' + d + '.' + offerLine + '\n\nBook your stay: ' + cta,
+      ]
+    },
+    pool: {
+      luxury: [
+        '🏊 A pool worth booking a stay for.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. Relax. Float. Escape.' + offerLine + '\n\nBook via ' + cta,
+        'The pool is calling. 💦✨\n\n' + d + '.\n\n' + (name || 'Our hotel') + loc + ' — where relaxation meets luxury.' + offerLine + '\n\n' + cta,
+        'Mornings here look different. 🌅\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nReserve your stay: ' + cta,
+      ],
+      friendly: [
+        'Pool day? Yes please! 🏊😎\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBook your stay: ' + cta,
+        'this is the life 💦🌿\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nLink in bio to book! ' + cta,
+        'Sun, water, good vibes. ☀️🏊\n\n' + d + '.\n\nCome enjoy it at ' + (name || 'our hotel') + loc + '!' + offerLine + '\n\n' + cta,
+      ],
+      excited: [
+        'THE POOL SZNNNN IS HERE 😭🏊🔥\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBOOK NOW: ' + cta,
+        'drop everything and look at this pool 😩💦\n\n' + d + '.\n\n' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'we cannot stop staring at this. 🏊✨\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBOOK: ' + cta,
+      ],
+      professional: [
+        (name || 'Our hotel') + ' features ' + d + loc + '.\n\nAvailable to all guests during their stay. Book via ' + cta,
+        d + ' — one of the many amenities awaiting guests at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nReservations: ' + cta,
+        'Enjoy ' + d + ' during your stay at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBook directly via ' + cta,
+      ]
+    }
+  };
+
+  var t = templates[type] || templates.room;
+  var toneArr = t[tone] || t.luxury;
+  return toneArr;
+}
+
+function buildHashtags(name, location, type, platform) {
+  var loc = (location || '').replace(/[^a-zA-Z]/g, '');
+  var n = (name || '').replace(/[^a-zA-Z0-9]/g, '');
+
+  var base = ['#HospitalityLife', '#HotelLife', '#BoutiqueHotel', '#LuxuryTravel', '#TravelAfrica'];
+  var byType = {
+    room: ['#HotelRoom', '#RoomView', '#HotelDesign', '#Accommodation', '#StayHere'],
+    dining: ['#HotelDining', '#FoodAndHospitality', '#HotelRestaurant', '#FineFood', '#DineIn'],
+    offer: ['#HotelOffer', '#TravelDeal', '#HotelPromo', '#DirectBooking', '#BookNow'],
+    event: ['#HotelEvent', '#EventVenue', '#HospitalityEvents', '#EventPlanning', '#Celebrate'],
+    attraction: ['#ExploreAfrica', '#TravelKenya', '#LocalAttractions', '#ExploreMore', '#TravelInspiration'],
+    testimonial: ['#GuestReview', '#HappyGuests', '#CustomerLove', '#HotelReviews', '#GuestExperience'],
+    bts: ['#BehindTheScenes', '#HotelTeam', '#HospitalityTeam', '#HotelLife', '#MeetTheTeam'],
+    pool: ['#PoolTime', '#HotelPool', '#PoolVibes', '#SwimmingPool', '#RelaxAndUnwind'],
+  };
+  var byLoc = loc ? ['#' + loc, '#' + loc + 'Hotels', '#' + loc + 'Travel', '#Visit' + loc] : [];
+  var byName = n ? ['#' + n] : [];
+  var byPlatform = platform === 'tiktok' ? ['#HotelTikTok', '#TravelTikTok', '#HotelCheck'] : ['#InstaTravel', '#HotelGram', '#TravelGram'];
+
+  var all = byName.concat(byLoc, byType[type] || [], base, byPlatform);
+  return all.slice(0, 20).join(' ');
+}
+
+function getPostIcon(type) {
+  var icons = { room: '🏨', dining: '🍽️', offer: '🎁', event: '🎉', attraction: '📍', testimonial: '💬', bts: '👀', pool: '🏊' };
+  return icons[type] || '🏨';
+}
+
+function generateCaptions() {
+  var name = val('hotel-name');
+  var location = val('location');
+  var handle = val('handle') || (name ? '@' + name.toLowerCase().replace(/[^a-z0-9]/g,'') : '@yourhotel');
+  var type = chipValues['type-group'] || 'room';
+  var tone = chipValues['tone-group'] || 'luxury';
+  var platform = chipValues['platform-group'] || 'instagram';
+  var detail = val('custom-detail');
+  var offer = val('offer');
+
+  if (!name) {
+    document.getElementById('caption-output').innerHTML = '<div class="empty-state"><div class="empty-icon">📱</div><h3>Your captions will appear here</h3><p>Enter your hotel name on the left,<br/>then click Generate Captions or start typing.</p></div>';
+    return;
+  }
+
+  var captions = buildCaptions(name, location, type, tone, platform, detail, offer);
+  var hashtags = showHashtags ? buildHashtags(name, location, type, platform) : '';
+  var icon = getPostIcon(type);
+  var platformLabel = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', all: 'All Platforms' }[platform] || 'Instagram';
+  var initials = name.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase();
+
+  var html = '<div class="captions-grid">';
+
+  var toneLabels = { luxury: '✨ Luxury', friendly: '😊 Friendly', excited: '🔥 Excited', professional: '💼 Professional' };
+  var toneLabel = toneLabels[tone] || tone;
+
+  captions.forEach(function(caption, i) {
+    var fullText = caption + (showHashtags ? '\n\n' + hashtags : '');
+    html += '<div class="caption-card">' +
+      '<div class="caption-card-header">' +
+      '<span class="caption-card-label">' + toneLabel + ' · V' + (i+1) + '</span>' +
+      '<button class="copy-btn" onclick="copyCaption(' + JSON.stringify(fullText) + ', this)">Copy</button>' +
+      '</div>' +
+      '<div class="post-preview">' +
+      '<div class="post-header">' +
+      '<div class="post-avatar">' + initials + '</div>' +
+      '<div><div class="post-handle">' + handle + '</div><div class="post-platform">' + platformLabel + '</div></div>' +
+      '</div>' +
+      '<div class="post-image">' + icon + '</div>' +
+      '<div class="post-caption">' + caption.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' +
+      (showHashtags ? '<div class="post-hashtags">' + hashtags + '</div>' : '') +
+      '<div class="post-stats"><span>❤️ —</span><span>💬 —</span><span>📤 —</span></div>' +
+      '</div></div>';
+  });
+
+  html += '</div>';
+
+  if (showHashtags) {
+    html += '<div class="hashtag-section">' +
+      '<div class="hashtag-section-header">' +
+      '<span class="hashtag-section-title"># Hashtag Pack</span>' +
+      '<button class="copy-btn" onclick="copyCaption(' + JSON.stringify(hashtags) + ', this)">Copy Hashtags</button>' +
+      '</div>' +
+      '<div class="hashtag-body">' + hashtags + '</div>' +
+      '</div>';
+  }
+
+  document.getElementById('caption-output').innerHTML = html;
+}
+</script>
+
+</body>
+</html>
