@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Weekly Report Generator — Maningi Sylvester</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0a1628;
+  --mid-blue: #1a4a8a;
+  --accent: #2563a8;
+  --light-blue: #a8c4e0;
+  --page-bg: #c8d9ee;
+  --card-bg: #ffffff;
+  --gray: #3d5a7a;
+  --light-gray: #a0b8d0;
+  --text: #0d2137;
+  --success: #1a7a4a;
+  --warn: #c47a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* HEADER */
+.app-header {
+  background: var(--navy);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-header a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.app-header a:hover { color: white; }
+
+.app-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.header-actions { display: flex; gap: 0.6rem; align-items: center; }
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-generate {
+  background: var(--accent);
+  color: white;
+}
+.btn-generate:hover { background: var(--mid-blue); }
+
+.btn-print {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.btn-print:hover { background: rgba(255,255,255,0.22); }
+
+.btn-reset {
+  background: none;
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.73rem;
+}
+.btn-reset:hover { color: white; border-color: rgba(255,255,255,0.4); }
+
+/* LAYOUT */
+.app-body {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* FORM PANEL */
+.form-panel {
+  background: white;
+  overflow-y: auto;
+  border-right: 2px solid var(--light-gray);
+}
+
+.form-section {
+  border-bottom: 1px solid #e8f0f8;
+}
+
+.form-section-header {
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  background: #f7fafd;
+  border-bottom: 1px solid #e8f0f8;
+}
+
+.form-section-header:hover { background: #eef4fb; }
+
+.form-section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-icon { font-size: 1rem; }
+
+.section-toggle-arrow {
+  font-size: 0.7rem;
+  color: var(--light-gray);
+  transition: transform 0.2s;
+}
+.form-section.collapsed .section-toggle-arrow { transform: rotate(-90deg); }
+
+.form-section-body {
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.form-section.collapsed .form-section-body { display: none; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.field.full { grid-column: 1 / -1; }
+
+label {
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6a8aaa;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  padding: 0.55rem 0.75rem;
+  border: 1.5px solid #d0dce8;
+  border-radius: 3px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+
+.channel-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.channel-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  padding: 0.55rem 0.75rem;
+  border-radius: 4px;
+  border: 1.5px solid #d0dce8;
+  transition: all 0.15s;
+}
+.channel-toggle:hover { border-color: var(--accent); background: #f0f6ff; }
+.channel-toggle.active { border-color: var(--accent); background: #eef4ff; }
+
+.channel-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.channel-toggle-label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Channel-specific section headers */
+.channel-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.channel-enabled-badge {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  background: #e8f4ee;
+  color: var(--success);
+  border-radius: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* PREVIEW PANEL */
+.preview-panel {
+  background: #dce6f0;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.preview-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8aabcc;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* REPORT */
+.report {
+  background: white;
+  max-width: 780px;
+  margin: 0 auto;
+  box-shadow: 0 4px 40px rgba(10,22,40,0.18);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.report-header {
+  background: var(--navy);
+  padding: 2.5rem 2.5rem 2rem;
+  color: white;
+}
+
+.report-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--light-blue);
+  margin-bottom: 0.6rem;
+}
+
+.report-client {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.report-meta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.report-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+.report-body { padding: 2rem 2.5rem; }
+
+/* Summary bar */
+.summary-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1px;
+  background: #e0eaf4;
+  border: 1px solid #e0eaf4;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.summary-stat {
+  background: white;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+.summary-stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.summary-stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8aabcc;
+}
+
+/* Channel sections */
+.channel-report-section {
+  margin-bottom: 2rem;
+  border: 1px solid #e8f0f8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.channel-report-header {
+  background: #f4f8fd;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid #e8f0f8;
+}
+
+.channel-report-icon { font-size: 1.1rem; }
+
+.channel-report-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1px;
+  background: #e8f0f8;
+}
+
+.metric-cell {
+  background: white;
+  padding: 1rem 0.9rem;
+}
+
+.metric-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8aabcc;
+}
+
+.metric-note {
+  font-size: 0.72rem;
+  color: #6a8aaa;
+  margin-top: 0.15rem;
+}
+
+/* Notes inside channel */
+.channel-notes {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.84rem;
+  color: var(--gray);
+  line-height: 1.65;
+  border-top: 1px solid #e8f0f8;
+  background: #fafcff;
+}
+
+/* Highlights */
+.report-section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-blue);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e8f0f8;
+}
+
+.highlights-section, .nextsteps-section {
+  margin-bottom: 2rem;
+}
+
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.bullet-list li {
+  font-size: 0.87rem;
+  color: var(--gray);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.6;
+}
+.bullet-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--mid-blue);
+  font-size: 0.75rem;
+}
+
+/* Report footer */
+.report-footer {
+  background: var(--navy);
+  padding: 1.4rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.75rem;
+}
+.report-footer strong { color: white; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #8aabcc;
+}
+.empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+.empty-state h3 { font-size: 1.1rem; color: #5a7a9a; margin-bottom: 0.5rem; }
+.empty-state p { font-size: 0.85rem; line-height: 1.6; }
+
+/* PRINT */
+@media print {
+  body { height: auto; overflow: visible; }
+  .app-header, .form-panel, .preview-label { display: none !important; }
+  .app-body { display: block; }
+  .preview-panel { padding: 0; background: white; overflow: visible; }
+  .report { box-shadow: none; max-width: 100%; }
+  .channel-report-section { break-inside: avoid; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c0d0e0; border-radius: 3px; }
+
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: 1fr; }
+  .form-panel { border-right: none; border-bottom: 2px solid var(--light-gray); max-height: 50vh; }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-left">
+    <a href="/">← Portfolio</a>
+    <div class="app-title">Weekly Report Generator</div>
+  </div>
+  <div class="header-actions">
+    <button class="btn-sm btn-reset" onclick="resetForm()">Reset</button>
+    <button class="btn-sm btn-print" onclick="window.print()">Print / PDF</button>
+    <button class="btn-sm btn-generate" onclick="generateReport()">Generate Report</button>
+  </div>
+</header>
+
+<div class="app-body">
+
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+
+    <!-- Report Details -->
+    <div class="form-section" id="sec-details">
+      <div class="form-section-header" onclick="toggleSection('sec-details')">
+        <div class="form-section-title"><span class="section-icon">📋</span> Report Details</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field full">
+          <label>Client / Business Name</label>
+          <input type="text" id="client-name" placeholder="e.g. Karen Plains Hotel" oninput="liveUpdate()" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Period Start</label>
+            <input type="date" id="period-start" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Period End</label>
+            <input type="date" id="period-end" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Currency</label>
+            <select id="currency" onchange="liveUpdate()">
+              <option value="KES">KES (Ksh)</option>
+              <option value="USD">USD ($)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="EUR">EUR (€)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Reporting Week #</label>
+            <input type="number" id="week-num" placeholder="e.g. 24" oninput="liveUpdate()" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Channels -->
+    <div class="form-section" id="sec-channels">
+      <div class="form-section-header" onclick="toggleSection('sec-channels')">
+        <div class="form-section-title"><span class="section-icon">⚙️</span> Active Channels</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="channel-toggles">
+          <label class="channel-toggle active" id="tog-google">
+            <input type="checkbox" id="ch-google" checked onchange="toggleChannel('google')" />
+            <span class="channel-toggle-label">📊 Google Ads</span>
+          </label>
+          <label class="channel-toggle active" id="tog-meta">
+            <input type="checkbox" id="ch-meta" checked onchange="toggleChannel('meta')" />
+            <span class="channel-toggle-label">📘 Meta Ads</span>
+          </label>
+          <label class="channel-toggle active" id="tog-seo">
+            <input type="checkbox" id="ch-seo" checked onchange="toggleChannel('seo')" />
+            <span class="channel-toggle-label">🔍 SEO / Organic</span>
+          </label>
+          <label class="channel-toggle active" id="tog-social">
+            <input type="checkbox" id="ch-social" checked onchange="toggleChannel('social')" />
+            <span class="channel-toggle-label">📱 Social Media</span>
+          </label>
+          <label class="channel-toggle active" id="tog-email">
+            <input type="checkbox" id="ch-email" checked onchange="toggleChannel('email')" />
+            <span class="channel-toggle-label">✉️ Email Marketing</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Ads -->
+    <div class="form-section" id="sec-google">
+      <div class="form-section-header" onclick="toggleSection('sec-google')">
+        <div class="form-section-title"><span class="section-icon">📊</span> Google Ads</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Total Spend</label>
+            <input type="number" id="g-spend" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Impressions</label>
+            <input type="number" id="g-impressions" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Clicks</label>
+            <input type="number" id="g-clicks" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>CTR (%)</label>
+            <input type="number" id="g-ctr" placeholder="0.00" step="0.01" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Conversions</label>
+            <input type="number" id="g-conv" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Cost Per Conv.</label>
+            <input type="number" id="g-cpa" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field full">
+          <label>Campaign Notes</label>
+          <textarea id="g-notes" placeholder="Key observations, top campaigns, budget notes..." oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meta Ads -->
+    <div class="form-section" id="sec-meta">
+      <div class="form-section-header" onclick="toggleSection('sec-meta')">
+        <div class="form-section-title"><span class="section-icon">📘</span> Meta Ads</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Total Spend</label>
+            <input type="number" id="m-spend" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Reach</label>
+            <input type="number" id="m-reach" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Impressions</label>
+            <input type="number" id="m-impressions" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Link Clicks</label>
+            <input type="number" id="m-clicks" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>CTR (%)</label>
+            <input type="number" id="m-ctr" placeholder="0.00" step="0.01" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Results (Leads)</label>
+            <input type="number" id="m-results" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Cost Per Result</label>
+            <input type="number" id="m-cpr" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Frequency</label>
+            <input type="number" id="m-freq" placeholder="0.0" step="0.1" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field full">
+          <label>Campaign Notes</label>
+          <textarea id="m-notes" placeholder="Top performing ads, audience insights, creative notes..." oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO -->
+    <div class="form-section" id="sec-seo">
+      <div class="form-section-header" onclick="toggleSection('sec-seo')">
+        <div class="form-section-title"><span class="section-icon">🔍</span> SEO / Organic</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Organic Sessions</label>
+            <input type="number" id="seo-sessions" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>GSC Clicks</label>
+            <input type="number" id="seo-clicks" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>GSC Impressions</label>
+            <input type="number" id="seo-impressions" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Avg. Position</label>
+            <input type="number" id="seo-position" placeholder="0.0" step="0.1" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>SEO Site Score</label>
+            <input type="number" id="seo-score" placeholder="e.g. 77" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Pages Indexed</label>
+            <input type="number" id="seo-pages" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field full">
+          <label>Top Ranking Keywords</label>
+          <textarea id="seo-keywords" placeholder="e.g. hotel near Karen, Nairobi boutique hotel..." oninput="liveUpdate()"></textarea>
+        </div>
+        <div class="field full">
+          <label>SEO Notes</label>
+          <textarea id="seo-notes" placeholder="Content published, technical fixes, ranking changes..." oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="form-section" id="sec-social">
+      <div class="form-section-header" onclick="toggleSection('sec-social')">
+        <div class="form-section-title"><span class="section-icon">📱</span> Social Media</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field full">
+          <label>Platforms Active</label>
+          <select id="soc-platform" onchange="liveUpdate()">
+            <option value="Instagram & TikTok">Instagram & TikTok</option>
+            <option value="Instagram">Instagram</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Facebook & Instagram">Facebook & Instagram</option>
+            <option value="All Platforms">All Platforms</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Total Followers</label>
+            <input type="number" id="soc-followers" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>New Followers</label>
+            <input type="number" id="soc-new-followers" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Posts Published</label>
+            <input type="number" id="soc-posts" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Total Reach</label>
+            <input type="number" id="soc-reach" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Engagement Rate (%)</label>
+            <input type="number" id="soc-engagement" placeholder="0.00" step="0.01" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Total Likes / Reacts</label>
+            <input type="number" id="soc-likes" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field full">
+          <label>Best Performing Content</label>
+          <textarea id="soc-best" placeholder="Describe top post, views, reach, engagement..." oninput="liveUpdate()"></textarea>
+        </div>
+        <div class="field full">
+          <label>Social Notes</label>
+          <textarea id="soc-notes" placeholder="Observations, audience trends, content ideas..." oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Marketing -->
+    <div class="form-section" id="sec-email">
+      <div class="form-section-header" onclick="toggleSection('sec-email')">
+        <div class="form-section-title"><span class="section-icon">✉️</span> Email Marketing</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Emails Sent</label>
+            <input type="number" id="em-sent" placeholder="0" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Open Rate (%)</label>
+            <input type="number" id="em-open" placeholder="0.00" step="0.01" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Click Rate (%)</label>
+            <input type="number" id="em-ctr" placeholder="0.00" step="0.01" oninput="liveUpdate()" />
+          </div>
+          <div class="field">
+            <label>Unsubscribes</label>
+            <input type="number" id="em-unsub" placeholder="0" oninput="liveUpdate()" />
+          </div>
+        </div>
+        <div class="field full">
+          <label>Campaign Name / Subject Line</label>
+          <input type="text" id="em-campaign" placeholder="e.g. June Weekend Special" oninput="liveUpdate()" />
+        </div>
+        <div class="field full">
+          <label>Email Notes</label>
+          <textarea id="em-notes" placeholder="Audience segment, performance highlights, next send..." oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights & Next Steps -->
+    <div class="form-section" id="sec-summary">
+      <div class="form-section-header" onclick="toggleSection('sec-summary')">
+        <div class="form-section-title"><span class="section-icon">✨</span> Highlights & Next Steps</div>
+        <span class="section-toggle-arrow">▼</span>
+      </div>
+      <div class="form-section-body">
+        <div class="field full">
+          <label>Weekly Highlights / Wins (one per line)</label>
+          <textarea id="highlights" rows="4" placeholder="Google Ads CPA dropped 18% this week&#10;Meta reach increased by 3,200&#10;Published 2 SEO blog posts" oninput="liveUpdate()"></textarea>
+        </div>
+        <div class="field full">
+          <label>Next Steps / Recommendations (one per line)</label>
+          <textarea id="nextsteps" rows="4" placeholder="Increase Google Ads budget for weekend campaign&#10;Test new carousel creative on Meta&#10;Publish blog post on top keyword" oninput="liveUpdate()"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /FORM PANEL -->
+
+  <!-- PREVIEW PANEL -->
+  <div class="preview-panel">
+    <div class="preview-label">Live Report Preview — updates as you type</div>
+    <div id="report-output">
+      <div class="empty-state">
+        <div class="empty-state-icon">📄</div>
+        <h3>Your report will appear here</h3>
+        <p>Fill in the client name and metrics on the left.<br/>The report updates live as you type.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /APP BODY -->
+
+<script>
+var updateTimer = null;
+
+function liveUpdate() {
+  clearTimeout(updateTimer);
+  updateTimer = setTimeout(generateReport, 120);
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+
+function toggleChannel(ch) {
+  var cb = document.getElementById('ch-' + ch);
+  var tog = document.getElementById('tog-' + ch);
+  var sec = document.getElementById('sec-' + ch);
+  if (cb.checked) {
+    tog.classList.add('active');
+    if (sec) sec.style.display = '';
+  } else {
+    tog.classList.remove('active');
+    if (sec) sec.style.display = 'none';
+  }
+  liveUpdate();
+}
+
+function val(id) {
+  var el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+function numVal(id) {
+  var v = val(id);
+  return v ? parseFloat(v) : null;
+}
+
+function isChecked(id) {
+  var el = document.getElementById(id);
+  return el ? el.checked : false;
+}
+
+function fmtNum(n, decimals) {
+  if (n === null || n === undefined || n === '') return '—';
+  decimals = decimals || 0;
+  return parseFloat(n).toLocaleString('en-KE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+}
+
+function fmtCurrency(n) {
+  if (n === null || n === undefined || n === '') return '—';
+  var cur = val('currency') || 'KES';
+  var symbols = { KES: 'Ksh ', USD: '$', GBP: '£', EUR: '€' };
+  var sym = symbols[cur] || cur + ' ';
+  return sym + parseFloat(n).toLocaleString('en-KE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+function fmtPct(n) {
+  if (n === null || n === undefined || n === '') return '—';
+  return parseFloat(n).toFixed(2) + '%';
+}
+
+function bulletLines(text) {
+  if (!text) return '';
+  return text.split('\n')
+    .map(function(l) { return l.trim(); })
+    .filter(function(l) { return l.length > 0; })
+    .map(function(l) { return '<li>' + escHtml(l) + '</li>'; })
+    .join('');
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function metricCell(value, label, note) {
+  var noteHtml = note ? '<div class="metric-note">' + escHtml(note) + '</div>' : '';
+  return '<div class="metric-cell"><div class="metric-value">' + value + '</div><div class="metric-label">' + label + '</div>' + noteHtml + '</div>';
+}
+
+function formatPeriod() {
+  var s = val('period-start');
+  var e = val('period-end');
+  if (!s && !e) return '';
+  var opts = { day: 'numeric', month: 'short', year: 'numeric' };
+  if (s && e) {
+    return new Date(s).toLocaleDateString('en-GB', opts) + ' – ' + new Date(e).toLocaleDateString('en-GB', opts);
+  }
+  return s ? new Date(s).toLocaleDateString('en-GB', opts) : new Date(e).toLocaleDateString('en-GB', opts);
+}
+
+function generateReport() {
+  var client = val('client-name');
+  var period = formatPeriod();
+  var weekNum = val('week-num');
+  var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  if (!client) {
+    document.getElementById('report-output').innerHTML =
+      '<div class="empty-state"><div class="empty-state-icon">📄</div><h3>Your report will appear here</h3><p>Fill in the client name and metrics on the left.<br/>The report updates live as you type.</p></div>';
+    return;
+  }
+
+  var html = '';
+
+  /* ── REPORT HEADER ── */
+  html += '<div class="report">';
+  html += '<div class="report-header">';
+  html += '<div class="report-tag">Weekly Performance Report' + (weekNum ? ' · Week ' + weekNum : '') + '</div>';
+  html += '<div class="report-client">' + escHtml(client) + '</div>';
+  html += '<div class="report-meta">';
+  if (period) html += '<span>📅 ' + period + '</span>';
+  html += '<span>👤 Maningi Sylvester</span>';
+  html += '<span>🗓 Generated ' + today + '</span>';
+  html += '</div></div>';
+
+  html += '<div class="report-body">';
+
+  /* ── SUMMARY BAR ── */
+  var summaryStats = [];
+  var totalSpend = 0;
+  var gSpend = numVal('g-spend');
+  var mSpend = numVal('m-spend');
+  if (gSpend) totalSpend += gSpend;
+  if (mSpend) totalSpend += mSpend;
+
+  if (totalSpend > 0) {
+    summaryStats.push({ value: fmtCurrency(totalSpend), label: 'Total Ad Spend' });
+  }
+  if (isChecked('ch-google') && numVal('g-conv')) {
+    summaryStats.push({ value: fmtNum(numVal('g-conv')), label: 'Google Conversions' });
+  }
+  if (isChecked('ch-meta') && numVal('m-reach')) {
+    summaryStats.push({ value: fmtNum(numVal('m-reach')), label: 'Meta Reach' });
+  }
+  if (isChecked('ch-seo') && numVal('seo-sessions')) {
+    summaryStats.push({ value: fmtNum(numVal('seo-sessions')), label: 'Organic Sessions' });
+  }
+  if (isChecked('ch-social') && numVal('soc-followers')) {
+    summaryStats.push({ value: fmtNum(numVal('soc-followers')), label: 'Total Followers' });
+  }
+  if (isChecked('ch-email') && numVal('em-sent')) {
+    summaryStats.push({ value: fmtNum(numVal('em-sent')), label: 'Emails Sent' });
+  }
+
+  if (summaryStats.length > 0) {
+    html += '<div class="summary-bar">';
+    summaryStats.forEach(function(s) {
+      html += '<div class="summary-stat"><div class="summary-stat-value">' + s.value + '</div><div class="summary-stat-label">' + s.label + '</div></div>';
+    });
+    html += '</div>';
+  }
+
+  /* ── GOOGLE ADS ── */
+  if (isChecked('ch-google')) {
+    html += '<div class="channel-report-section">';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">📊</span><span class="channel-report-name">Google Ads</span></div>';
+    html += '<div class="metrics-grid">';
+    html += metricCell(fmtCurrency(numVal('g-spend')), 'Ad Spend', '');
+    html += metricCell(fmtNum(numVal('g-impressions')), 'Impressions', '');
+    html += metricCell(fmtNum(numVal('g-clicks')), 'Clicks', '');
+    html += metricCell(fmtPct(numVal('g-ctr')), 'CTR', '');
+    html += metricCell(fmtNum(numVal('g-conv')), 'Conversions', '');
+    html += metricCell(fmtCurrency(numVal('g-cpa')), 'Cost / Conv.', '');
+    html += '</div>';
+    var gNotes = val('g-notes');
+    if (gNotes) html += '<div class="channel-notes">' + escHtml(gNotes) + '</div>';
+    html += '</div>';
+  }
+
+  /* ── META ADS ── */
+  if (isChecked('ch-meta')) {
+    html += '<div class="channel-report-section">';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">📘</span><span class="channel-report-name">Meta Ads (Facebook & Instagram)</span></div>';
+    html += '<div class="metrics-grid">';
+    html += metricCell(fmtCurrency(numVal('m-spend')), 'Ad Spend', '');
+    html += metricCell(fmtNum(numVal('m-reach')), 'Reach', '');
+    html += metricCell(fmtNum(numVal('m-impressions')), 'Impressions', '');
+    html += metricCell(fmtNum(numVal('m-clicks')), 'Link Clicks', '');
+    html += metricCell(fmtPct(numVal('m-ctr')), 'CTR', '');
+    html += metricCell(fmtNum(numVal('m-results')), 'Results', '');
+    html += metricCell(fmtCurrency(numVal('m-cpr')), 'Cost / Result', '');
+    html += metricCell(fmtNum(numVal('m-freq'), 1), 'Frequency', '');
+    html += '</div>';
+    var mNotes = val('m-notes');
+    if (mNotes) html += '<div class="channel-notes">' + escHtml(mNotes) + '</div>';
+    html += '</div>';
+  }
+
+  /* ── SEO ── */
+  if (isChecked('ch-seo')) {
+    html += '<div class="channel-report-section">';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">🔍</span><span class="channel-report-name">SEO & Organic Search</span></div>';
+    html += '<div class="metrics-grid">';
+    html += metricCell(fmtNum(numVal('seo-sessions')), 'Organic Sessions', '');
+    html += metricCell(fmtNum(numVal('seo-clicks')), 'GSC Clicks', '');
+    html += metricCell(fmtNum(numVal('seo-impressions')), 'GSC Impressions', '');
+    html += metricCell(numVal('seo-position') ? '#' + fmtNum(numVal('seo-position'), 1) : '—', 'Avg. Position', '');
+    html += metricCell(numVal('seo-score') ? numVal('seo-score') + '/100' : '—', 'Site Score', '');
+    html += metricCell(fmtNum(numVal('seo-pages')), 'Pages Indexed', '');
+    html += '</div>';
+    var seoKw = val('seo-keywords');
+    var seoNotes = val('seo-notes');
+    if (seoKw) html += '<div class="channel-notes"><strong style="font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;color:#8aabcc;display:block;margin-bottom:0.4rem;">Top Keywords</strong>' + escHtml(seoKw) + '</div>';
+    if (seoNotes) html += '<div class="channel-notes">' + escHtml(seoNotes) + '</div>';
+    html += '</div>';
+  }
+
+  /* ── SOCIAL MEDIA ── */
+  if (isChecked('ch-social')) {
+    var platform = val('soc-platform') || 'Social Media';
+    html += '<div class="channel-report-section">';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">📱</span><span class="channel-report-name">' + escHtml(platform) + '</span></div>';
+    html += '<div class="metrics-grid">';
+    html += metricCell(fmtNum(numVal('soc-followers')), 'Total Followers', '');
+    html += metricCell(numVal('soc-new-followers') ? '+' + fmtNum(numVal('soc-new-followers')) : '—', 'New Followers', 'this week');
+    html += metricCell(fmtNum(numVal('soc-posts')), 'Posts Published', '');
+    html += metricCell(fmtNum(numVal('soc-reach')), 'Total Reach', '');
+    html += metricCell(fmtPct(numVal('soc-engagement')), 'Engagement Rate', '');
+    html += metricCell(fmtNum(numVal('soc-likes')), 'Likes / Reacts', '');
+    html += '</div>';
+    var socBest = val('soc-best');
+    var socNotes = val('soc-notes');
+    if (socBest) html += '<div class="channel-notes"><strong style="font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;color:#8aabcc;display:block;margin-bottom:0.4rem;">Best Performing Content</strong>' + escHtml(socBest) + '</div>';
+    if (socNotes) html += '<div class="channel-notes">' + escHtml(socNotes) + '</div>';
+    html += '</div>';
+  }
+
+  /* ── EMAIL MARKETING ── */
+  if (isChecked('ch-email')) {
+    html += '<div class="channel-report-section">';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">✉️</span><span class="channel-report-name">Email Marketing' + (val('em-campaign') ? ' — ' + escHtml(val('em-campaign')) : '') + '</span></div>';
+    html += '<div class="metrics-grid">';
+    html += metricCell(fmtNum(numVal('em-sent')), 'Emails Sent', '');
+    html += metricCell(fmtPct(numVal('em-open')), 'Open Rate', '');
+    html += metricCell(fmtPct(numVal('em-ctr')), 'Click Rate', '');
+    html += metricCell(fmtNum(numVal('em-unsub')), 'Unsubscribes', '');
+    html += '</div>';
+    var emNotes = val('em-notes');
+    if (emNotes) html += '<div class="channel-notes">' + escHtml(emNotes) + '</div>';
+    html += '</div>';
+  }
+
+  /* ── HIGHLIGHTS ── */
+  var highlights = val('highlights');
+  if (highlights) {
+    html += '<div class="highlights-section">';
+    html += '<div class="report-section-title">Highlights & Wins This Week</div>';
+    html += '<ul class="bullet-list">' + bulletLines(highlights) + '</ul>';
+    html += '</div>';
+  }
+
+  /* ── NEXT STEPS ── */
+  var nextsteps = val('nextsteps');
+  if (nextsteps) {
+    html += '<div class="nextsteps-section">';
+    html += '<div class="report-section-title">Next Steps & Recommendations</div>';
+    html += '<ul class="bullet-list">' + bulletLines(nextsteps) + '</ul>';
+    html += '</div>';
+  }
+
+  html += '</div>'; /* /report-body */
+
+  /* ── FOOTER ── */
+  html += '<div class="report-footer">';
+  html += '<div>Prepared by <strong>Maningi Sylvester</strong> — Digital Marketing & Growth Specialist</div>';
+  html += '<div>Nairobi, Kenya &nbsp;·&nbsp; maningisylvester&#64;gmail.com</div>';
+  html += '</div>';
+
+  html += '</div>'; /* /report */
+
+  document.getElementById('report-output').innerHTML = html;
+}
+
+function resetForm() {
+  if (!confirm('Reset all form fields?')) return;
+  var inputs = document.querySelectorAll('.form-panel input, .form-panel textarea, .form-panel select');
+  inputs.forEach(function(el) {
+    if (el.type === 'checkbox') { el.checked = true; }
+    else if (el.tagName === 'SELECT') { el.selectedIndex = 0; }
+    else { el.value = ''; }
+  });
+  ['google','meta','seo','social','email'].forEach(function(ch) {
+    document.getElementById('tog-' + ch).classList.add('active');
+    var sec = document.getElementById('sec-' + ch);
+    if (sec) sec.style.display = '';
+  });
+  document.getElementById('report-output').innerHTML =
+    '<div class="empty-state"><div class="empty-state-icon">📄</div><h3>Your report will appear here</h3><p>Fill in the client name and metrics on the left.<br/>The report updates live as you type.</p></div>';
+}
+
+/* Set today's dates as defaults */
+(function() {
+  var today = new Date();
+  var dayOfWeek = today.getDay();
+  var monday = new Date(today);
+  monday.setDate(today.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
+  var sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+
+  function fmt(d) {
+    return d.toISOString().split('T')[0];
+  }
+
+  document.getElementById('period-start').value = fmt(monday);
+  document.getElementById('period-end').value = fmt(sunday);
+
+  var weekNum = Math.ceil((((today - new Date(today.getFullYear(), 0, 1)) / 86400000) + 1) / 7);
+  document.getElementById('week-num').value = weekNum;
+})();
+</script>
+
+</body>
+</html>
