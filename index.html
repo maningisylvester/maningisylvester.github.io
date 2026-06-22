@@ -1,631 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Maningi Sylvester — Digital Marketing & Growth Specialist</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Maningi Sylvester — Hospitality Digital Marketing Agency | Nairobi, Kenya</title>
+<meta name="description" content="We help hotels, suites and lodges across East Africa get more direct bookings through Google Ads, Meta Ads, SEO, social media and content marketing."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --navy: #0a1628;
-    --mid-blue: #1a4a8a;
-    --accent: #2563a8;
-    --light-blue: #a8c4e0;
-    --page-bg: #c8d9ee;
-    --section-alt: #b8ccdf;
-    --card-bg: #ffffff;
-    --gray: #3d5a7a;
-    --light-gray: #a0b8d0;
-    --text: #0d2137;
-  }
+:root {
+  --navy:    #09162A;
+  --navy-2:  #132040;
+  --navy-3:  #1C3060;
+  --gold:    #C9A26A;
+  --gold-lt: #E2C896;
+  --caramel: #B87748;
+  --bg:      #F7F3EC;
+  --bg-alt:  #EFE9DF;
+  --white:   #FEFCF8;
+  --border:  #DDD5C5;
+  --text:    #0A1420;
+  --text-2:  #445568;
+  --text-3:  #7A8A9A;
+  --green:   #2A7A50;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(9,22,42,0.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,162,106,0.15);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;
+  letter-spacing:0.04em;color:#FEFCF8;text-decoration:none;
+}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(254,252,248,0.55);text-decoration:none;transition:color 0.2s;
+}
+.nav-links a:hover{color:rgba(254,252,248,0.9);}
+.nav-cta{
+  padding:0.55rem 1.4rem;background:var(--gold);color:var(--navy) !important;
+  border-radius:2px;font-weight:700 !important;transition:background 0.2s !important;
+}
+.nav-cta:hover{background:var(--gold-lt) !important;}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--page-bg);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+/* ── HERO ── */
+.hero{
+  min-height:100vh;background:var(--navy);
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  padding:9rem 5% 6rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-20%;right:-10%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,162,106,0.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,162,106,0.3),transparent);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.67rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(201,162,106,0.3);
+  padding:0.4rem 1.1rem;border-radius:2rem;margin-bottom:2.5rem;
+}
+.hero-tag::before{content:'✦';font-size:0.6rem;}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,5.8rem);font-weight:600;
+  color:#FEFCF8;line-height:1.08;letter-spacing:-0.01em;
+  margin-bottom:1.8rem;max-width:780px;
+}
+.hero-h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{
+  font-size:1.05rem;color:rgba(254,252,248,0.5);line-height:1.85;
+  max-width:540px;margin-bottom:3rem;font-weight:400;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;}
+.btn-gold{
+  padding:0.95rem 2.2rem;background:var(--gold);color:var(--navy);
+  font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  border-radius:2px;text-decoration:none;border:2px solid var(--gold);
+  transition:all 0.2s;display:inline-block;
+}
+.btn-gold:hover{background:var(--gold-lt);border-color:var(--gold-lt);}
+.btn-ghost{
+  padding:0.95rem 2.2rem;background:transparent;color:rgba(254,252,248,0.7);
+  font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  border-radius:2px;text-decoration:none;border:2px solid rgba(254,252,248,0.2);
+  transition:all 0.2s;display:inline-block;
+}
+.btn-ghost:hover{border-color:rgba(254,252,248,0.5);color:#FEFCF8;}
+.hero-proof{
+  display:flex;gap:2.5rem;flex-wrap:wrap;
+  padding-top:2.5rem;border-top:1px solid rgba(254,252,248,0.08);
+}
+.proof-item{display:flex;flex-direction:column;gap:0.2rem;}
+.proof-num{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;
+  color:var(--gold);line-height:1;
+}
+.proof-label{font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(254,252,248,0.35);}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.2rem 5%;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(200,217,238,0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--light-gray);
-  }
+/* ── SECTIONS ── */
+section{padding:6rem 5%;}
+.section-label{font-size:0.67rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:0.8rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:1rem;}
+.section-title-light{color:#FEFCF8;}
+.section-sub{font-size:0.97rem;color:var(--text-2);max-width:520px;line-height:1.8;}
+.section-header{margin-bottom:4rem;}
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 600;
-    color: var(--navy); letter-spacing: 0.02em;
-  }
+/* ── PROBLEM ── */
+.problem-section{background:var(--white);}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.problem-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.problem-item{
+  display:flex;gap:1rem;padding:1.2rem;
+  border:1px solid var(--border);border-radius:4px;
+  background:var(--bg);transition:border-color 0.2s;
+}
+.problem-item:hover{border-color:var(--caramel);}
+.problem-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem;}
+.problem-text h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem;}
+.problem-text p{font-size:0.82rem;color:var(--text-2);line-height:1.6;}
+.solution-box{
+  background:var(--navy);padding:2.8rem;border-radius:6px;
+  position:relative;overflow:hidden;
+}
+.solution-box::before{
+  content:'';position:absolute;top:-30%;right:-20%;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,162,106,0.1) 0%,transparent 65%);
+}
+.solution-box-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.solution-box h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#FEFCF8;line-height:1.2;margin-bottom:1.2rem;}
+.solution-box p{font-size:0.88rem;color:rgba(254,252,248,0.55);line-height:1.8;margin-bottom:2rem;}
+.solution-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.sol-stat{border-left:2px solid rgba(201,162,106,0.3);padding-left:0.9rem;}
+.sol-stat-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1;}
+.sol-stat-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(254,252,248,0.35);margin-top:0.2rem;}
 
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+/* ── SERVICES ── */
+.services-section{background:var(--bg);}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
+.pkg-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
+  transition:box-shadow 0.3s,transform 0.3s;position:relative;
+}
+.pkg-card:hover{box-shadow:0 16px 56px rgba(9,22,42,0.12);transform:translateY(-4px);}
+.pkg-card.featured{border-color:var(--gold);box-shadow:0 4px 32px rgba(201,162,106,0.2);}
+.pkg-badge{
+  position:absolute;top:1.2rem;right:1.2rem;
+  font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--gold);color:var(--navy);padding:0.25rem 0.7rem;border-radius:2rem;
+}
+.pkg-header{padding:2rem 2rem 1.5rem;}
+.pkg-tier{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--caramel);margin-bottom:0.6rem;}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);margin-bottom:1rem;}
+.pkg-price{display:flex;align-items:baseline;gap:0.3rem;margin-bottom:0.3rem;}
+.pkg-currency{font-size:0.85rem;font-weight:700;color:var(--text-3);}
+.pkg-amount{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--navy);line-height:1;}
+.pkg-period{font-size:0.78rem;color:var(--text-3);}
+.pkg-desc{font-size:0.8rem;color:var(--text-2);line-height:1.6;margin-top:0.5rem;}
+.pkg-divider{height:1px;background:var(--border);margin:0;}
+.pkg-features{padding:1.5rem 2rem;flex:1;}
+.pkg-features ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.pkg-features li{
+  font-size:0.8rem;color:var(--text-2);
+  padding-left:1.4rem;position:relative;line-height:1.5;
+}
+.pkg-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:0.75rem;}
+.pkg-features li.muted{color:var(--text-3);}
+.pkg-features li.muted::before{content:'—';color:var(--border);}
+.pkg-footer{padding:1.5rem 2rem;border-top:1px solid var(--border);}
+.btn-pkg{
+  display:block;width:100%;padding:0.85rem;text-align:center;
+  font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  border-radius:2px;text-decoration:none;transition:all 0.2s;
+  cursor:pointer;border:none;font-family:'DM Sans',sans-serif;
+}
+.btn-pkg-outline{background:transparent;color:var(--navy);border:2px solid var(--navy);}
+.btn-pkg-outline:hover{background:var(--navy);color:#FEFCF8;}
+.btn-pkg-gold{background:var(--gold);color:var(--navy);border:2px solid var(--gold);}
+.btn-pkg-gold:hover{background:var(--gold-lt);}
 
-  .nav-links a {
-    text-decoration: none; font-size: 0.82rem; font-weight: 600;
-    color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--navy); }
+.audit-bar{
+  background:var(--navy);border-radius:6px;padding:2rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.audit-bar-text h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#FEFCF8;margin-bottom:0.3rem;}
+.audit-bar-text p{font-size:0.83rem;color:rgba(254,252,248,0.45);line-height:1.6;}
+.audit-price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold);white-space:nowrap;}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 8rem 5% 5rem;
-    background: var(--section-alt);
-    position: relative; overflow: hidden;
-  }
+/* ── RESULTS ── */
+.results-section{background:var(--navy);}
+.results-section .section-label{color:var(--gold);}
+.results-grid{display:grid;gap:1.5rem;}
+.result-card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(254,252,248,0.08);
+  border-radius:6px;padding:2.5rem;display:grid;
+  grid-template-columns:1fr 2fr;gap:3rem;align-items:start;
+  transition:border-color 0.3s,background 0.3s;
+}
+.result-card:hover{border-color:rgba(201,162,106,0.25);background:rgba(255,255,255,0.06);}
+.result-left{}
+.result-client{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#FEFCF8;margin-bottom:0.3rem;}
+.result-industry{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
+.result-tag{display:inline-block;font-size:0.7rem;font-weight:600;padding:0.25rem 0.7rem;border:1px solid rgba(254,252,248,0.15);color:rgba(254,252,248,0.45);border-radius:2rem;}
+.result-right{}
+.result-role{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(254,252,248,0.3);margin-bottom:1rem;}
+.result-metrics{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.result-metric{}
+.result-metric-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1;}
+.result-metric-label{font-size:0.67rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(254,252,248,0.3);margin-top:0.2rem;}
+.result-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.result-list li{
+  font-size:0.83rem;color:rgba(254,252,248,0.5);
+  padding-left:1.1rem;position:relative;line-height:1.6;
+}
+.result-list li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.7rem;}
 
-  .hero::before {
-    content: ''; position: absolute; top: -20%; right: -10%;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(10,22,40,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
+/* ── PROCESS ── */
+.process-section{background:var(--white);}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative;}
+.process-steps::before{
+  content:'';position:absolute;top:2rem;left:12%;right:12%;
+  height:1px;background:var(--border);z-index:0;
+}
+.process-step{text-align:center;padding:0 1.5rem;position:relative;z-index:1;}
+.process-step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--navy);color:var(--gold);
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;border:3px solid var(--bg);
+}
+.process-step-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem;}
+.process-step-text{font-size:0.78rem;color:var(--text-2);line-height:1.65;}
 
-  .hero-content { max-width: 700px; animation: fadeUp 0.9s ease both; }
+/* ── ABOUT ── */
+.about-section{background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;}
+.about-image-box{
+  aspect-ratio:4/5;background:var(--navy);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.about-image-box::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 60% 40%,rgba(201,162,106,0.12) 0%,transparent 60%);
+}
+.about-initials{
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;
+  color:rgba(201,162,106,0.25);letter-spacing:0.1em;
+}
+.about-name{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.about-title{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:1.5rem;}
+.about-text{font-size:0.92rem;color:var(--text-2);line-height:1.85;margin-bottom:1.5rem;}
+.cert-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+.cert-pill{
+  font-size:0.7rem;font-weight:600;padding:0.35rem 0.8rem;
+  border:1px solid var(--border);border-radius:2rem;
+  color:var(--text-2);background:var(--white);
+}
 
-  .hero-tag {
-    display: inline-block; font-size: 0.76rem; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--navy); margin-bottom: 1.5rem;
-    padding: 0.4rem 1rem;
-    background: rgba(10,22,40,0.1);
-    border-radius: 2rem;
-  }
+/* ── MARQUE CALLOUT ── */
+.marque-callout{
+  background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:3rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.marque-callout-text h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.marque-callout-text p{font-size:0.84rem;color:var(--text-2);max-width:500px;line-height:1.65;}
+.btn-navy{
+  padding:0.82rem 1.8rem;background:var(--navy);color:#FEFCF8;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background 0.2s;
+}
+.btn-navy:hover{background:var(--navy-2);}
 
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 5rem); font-weight: 600;
-    line-height: 1.1; color: var(--navy);
-    margin-bottom: 1.5rem; letter-spacing: -0.01em;
-  }
-  .hero h1 span { color: var(--mid-blue); }
+/* ── FAQ ── */
+.faq-section{background:var(--white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;}
+.faq-item{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:4px;padding:1.8rem;transition:border-color 0.2s;
+}
+.faq-item:hover{border-color:var(--caramel);}
+.faq-q{font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.7rem;line-height:1.4;}
+.faq-a{font-size:0.82rem;color:var(--text-2);line-height:1.75;}
 
-  .hero p {
-    font-size: 1.05rem; line-height: 1.8; color: var(--gray);
-    max-width: 540px; margin-bottom: 2.5rem; font-weight: 400;
-  }
+/* ── CTA SECTION ── */
+.cta-section{
+  background:var(--navy);padding:8rem 5%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,162,106,0.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-section .section-label{color:var(--gold);}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,5vw,4.2rem);font-weight:400;font-style:italic;
+  color:#FEFCF8;margin-bottom:1.2rem;max-width:700px;margin-inline:auto;line-height:1.15;
+}
+.cta-sub{font-size:0.97rem;color:rgba(254,252,248,0.45);max-width:460px;margin-inline:auto;margin-bottom:3rem;line-height:1.8;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* ── CONTACT ── */
+.contact-section{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-methods{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
+.contact-method{
+  display:flex;align-items:center;gap:1.2rem;
+  padding:1.2rem 1.5rem;background:var(--white);
+  border:1px solid var(--border);border-radius:4px;
+  text-decoration:none;transition:border-color 0.2s,transform 0.2s;
+}
+.contact-method:hover{border-color:var(--caramel);transform:translateX(4px);}
+.contact-method-icon{
+  width:44px;height:44px;border-radius:50%;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.contact-method-text{}
+.contact-method-label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.15rem;}
+.contact-method-value{font-size:0.88rem;font-weight:600;color:var(--navy);}
 
-  .btn-primary {
-    padding: 0.85rem 2rem; background: var(--navy); color: #ffffff;
-    text-decoration: none; font-size: 0.85rem; font-weight: 600;
-    letter-spacing: 0.04em; border-radius: 3px;
-    transition: background 0.2s, transform 0.2s; display: inline-block;
-  }
-  .btn-primary:hover { background: var(--mid-blue); transform: translateY(-1px); }
+.contact-form{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;}
+.form-group label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);}
+.form-group input,.form-group textarea,.form-group select{
+  padding:0.85rem 1rem;border:2px solid var(--border);border-radius:3px;
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--text);
+  background:var(--white);outline:none;transition:border-color 0.2s;width:100%;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--navy);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.btn-submit{
+  padding:0.95rem;background:var(--navy);color:#FEFCF8;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  border:none;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:background 0.2s;
+}
+.btn-submit:hover{background:var(--navy-2);}
 
-  .btn-outline {
-    padding: 0.85rem 2rem; border: 2px solid var(--navy);
-    color: var(--navy); text-decoration: none; font-size: 0.85rem;
-    font-weight: 600; letter-spacing: 0.04em; border-radius: 3px;
-    transition: all 0.2s; display: inline-block;
-  }
-  .btn-outline:hover { background: var(--navy); color: #ffffff; transform: translateY(-1px); }
+/* ── FOOTER ── */
+footer{
+  background:var(--navy);border-top:1px solid rgba(201,162,106,0.12);
+  padding:3rem 5%;display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;
+}
+.footer-brand{}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.04em;color:#FEFCF8;display:block;margin-bottom:0.7rem;}
+.footer-logo span{color:var(--gold);}
+.footer-tagline{font-size:0.78rem;color:rgba(254,252,248,0.3);line-height:1.65;max-width:220px;}
+.footer-col-title{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(254,252,248,0.25);margin-bottom:1rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.footer-links a{font-size:0.78rem;color:rgba(254,252,248,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:rgba(254,252,248,0.8);}
+.footer-bottom{
+  grid-column:1/-1;padding-top:2rem;border-top:1px solid rgba(254,252,248,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.72rem;color:rgba(254,252,248,0.2);
+}
 
-  /* SECTIONS */
-  section { padding: 6rem 5%; }
+/* ── UTILS ── */
+.text-gold{color:var(--gold);}
 
-  .section-label {
-    font-size: 0.73rem; font-weight: 700; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--mid-blue); margin-bottom: 0.8rem;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
-    color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem; color: var(--gray);
-    max-width: 500px; line-height: 1.7; font-weight: 400;
-  }
-
-  .section-header { margin-bottom: 4rem; }
-
-  /* SERVICES */
-  .services { background: var(--page-bg); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2px; background: var(--light-gray);
-    border: 2px solid var(--light-gray); border-radius: 4px; overflow: hidden;
-  }
-
-  .service-card {
-    background: var(--card-bg); padding: 2.5rem 2rem;
-    transition: background 0.2s; position: relative; overflow: hidden;
-  }
-
-  .service-card::after {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 3px; background: var(--navy);
-    transition: width 0.3s ease;
-  }
-  .service-card:hover::after { width: 100%; }
-  .service-card:hover { background: #f4f8fd; }
-
-  .service-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
-    font-weight: 300; color: #c8d9ee; line-height: 1; margin-bottom: 1rem;
-  }
-
-  .service-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
-  .service-card p { font-size: 0.85rem; color: #5a7a9a; line-height: 1.7; }
-
-  /* EXPERIENCE */
-  .experience { background: var(--section-alt); }
-  .exp-grid { display: grid; gap: 2rem; }
-
-  .exp-card {
-    background: var(--card-bg); border: none;
-    border-radius: 6px; padding: 2.5rem;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;
-    box-shadow: 0 2px 20px rgba(10,22,40,0.08);
-    transition: box-shadow 0.25s, transform 0.25s;
-  }
-  .exp-card:hover { box-shadow: 0 8px 40px rgba(10,22,40,0.15); transform: translateY(-2px); }
-
-  .exp-company {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
-    font-weight: 600; color: var(--navy); margin-bottom: 0.3rem;
-  }
-
-  .exp-industry {
-    font-size: 0.75rem; color: var(--mid-blue); font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem;
-  }
-
-  .exp-type {
-    display: inline-block; font-size: 0.75rem; padding: 0.3rem 0.8rem;
-    background: var(--page-bg); color: var(--navy);
-    border-radius: 2rem; font-weight: 600;
-  }
-
-  .exp-role {
-    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #8aabcc; margin-bottom: 0.8rem;
-  }
-
-  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-
-  .exp-list li {
-    font-size: 0.88rem; color: #3d5a7a;
-    padding-left: 1.2rem; position: relative; line-height: 1.6;
-  }
-  .exp-list li::before {
-    content: '—'; position: absolute; left: 0;
-    color: var(--mid-blue); font-size: 0.75rem; top: 0.1rem;
-  }
-
-  /* SKILLS */
-  .skills-section { background: var(--navy); }
-  .skills-section .section-title { color: #ffffff; }
-  .skills-section .section-label { color: var(--light-blue); }
-  .skills-section .section-subtitle { color: rgba(255,255,255,0.5); }
-
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem; margin-top: 3rem;
-  }
-
-  .skill-item {
-    border: 1px solid rgba(255,255,255,0.12); padding: 1.5rem; border-radius: 4px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .skill-item:hover { border-color: var(--light-blue); background: rgba(200,217,238,0.08); }
-
-  .skill-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
-  .skill-item h4 { font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.4rem; }
-  .skill-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-
-  /* CERTIFICATIONS */
-  .certifications { background: var(--page-bg); }
-  .cert-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; }
-
-  .cert-badge {
-    padding: 0.8rem 1.5rem;
-    border: 2px solid rgba(10,22,40,0.15);
-    border-radius: 3px; font-size: 0.83rem; font-weight: 600;
-    color: var(--navy); display: flex; align-items: center; gap: 0.6rem;
-    background: rgba(255,255,255,0.7);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .cert-badge:hover { border-color: var(--navy); background: #ffffff; }
-  .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mid-blue); flex-shrink: 0; }
-
-  /* CONTACT */
-  .contact { background: var(--section-alt); }
-  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
-  .contact-item { display: flex; align-items: center; gap: 1rem; }
-
-  .contact-icon {
-    width: 44px; height: 44px;
-    background: rgba(10,22,40,0.1);
-    border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; font-size: 1.1rem; flex-shrink: 0;
-  }
-
-  .contact-item span { font-size: 0.9rem; color: var(--text); font-weight: 500; }
-  .contact-item a { font-size: 0.9rem; color: var(--mid-blue); text-decoration: none; font-weight: 500; }
-  .contact-item a:hover { text-decoration: underline; }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
-  .form-group label {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--gray);
-  }
-
-  .form-group input, .form-group textarea {
-    padding: 0.85rem 1rem;
-    border: 2px solid rgba(10,22,40,0.15);
-    border-radius: 3px; font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem; color: var(--text);
-    background: #ffffff;
-    transition: border-color 0.2s; outline: none;
-  }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); }
-  .form-group textarea { resize: vertical; min-height: 130px; }
-
-  footer {
-    background: var(--navy); color: rgba(255,255,255,0.4);
-    padding: 2rem 5%; display: flex;
-    justify-content: space-between; align-items: center; font-size: 0.8rem;
-  }
-  footer span { color: #ffffff; font-weight: 600; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-in { opacity: 1; }
-
-  /* CASE STUDY EXPAND */
-  .cs-toggle {
-    margin-top: 1.2rem;
-    background: none;
-    border: 1.5px solid var(--mid-blue);
-    color: var(--mid-blue);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 0.55rem 1.2rem;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-  }
-  .cs-toggle:hover { background: var(--mid-blue); color: #ffffff; }
-  .cs-toggle.open { background: var(--navy); color: #ffffff; border-color: var(--navy); }
-
-  .cs-body {
-    display: none;
-    margin-top: 1.5rem;
-    border-top: 1.5px solid var(--light-gray);
-    padding-top: 1.5rem;
-  }
-  .cs-body.open { display: block; }
-
-  .cs-block { margin-bottom: 1.5rem; }
-
-  .cs-block-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mid-blue);
-    margin-bottom: 0.5rem;
-  }
-
-  .cs-block p, .cs-block ul {
-    font-size: 0.87rem;
-    color: #3d5a7a;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .exp-card { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
+@media(max-width:1024px){
+  .packages-grid,.process-steps,.footer{grid-template-columns:1fr;}
+  .process-steps::before{display:none;}
+  .footer{grid-template-columns:1fr 1fr;}
+  .footer-bottom{grid-column:1/-1;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .problem-grid,.about-grid,.contact-grid,.faq-grid,.result-card{grid-template-columns:1fr;}
+  .hero-h1{font-size:2.8rem;}
+  footer{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">Maningi Sylvester</div>
+  <a href="/" class="nav-logo">Maningi<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="/report-generator.html" style="color:var(--mid-blue);font-weight:700;">Report Tool</a></li>
+    <li><a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'd%20like%20to%20book%20a%20free%20strategy%20call." target="_blank" class="nav-cta">Book a Call</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Digital Marketing & Growth Specialist</div>
-    <h1>Growing brands through <span>data-driven</span> digital marketing</h1>
-    <p>I help brands in hospitality and e-commerce grow visibility, generate quality leads, and drive conversions through structured paid media, SEO, and growth strategy.</p>
-    <div class="hero-cta">
-      <a href="#experience" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-outline">Get In Touch</a>
+  <div class="hero-tag">Hospitality Marketing Specialist · Nairobi, Kenya</div>
+  <h1 class="hero-h1">We get hotels<br/><em>more direct bookings.</em></h1>
+  <p class="hero-sub">Full-service digital marketing for hotels, suites and lodges across East Africa. Google Ads, Meta campaigns, SEO, social media and content — all under one specialist.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'd%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" class="btn-gold">Book a Free Strategy Call →</a>
+    <a href="#results" class="btn-ghost">See Our Results</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item">
+      <div class="proof-num">3+</div>
+      <div class="proof-label">Hotel clients</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">77</div>
+      <div class="proof-label">SEO score achieved</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">30%</div>
+      <div class="proof-label">Avg. engagement growth</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">5+</div>
+      <div class="proof-label">Channels managed</div>
     </div>
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="section-header fade-in">
-    <div class="section-label">What I Do</div>
-    <h2 class="section-title">Services</h2>
-    <p class="section-subtitle">End-to-end digital marketing services designed to drive measurable business outcomes.</p>
-  </div>
-  <div class="services-grid fade-in">
-    <div class="service-card"><div class="service-num">01</div><h3>Google Ads Management</h3><p>High-intent search and display campaigns optimised for cost per booking and conversion rate.</p></div>
-    <div class="service-card"><div class="service-num">02</div><h3>Meta Ads Management</h3><p>Facebook and Instagram campaigns built for brand awareness, lead generation, and direct bookings.</p></div>
-    <div class="service-card"><div class="service-num">03</div><h3>Search Engine Optimisation</h3><p>On-page SEO, keyword strategy, and content optimisation to drive organic traffic and booking intent.</p></div>
-    <div class="service-card"><div class="service-num">04</div><h3>Social Media Marketing</h3><p>Content planning, community management, and short-form video strategy for Instagram and TikTok.</p></div>
-    <div class="service-card"><div class="service-num">05</div><h3>Email Marketing</h3><p>Segmented campaigns targeting past guests, corporate clients, and long-stay audiences to drive repeat bookings.</p></div>
-    <div class="service-card"><div class="service-num">06</div><h3>Content Strategy</h3><p>Blog content, SEO articles, and brand messaging designed to attract and convert high-intent audiences.</p></div>
-    <div class="service-card"><div class="service-num">07</div><h3>Analytics & Reporting</h3><p>Performance reporting across paid ads, SEO, social, and email — turning data into clear growth decisions.</p></div>
-    <div class="service-card"><div class="service-num">08</div><h3>Website & CMS Management</h3><p>WordPress site updates, landing page optimisation, and conversion-focused UX improvements.</p></div>
-    <div class="service-card"><div class="service-num">09</div><h3>Influencer Partnerships</h3><p>Identifying and managing micro-influencer collaborations aligned with your brand and target audience.</p></div>
-    <div class="service-card"><div class="service-num">10</div><h3>Growth Marketing Consulting</h3><p>Strategic digital marketing consulting to build structured, scalable growth systems for your brand.</p></div>
+<!-- PROBLEM -->
+<section class="problem-section" id="problem">
+  <div class="problem-grid">
+    <div>
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">Most hotels are leaving bookings on the table</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="problem-icon">📉</div>
+          <div class="problem-text">
+            <h4>Too dependent on OTAs</h4>
+            <p>Booking.com and Expedia take 15–25% per booking. Without a direct booking strategy, you're building their business, not yours.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">🚫</div>
+          <div class="problem-text">
+            <h4>No digital marketing infrastructure</h4>
+            <p>No Google Ads, inconsistent social media, no email list, no SEO — the booking pipeline is unpredictable and hard to scale.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">🌍</div>
+          <div class="problem-text">
+            <h4>Generic tools built for the wrong market</h4>
+            <p>Western marketing tools and agencies don't understand the East African hospitality market. The strategy needs to fit the context.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-box-label">The Solution</div>
+      <h3>A specialist who understands hospitality — and this market.</h3>
+      <p>We build full digital marketing systems for hotels in East Africa. From Google Ads targeting high-intent travellers to SEO, social media, and email campaigns — everything works together to drive direct bookings and grow your brand.</p>
+      <div class="solution-stats">
+        <div class="sol-stat">
+          <div class="sol-stat-num">SEO 77</div>
+          <div class="sol-stat-label">Site score achieved</div>
+        </div>
+        <div class="sol-stat">
+          <div class="sol-stat-num">+30%</div>
+          <div class="sol-stat-label">Engagement growth</div>
+        </div>
+        <div class="sol-stat">
+          <div class="sol-stat-num">+15%</div>
+          <div class="sol-stat-label">Monthly enquiries</div>
+        </div>
+        <div class="sol-stat">
+          <div class="sol-stat-num">5ch</div>
+          <div class="sol-stat-label">Channels at once</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="experience" id="experience">
-  <div class="section-header fade-in">
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <div class="section-label">Services & Pricing</div>
+    <h2 class="section-title">Transparent packages.<br/>Real results.</h2>
+    <p class="section-sub">All packages include onboarding, strategy, reporting and direct access. No hidden fees. Cancel with 30 days notice.</p>
+  </div>
+
+  <div class="packages-grid">
+    <!-- VISIBILITY -->
+    <div class="pkg-card">
+      <div class="pkg-header">
+        <div class="pkg-tier">Package 01</div>
+        <div class="pkg-name">Visibility</div>
+        <div class="pkg-price">
+          <span class="pkg-currency">KES</span>
+          <span class="pkg-amount">28,000</span>
+          <span class="pkg-period">/month</span>
+        </div>
+        <p class="pkg-desc">Build your online presence and get in front of the right audience consistently.</p>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-features">
+        <ul>
+          <li>Social media management (3 platforms)</li>
+          <li>Content calendar & caption writing</li>
+          <li>Community management & DM responses</li>
+          <li>Basic SEO monitoring & recommendations</li>
+          <li>Monthly performance report</li>
+          <li>Hashtag strategy & account optimisation</li>
+          <li class="muted">Paid advertising (Google/Meta)</li>
+          <li class="muted">Email marketing campaigns</li>
+          <li class="muted">Influencer coordination</li>
+        </ul>
+      </div>
+      <div class="pkg-footer">
+        <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'm%20interested%20in%20the%20Visibility%20package." target="_blank" class="btn-pkg btn-pkg-outline">Get Started →</a>
+      </div>
+    </div>
+
+    <!-- BOOKINGS (FEATURED) -->
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-header">
+        <div class="pkg-tier">Package 02</div>
+        <div class="pkg-name">Bookings</div>
+        <div class="pkg-price">
+          <span class="pkg-currency">KES</span>
+          <span class="pkg-amount">58,000</span>
+          <span class="pkg-period">/month</span>
+        </div>
+        <p class="pkg-desc">Drive direct bookings with paid media, SEO and social — the full demand generation stack.</p>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-features">
+        <ul>
+          <li>Everything in Visibility</li>
+          <li>Google Ads — search & display campaigns</li>
+          <li>Meta Ads — Facebook & Instagram campaigns</li>
+          <li>Ad budget strategy & optimisation</li>
+          <li>Landing page review & conversion tips</li>
+          <li>Weekly performance reports</li>
+          <li>SEO on-page optimisation</li>
+          <li>Google Business Profile management</li>
+          <li class="muted">Email marketing campaigns</li>
+        </ul>
+      </div>
+      <div class="pkg-footer">
+        <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'm%20interested%20in%20the%20Bookings%20package." target="_blank" class="btn-pkg btn-pkg-gold">Get Started →</a>
+      </div>
+    </div>
+
+    <!-- FULL SERVICE -->
+    <div class="pkg-card">
+      <div class="pkg-header">
+        <div class="pkg-tier">Package 03</div>
+        <div class="pkg-name">Full Service</div>
+        <div class="pkg-price">
+          <span class="pkg-currency">KES</span>
+          <span class="pkg-amount">98,000</span>
+          <span class="pkg-period">/month</span>
+        </div>
+        <p class="pkg-desc">Your entire digital marketing operation — strategy, execution, content and reporting all handled.</p>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-features">
+        <ul>
+          <li>Everything in Bookings</li>
+          <li>Short-form video content (Reels & TikTok)</li>
+          <li>Email marketing — list building & campaigns</li>
+          <li>Influencer identification & coordination</li>
+          <li>Blog & SEO content writing</li>
+          <li>Monthly strategy session (1hr call)</li>
+          <li>Priority WhatsApp support</li>
+          <li>Quarterly growth review & planning</li>
+          <li>Competitor monitoring & insights</li>
+        </ul>
+      </div>
+      <div class="pkg-footer">
+        <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'm%20interested%20in%20the%20Full%20Service%20package." target="_blank" class="btn-pkg btn-pkg-outline">Get Started →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT BAR -->
+  <div class="audit-bar">
+    <div class="audit-bar-text">
+      <h3>Not sure where to start? Begin with an Audit.</h3>
+      <p>A comprehensive review of your digital presence — website, ads, SEO, social media and booking funnel — with a prioritised action plan delivered within 5 business days.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <div class="audit-price">KES 18,000</div>
+        <div style="font-size:0.7rem;color:rgba(254,252,248,0.3);margin-top:0.2rem;">One-time · No commitment</div>
+      </div>
+      <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'd%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" class="btn-gold" style="flex-shrink:0;">Book an Audit →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section" id="results">
+  <div class="section-header">
     <div class="section-label">Case Studies</div>
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Real work across hospitality and retail e-commerce in Nairobi.</p>
+    <h2 class="section-title section-title-light">Real work.<br/>Real results.</h2>
   </div>
-  <div class="exp-grid">
+  <div class="results-grid">
 
-    <!-- KAREN PLAINS HOTEL -->
-    <div class="exp-card fade-in">
-      <div class="exp-left">
-        <div class="exp-company">Karen Plains Hotel</div>
-        <div class="exp-industry">Hospitality</div>
-        <div class="exp-type">Consulting</div>
+    <div class="result-card">
+      <div class="result-left">
+        <div class="result-client">Karen Plains Hotel</div>
+        <div class="result-industry">Hospitality · Karen, Nairobi</div>
+        <div class="result-tag">Ongoing Engagement</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-role">Growth Manager Consultant</div>
-        <ul class="exp-list">
-          <li>Leading full digital marketing strategy to increase direct bookings and online visibility</li>
-          <li>Managing Google Ads and Meta campaigns targeting high-intent travellers</li>
-          <li>Producing short-form video content for Instagram Reels and TikTok</li>
-          <li>Building email campaigns for past guests, corporate and long-stay clients</li>
-          <li>Developing SEO blog content and website conversion improvements</li>
-          <li>Coordinating micro-influencer collaborations and weekly performance reporting</li>
-        </ul>
-        <button class="cs-toggle" onclick="toggleCase('karen')">View Full Case Study ↓</button>
-        <div class="cs-body" id="karen">
-          <div class="cs-block">
-            <div class="cs-block-title">The Challenge</div>
-            <p>Karen Plains Hotel needed to increase direct bookings and online visibility in a competitive hospitality market. The digital presence required a full audit and a structured approach to demand generation across multiple channels.</p>
+      <div class="result-right">
+        <div class="result-role">Growth Manager Consultant</div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-num">5</div>
+            <div class="result-metric-label">Channels managed</div>
           </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Strategy & Approach</div>
-            <p>Launched a rapid audit-to-action plan — identifying friction points in the booking funnel, setting up high-intent Google Ads and Meta campaigns targeting travellers searching for hotels near Karen, the Giraffe Centre, Karen Blixen Museum, and Nairobi National Park. Supported by a consistent social media content strategy and SEO-focused blog content.</p>
+          <div class="result-metric">
+            <div class="result-metric-num">4–5</div>
+            <div class="result-metric-label">Videos/week</div>
           </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Execution</div>
-            <ul class="exp-list">
-              <li>Conducted a full digital marketing audit covering website, social media, ad campaigns and booking funnel</li>
-              <li>Set up and managed Google Ads and Meta campaigns focused on high-intent search and retargeting</li>
-              <li>Produced 4–5 short-form videos per week for Instagram Reels and TikTok</li>
-              <li>Built and launched email campaigns for past guests, corporate travellers and long-stay clients</li>
-              <li>Published SEO-optimised blog content targeting booking-intent keywords</li>
-              <li>Identified and onboarded micro-influencers for brand collaborations</li>
-              <li>Delivered weekly performance reports to hotel management covering all channels</li>
-            </ul>
-          </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Results & Impact</div>
-            <p>Ongoing engagement — digital marketing infrastructure fully built out across paid media, SEO, social, and email. Weekly reporting in place with clear performance tracking across all channels.</p>
+          <div class="result-metric">
+            <div class="result-metric-num">Weekly</div>
+            <div class="result-metric-label">Reports delivered</div>
           </div>
         </div>
+        <ul class="result-list">
+          <li>Built full digital marketing infrastructure from the ground up — Google Ads, Meta, SEO, social, email</li>
+          <li>Producing 4–5 short-form videos per week for Reels and TikTok</li>
+          <li>Running high-intent Google Ads targeting travellers searching near Karen, Giraffe Centre and Nairobi National Park</li>
+          <li>Weekly performance reports delivered to hotel management across all channels</li>
+        </ul>
       </div>
     </div>
 
-    <!-- L'AZIZ SUITES -->
-    <div class="exp-card fade-in">
-      <div class="exp-left">
-        <div class="exp-company">L'Aziz Suites</div>
-        <div class="exp-industry">Hospitality</div>
-        <div class="exp-type">Consulting</div>
+    <div class="result-card">
+      <div class="result-left">
+        <div class="result-client">L'Aziz Suites</div>
+        <div class="result-industry">Hospitality · Nairobi</div>
+        <div class="result-tag">Digital Transformation</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-role">Digital Marketing Consultant</div>
-        <ul class="exp-list">
-          <li>Revived and structured a dormant digital marketing presence from the ground up</li>
+      <div class="result-right">
+        <div class="result-role">Digital Marketing Consultant</div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-num">77</div>
+            <div class="result-metric-label">SEO site score</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-num">↑</div>
+            <div class="result-metric-label">Booking enquiries</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-num">Full</div>
+            <div class="result-metric-label">Digital rebuild</div>
+          </div>
+        </div>
+        <ul class="result-list">
+          <li>Revived a dormant digital presence — rebuilt strategy from zero across all platforms</li>
           <li>Managed Google Ads and Meta campaigns targeting short-stay and long-stay guests</li>
-          <li>Oversaw social media content planning, posting and community management</li>
-          <li>Managed WordPress (Divi) website updates and landing page optimisation</li>
-          <li>Coordinated content creation including photoshoots</li>
-          <li>Achieved an SEO site score of 77/100 and drove consistent direct booking growth</li>
+          <li>Achieved an SEO site score of 77/100, increasing organic visibility significantly</li>
+          <li>Managed WordPress (Divi) website updates and landing page conversion optimisation</li>
         </ul>
-        <button class="cs-toggle" onclick="toggleCase('laziz')">View Full Case Study ↓</button>
-        <div class="cs-body" id="laziz">
-          <div class="cs-block">
-            <div class="cs-block-title">The Challenge</div>
-            <p>L'Aziz Suites had a dormant and inconsistent digital presence prior to engagement. The property needed increased brand awareness and booking inquiries in a competitive Nairobi hospitality market, with limited visibility across key digital platforms.</p>
-          </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Strategy & Approach</div>
-            <p>Revived brand visibility across digital platforms, positioning the property clearly for both short-stay and long-stay guests. Used targeted campaigns to support booking inquiries and created consistent, high-quality content to reflect the brand's positioning.</p>
-          </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Execution</div>
-            <ul class="exp-list">
-              <li>Developed and executed digital marketing campaigns across social media and Google Ads</li>
-              <li>Managed social media content planning, posting and community management</li>
-              <li>Coordinated and supported content creation including photoshoots</li>
-              <li>Managed WordPress (Divi) website updates, structure and landing page optimisation</li>
-              <li>Allocated and optimised ad budgets to support bookings and brand awareness</li>
-              <li>Set up analytics and performance reporting systems</li>
-            </ul>
-          </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Results & Impact</div>
-            <ul class="exp-list">
-              <li>Improved brand visibility and consistency across all digital platforms</li>
-              <li>Increased awareness and booking inquiries through targeted digital campaigns</li>
-              <li>Achieved an SEO site score of 77/100</li>
-              <li>Established a clear digital marketing direction for continued growth</li>
-            </ul>
-            <img src="laziz-seo.png.png" alt="L'Aziz Suites SEO Score 77/100" style="margin-top:1.2rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
-          </div>
-        </div>
       </div>
     </div>
 
-    <!-- SMOOVE AFRICA -->
-    <div class="exp-card fade-in">
-      <div class="exp-left">
-        <div class="exp-company">Smoove Africa</div>
-        <div class="exp-industry">Retail & E-commerce</div>
-        <div class="exp-type">Full-time</div>
+    <div class="result-card">
+      <div class="result-left">
+        <div class="result-client">Smoove Africa</div>
+        <div class="result-industry">Retail & E-commerce · Nairobi</div>
+        <div class="result-tag">Full-time Role</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-role">Digital Marketing & Sales Assistant</div>
-        <ul class="exp-list">
-          <li>Planned and executed Google Ads and Meta campaigns to drive product inquiries</li>
-          <li>Managed social media content and brand messaging across platforms</li>
-          <li>Maintained website content and product visibility to improve user experience</li>
-          <li>Tracked campaign performance and produced optimisation reports</li>
+      <div class="result-right">
+        <div class="result-role">Digital Marketing & Sales Assistant</div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-num">+30%</div>
+            <div class="result-metric-label">Online engagement</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-num">+15%</div>
+            <div class="result-metric-label">Monthly enquiries</div>
+          </div>
+        </div>
+        <ul class="result-list">
+          <li>Planned and executed Google Ads and Meta campaigns to drive product enquiries</li>
+          <li>Contributed to approximately 30% growth in online engagement across key channels</li>
+          <li>Supported a 15% increase in monthly enquiries through improved campaign performance</li>
           <li>Worked closely with the sales team to improve lead follow-up and conversion flow</li>
         </ul>
-        <button class="cs-toggle" onclick="toggleCase('smoove')">View Full Case Study ↓</button>
-        <div class="cs-body" id="smoove">
-          <div class="cs-block">
-            <div class="cs-block-title">The Challenge</div>
-            <p>Smoove Africa operated in a competitive retail and e-commerce space with price-sensitive customers. The business needed to increase visibility and trust for buying and selling pre-owned furniture online, while driving consistent inquiries through digital channels and aligning marketing closely with sales outcomes.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From first call to full execution<br/>in under two weeks.</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-step-num">1</div>
+      <div class="process-step-title">Discovery Call</div>
+      <p class="process-step-text">A free 30-minute call to understand your hotel, current challenges, goals and budget. No sales pressure — just honest strategy.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">2</div>
+      <div class="process-step-title">Audit & Strategy</div>
+      <p class="process-step-text">A full review of your digital presence — ads, website, SEO, social. We identify the gaps and build a clear 90-day plan.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">3</div>
+      <div class="process-step-title">Launch & Execute</div>
+      <p class="process-step-text">Campaigns go live, content starts publishing, SEO improvements begin. Everything built around driving direct bookings.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">4</div>
+      <div class="process-step-title">Report & Optimise</div>
+      <p class="process-step-text">Weekly or monthly reports with real numbers. We optimise continuously and keep you informed — no black boxes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-image-box">
+      <div class="about-initials">MS</div>
+    </div>
+    <div>
+      <div class="section-label">About</div>
+      <div class="about-name">Maningi Sylvester</div>
+      <div class="about-title">Hospitality Digital Marketing Specialist · Nairobi, Kenya</div>
+      <p class="about-text">I'm a digital marketing specialist with a focused practice in hospitality — hotels, suites, lodges and service businesses across East Africa. I understand the local market, the booking behaviour, and the challenges of building direct revenue in a market dominated by OTAs.</p>
+      <p class="about-text">I've managed multi-channel digital marketing for hotels including Karen Plains Hotel and L'Aziz Suites, building full marketing infrastructures from the ground up. Every hotel I work with gets the same thing: a clear strategy, honest reporting, and marketing that actually drives bookings.</p>
+      <div class="cert-pills">
+        <span class="cert-pill">Google — Fundamentals of Digital Marketing</span>
+        <span class="cert-pill">Google — YouTube Marketing</span>
+        <span class="cert-pill">Reuters — Digital & Social Media Marketing</span>
+        <span class="cert-pill">atingi — Digital & Social Media Marketing</span>
+        <span class="cert-pill">atingi — Artificial Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUE CALLOUT -->
+<div class="marque-callout">
+  <div class="marque-callout-text">
+    <h3>Also: We built free marketing tools for hotels.</h3>
+    <p>Marque is our free platform for hospitality marketers — generate weekly reports, Google & Meta ad copy, and social captions in seconds. Built from real experience managing hotel marketing.</p>
+  </div>
+  <a href="/marque/" class="btn-navy">Explore Marque →</a>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common questions,<br/>straight answers.</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">How do I know this will work for my hotel?</div>
+      <div class="faq-a">Start with a Digital Audit (KES 18,000). You'll get a full diagnosis of what's working, what isn't, and a clear action plan — before committing to a monthly retainer. It removes the risk.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">We already use Booking.com and Expedia. Do we still need this?</div>
+      <div class="faq-a">Especially then. OTAs take 15–25% per booking. Every direct booking you generate saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long before I see results?</div>
+      <div class="faq-a">Paid ads (Google and Meta) show results within 2–4 weeks once campaigns are optimised. SEO and content take 2–3 months to build momentum. We're transparent about timelines from day one.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you require a long-term contract?</div>
+      <div class="faq-a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. We believe the results should be the reason you stay, not a contract.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does the ad spend cover? Is it included in the package fee?</div>
+      <div class="faq-a">The package fee covers strategy, management and reporting. Ad spend (Google and Meta budget) is paid directly by you to the platforms — we recommend a budget based on your goals and advise you throughout.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you work with hotels outside Nairobi?</div>
+      <div class="faq-a">Yes. Digital marketing works remotely. We work with properties across Kenya and are expanding across East Africa — Uganda, Tanzania, Rwanda. If you have a hotel, we can help.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="section-label">Ready?</div>
+  <h2 class="cta-title">Let's build your hotel's direct booking engine.</h2>
+  <p class="cta-sub">Book a free 30-minute strategy call. No commitment. We'll tell you exactly what we'd do for your property and what it would cost.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'd%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" class="btn-gold">Book on WhatsApp →</a>
+    <a href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry" class="btn-ghost">Send an Email</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get in touch.</h2>
+      <p class="section-sub">Prefer to reach out directly? Use any of the channels below — WhatsApp gets the fastest response.</p>
+      <div class="contact-methods">
+        <a href="https://wa.me/254702256764?text=Hi%20Maningi,%20I'd%20like%20to%20discuss%20hotel%20marketing." target="_blank" class="contact-method">
+          <div class="contact-method-icon">💬</div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">WhatsApp (fastest)</div>
+            <div class="contact-method-value">+254 702 256 764</div>
           </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Strategy & Approach</div>
-            <p>Built consistent brand visibility across key digital touchpoints, used targeted campaigns to drive product interest and inquiries, and strengthened trust through clear messaging and product presentation. Marketing activities were closely aligned with sales to improve lead quality and conversion flow.</p>
+        </a>
+        <a href="mailto:maningisylvester@gmail.com" class="contact-method">
+          <div class="contact-method-icon">📧</div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Email</div>
+            <div class="contact-method-value">maningisylvester@gmail.com</div>
           </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Execution</div>
-            <ul class="exp-list">
-              <li>Planned and executed Google Ads and Meta Ads campaigns to drive inquiries and product interest</li>
-              <li>Managed social media platforms with consistent content and brand messaging</li>
-              <li>Managed website content updates and product visibility to improve user experience</li>
-              <li>Tracked performance and produced optimisation reports</li>
-              <li>Worked closely with the sales team to support lead follow-up and improve conversion flow</li>
-            </ul>
+        </a>
+        <a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" class="contact-method">
+          <div class="contact-method-icon">🔗</div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">LinkedIn</div>
+            <div class="contact-method-value">maningisylvesterdigitalmarketer</div>
           </div>
-          <div class="cs-block">
-            <div class="cs-block-title">Results & Impact</div>
-            <ul class="exp-list">
-              <li>Increased digital engagement and visibility across key channels</li>
-              <li>Contributed to approximately 30% growth in online engagement</li>
-              <li>Supported a 15% increase in monthly inquiries through improved campaign performance</li>
-              <li>Improved consistency and structure across all digital marketing activities</li>
-            </ul>
-            <img src="smoove-ads.png.png" alt="Smoove Africa Google Ads Performance" style="margin-top:1.2rem; width:100%; border-radius:4px; border:1px solid #c8d9ee;" />
+        </a>
+        <div class="contact-method" style="cursor:default;">
+          <div class="contact-method-icon">📍</div>
+          <div class="contact-method-text">
+            <div class="contact-method-label">Location</div>
+            <div class="contact-method-value">Nairobi, Kenya</div>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
-</section>
-
-<section class="skills-section" id="skills">
-  <div class="section-header fade-in">
-    <div class="section-label">Expertise</div>
-    <h2 class="section-title">Core Skills</h2>
-    <p class="section-subtitle">Tools and capabilities I use to deliver measurable growth.</p>
-  </div>
-  <div class="skills-grid fade-in">
-    <div class="skill-item"><div class="skill-icon">📊</div><h4>Paid Media</h4><p>Google Ads, Meta Ads, campaign structure, budget optimisation, A/B testing</p></div>
-    <div class="skill-item"><div class="skill-icon">🔍</div><h4>SEO</h4><p>On-page optimisation, keyword strategy, content planning, Google Search Console</p></div>
-    <div class="skill-item"><div class="skill-icon">📈</div><h4>Analytics</h4><p>Google Analytics, Google Tag Manager, funnel analysis, performance reporting</p></div>
-    <div class="skill-item"><div class="skill-icon">📱</div><h4>Social Media</h4><p>Meta Business Suite, Instagram Reels, TikTok, content planning, community management</p></div>
-    <div class="skill-item"><div class="skill-icon">✉️</div><h4>Email Marketing</h4><p>Audience segmentation, campaign automation, open rate and CTR optimisation</p></div>
-    <div class="skill-item"><div class="skill-icon">🌐</div><h4>Website & CMS</h4><p>WordPress (Divi), Shopify, on-page SEO, CRO, landing page management</p></div>
-  </div>
-</section>
-
-<section class="certifications" id="certifications">
-  <div class="section-header fade-in">
-    <div class="section-label">Credentials</div>
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-subtitle">Verified training from leading global institutions.</p>
-  </div>
-  <div class="cert-grid fade-in">
-    <div class="cert-badge"><div class="cert-dot"></div>Google — Fundamentals of Digital Marketing</div>
-    <div class="cert-badge"><div class="cert-dot"></div>Google — YouTube Marketing</div>
-    <div class="cert-badge"><div class="cert-dot"></div>Reuters — Digital & Social Media Marketing</div>
-    <div class="cert-badge"><div class="cert-dot"></div>Reuters — Introduction to Digital Journalism</div>
-    <div class="cert-badge"><div class="cert-dot"></div>atingi — Digital & Social Media Marketing</div>
-    <div class="cert-badge"><div class="cert-dot"></div>atingi — How to Get Involved in Artificial Intelligence</div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="contact-inner">
     <div>
-      <div class="section-label fade-in">Let's Talk</div>
-      <h2 class="section-title fade-in">Get In Touch</h2>
-      <p class="section-subtitle fade-in">Open to performance marketing roles, consulting opportunities, and growth collaborations.</p>
-      <div class="contact-info fade-in">
-        <div class="contact-item"><div class="contact-icon">📧</div><a id="email-link">maningisylvester&#64;gmail&#46;com</a></div>
-        <div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+254702256764" style="color:var(--mid-blue);text-decoration:none;">+254 702 256 764</a></div>
-        <div class="contact-item"><div class="contact-icon">🔗</div><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn Profile</a></div>
-        <div class="contact-item"><div class="contact-icon">📍</div><span>Nairobi, Kenya</span></div>
-      </div>
-    </div>
-    <div>
-      <div class="contact-form fade-in">
-        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" /></div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-        <a id="send-btn" class="btn-primary" style="text-align:center;">Send Message</a>
-      </div>
+      <div class="section-label" style="margin-top:0;">Send a Message</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem;">Tell me about your hotel.</h3>
+      <p style="font-size:0.83rem;color:var(--text-2);margin-bottom:0;">I respond within 24 hours on weekdays.</p>
+      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name" required/></div>
+          <div class="form-group"><label>Hotel / Property</label><input type="text" placeholder="Hotel name" required/></div>
+        </div>
+        <div class="form-group"><label>Email or WhatsApp</label><input type="text" placeholder="Email or +254..." required/></div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select>
+            <option>A free strategy call</option>
+            <option>The Visibility Package (KES 28,000/mo)</option>
+            <option>The Bookings Package (KES 58,000/mo)</option>
+            <option>The Full Service Package (KES 98,000/mo)</option>
+            <option>A Digital Marketing Audit (KES 18,000)</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tell me about your property</label><textarea placeholder="Location, current challenges, what you're hoping to achieve..."></textarea></div>
+        <button type="submit" class="btn-submit">Send Message →</button>
+      </form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div>© 2026 Maningi Sylvester. All rights reserved.</div>
-  <div>Built for growth. <span>Nairobi, Kenya.</span></div>
+  <div class="footer-brand">
+    <a href="/" class="footer-logo">Maningi<span>.</span></a>
+    <p class="footer-tagline">Hospitality digital marketing specialist based in Nairobi. Building direct booking engines for hotels across East Africa.</p>
+  </div>
+  <div>
+    <div class="footer-col-title">Services</div>
+    <ul class="footer-links">
+      <li><a href="#services">Visibility Package</a></li>
+      <li><a href="#services">Bookings Package</a></li>
+      <li><a href="#services">Full Service Package</a></li>
+      <li><a href="#services">Digital Audit</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Work</div>
+    <ul class="footer-links">
+      <li><a href="#results">Karen Plains Hotel</a></li>
+      <li><a href="#results">L'Aziz Suites</a></li>
+      <li><a href="#results">Smoove Africa</a></li>
+      <li><a href="/marque/">Marque Platform</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Connect</div>
+    <ul class="footer-links">
+      <li><a href="https://wa.me/254702256764" target="_blank">WhatsApp</a></li>
+      <li><a href="mailto:maningisylvester@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn</a></li>
+      <li><a href="/marque/">Free Tools — Marque</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Maningi Sylvester. All rights reserved. Nairobi, Kenya.</span>
+    <span>Built for growth.</span>
+  </div>
 </footer>
+
 <script>
-  function toggleCase(id) {
-    var body = document.getElementById(id);
-    var btn = body.previousElementSibling;
-    body.classList.toggle('open');
-    btn.classList.toggle('open');
-    btn.textContent = body.classList.contains('open') ? 'Close Case Study ↑' : 'View Full Case Study ↓';
-  }
-  var u='maningisylvester';var d='gmail.com';
-  var el=document.getElementById('email-link');
-  el.href='mailto:'+u+'@'+d;
-  var btn=document.getElementById('send-btn');
-  btn.href='mailto:'+u+'@'+d;
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var name = form.querySelector('input[placeholder="Your name"]').value;
+  var hotel = form.querySelector('input[placeholder="Hotel name"]').value;
+  var contact = form.querySelector('input[placeholder="Email or +254..."]').value;
+  var service = form.querySelector('select').value;
+  var message = form.querySelector('textarea').value;
+  var text = 'Hi Maningi, I\'m ' + name + ' from ' + hotel + '. I\'m interested in: ' + service + '. ' + (message ? 'Details: ' + message : '') + ' Contact: ' + contact;
+  window.open('https://wa.me/254702256764?text=' + encodeURIComponent(text), '_blank');
+}
 </script>
 
-
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+</body>
+</html>
