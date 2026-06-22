@@ -202,6 +202,21 @@ section{padding:6rem 5%;}
 .audit-bar-text p{font-size:0.83rem;color:rgba(254,252,248,0.45);line-height:1.6;}
 .audit-price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold);white-space:nowrap;}
 
+/* ── CLIENTS / TRUSTED BY ── */
+.clients-band{background:var(--bg-alt);padding:4rem 5%;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.clients-band-label{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:2.5rem;}
+.clients-logos{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto;}
+.client-tile{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.9rem;
+  background:var(--white);border:1px solid var(--border);border-radius:8px;
+  padding:1.8rem 2rem;min-width:180px;flex:1;max-width:240px;
+  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+}
+.client-tile:hover{border-color:var(--caramel);transform:translateY(-3px);box-shadow:0 10px 30px rgba(74,44,26,0.08);}
+.client-tile img{max-height:64px;max-width:150px;width:auto;height:auto;object-fit:contain;}
+.client-tile-name{font-size:0.78rem;font-weight:600;color:var(--text-2);letter-spacing:0.02em;}
+.client-tile-loc{font-size:0.66rem;color:var(--text-3);margin-top:-0.4rem;}
+
 /* ── RESULTS ── */
 .results-section{background:var(--navy);}
 .results-section .section-label{color:var(--gold);}
@@ -623,6 +638,28 @@ footer{
         <div style="font-size:0.7rem;color:rgba(254,252,248,0.3);margin-top:0.2rem;">One-time · No commitment</div>
       </div>
       <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" class="btn-gold" style="flex-shrink:0;">Book an Audit →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS / TRUSTED BY -->
+<section class="clients-band">
+  <div class="clients-band-label">Trusted by leading properties &amp; brands</div>
+  <div class="clients-logos">
+    <div class="client-tile">
+      <img src="assets/logos/karen-plains.png" alt="Karen Plains Hotel" onerror="this.style.display='none'"/>
+      <div class="client-tile-name">Karen Plains Hotel</div>
+      <div class="client-tile-loc">Karen, Nairobi</div>
+    </div>
+    <div class="client-tile">
+      <img src="assets/logos/laziz-suites.png" alt="L'Aziz Suites" onerror="this.style.display='none'"/>
+      <div class="client-tile-name">L'Aziz Suites</div>
+      <div class="client-tile-loc">Parklands, Nairobi</div>
+    </div>
+    <div class="client-tile">
+      <img src="assets/logos/smoove.png" alt="Smoove Africa" onerror="this.style.display='none'"/>
+      <div class="client-tile-name">Smoove Africa</div>
+      <div class="client-tile-loc">Nairobi</div>
     </div>
   </div>
 </section>
