@@ -57,33 +57,33 @@ nav{
   display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
   padding:9rem 5% 6rem;position:relative;overflow:hidden;
 }
-.hero::before{
-  content:'';position:absolute;top:-20%;right:-10%;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(196,100,58,0.08) 0%,transparent 65%);
-  pointer-events:none;
-}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(74,44,26,0.4);}
+.hero-tag,.hero-h1,.hero-sub,.hero-actions,.hero-proof{position:relative;z-index:2;}
 .hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;z-index:2;
   background:linear-gradient(to right,transparent,rgba(196,100,58,0.3),transparent);
 }
 .hero-tag{
   display:inline-flex;align-items:center;gap:0.5rem;
   font-size:0.67rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);border:1px solid rgba(196,100,58,0.3);
+  color:#F5F0E8;border:1px solid rgba(245,240,232,0.45);
   padding:0.4rem 1.1rem;border-radius:2rem;margin-bottom:2.5rem;
 }
 .hero-tag::before{content:'✦';font-size:0.6rem;}
 .hero-h1{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(3rem,7vw,5.8rem);font-weight:600;
-  color:#FEFCF8;line-height:1.08;letter-spacing:-0.01em;
-  margin-bottom:1.8rem;max-width:780px;
+  color:#F5F0E8;line-height:1.08;letter-spacing:-0.01em;
+  margin-bottom:1.8rem;max-width:700px;
+  text-shadow:0 2px 24px rgba(74,44,26,0.35);
 }
-.hero-h1 em{color:var(--gold);font-style:italic;}
+.hero-h1 em{color:#F5F0E8;font-style:italic;}
 .hero-sub{
-  font-size:1.05rem;color:rgba(254,252,248,0.5);line-height:1.85;
-  max-width:540px;margin-bottom:3rem;font-weight:400;
+  font-size:1.05rem;color:rgba(245,240,232,0.92);line-height:1.85;
+  max-width:520px;margin-bottom:3rem;font-weight:400;
+  text-shadow:0 1px 12px rgba(74,44,26,0.35);
 }
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;}
 .btn-gold{
@@ -94,22 +94,22 @@ nav{
 }
 .btn-gold:hover{background:var(--gold-lt);border-color:var(--gold-lt);}
 .btn-ghost{
-  padding:0.95rem 2.2rem;background:transparent;color:rgba(254,252,248,0.7);
+  padding:0.95rem 2.2rem;background:transparent;color:#F5F0E8;
   font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  border-radius:2px;text-decoration:none;border:2px solid rgba(254,252,248,0.2);
+  border-radius:2px;text-decoration:none;border:2px solid rgba(245,240,232,0.45);
   transition:all 0.2s;display:inline-block;
 }
-.btn-ghost:hover{border-color:rgba(254,252,248,0.5);color:#FEFCF8;}
+.btn-ghost:hover{border-color:rgba(245,240,232,0.85);color:#F5F0E8;}
 .hero-proof{
   display:flex;gap:2.5rem;flex-wrap:wrap;
-  padding-top:2.5rem;border-top:1px solid rgba(254,252,248,0.08);
+  padding-top:2.5rem;border-top:1px solid rgba(245,240,232,0.25);
 }
 .proof-item{display:flex;flex-direction:column;gap:0.2rem;}
 .proof-num{
   font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;
-  color:var(--gold);line-height:1;
+  color:#F5F0E8;line-height:1;
 }
-.proof-label{font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(254,252,248,0.35);}
+.proof-label{font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(245,240,232,0.7);}
 
 /* ── SECTIONS ── */
 section{padding:6rem 5%;}
@@ -406,6 +406,11 @@ footer{
   .nav-links{display:none;}
   .problem-grid,.about-grid,.contact-grid,.faq-grid,.result-card{grid-template-columns:1fr;}
   .hero-h1{font-size:2.8rem;}
+  /* On tall/narrow screens the square hero image crops at the sides:
+     shift the visible window right so the subject stays at the edge,
+     and deepen the overlay since text spans the full width. */
+  .hero-bg img{object-position:62% center;}
+  .hero-overlay{background:rgba(74,44,26,0.52);}
   footer{grid-template-columns:1fr;}
 }
 </style>
@@ -440,6 +445,11 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
+  <picture class="hero-bg">
+    <source srcset="assets/hero-bg.webp" type="image/webp"/>
+    <img src="assets/hero-bg.jpg" alt="Boutique hotel terrace at golden hour, Zevara Digital hospitality and travel marketing" fetchpriority="high" decoding="async"/>
+  </picture>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-tag">Hospitality & Travel Marketing Agency · Nairobi, Kenya</div>
   <h1 class="hero-h1">We get hotels<br/><em>more direct bookings.</em></h1>
   <p class="hero-sub">Full-service digital marketing for hotels, suites and lodges across East Africa. Google Ads, Meta campaigns, SEO, social media and content — all under one agency.</p>
