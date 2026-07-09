@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Weekly Report Generator — Maningi Sylvester</title>
+<title>Weekly Report Generator | Maningi Sylvester</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -458,7 +458,7 @@ textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
   line-height: 1.6;
 }
 .bullet-list li::before {
-  content: '—';
+  content: '–';
   position: absolute;
   left: 0;
   color: var(--mid-blue);
@@ -863,7 +863,7 @@ textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
 
   <!-- PREVIEW PANEL -->
   <div class="preview-panel">
-    <div class="preview-label">Live Report Preview — updates as you type</div>
+    <div class="preview-label">Live Report Preview · updates as you type</div>
     <div id="report-output">
       <div class="empty-state">
         <div class="empty-state-icon">📄</div>
@@ -918,13 +918,13 @@ function isChecked(id) {
 }
 
 function fmtNum(n, decimals) {
-  if (n === null || n === undefined || n === '') return '—';
+  if (n === null || n === undefined || n === '') return '–';
   decimals = decimals || 0;
   return parseFloat(n).toLocaleString('en-KE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 }
 
 function fmtCurrency(n) {
-  if (n === null || n === undefined || n === '') return '—';
+  if (n === null || n === undefined || n === '') return '–';
   var cur = val('currency') || 'KES';
   var symbols = { KES: 'Ksh ', USD: '$', GBP: '£', EUR: '€' };
   var sym = symbols[cur] || cur + ' ';
@@ -932,7 +932,7 @@ function fmtCurrency(n) {
 }
 
 function fmtPct(n) {
-  if (n === null || n === undefined || n === '') return '—';
+  if (n === null || n === undefined || n === '') return '–';
   return parseFloat(n).toFixed(2) + '%';
 }
 
@@ -1071,8 +1071,8 @@ function generateReport() {
     html += metricCell(fmtNum(numVal('seo-sessions')), 'Organic Sessions', '');
     html += metricCell(fmtNum(numVal('seo-clicks')), 'GSC Clicks', '');
     html += metricCell(fmtNum(numVal('seo-impressions')), 'GSC Impressions', '');
-    html += metricCell(numVal('seo-position') ? '#' + fmtNum(numVal('seo-position'), 1) : '—', 'Avg. Position', '');
-    html += metricCell(numVal('seo-score') ? numVal('seo-score') + '/100' : '—', 'Site Score', '');
+    html += metricCell(numVal('seo-position') ? '#' + fmtNum(numVal('seo-position'), 1) : '–', 'Avg. Position', '');
+    html += metricCell(numVal('seo-score') ? numVal('seo-score') + '/100' : '–', 'Site Score', '');
     html += metricCell(fmtNum(numVal('seo-pages')), 'Pages Indexed', '');
     html += '</div>';
     var seoKw = val('seo-keywords');
@@ -1089,7 +1089,7 @@ function generateReport() {
     html += '<div class="channel-report-header"><span class="channel-report-icon">📱</span><span class="channel-report-name">' + escHtml(platform) + '</span></div>';
     html += '<div class="metrics-grid">';
     html += metricCell(fmtNum(numVal('soc-followers')), 'Total Followers', '');
-    html += metricCell(numVal('soc-new-followers') ? '+' + fmtNum(numVal('soc-new-followers')) : '—', 'New Followers', 'this week');
+    html += metricCell(numVal('soc-new-followers') ? '+' + fmtNum(numVal('soc-new-followers')) : '–', 'New Followers', 'this week');
     html += metricCell(fmtNum(numVal('soc-posts')), 'Posts Published', '');
     html += metricCell(fmtNum(numVal('soc-reach')), 'Total Reach', '');
     html += metricCell(fmtPct(numVal('soc-engagement')), 'Engagement Rate', '');
@@ -1105,7 +1105,7 @@ function generateReport() {
   /* ── EMAIL MARKETING ── */
   if (isChecked('ch-email')) {
     html += '<div class="channel-report-section">';
-    html += '<div class="channel-report-header"><span class="channel-report-icon">✉️</span><span class="channel-report-name">Email Marketing' + (val('em-campaign') ? ' — ' + escHtml(val('em-campaign')) : '') + '</span></div>';
+    html += '<div class="channel-report-header"><span class="channel-report-icon">✉️</span><span class="channel-report-name">Email Marketing' + (val('em-campaign') ? ': ' + escHtml(val('em-campaign')) : '') + '</span></div>';
     html += '<div class="metrics-grid">';
     html += metricCell(fmtNum(numVal('em-sent')), 'Emails Sent', '');
     html += metricCell(fmtPct(numVal('em-open')), 'Open Rate', '');
@@ -1139,7 +1139,7 @@ function generateReport() {
 
   /* ── FOOTER ── */
   html += '<div class="report-footer">';
-  html += '<div>Prepared by <strong>Maningi Sylvester</strong> — Digital Marketing & Growth Specialist</div>';
+  html += '<div>Prepared by <strong>Maningi Sylvester</strong>, Digital Marketing & Growth Specialist</div>';
   html += '<div>Nairobi, Kenya &nbsp;·&nbsp; maningisylvester&#64;gmail.com</div>';
   html += '</div>';
 

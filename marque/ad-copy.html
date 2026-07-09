@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ad Copy Generator — Marque</title>
+<title>Ad Copy Generator | Marque</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -435,7 +435,7 @@ textarea { resize: vertical; min-height: 60px; line-height: 1.5; }
 
   <!-- OUTPUT PANEL -->
   <div class="output-panel">
-    <div class="output-label">Generated Ad Copy — updates automatically</div>
+    <div class="output-label">Generated Ad Copy · updates automatically</div>
     <div id="ad-output">
       <div class="empty-state">
         <div class="empty-icon">✍️</div>
@@ -534,7 +534,7 @@ function buildGoogleAds(name, location, domain, offer, audience, goal, usps) {
       trunc('Book ' + name + ' Direct', 30),
       'Best Rate Guaranteed',
       'Reserve Your Room Today',
-      'Book Now — Limited Rooms',
+      'Book Now: Limited Rooms',
       trunc(location + ' Hotel', 30),
     ],
     leisure: ['Your Perfect Getaway', trunc('Escape to ' + location, 30), 'Weekend Escape Awaits', 'Relax & Recharge'],
@@ -542,8 +542,8 @@ function buildGoogleAds(name, location, domain, offer, audience, goal, usps) {
     couples: [trunc('Romantic ' + location + ' Stay', 30), 'Romance & Comfort Await', 'Perfect Couple Retreat'],
     families: ['Family-Friendly Hotel', 'Fun for the Whole Family', trunc('Kids Welcome in ' + location, 30)],
     all: ['Comfort for Every Guest', trunc('Stay at ' + location, 30), 'All Guests Welcome'],
-    bookings: ['Book Direct & Save', 'Book Now — Best Rate', 'Direct Booking Benefits'],
-    awareness: [trunc('Discover ' + name, 30), trunc(name + ' — ' + location, 30), 'Experience True Comfort'],
+    bookings: ['Book Direct & Save', 'Book Now: Best Rate', 'Direct Booking Benefits'],
+    awareness: [trunc('Discover ' + name, 30), trunc(name + ', ' + location, 30), 'Experience True Comfort'],
     leads: ['Enquire for Availability', 'Contact Us for Rates', 'Group & Event Bookings'],
     usp: {
       'Swimming Pool': ['Pool & Relaxation', 'Swim. Stay. Unwind.'],
@@ -578,7 +578,7 @@ function buildGoogleAds(name, location, domain, offer, audience, goal, usps) {
   var descPool = {
     bookings: [
       'Stay at ' + trunc(name, 20) + ' in ' + trunc(location, 15) + '. ' + (offer ? offer + '. ' : '') + (usp1 ? usp1 + '. ' : '') + 'Book direct for the best rate.',
-      trunc(name, 22) + ' — your home in ' + trunc(location, 14) + '. ' + (usp1 || 'Exceptional comfort') + '. Reserve your room today.',
+      trunc(name, 22) + ', your home in ' + trunc(location, 14) + '. ' + (usp1 || 'Exceptional comfort') + '. Reserve your room today.',
     ],
     awareness: [
       'Discover ' + trunc(name, 20) + ', ' + trunc(location, 15) + '\'s premier hotel destination. ' + (usp1 || 'Exceptional service guaranteed') + '.',
@@ -586,7 +586,7 @@ function buildGoogleAds(name, location, domain, offer, audience, goal, usps) {
     ],
     leads: [
       'Planning a trip to ' + trunc(location, 16) + '? ' + trunc(name, 18) + ' has everything you need. Enquire for availability & rates.',
-      trunc(name, 22) + ' — ' + trunc(location, 14) + '. Group bookings, events & long stays. Contact us for packages.',
+      trunc(name, 22) + ', ' + trunc(location, 14) + '. Group bookings, events & long stays. Contact us for packages.',
     ]
   };
 
@@ -609,40 +609,40 @@ function buildMetaAds(name, location, offer, audience, goal, usps) {
   var primary = {
     bookings: {
       leisure: [
-        '📍 ' + location + '\n\nYour next escape is waiting. ' + name + ' in ' + location + ' is everything you need — and more.\n' + (usp1 ? '✓ ' + usp1 + '\n' : '') + (usp2 ? '✓ ' + usp2 + '\n' : '') + offerLine + '\n\nBook direct and get the best rate. Link below 👇',
+        '📍 ' + location + '\n\nYour next escape is waiting. ' + name + ' in ' + location + ' is everything you need, and more.\n' + (usp1 ? '✓ ' + usp1 + '\n' : '') + (usp2 ? '✓ ' + usp2 + '\n' : '') + offerLine + '\n\nBook direct and get the best rate. Link below 👇',
         'Ready for a break? 🌿\n\n' + name + ' in ' + location + ' offers the kind of comfort that makes you never want to leave.' + offerLine + '\n\n' + (usp1 ? usp1 + ' included. ' : '') + 'Book via the link in bio.',
-        'Not all stays are created equal. 🏨\n\nAt ' + name + ', ' + location + ', every detail is designed for your comfort.' + (usp1 ? ' From ' + usp1.toLowerCase() + ' to' : ' From') + ' attentive service — we deliver it all.' + offerLine + '\n\nBook now. Link below.',
+        'Not all stays are created equal. 🏨\n\nAt ' + name + ', ' + location + ', every detail is designed for your comfort.' + (usp1 ? ' From ' + usp1.toLowerCase() + ' to' : ' From') + ' attentive service, we deliver it all.' + offerLine + '\n\nBook now. Link below.',
       ],
       business: [
-        '💼 Business travel, done right.\n\n' + name + ' in ' + location + ' has everything modern travellers need — fast connectivity, comfortable rooms, and ' + (usp1 || 'exceptional service') + '.' + offerLine + '\n\nBook your stay. Link below 👇',
+        '💼 Business travel, done right.\n\n' + name + ' in ' + location + ' has everything modern travellers need: fast connectivity, comfortable rooms, and ' + (usp1 || 'exceptional service') + '.' + offerLine + '\n\nBook your stay. Link below 👇',
         'Work trips shouldn\'t feel like a compromise. 🏨\n\n' + name + ' is designed for business travellers in ' + location + '.' + (usp1 ? ' ' + usp1 + ' included.' : '') + offerLine + '\n\nBook direct for the best rate.',
         '📍 ' + location + ' | ' + name + '\n\nFor business travellers who expect more. ' + (usp1 || 'Premium rooms') + ', fast WiFi, and a location that works for you.' + offerLine + '\n\nEnquire or book now. Link in bio.',
       ],
       couples: [
         '❤️ Because some moments deserve the perfect setting.\n\n' + name + ' in ' + location + ' is the escape you\'ve been planning.' + (usp1 ? ' Featuring ' + usp1.toLowerCase() + '.' : '') + offerLine + '\n\nBook your romantic stay. Link below 👇',
-        'Plan the perfect getaway. 🌹\n\n' + name + ', ' + location + ' — where romance meets exceptional hospitality.' + (usp1 ? ' Enjoy ' + usp1.toLowerCase() + ' and more.' : '') + offerLine + '\n\nLink in bio to book.',
+        'Plan the perfect getaway. 🌹\n\n' + name + ', ' + location + ', where romance meets exceptional hospitality.' + (usp1 ? ' Enjoy ' + usp1.toLowerCase() + ' and more.' : '') + offerLine + '\n\nLink in bio to book.',
         'Some places just feel like home. 🕯️\n\n' + name + ' in ' + location + ' was made for moments like these.' + offerLine + '\n\n' + (usp1 ? usp1 + ' available. ' : '') + 'Book your stay now.',
       ],
       families: [
-        '👨‍👩‍👧 Family trips made easy.\n\n' + name + ' in ' + location + ' has everything your family needs — space, comfort, and ' + (usp1 || 'great amenities') + '.' + offerLine + '\n\nBook your family stay. Link below 👇',
+        '👨‍👩‍👧 Family trips made easy.\n\n' + name + ' in ' + location + ' has everything your family needs: space, comfort, and ' + (usp1 || 'great amenities') + '.' + offerLine + '\n\nBook your family stay. Link below 👇',
         'Make memories that last. 🏨\n\n' + name + ' is the perfect family base in ' + location + '.' + (usp1 ? ' ' + usp1 + ' for everyone to enjoy.' : '') + offerLine + '\n\nBook via the link in bio.',
         'Great stays for the whole family. 🌟\n\n' + name + ', ' + location + '. ' + (usp1 ? usp1 + '. ' : '') + (usp2 ? usp2 + '. ' : '') + 'Come as a family, leave as memories.' + offerLine + '\n\nBook now.',
       ],
     },
     awareness: [
       '✨ Meet ' + name + '.\n\nNestled in ' + location + ', we\'re redefining what a great stay looks like.' + (usp1 ? ' From ' + usp1.toLowerCase() + ' to ' + (usp2 || 'warm hospitality') + '.' : '') + '\n\nCome see what we\'re about. 👇',
-      '🏨 There\'s a hotel in ' + location + ' that does things differently.\n\n' + name + ' — where every guest is treated like the only guest.' + (usp1 ? ' Featuring ' + usp1.toLowerCase() + '.' : '') + '\n\nDiscover us. Link in bio.',
+      '🏨 There\'s a hotel in ' + location + ' that does things differently.\n\n' + name + ', where every guest is treated like the only guest.' + (usp1 ? ' Featuring ' + usp1.toLowerCase() + '.' : '') + '\n\nDiscover us. Link in bio.',
       '📍 ' + location + ' has a new favourite stay.\n\n' + name + ' is open and ready to welcome you.' + (usp1 ? ' ' + usp1 + ' on-site.' : '') + ' Experience hospitality the way it should be.\n\nLink in bio.',
     ],
     leads: [
-      '📩 Planning a trip to ' + location + '?\n\n' + name + ' is ready to welcome you. Whether it\'s a weekend break, a business trip, or a long stay — we have the perfect package.' + offerLine + '\n\nSend us a message and we\'ll sort everything. 🙌',
+      '📩 Planning a trip to ' + location + '?\n\n' + name + ' is ready to welcome you. Whether it\'s a weekend break, a business trip, or a long stay, we have the perfect package.' + offerLine + '\n\nSend us a message and we\'ll sort everything. 🙌',
       '🏨 Looking for a hotel in ' + location + '?\n\n' + name + ' offers ' + (usp1 || 'exceptional comfort') + (usp2 ? ', ' + usp2.toLowerCase() : '') + ', and a team that goes the extra mile.' + offerLine + '\n\nDM us for availability and rates.',
       'Groups, events, or corporate stays? 💼\n\n' + name + ' in ' + location + ' handles it all. Tell us what you need and we\'ll handle the rest.' + offerLine + '\n\nMessage us today. 📩',
     ]
   };
 
   var headlines = {
-    bookings: [name + ' — Book Direct', 'Reserve Your Room Today', 'Best Rate. Book Direct.', 'Your Stay Awaits'],
+    bookings: [name + ': Book Direct', 'Reserve Your Room Today', 'Best Rate. Book Direct.', 'Your Stay Awaits'],
     awareness: ['Discover ' + name, name + ' | ' + location, 'Experience ' + name, location + '\'s Finest Hotel'],
     leads: ['Enquire Now', 'Plan Your Stay Today', 'Get in Touch', 'We\'d Love to Host You'],
   };
@@ -668,7 +668,7 @@ function renderGoogleAd(ad, idx, hotelName) {
 
   return '<div class="ad-card">' +
     '<div class="ad-card-header">' +
-    '<span class="ad-card-label">Google Ads — Variation ' + (idx+1) + '</span>' +
+    '<span class="ad-card-label">Google Ads · Variation ' + (idx+1) + '</span>' +
     '<button class="copy-btn" onclick="copyText(' + JSON.stringify(fullCopy) + ', this)">Copy Ad</button>' +
     '</div>' +
     '<div class="google-preview">' +
@@ -696,7 +696,7 @@ function renderMetaAd(ad, idx, hotelName) {
 
   return '<div class="ad-card">' +
     '<div class="ad-card-header">' +
-    '<span class="ad-card-label">Meta Ad — Variation ' + (idx+1) + '</span>' +
+    '<span class="ad-card-label">Meta Ad · Variation ' + (idx+1) + '</span>' +
     '<button class="copy-btn" onclick="copyText(' + JSON.stringify(fullCopy) + ', this)">Copy Ad</button>' +
     '</div>' +
     '<div class="meta-preview">' +

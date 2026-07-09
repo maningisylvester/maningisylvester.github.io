@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Social Caption Generator — Marque</title>
+<title>Social Caption Generator | Marque</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -305,7 +305,7 @@ textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
 
   <!-- OUTPUT -->
   <div class="output-panel">
-    <div class="output-label">3 Caption Variations — updates automatically</div>
+    <div class="output-label">3 Caption Variations · updates automatically</div>
     <div id="caption-output">
       <div class="empty-state">
         <div class="empty-icon">📱</div>
@@ -372,9 +372,9 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
   var templates = {
     room: {
       luxury: [
-        '✨ Some rooms don\'t just offer comfort — they offer an experience.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.\n\nEvery detail crafted for your rest.' + offerLine + '\n\nBook your stay. ' + cta,
+        '✨ Some rooms don\'t just offer comfort, they offer an experience.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.\n\nEvery detail crafted for your rest.' + offerLine + '\n\nBook your stay. ' + cta,
         'This is what you deserve. 🏨\n\n' + d + '. At ' + (name || 'our hotel') + ', we believe every stay should feel extraordinary.' + offerLine + '\n\nReserve now. ' + cta,
-        'Comfort, elegance, and ' + loc.trim() + ' — all in one stay. 🌿\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBook direct. ' + cta,
+        'Comfort, elegance, and ' + loc.trim() + ', all in one stay. 🌿\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\nBook direct. ' + cta,
       ],
       friendly: [
         'This could be your room tonight! 😍\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nCheck availability via ' + cta,
@@ -389,7 +389,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       professional: [
         (name || 'Our property') + ' presents ' + d + loc + '.\n\nDesigned for comfort and crafted with care. Available to book via ' + cta,
         'Introducing ' + d + ' at ' + (name || 'our hotel') + loc + '.\n\nFor reservations and availability, visit ' + cta,
-        (name || 'Our hotel') + loc + ' — ' + d + '.\n\nContact us to book your stay. ' + cta,
+        (name || 'Our hotel') + loc + ': ' + d + '.\n\nContact us to book your stay. ' + cta,
       ]
     },
     dining: {
@@ -411,7 +411,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       professional: [
         (name || 'Our hotel') + ' is pleased to present ' + d + loc + '.\n\nFor dining reservations, please visit ' + cta,
         'Our restaurant is now serving ' + d + '.\n\nReservations available at ' + (name || 'our hotel') + loc + '. ' + cta,
-        d + ' — available at ' + (name || 'our hotel') + loc + '.\n\nBook your table via ' + cta,
+        d + ', available at ' + (name || 'our hotel') + loc + '.\n\nBook your table via ' + cta,
       ]
     },
     offer: {
@@ -421,7 +421,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
         'A rare opportunity to experience ' + (name || 'our hotel') + loc + ' at its finest.\n\n' + (offer || d) + '.' + '\n\nBook now. ' + cta,
       ],
       friendly: [
-        'Great news — ' + (offer || d) + ' at ' + (name || 'our hotel') + '! 🎉\n\nDon\'t miss this one. Grab it before it\'s gone! ' + cta,
+        'Great news: ' + (offer || d) + ' at ' + (name || 'our hotel') + '! 🎉\n\nDon\'t miss this one. Grab it before it\'s gone! ' + cta,
         'We\'re in a generous mood. 😊\n\n' + (offer || d) + ' at ' + (name || 'our hotel') + loc + '.\n\nBook via ' + cta,
         'Treat yourself (you deserve it). 🎁\n\n' + (offer || d) + '.\n\nAvailable at ' + (name || 'our hotel') + '. ' + cta,
       ],
@@ -455,14 +455,14 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       professional: [
         (name || 'Our hotel') + ' is hosting ' + d + loc + '.' + offerLine + '\n\nFor bookings and further details: ' + cta,
         'Join us for ' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nRSVP via ' + cta,
-        d + ' — ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nContact us to reserve your place. ' + cta,
+        d + ', ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nContact us to reserve your place. ' + cta,
       ]
     },
     attraction: {
       luxury: [
         '📍 Just moments from ' + d + '.\n\nStay at ' + (name || 'our hotel') + loc + ' and experience the best of ' + (location || 'the city') + '.' + offerLine + '\n\n' + cta,
         'The perfect base for exploring ' + (location || 'the city') + '. 🗺️\n\n' + (name || 'Our hotel') + ' is located right next to ' + d + '.' + offerLine + '\n\nBook your stay: ' + cta,
-        'Discover ' + d + ' — and come home to ' + (name || 'our hotel') + loc + '. 🌿' + offerLine + '\n\nBook via ' + cta,
+        'Discover ' + d + ', and come home to ' + (name || 'our hotel') + loc + '. 🌿' + offerLine + '\n\nBook via ' + cta,
       ],
       friendly: [
         'Did you know we\'re right next to ' + d + '? 📍\n\nStay at ' + (name || 'our hotel') + loc + ' and explore everything ' + (location || 'the city') + ' has to offer!' + offerLine + '\n\n' + cta,
@@ -471,7 +471,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       ],
       excited: [
         'we are STEPS from ' + d + '. 😱📍\n\n' + (name || 'our hotel') + loc + ' is THE place to stay if you\'re exploring ' + (location || 'the city') + '.' + offerLine + '\n\n' + cta,
-        'location UNMATCHED. 🙌\n\nRight next to ' + d + ' — ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBOOK: ' + cta,
+        'location UNMATCHED. 🙌\n\nRight next to ' + d + ', ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBOOK: ' + cta,
         'explore ' + d + ' then come back to this. 😍\n\n' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
       ],
       professional: [
@@ -484,7 +484,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       luxury: [
         'Words from our guests mean everything to us. 💬\n\n"' + (d || 'An exceptional stay from beginning to end. I will be returning.') + '"\n\nWe\'re grateful. ' + (name || 'Our hotel') + loc + '. ' + cta,
         'This is why we do what we do. ❤️\n\n"' + (d || 'The best hotel experience I\'ve had in years.') + '"\n\nThank you for choosing ' + (name || 'us') + loc + '. ' + cta,
-        'Our highest reward is a happy guest. 🌹\n\n"' + (d || 'Excellent service and stunning rooms.') + '"\n\n— A guest at ' + (name || 'our hotel') + loc + '. Book via ' + cta,
+        'Our highest reward is a happy guest. 🌹\n\n"' + (d || 'Excellent service and stunning rooms.') + '"\n\n– A guest at ' + (name || 'our hotel') + loc + '. Book via ' + cta,
       ],
       friendly: [
         'This made our day! 😊💛\n\n"' + (d || 'Loved every minute of our stay!') + '"\n\nThank you so much! See you again at ' + (name || 'our hotel') + '! ' + cta,
@@ -492,7 +492,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
         'Good reviews + great guests = everything. 🥰\n\n"' + (d || 'An amazing experience from check-in to check-out.') + '"\n\n' + (name || 'Our hotel') + loc + '. Book via ' + cta,
       ],
       excited: [
-        'okay this review sent us. 😭🙌\n\n"' + (d || 'Best hotel I\'ve ever stayed in — no comparison!') + '"\n\nTHANK YOU!! Come back soon!! 💛\n\n' + cta,
+        'okay this review sent us. 😭🙌\n\n"' + (d || 'Best hotel I\'ve ever stayed in, no comparison!') + '"\n\nTHANK YOU!! Come back soon!! 💛\n\n' + cta,
         'WE\'RE NOT CRYING YOU\'RE CRYING 😭💛\n\n"' + (d || 'This place exceeded every expectation.') + '"\n\n' + (name || 'our hotel') + loc + '. ' + cta,
         'the reviews are in and they\'re GLOWING 🔥💬\n\n"' + (d || 'Exceptional from start to finish.') + '"\n\nBOOK: ' + cta,
       ],
@@ -504,14 +504,14 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
     },
     bts: {
       luxury: [
-        'Behind every exceptional stay is an exceptional team. 🌿\n\n' + d + ' — a glimpse into the craft behind ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'Behind every exceptional stay is an exceptional team. 🌿\n\n' + d + ', a glimpse into the craft behind ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
         'The details make the difference. ✨\n\n' + d + '.\n\nThis is what excellence looks like behind the scenes at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
         'From preparation to perfection. 🎯\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nExperience it yourself. ' + cta,
       ],
       friendly: [
         'Ever wonder what goes on behind the scenes? 👀\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. The magic is in the details! ✨' + offerLine + '\n\n' + cta,
         'A little peek behind the curtain! 😊\n\n' + d + '.\n\nThis is how we make every stay special at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
-        'It all starts here. 🌟\n\n' + d + ' — the work that goes into every stay at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        'It all starts here. 🌟\n\n' + d + ', the work that goes into every stay at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
       ],
       excited: [
         'POV: you get to see what really happens here 👀🔥\n\n' + d + ' at ' + (name || 'our hotel') + '.' + offerLine + '\n\n' + cta,
@@ -520,14 +520,14 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       ],
       professional: [
         'A look behind the scenes at ' + (name || 'our hotel') + loc + '.\n\n' + d + '.\n\nOur commitment to excellence extends beyond what our guests see. ' + cta,
-        d + ' — part of our commitment to delivering an exceptional guest experience at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
+        d + ', part of our commitment to delivering an exceptional guest experience at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\n' + cta,
         'How we maintain our standards at ' + (name || 'our hotel') + loc + ':\n\n' + d + '.' + offerLine + '\n\nBook your stay: ' + cta,
       ]
     },
     pool: {
       luxury: [
         '🏊 A pool worth booking a stay for.\n\n' + d + ' at ' + (name || 'our hotel') + loc + '. Relax. Float. Escape.' + offerLine + '\n\nBook via ' + cta,
-        'The pool is calling. 💦✨\n\n' + d + '.\n\n' + (name || 'Our hotel') + loc + ' — where relaxation meets luxury.' + offerLine + '\n\n' + cta,
+        'The pool is calling. 💦✨\n\n' + d + '.\n\n' + (name || 'Our hotel') + loc + ', where relaxation meets luxury.' + offerLine + '\n\n' + cta,
         'Mornings here look different. 🌅\n\n' + d + ' at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nReserve your stay: ' + cta,
       ],
       friendly: [
@@ -542,7 +542,7 @@ function buildCaptions(name, location, type, tone, platform, detail, offer) {
       ],
       professional: [
         (name || 'Our hotel') + ' features ' + d + loc + '.\n\nAvailable to all guests during their stay. Book via ' + cta,
-        d + ' — one of the many amenities awaiting guests at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nReservations: ' + cta,
+        d + ', one of the many amenities awaiting guests at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nReservations: ' + cta,
         'Enjoy ' + d + ' during your stay at ' + (name || 'our hotel') + loc + '.' + offerLine + '\n\nBook directly via ' + cta,
       ]
     }
@@ -622,7 +622,7 @@ function generateCaptions() {
       '<div class="post-image">' + icon + '</div>' +
       '<div class="post-caption">' + caption.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' +
       (showHashtags ? '<div class="post-hashtags">' + hashtags + '</div>' : '') +
-      '<div class="post-stats"><span>❤️ —</span><span>💬 —</span><span>📤 —</span></div>' +
+      '<div class="post-stats"><span>❤️ –</span><span>💬 –</span><span>📤 –</span></div>' +
       '</div></div>';
   });
 
