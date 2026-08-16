@@ -256,10 +256,15 @@ section{padding:clamp(3.5rem,9vw,7rem) var(--pad);}
 }
 .case-role{font-size:0.8rem;color:var(--mist);margin-top:0.5rem;}
 .case-figs{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;
-  background:var(--hair);border-block:1px solid var(--hair);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  background:var(--alcove);border-top:1px solid var(--hair);
 }
-.case-fig{background:var(--alcove);padding:1rem 1.1rem;}
+/* Dividers live on the cells, not on grid gaps, so an odd metric count
+   leaves plain surface rather than a mismatched empty track. */
+.case-fig{
+  background:var(--alcove);padding:1rem 1.1rem;
+  border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+}
 .case-fig .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.3rem;font-weight:500;color:var(--lamplight);line-height:1.1;}
 .case-fig .v.up{color:var(--verdigris);}
 .case-fig .k{font-size:0.7rem;color:var(--mist);margin-top:0.3rem;line-height:1.3;}
@@ -1160,18 +1165,46 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
      sees two competing WhatsApp CTAs at once. */
   var sticky = document.getElementById('sticky');
   if (sticky && 'IntersectionObserver' in window){
-    var others = [].slice.call(document.querySelectorAll('a[href*="wa.me"]'))
-                   .filter(function(a){ return !sticky.contains(a); }),
-        onScreen = 0;
-    var io = new IntersectionObserver(function(entries){
+    /* The bar yields to two things, by different rules.
+       1. Any other WhatsApp CTA anywhere on screen, so two never compete.
+       2. A proof figure only while it reaches into the strip of screen the
+          bar occupies, so a screenshot or its caption is never covered.
+          Suppressing on any visible figure would hide the bar for most of
+          the page and defeat the point of having it. */
+    var BAR_ZONE = 170,
+        ctas = [].slice.call(document.querySelectorAll('a[href*="wa.me"]'))
+                 .filter(function(a){ return !sticky.contains(a); }),
+        proofs = [].slice.call(document.querySelectorAll('.proof')),
+        ctaOnScreen = 0, ticking = false;
+
+    function proofInBarZone(){
+      var vh = window.innerHeight;
+      for (var i = 0; i < proofs.length; i++){
+        var r = proofs[i].getBoundingClientRect();
+        if (r.bottom > vh - BAR_ZONE && r.top < vh) return true;
+      }
+      return false;
+    }
+    function update(){
+      sticky.classList.toggle('show', ctaOnScreen === 0 && !proofInBarZone());
+    }
+    function schedule(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ ticking = false; update(); });
+    }
+    var ctaIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         var was = en.target.__vis ? 1 : 0,
             now = en.isIntersecting ? 1 : 0;
-        if (was !== now){ en.target.__vis = !!now; onScreen += now - was; }
+        if (was !== now){ en.target.__vis = !!now; ctaOnScreen += now - was; }
       });
-      sticky.classList.toggle('show', onScreen === 0);
-    }, {rootMargin:'-56px 0px -72px 0px'});
-    others.forEach(function(a){ io.observe(a); });
+      update();
+    }, {rootMargin:'-56px 0px 0px 0px'});
+    ctas.forEach(function(a){ ctaIO.observe(a); });
+    window.addEventListener('scroll', schedule, {passive:true});
+    window.addEventListener('resize', schedule);
+    update();
   }
 })();
 </script>
