@@ -3,1015 +3,1210 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zevara Digital | Hospitality & Travel Marketing Agency | Nairobi, Kenya</title>
+<title>Zevara Digital | Hospitality &amp; Travel Marketing Agency | Nairobi, Kenya</title>
 <meta name="description" content="We help hotels, suites and lodges get more direct bookings through Google Ads, Meta Ads, SEO, social media and content marketing. Based in Nairobi, serving clients locally and internationally."/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta name="theme-color" content="#0C1F26"/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400-700.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-600.woff2" crossorigin/>
 <style>
-:root {
-  --navy:    #09162A;
-  --navy-2:  #132040;
-  --navy-3:  #1C3060;
-  --gold:    #C4643A;
-  --gold-lt: #D4845A;
-  --caramel: #A84E2A;
-  --bg:      #F5F0E8;
-  --bg-alt:  #EDE7DC;
-  --white:   #FEFCF8;
-  --border:  #DDD5C5;
-  --text:    #4A2C1A;
-  --text-2:  #6B4535;
-  --text-3:  #9A7060;
-  --green:   #2A7A50;
+/* Self-hosted, latin subset, woff2 only. Same origin as the page, so no extra
+   DNS + TLS handshake to a third party and no render-blocking external CSS.
+   font-display:swap means text paints immediately in the fallback, never invisible. */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;
+  src:url(assets/fonts/fraunces-600.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(assets/fonts/manrope-400-700.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/ibm-plex-mono-400.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;
+  src:url(assets/fonts/ibm-plex-mono-500.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+/* ═══ NIGHT ARRIVAL ═══════════════════════════════════════════
+   Portico   #0C1F26  deep petrol ground
+   Alcove    #13303A  raised surface
+   Lamplight #E8B563  warm brass, primary action
+   Verdigris #6FB09A  patina, positive movement
+   Limewash  #EAE7DF  plaster relief bands
+   Bone      #F4F1EA  text on dark
+   ═════════════════════════════════════════════════════════════ */
+:root{
+  --portico:#0C1F26;
+  --portico-deep:#081519;
+  --alcove:#13303A;
+  --alcove-2:#1A3D49;
+  --lamplight:#E8B563;
+  --lamplight-hi:#F2C87F;
+  --verdigris:#6FB09A;
+  --limewash:#EAE7DF;
+  --limewash-2:#E0DCD2;
+  --bone:#F4F1EA;
+  --mist:#A8BEC4;
+  --hair:rgba(168,190,196,0.18);
+  --hair-dark:rgba(12,31,38,0.14);
+  --display:'Fraunces',Georgia,serif;
+  --body:'Manrope',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --pad:clamp(1.25rem,5vw,4.5rem);
+  --measure:1200px;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--body);font-size:16px;line-height:1.65;
+  background:var(--portico);color:var(--bone);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(9,22,42,0.97);backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(196,100,58,0.15);
+/* focus: one visible treatment everywhere */
+:focus-visible{outline:2px solid var(--lamplight);outline-offset:3px;border-radius:3px;}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--lamplight);color:var(--portico);
+  padding:0.9rem 1.4rem;font-weight:700;font-size:0.85rem;text-decoration:none;
 }
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;
-  letter-spacing:0.04em;color:#FEFCF8;text-decoration:none;
-}
-.nav-logo span{color:var(--gold);}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{
-  font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
-  color:rgba(254,252,248,0.55);text-decoration:none;transition:color 0.2s;
-}
-.nav-links a:hover{color:rgba(254,252,248,0.9);}
-.nav-cta{
-  padding:0.55rem 1.4rem;background:var(--gold);color:var(--navy) !important;
-  border-radius:2px;font-weight:700 !important;transition:background 0.2s !important;
-}
-.nav-cta:hover{background:var(--gold-lt) !important;}
+.skip:focus{left:0;}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 
-/* ── HERO ── */
+/* ── type roles ── */
+.display{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-0.015em;}
+.fig,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+.eyebrow{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--lamplight);margin-bottom:1rem;
+}
+.wrap{max-width:var(--measure);margin-inline:auto;}
+section{padding:clamp(3.5rem,9vw,7rem) var(--pad);}
+/* clear the sticky header when jumping to an anchor */
+[id]{scroll-margin-top:5.5rem;}
+.sec-head{margin-bottom:clamp(2.25rem,5vw,3.5rem);max-width:640px;}
+.sec-title{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;letter-spacing:-0.015em;}
+.sec-sub{color:var(--mist);font-size:1rem;margin-top:1rem;max-width:52ch;}
+
+/* ── light bands ── */
+.band-light{background:var(--limewash);color:var(--portico);}
+.band-light .sec-sub{color:#3C5058;}
+.band-light .eyebrow{color:#8A5A1E;}
+
+/* ── buttons ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;
+  min-height:52px;padding:0.9rem 1.6rem;
+  font-family:var(--body);font-size:0.92rem;font-weight:700;letter-spacing:0.01em;
+  text-decoration:none;border-radius:4px;border:2px solid transparent;
+  cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s;
+}
+.btn svg{width:19px;height:19px;flex-shrink:0;}
+.btn-brass{background:var(--lamplight);color:var(--portico);border-color:var(--lamplight);}
+.btn-brass:hover{background:var(--lamplight-hi);border-color:var(--lamplight-hi);transform:translateY(-1px);}
+.btn-line{background:transparent;color:var(--bone);border-color:rgba(244,241,234,0.4);}
+.btn-line:hover{border-color:var(--bone);transform:translateY(-1px);}
+.btn-dark{background:var(--portico);color:var(--bone);border-color:var(--portico);}
+.btn-dark:hover{background:var(--alcove);border-color:var(--alcove);transform:translateY(-1px);}
+.btn-full{width:100%;}
+.textlink{
+  display:inline-flex;align-items:center;gap:0.45rem;min-height:44px;
+  color:var(--bone);font-size:0.92rem;font-weight:500;
+  text-decoration:none;border-bottom:1px solid rgba(244,241,234,0.35);
+}
+.textlink:hover{border-bottom-color:var(--lamplight);color:var(--lamplight);}
+.textlink svg{width:15px;height:15px;}
+
+/* ── nav ── */
+.site-head{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,21,25,0.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hair);
+}
+.nav-inner{
+  max-width:var(--measure);margin-inline:auto;
+  padding:0.7rem var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;min-height:44px;}
+.brand-mark{width:24px;height:24px;flex-shrink:0;}
+.brand-name{
+  font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--bone);
+}
+.brand-name i{color:var(--lamplight);font-style:normal;}
+.nav-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;background:none;border:1px solid var(--hair);border-radius:4px;
+  color:var(--bone);cursor:pointer;
+}
+.nav-toggle svg{width:20px;height:20px;}
+.nav-toggle .x{display:none;}
+.site-head.open .nav-toggle .x{display:block;}
+.site-head.open .nav-toggle .bars{display:none;}
+.nav-panel{
+  display:none;position:absolute;left:0;right:0;top:100%;
+  background:var(--portico-deep);border-bottom:1px solid var(--hair);
+  padding:0.5rem var(--pad) 1.25rem;
+}
+.site-head.open .nav-panel{display:block;}
+.nav-list{list-style:none;display:flex;flex-direction:column;}
+.nav-list a{
+  display:flex;align-items:center;min-height:48px;
+  font-size:0.9rem;font-weight:500;color:var(--mist);text-decoration:none;
+  border-bottom:1px solid var(--hair);
+}
+.nav-list a:hover{color:var(--bone);}
+.nav-panel .btn{margin-top:1rem;}
+
+/* ── hero ── */
 .hero{
-  min-height:100vh;background:var(--navy);
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-  padding:9rem 5% 6rem;position:relative;overflow:hidden;
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:min(94svh,780px);display:flex;align-items:center;
+  padding:clamp(3rem,10vw,6rem) var(--pad) clamp(3rem,8vw,5rem);
 }
-.hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(74,44,26,0.4);}
-.hero-tag,.hero-h1,.hero-sub,.hero-actions,.hero-proof{position:relative;z-index:2;}
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;z-index:2;
-  background:linear-gradient(to right,transparent,rgba(196,100,58,0.3),transparent);
+.hero-media{position:absolute;inset:0;z-index:-2;}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:58% center;}
+.hero-scrim{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(100deg,rgba(8,21,25,0.94) 0%,rgba(8,21,25,0.82) 38%,rgba(8,21,25,0.42) 72%,rgba(8,21,25,0.30) 100%),
+    radial-gradient(1100px 520px at 8% 12%,rgba(232,181,99,0.16) 0%,transparent 62%);
 }
+.hero-inner{max-width:var(--measure);margin-inline:auto;width:100%;}
 .hero-tag{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-size:0.67rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
-  color:#F5F0E8;border:1px solid rgba(245,240,232,0.45);
-  padding:0.4rem 1.1rem;border-radius:2rem;margin-bottom:2.5rem;
+  display:inline-flex;align-items:center;gap:0.55rem;
+  font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--bone);border:1px solid rgba(244,241,234,0.32);
+  padding:0.5rem 1rem;border-radius:2rem;margin-bottom:1.75rem;
 }
-.hero-tag::before{content:'✦';font-size:0.6rem;}
-.hero-h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3rem,7vw,5.8rem);font-weight:600;
-  color:#F5F0E8;line-height:1.08;letter-spacing:-0.01em;
-  margin-bottom:1.8rem;max-width:700px;
-  text-shadow:0 2px 24px rgba(74,44,26,0.35);
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--lamplight);flex-shrink:0;}
+.hero h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(2.6rem,8.5vw,5.2rem);line-height:1.03;letter-spacing:-0.025em;
+  max-width:15ch;margin-bottom:1.4rem;
 }
-.hero-h1 em{color:#F5F0E8;font-style:italic;}
-.hero-sub{
-  font-size:1.05rem;color:rgba(245,240,232,0.92);line-height:1.85;
-  max-width:520px;margin-bottom:3rem;font-weight:400;
-  text-shadow:0 1px 12px rgba(74,44,26,0.35);
-}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;}
-.btn-gold{
-  padding:0.95rem 2.2rem;background:var(--gold);color:var(--navy);
-  font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  border-radius:2px;text-decoration:none;border:2px solid var(--gold);
-  transition:all 0.2s;display:inline-block;
-}
-.btn-gold:hover{background:var(--gold-lt);border-color:var(--gold-lt);}
-.btn-ghost{
-  padding:0.95rem 2.2rem;background:transparent;color:#F5F0E8;
-  font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  border-radius:2px;text-decoration:none;border:2px solid rgba(245,240,232,0.45);
-  transition:all 0.2s;display:inline-block;
-}
-.btn-ghost:hover{border-color:rgba(245,240,232,0.85);color:#F5F0E8;}
-.hero-proof{
-  display:flex;gap:2.5rem;flex-wrap:wrap;
-  padding-top:2.5rem;border-top:1px solid rgba(245,240,232,0.25);
-}
-.proof-item{display:flex;flex-direction:column;gap:0.2rem;}
-.proof-num{
-  font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;
-  color:#F5F0E8;line-height:1;
-}
-.proof-label{font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(245,240,232,0.7);}
+.hero h1 em{font-style:normal;font-weight:600;color:var(--lamplight);}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.12rem);color:#DCE6E8;max-width:50ch;margin-bottom:2.25rem;}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;}
 
-/* ── SECTIONS ── */
-section{padding:6rem 5%;}
-.section-label{font-size:0.67rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--caramel);margin-bottom:0.8rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:1rem;}
-.section-title-light{color:#FEFCF8;}
-.section-sub{font-size:0.97rem;color:var(--text-2);max-width:520px;line-height:1.8;}
-.section-header{margin-bottom:4rem;}
+/* ── the night report ── */
+.report{background:var(--portico-deep);border-block:1px solid var(--hair);padding:clamp(2.25rem,6vw,3.25rem) var(--pad);}
+.report-head{
+  font-family:var(--mono);font-size:0.68rem;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--mist);
+  margin-bottom:1.75rem;line-height:1.7;
+}
+.live{
+  display:inline-block;vertical-align:middle;
+  width:7px;height:7px;border-radius:50%;background:var(--verdigris);
+  margin-right:0.7rem;margin-top:-2px;animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(111,176,154,0.45);}50%{opacity:.65;box-shadow:0 0 0 6px rgba(111,176,154,0);}}
+.readout{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:6px;overflow:hidden;
+}
+.cell{background:var(--portico);padding:1.15rem 1.1rem;}
+.cell-fig{
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  font-size:clamp(1.35rem,4.6vw,1.9rem);font-weight:500;line-height:1.1;
+  color:var(--lamplight);letter-spacing:-0.02em;
+}
+.cell-fig.up{color:var(--verdigris);}
+.cell-label{font-size:0.72rem;color:var(--bone);margin-top:0.45rem;font-weight:500;line-height:1.35;}
+.cell-src{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--mist);margin-top:0.2rem;}
+.report-logos{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem;margin-top:1.5rem;
+}
+.logo-chip{
+  display:flex;align-items:center;gap:0.65rem;
+  background:var(--alcove);border:1px solid var(--hair);border-radius:5px;
+  padding:0.6rem 0.9rem;flex:1 1 100%;
+}
+@media(min-width:600px){.logo-chip{flex:1 1 0;min-width:150px;}}
+.logo-chip picture{flex-shrink:0;display:block;}
+.logo-chip img{width:30px;height:30px;object-fit:contain;border-radius:3px;background:#fff;padding:2px;}
+.logo-chip img.on-dark{background:#000;}
+.logo-chip span{font-size:0.74rem;font-weight:600;color:var(--bone);line-height:1.3;}
+.logo-chip em{display:block;font-style:normal;font-size:0.66rem;color:var(--mist);font-weight:400;}
 
-/* ── PROBLEM ── */
-.problem-section{background:var(--white);}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.problem-list{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
-.problem-item{
-  display:flex;gap:1rem;padding:1.2rem;
-  border:1px solid var(--border);border-radius:4px;
-  background:var(--bg);transition:border-color 0.2s;
+/* ── problem ── */
+.problem-grid{display:grid;gap:2.5rem;}
+.plist{display:flex;flex-direction:column;gap:0.85rem;margin-top:2rem;}
+.pitem{display:flex;gap:1rem;background:var(--alcove);border:1px solid var(--hair);border-radius:6px;padding:1.15rem;}
+.pitem .icon{width:22px;height:22px;color:var(--lamplight);flex-shrink:0;margin-top:2px;}
+.pitem h3{font-size:0.95rem;font-weight:700;margin-bottom:0.3rem;}
+.pitem p{font-size:0.87rem;color:var(--mist);}
+.solution{
+  background:linear-gradient(158deg,var(--alcove-2),var(--alcove));
+  border:1px solid var(--hair);border-left:3px solid var(--lamplight);
+  border-radius:6px;padding:clamp(1.5rem,4vw,2.25rem);
 }
-.problem-item:hover{border-color:var(--caramel);}
-.problem-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem;}
-.problem-text h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem;}
-.problem-text p{font-size:0.82rem;color:var(--text-2);line-height:1.6;}
-.solution-box{
-  background:var(--navy);padding:2.8rem;border-radius:6px;
-  position:relative;overflow:hidden;
-}
-.solution-box::before{
-  content:'';position:absolute;top:-30%;right:-20%;
-  width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(196,100,58,0.1) 0%,transparent 65%);
-}
-.solution-box-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.solution-box h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#FEFCF8;line-height:1.2;margin-bottom:1.2rem;}
-.solution-box p{font-size:0.88rem;color:rgba(254,252,248,0.55);line-height:1.8;margin-bottom:2rem;}
-.solution-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.sol-stat{border-left:2px solid rgba(196,100,58,0.3);padding-left:0.9rem;}
-.sol-stat-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1;}
-.sol-stat-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(254,252,248,0.35);margin-top:0.2rem;}
+.solution h3{font-family:var(--display);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.75rem);line-height:1.2;margin-bottom:1rem;}
+.solution p{color:var(--mist);font-size:0.95rem;margin-bottom:1.5rem;}
 
-/* ── SERVICES ── */
-.services-section{background:var(--bg);}
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
-.pkg-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
-  transition:box-shadow 0.3s,transform 0.3s;position:relative;
+/* ── results ── */
+.cases{display:flex;flex-direction:column;gap:1.25rem;}
+.case{background:var(--alcove);border:1px solid var(--hair);border-radius:8px;overflow:hidden;}
+.case-top{padding:clamp(1.35rem,4vw,2rem);}
+.case-name{font-family:var(--display);font-weight:600;font-size:1.4rem;line-height:1.2;}
+.case-meta{
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--lamplight);margin-top:0.35rem;
 }
-.pkg-card:hover{box-shadow:0 16px 56px rgba(9,22,42,0.12);transform:translateY(-4px);}
-.pkg-card.featured{border-color:var(--gold);box-shadow:0 4px 32px rgba(196,100,58,0.2);}
-.pkg-badge{
-  position:absolute;top:1.2rem;right:1.2rem;
-  font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-  background:var(--gold);color:var(--navy);padding:0.25rem 0.7rem;border-radius:2rem;
+.case-role{font-size:0.8rem;color:var(--mist);margin-top:0.5rem;}
+.case-figs{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  background:var(--alcove);border-top:1px solid var(--hair);
 }
-.pkg-header{padding:2rem 2rem 1.5rem;}
-.pkg-tier{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--caramel);margin-bottom:0.6rem;}
-.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);margin-bottom:1rem;}
-.pkg-price{display:flex;align-items:baseline;gap:0.3rem;margin-bottom:0.3rem;}
-.pkg-currency{font-size:0.85rem;font-weight:700;color:var(--text-3);}
-.pkg-amount{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--navy);line-height:1;}
-.pkg-period{font-size:0.78rem;color:var(--text-3);}
-.pkg-desc{font-size:0.8rem;color:var(--text-2);line-height:1.6;margin-top:0.5rem;}
-.pkg-divider{height:1px;background:var(--border);margin:0;}
-.pkg-features{padding:1.5rem 2rem;flex:1;}
-.pkg-features ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-.pkg-features li{
-  font-size:0.8rem;color:var(--text-2);
-  padding-left:1.4rem;position:relative;line-height:1.5;
+/* Dividers live on the cells, not on grid gaps, so an odd metric count
+   leaves plain surface rather than a mismatched empty track. */
+.case-fig{
+  background:var(--alcove);padding:1rem 1.1rem;
+  border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
 }
-.pkg-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:0.75rem;}
-.pkg-features li.muted{color:var(--text-3);}
-.pkg-features li.muted::before{content:'–';color:var(--border);}
-.pkg-footer{padding:1.5rem 2rem;border-top:1px solid var(--border);}
-.btn-pkg{
-  display:block;width:100%;padding:0.85rem;text-align:center;
-  font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  border-radius:2px;text-decoration:none;transition:all 0.2s;
-  cursor:pointer;border:none;font-family:'DM Sans',sans-serif;
+.case-fig .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.3rem;font-weight:500;color:var(--lamplight);line-height:1.1;}
+.case-fig .v.up{color:var(--verdigris);}
+.case-fig .k{font-size:0.7rem;color:var(--mist);margin-top:0.3rem;line-height:1.3;}
+.case-body{padding:clamp(1.35rem,4vw,2rem);}
+.case-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.case-list li{position:relative;padding-left:1.1rem;font-size:0.88rem;color:#C9D8DB;}
+.case-list li::before{content:'';position:absolute;left:0;top:0.62em;width:5px;height:1px;background:var(--lamplight);}
+.proof{margin-top:1.5rem;}
+.proof img{
+  width:100%;height:auto;border-radius:6px;
+  border:1px solid var(--hair);background:#fff;
 }
-.btn-pkg-outline{background:transparent;color:var(--navy);border:2px solid var(--navy);}
-.btn-pkg-outline:hover{background:var(--navy);color:#FEFCF8;}
-.btn-pkg-gold{background:var(--gold);color:var(--navy);border:2px solid var(--gold);}
-.btn-pkg-gold:hover{background:var(--gold-lt);}
+.fig-note{display:inline-block;margin-top:0.4rem;text-transform:none;letter-spacing:0.01em;font-family:var(--body);font-size:0.74rem;color:var(--mist);line-height:1.55;max-width:62ch;}
+.proof figcaption{
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--mist);margin-top:0.7rem;
+}
 
-.audit-bar{
-  background:var(--navy);border-radius:6px;padding:2rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+/* ── pricing ── */
+.price-head{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:flex-end;margin-bottom:2.25rem;}
+.cur-switch{display:inline-flex;background:var(--limewash-2);border:1px solid var(--hair-dark);border-radius:5px;padding:3px;gap:3px;}
+.cur-btn{
+  min-height:44px;min-width:64px;padding:0 1rem;border:none;border-radius:3px;
+  background:transparent;color:#3C5058;cursor:pointer;
+  font-family:var(--mono);font-size:0.8rem;font-weight:500;letter-spacing:0.06em;
 }
-.audit-bar-text h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#FEFCF8;margin-bottom:0.3rem;}
-.audit-bar-text p{font-size:0.83rem;color:rgba(254,252,248,0.45);line-height:1.6;}
-.audit-price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold);white-space:nowrap;}
+.cur-btn[aria-pressed="true"]{background:var(--portico);color:var(--bone);}
+.tiers{display:grid;gap:1.25rem;}
+.tier{
+  background:#fff;border:1px solid var(--hair-dark);border-radius:8px;
+  display:flex;flex-direction:column;position:relative;
+}
+.tier.featured{border-color:var(--portico);box-shadow:0 10px 40px rgba(12,31,38,0.14);}
+.tier-flag{
+  position:absolute;top:-1px;right:1.25rem;
+  background:var(--portico);color:var(--lamplight);
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.3rem 0.7rem;border-radius:0 0 4px 4px;
+}
+.tier-top{padding:1.75rem 1.5rem 1.35rem;}
+.tier-kind{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:#8A5A1E;}
+.tier-name{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--portico);margin:0.4rem 0 0.9rem;}
+.tier-price{display:flex;align-items:baseline;gap:0.35rem;flex-wrap:wrap;}
+.tier-cur{font-family:var(--mono);font-size:0.82rem;font-weight:500;color:#52646B;}
+.tier-amt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:2.1rem;font-weight:500;color:var(--portico);line-height:1;letter-spacing:-0.02em;}
+.tier-per{font-family:var(--mono);font-size:0.75rem;color:#52646B;}
+.tier-for{font-size:0.85rem;color:#3C5058;margin-top:0.8rem;}
+.tier-feats{padding:1.35rem 1.5rem;flex:1;border-top:1px solid var(--hair-dark);}
+.tier-feats ul{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
+.tier-feats li{display:flex;gap:0.6rem;font-size:0.87rem;color:#2C3E45;}
+.tier-feats svg{width:16px;height:16px;color:#2E7D5E;flex-shrink:0;margin-top:3px;}
+.tier-foot{padding:0 1.5rem 1.5rem;}
+.audit{
+  margin-top:1.5rem;background:var(--portico);color:var(--bone);
+  border-radius:8px;padding:clamp(1.5rem,4vw,2rem);
+  display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;
+}
+.audit h3{font-family:var(--display);font-weight:600;font-size:1.35rem;margin-bottom:0.4rem;}
+.audit p{font-size:0.87rem;color:var(--mist);max-width:56ch;}
+.audit-price{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.7rem;font-weight:500;color:var(--lamplight);white-space:nowrap;}
+.audit-note{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mist);margin-top:0.2rem;}
+.fineprint{font-size:0.8rem;color:#52646B;margin-top:1.25rem;}
 
-/* ── CLIENTS / TRUSTED BY ── */
-.clients-band{background:var(--bg-alt);padding:4rem 5%;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.clients-band-label{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:2.5rem;}
-.clients-logos{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto;}
-.client-tile{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.9rem;
-  background:var(--white);border:1px solid var(--border);border-radius:8px;
-  padding:1.8rem 2rem;min-width:180px;flex:1;max-width:240px;
-  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+/* ── process ── */
+.steps{display:grid;gap:1.25rem;counter-reset:step;}
+.step{background:#fff;border:1px solid var(--hair-dark);border-radius:8px;padding:1.5rem;}
+.step-n{
+  font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;
+  color:#8A5A1E;display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;
 }
-.client-tile:hover{border-color:var(--caramel);transform:translateY(-3px);box-shadow:0 10px 30px rgba(74,44,26,0.08);}
-.client-tile img{max-height:64px;max-width:150px;width:auto;height:auto;object-fit:contain;}
-.client-tile-name{font-size:0.78rem;font-weight:600;color:var(--text-2);letter-spacing:0.02em;}
-.client-tile-loc{font-size:0.66rem;color:var(--text-3);margin-top:-0.4rem;}
+.step-n::after{content:'';flex:1;height:1px;background:var(--hair-dark);}
+.step h3{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--portico);margin-bottom:0.45rem;}
+.step p{font-size:0.86rem;color:#3C5058;}
 
-/* ── RESULTS ── */
-.results-section{background:var(--navy);}
-.results-section .section-label{color:var(--gold);}
-.results-grid{display:grid;gap:1.5rem;}
-.result-card{
-  background:rgba(255,255,255,0.04);border:1px solid rgba(254,252,248,0.08);
-  border-radius:6px;padding:2.5rem;display:grid;
-  grid-template-columns:1fr 2fr;gap:3rem;align-items:start;
-  transition:border-color 0.3s,background 0.3s;
-}
-.result-card:hover{border-color:rgba(196,100,58,0.25);background:rgba(255,255,255,0.06);}
-.result-left{}
-.result-client{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#FEFCF8;margin-bottom:0.3rem;}
-.result-industry{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
-.result-tag{display:inline-block;font-size:0.7rem;font-weight:600;padding:0.25rem 0.7rem;border:1px solid rgba(254,252,248,0.15);color:rgba(254,252,248,0.45);border-radius:2rem;}
-.result-right{}
-.result-role{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(254,252,248,0.3);margin-bottom:1rem;}
-.result-metrics{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.result-metric{}
-.result-metric-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1;}
-.result-metric-label{font-size:0.67rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(254,252,248,0.3);margin-top:0.2rem;}
-.result-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
-.result-list li{
-  font-size:0.83rem;color:rgba(254,252,248,0.5);
-  padding-left:1.1rem;position:relative;line-height:1.6;
-}
-.result-list li::before{content:'–';position:absolute;left:0;color:var(--gold);font-size:0.7rem;}
-
-/* ── PROCESS ── */
-.process-section{background:var(--white);}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative;}
-.process-steps::before{
-  content:'';position:absolute;top:2rem;left:12%;right:12%;
-  height:1px;background:var(--border);z-index:0;
-}
-.process-step{text-align:center;padding:0 1.5rem;position:relative;z-index:1;}
-.process-step-num{
-  width:48px;height:48px;border-radius:50%;
-  background:var(--navy);color:var(--gold);
-  font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;
+/* ── about ── */
+.about-grid{display:grid;gap:2.25rem;align-items:center;}
+.about-mark{
+  aspect-ratio:4/5;border-radius:8px;position:relative;overflow:hidden;
+  background:linear-gradient(158deg,var(--alcove-2),var(--portico-deep));
+  border:1px solid var(--hair);
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.5rem;border:3px solid var(--bg);
 }
-.process-step-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem;}
-.process-step-text{font-size:0.78rem;color:var(--text-2);line-height:1.65;}
-
-/* ── ABOUT ── */
-.about-section{background:var(--bg);}
-.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;}
-.about-image-box{
-  aspect-ratio:4/5;background:var(--navy);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.about-image-box::before{
+.about-mark::after{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 60% 40%,rgba(196,100,58,0.12) 0%,transparent 60%);
+  background:radial-gradient(420px 300px at 62% 34%,rgba(232,181,99,0.18),transparent 68%);
 }
-.about-initials{
-  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:300;
-  color:rgba(196,100,58,0.25);letter-spacing:0.1em;
-}
-.about-name{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
-.about-title{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--caramel);margin-bottom:1.5rem;}
-.about-text{font-size:0.92rem;color:var(--text-2);line-height:1.85;margin-bottom:1.5rem;}
-.cert-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
-.cert-pill{
-  font-size:0.7rem;font-weight:600;padding:0.35rem 0.8rem;
-  border:1px solid var(--border);border-radius:2rem;
-  color:var(--text-2);background:var(--white);
-}
+.about-mark svg{width:44%;height:auto;position:relative;}
+.about-name{font-family:var(--display);font-weight:600;font-size:clamp(1.75rem,4.5vw,2.35rem);}
+.about-role{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--lamplight);margin:0.4rem 0 1.25rem;}
+.about-grid p{color:var(--mist);margin-bottom:1rem;font-size:0.95rem;}
+.pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+.pill{font-size:0.72rem;font-weight:500;color:var(--bone);background:var(--alcove);border:1px solid var(--hair);border-radius:2rem;padding:0.4rem 0.85rem;}
 
-/* ── MARQUE CALLOUT ── */
-.marque-callout{
-  background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:3rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+/* ── marque ── */
+.marque{
+  background:var(--alcove);border-block:1px solid var(--hair);
+  padding:clamp(2rem,5vw,2.75rem) var(--pad);
 }
-.marque-callout-text h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
-.marque-callout-text p{font-size:0.84rem;color:var(--text-2);max-width:500px;line-height:1.65;}
-.btn-navy{
-  padding:0.82rem 1.8rem;background:var(--navy);color:#FEFCF8;
-  font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
-  border-radius:2px;text-decoration:none;white-space:nowrap;transition:background 0.2s;
-}
-.btn-navy:hover{background:var(--navy-2);}
+.marque-in{max-width:var(--measure);margin-inline:auto;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;}
+.marque h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:0.35rem;}
+.marque p{font-size:0.87rem;color:var(--mist);max-width:56ch;}
 
-/* ── FAQ ── */
-.faq-section{background:var(--white);}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;}
-.faq-item{
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:4px;padding:1.8rem;transition:border-color 0.2s;
+/* ── faq ── */
+.faq{display:grid;gap:0.75rem;}
+.q{background:#fff;border:1px solid var(--hair-dark);border-radius:6px;overflow:hidden;}
+.q summary{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.25rem;min-height:56px;cursor:pointer;list-style:none;
+  font-size:0.94rem;font-weight:700;color:var(--portico);
 }
-.faq-item:hover{border-color:var(--caramel);}
-.faq-q{font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.7rem;line-height:1.4;}
-.faq-a{font-size:0.82rem;color:var(--text-2);line-height:1.75;}
+.q summary::-webkit-details-marker{display:none;}
+.q summary .chev{width:18px;height:18px;flex-shrink:0;color:#8A5A1E;transition:transform .2s;}
+.q[open] summary .chev{transform:rotate(180deg);}
+.q .a{padding:0 1.25rem 1.25rem;font-size:0.89rem;color:#3C5058;}
 
-/* ── CTA SECTION ── */
-.cta-section{
-  background:var(--navy);padding:8rem 5%;text-align:center;
-  position:relative;overflow:hidden;
+/* ── contact / the desk ── */
+.desk-grid{display:grid;gap:2rem;align-items:start;}
+.desk-primary{
+  background:linear-gradient(158deg,var(--alcove-2),var(--alcove));
+  border:1px solid var(--hair);border-radius:8px;padding:clamp(1.5rem,4vw,2rem);
 }
-.cta-section::before{
-  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(196,100,58,0.07) 0%,transparent 65%);
-  pointer-events:none;
+.desk-primary h3{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,3.6vw,1.8rem);line-height:1.18;margin-bottom:0.6rem;}
+.desk-primary .lede{color:var(--mist);font-size:0.94rem;margin-bottom:1.5rem;}
+.desk-num{font-family:var(--mono);font-size:0.8rem;color:var(--mist);margin-top:0.9rem;text-align:center;}
+.picks{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--hair);}
+.picks-t{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.8rem;}
+.pick-row{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.pick{
+  display:inline-flex;align-items:center;min-height:44px;padding:0.5rem 0.9rem;
+  background:rgba(244,241,234,0.06);border:1px solid var(--hair);border-radius:2rem;
+  font-size:0.8rem;font-weight:500;color:var(--bone);text-decoration:none;
+  transition:border-color .18s,background .18s;
 }
-.cta-section .section-label{color:var(--gold);}
-.cta-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.5rem,5vw,4.2rem);font-weight:400;font-style:italic;
-  color:#FEFCF8;margin-bottom:1.2rem;max-width:700px;margin-inline:auto;line-height:1.15;
+.pick:hover{border-color:var(--lamplight);background:rgba(232,181,99,0.12);}
+.channels{display:flex;flex-direction:column;gap:0.75rem;}
+.chan{
+  display:flex;align-items:center;gap:1rem;min-height:64px;
+  padding:0.9rem 1.1rem;background:var(--alcove);
+  border:1px solid var(--hair);border-radius:6px;text-decoration:none;
+  transition:border-color .18s,transform .18s;
 }
-.cta-sub{font-size:0.97rem;color:rgba(254,252,248,0.45);max-width:460px;margin-inline:auto;margin-bottom:3rem;line-height:1.8;}
-.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-
-/* ── CONTACT ── */
-.contact-section{background:var(--bg);}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.contact-methods{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
-.contact-method{
-  display:flex;align-items:center;gap:1.2rem;
-  padding:1.2rem 1.5rem;background:var(--white);
-  border:1px solid var(--border);border-radius:4px;
-  text-decoration:none;transition:border-color 0.2s,transform 0.2s;
-}
-.contact-method:hover{border-color:var(--caramel);transform:translateX(4px);}
-.contact-method-icon{
-  width:44px;height:44px;border-radius:50%;background:var(--navy);
+a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
+.chan-ic{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:rgba(232,181,99,0.13);color:var(--lamplight);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;flex-shrink:0;
 }
-.contact-method-text{}
-.contact-method-label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.15rem;}
-.contact-method-value{font-size:0.88rem;font-weight:600;color:var(--navy);}
+.chan-ic svg{width:19px;height:19px;}
+.chan-k{display:block;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mist);}
+.chan-v{display:block;font-size:0.88rem;font-weight:600;color:var(--bone);word-break:break-word;margin-top:0.15rem;}
 
-.contact-form{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
-.form-group{display:flex;flex-direction:column;gap:0.4rem;}
-.form-group label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);}
-.form-group input,.form-group textarea,.form-group select{
-  padding:0.85rem 1rem;border:2px solid var(--border);border-radius:3px;
-  font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--text);
-  background:var(--white);outline:none;transition:border-color 0.2s;width:100%;
-}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--navy);}
-.form-group textarea{resize:vertical;min-height:110px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.btn-submit{
-  padding:0.95rem;background:var(--navy);color:#FEFCF8;
-  font-size:0.8rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
-  border:none;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;
-  transition:background 0.2s;
-}
-.btn-submit:hover{background:var(--navy-2);}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--navy);border-top:1px solid rgba(196,100,58,0.12);
-  padding:3rem 5%;display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;
-}
-.footer-brand{}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.04em;color:#FEFCF8;display:block;margin-bottom:0.7rem;}
-.footer-logo span{color:var(--gold);}
-.footer-tagline{font-size:0.78rem;color:rgba(254,252,248,0.3);line-height:1.65;max-width:220px;}
-.footer-col-title{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(254,252,248,0.25);margin-bottom:1rem;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
-.footer-links a{font-size:0.78rem;color:rgba(254,252,248,0.4);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:rgba(254,252,248,0.8);}
-.footer-bottom{
-  grid-column:1/-1;padding-top:2rem;border-top:1px solid rgba(254,252,248,0.06);
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:0.72rem;color:rgba(254,252,248,0.2);
+/* ── footer ── */
+.site-foot{background:var(--portico-deep);border-top:1px solid var(--hair);padding:clamp(2.5rem,6vw,3.5rem) var(--pad) 2rem;}
+.foot-in{max-width:var(--measure);margin-inline:auto;display:grid;gap:2rem;}
+.foot-tag{font-size:0.82rem;color:var(--mist);max-width:34ch;margin-top:0.8rem;}
+.foot-t{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lamplight);margin-bottom:0.9rem;}
+.foot-l{list-style:none;display:flex;flex-direction:column;}
+.foot-l a{display:flex;align-items:center;min-height:44px;font-size:0.84rem;color:var(--mist);text-decoration:none;}
+.foot-l a:hover{color:var(--bone);}
+.foot-btm{
+  max-width:var(--measure);margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--hair);
+  display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem;justify-content:space-between;
+  font-size:0.78rem;color:var(--mist);
 }
 
-/* ── UTILS ── */
-.text-gold{color:var(--gold);}
-
-@media(max-width:1024px){
-  .packages-grid,.process-steps,.footer{grid-template-columns:1fr;}
-  .process-steps::before{display:none;}
-  .footer{grid-template-columns:1fr 1fr;}
-  .footer-bottom{grid-column:1/-1;}
+/* ── sticky mobile cta ── */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;
+  padding:0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom,0px));
+  background:rgba(8,21,25,0.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--hair);
+  transform:translateY(115%);transition:transform .28s ease;
 }
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .problem-grid,.about-grid,.contact-grid,.faq-grid,.result-card{grid-template-columns:1fr;}
-  .hero-h1{font-size:2.8rem;}
-  /* On tall/narrow screens the square hero image crops at the sides:
-     shift the visible window right so the subject stays at the edge,
-     and deepen the overlay since text spans the full width. */
-  .hero-bg img{object-position:62% center;}
-  .hero-overlay{background:rgba(74,44,26,0.52);}
-  footer{grid-template-columns:1fr;}
+.sticky.show{transform:none;}
+
+/* ═══ breakpoints ═══ */
+@media(min-width:600px){
+  .readout{grid-template-columns:repeat(4,1fr);}
+  .tiers{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .foot-in{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+  .nav-toggle{display:none;}
+  .nav-panel{display:block;position:static;background:none;border:none;padding:0;}
+  .nav-list{flex-direction:row;align-items:center;gap:1.6rem;}
+  .nav-list a{
+    min-height:44px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;
+    text-transform:uppercase;border-bottom:none;padding-inline:0.15rem;
+  }
+  .nav-panel{display:flex !important;align-items:center;gap:1.6rem;}
+  .nav-panel .btn{margin-top:0;min-height:44px;padding:0.55rem 1.2rem;font-size:0.8rem;}
+  .problem-grid{grid-template-columns:1.05fr 0.95fr;gap:3.5rem;align-items:center;}
+  .tiers{grid-template-columns:repeat(3,1fr);}
+  .steps{grid-template-columns:repeat(4,1fr);}
+  .faq{grid-template-columns:1fr 1fr;}
+  .about-grid{grid-template-columns:0.72fr 1.28fr;gap:3.5rem;}
+  .desk-grid{grid-template-columns:1.15fr 0.85fr;gap:2.5rem;}
+  .foot-in{grid-template-columns:1.6fr 1fr 1fr 1fr;}
+  .case{display:grid;grid-template-columns:1fr;}
+}
+@media(max-width:899px){
+  .sticky{display:block;}
+  body{padding-bottom:5rem;}
+  /* Moving proof above the fold was the point of the restructure, so on phones
+     the hero yields enough height for the top of the Night Report to peek up. */
+  .hero{min-height:80vh;min-height:80svh;
+        padding-top:clamp(2.5rem,13vw,4rem);padding-bottom:clamp(2rem,7vw,3rem);}
+  /* Narrow screens put text across the full width of the photo, including its
+     sunlit areas, so the angled desktop scrim is not enough. Flatten it. */
+  .hero-scrim{
+    background:
+      linear-gradient(180deg,rgba(8,21,25,0.90) 0%,rgba(8,21,25,0.84) 50%,rgba(8,21,25,0.92) 100%),
+      radial-gradient(680px 420px at 18% 14%,rgba(232,181,99,0.15) 0%,transparent 66%);
+  }
+}
+
+/* ═══ reduced motion ═══ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important;
+  }
+  .live{animation:none;}
+  .sticky{transition:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:0.55rem;text-decoration:none;">
-    <svg viewBox="0 0 36 36" width="22" height="22" style="flex-shrink:0;" aria-hidden="true">
-      <path d="M18 1 L14.5 18 L18 14.5 Z" fill="#C4643A"/>
-      <path d="M18 1 L21.5 18 L18 14.5 Z" fill="#8B3B1C"/>
-      <path d="M18 35 L14.5 18 L18 21.5 Z" fill="#C4643A"/>
-      <path d="M18 35 L21.5 18 L18 21.5 Z" fill="#8B3B1C"/>
-      <path d="M1 18 L18 14.5 L14.5 18 Z" fill="#C4643A"/>
-      <path d="M1 18 L18 21.5 L14.5 18 Z" fill="#8B3B1C"/>
-      <path d="M35 18 L18 14.5 L21.5 18 Z" fill="#C4643A"/>
-      <path d="M35 18 L18 21.5 L21.5 18 Z" fill="#8B3B1C"/>
-      <circle cx="18" cy="18" r="2" fill="#F5F0E8"/>
-    </svg>
-    <span style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FEFCF8;">Zevara<span style="color:#C4643A;"> Digital</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20book%20a%20free%20strategy%20call." target="_blank" class="nav-cta">Book a Call</a></li>
-  </ul>
-</nav>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- HERO -->
-<section class="hero">
-  <picture class="hero-bg">
-    <source srcset="assets/hero-bg.webp" type="image/webp"/>
-    <img src="assets/hero-bg.jpg" alt="Boutique hotel terrace at golden hour, Zevara Digital hospitality and travel marketing" fetchpriority="high" decoding="async"/>
-  </picture>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-tag">Hospitality & Travel Marketing Agency · Nairobi, Kenya</div>
-  <h1 class="hero-h1">We get hotels<br/><em>more direct bookings.</em></h1>
-  <p class="hero-sub">Full-service digital marketing for hotels, suites and lodges, locally and internationally. Google Ads, Meta campaigns, SEO, social media and content, all under one agency.</p>
-  <div class="hero-actions">
-    <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" class="btn-gold">Book a Free Strategy Call →</a>
-    <a href="#results" class="btn-ghost">See Our Results</a>
+<!-- icon sprite -->
+<svg style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+  <symbol id="i-li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6 6 4-4 8 8"/><path d="M21 12v5h-5"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 12h7M4 17h13"/><path d="m17 5 4 14"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9S14.5 21.3 12 21c-2.5-2.7-3.8-5.8-3.8-9S9.5 5.7 12 3Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-star" viewBox="0 0 36 36"><path d="M18 1 L14.5 18 L18 14.5 Z" fill="#E8B563"/><path d="M18 1 L21.5 18 L18 14.5 Z" fill="#A9702C"/><path d="M18 35 L14.5 18 L18 21.5 Z" fill="#E8B563"/><path d="M18 35 L21.5 18 L18 21.5 Z" fill="#A9702C"/><path d="M1 18 L18 14.5 L14.5 18 Z" fill="#E8B563"/><path d="M1 18 L18 21.5 L14.5 18 Z" fill="#A9702C"/><path d="M35 18 L18 14.5 L21.5 18 Z" fill="#E8B563"/><path d="M35 18 L18 21.5 L21.5 18 Z" fill="#A9702C"/><circle cx="18" cy="18" r="2" fill="#F4F1EA"/></symbol>
+</svg>
+
+<!-- ═══ NAV ═══ -->
+<header class="site-head" id="head">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-star"/></svg>
+      <span class="brand-name">Zevara<i> Digital</i></span><span class="vh">, home</span>
+    </a>
+    <button class="nav-toggle" id="navBtn" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+      <svg class="bars" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="x" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+    <nav class="nav-panel" id="navPanel" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="#results">Results</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp us
+      </a>
+    </nav>
   </div>
-  <div class="hero-proof">
-    <div class="proof-item">
-      <div class="proof-num">3+</div>
-      <div class="proof-label">Hotel clients</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">77</div>
-      <div class="proof-label">SEO score achieved</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">30%</div>
-      <div class="proof-label">Avg. engagement growth</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">5+</div>
-      <div class="proof-label">Channels managed</div>
+</header>
+<noscript><style>.nav-toggle{display:none}.nav-panel{display:flex!important;flex-wrap:wrap;gap:1rem;position:static;background:none;border:none;padding:0 0 1rem}.nav-list{flex-direction:row;flex-wrap:wrap;gap:1rem}.nav-list a{border-bottom:none}</style></noscript>
+
+<main id="main">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" aria-labelledby="h1">
+  <picture class="hero-media">
+    <source type="image/avif" media="(max-width:640px)"  srcset="assets/hero-m.avif"/>
+    <source type="image/webp" media="(max-width:640px)"  srcset="assets/hero-m.webp"/>
+    <source type="image/avif" media="(max-width:1280px)" srcset="assets/hero-t.avif"/>
+    <source type="image/webp" media="(max-width:1280px)" srcset="assets/hero-t.webp"/>
+    <source type="image/avif" srcset="assets/hero-d.avif"/>
+    <source type="image/webp" srcset="assets/hero-d.webp"/>
+    <img src="assets/hero-fallback.jpg" width="1400" height="904" fetchpriority="high" decoding="async"
+         alt="A guest reading on a quiet hotel terrace at golden hour"/>
+  </picture>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-tag"><span class="dot" aria-hidden="true"></span>Hospitality &amp; Travel Marketing Agency · Nairobi</p>
+    <h1 id="h1" class="display">We get hotels <em>more direct bookings.</em></h1>
+    <p class="hero-sub">Full-service digital marketing for hotels, suites and lodges, locally and internationally. Google Ads, Meta, SEO, social and content, all under one agency.</p>
+    <div class="hero-actions">
+      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call
+      </a>
+      <a class="textlink" href="#results">See the numbers <svg aria-hidden="true"><use href="#i-down"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="problem-section" id="problem">
-  <div class="problem-grid">
+<!-- ═══ THE NIGHT REPORT (proof) ═══ -->
+<section class="report" aria-labelledby="report-t">
+  <div class="wrap">
+    <p class="report-head" id="report-t"><span class="live" aria-hidden="true"></span>Client performance · measured, not estimated</p>
+    <div class="readout">
+      <div class="cell">
+        <div class="cell-fig" data-to="23" data-dec="0" data-suf="K">23K</div>
+        <div class="cell-label">Active users</div>
+        <div class="cell-src">Karen Plains · GA4 · 90 days</div>
+      </div>
+      <div class="cell">
+        <div class="cell-fig" data-to="86.4" data-dec="1" data-suf="K">86.4K</div>
+        <div class="cell-label">Search impressions</div>
+        <div class="cell-src">Karen Plains · 3 months</div>
+      </div>
+      <div class="cell">
+        <div class="cell-fig" data-to="77" data-dec="0" data-suf="/100">77/100</div>
+        <div class="cell-label">SEO site score</div>
+        <div class="cell-src">L'Aziz Suites</div>
+      </div>
+      <div class="cell">
+        <div class="cell-fig" data-to="8.20" data-dec="2" data-suf="%">8.20%</div>
+        <div class="cell-label">Google Ads CTR</div>
+        <div class="cell-src">Smoove Africa</div>
+      </div>
+    </div>
+    <div class="report-logos">
+      <div class="logo-chip">
+        <picture><source type="image/webp" srcset="assets/logos/karen-plains-sm.webp"/><img src="assets/logos/karen-plains-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
+        <span>Karen Plains Hotel<em>Karen, Nairobi</em></span>
+      </div>
+      <div class="logo-chip">
+        <picture><source type="image/webp" srcset="assets/logos/laziz-suites-sm.webp"/><img class="on-dark" src="assets/logos/laziz-suites-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
+        <span>L'Aziz Suites<em>Parklands, Nairobi</em></span>
+      </div>
+      <div class="logo-chip">
+        <picture><source type="image/webp" srcset="assets/logos/smoove-sm.webp"/><img src="assets/logos/smoove-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
+        <span>Smoove Africa<em>Nairobi</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM ═══ -->
+<section id="problem" aria-labelledby="problem-t">
+  <div class="wrap problem-grid">
     <div>
-      <div class="section-label">The Problem</div>
-      <h2 class="section-title">Most hotels are leaving bookings on the table</h2>
-      <div class="problem-list">
-        <div class="problem-item">
-          <div class="problem-icon">📉</div>
-          <div class="problem-text">
-            <h4>Too dependent on OTAs</h4>
-            <p>Booking.com and Expedia take 15–25% per booking. Without a direct booking strategy, you're building their business, not yours.</p>
+      <p class="eyebrow">The problem</p>
+      <h2 class="sec-title" id="problem-t">Most hotels are leaving bookings on the table</h2>
+      <div class="plist">
+        <div class="pitem">
+          <svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg>
+          <div>
+            <h3>Too dependent on OTAs</h3>
+            <p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p>
           </div>
         </div>
-        <div class="problem-item">
-          <div class="problem-icon">🚫</div>
-          <div class="problem-text">
-            <h4>No digital marketing infrastructure</h4>
+        <div class="pitem">
+          <svg class="icon" aria-hidden="true"><use href="#i-stack"/></svg>
+          <div>
+            <h3>No marketing infrastructure</h3>
             <p>No Google Ads, inconsistent social media, no email list, no SEO. The booking pipeline is unpredictable and hard to scale.</p>
           </div>
         </div>
-        <div class="problem-item">
-          <div class="problem-icon">🌍</div>
-          <div class="problem-text">
-            <h4>Generic tools built for the wrong market</h4>
+        <div class="pitem">
+          <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+          <div>
+            <h3>Playbooks built for the wrong market</h3>
             <p>Generic agencies apply one-size-fits-all playbooks that ignore your market and your guests' booking behaviour. The strategy needs to fit the context.</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="solution-box">
-      <div class="solution-box-label">The Solution</div>
+    <div class="solution">
+      <p class="eyebrow">The solution</p>
       <h3>An agency that understands hospitality, and this market.</h3>
-      <p>We build full digital marketing systems for hotels, locally and internationally. From Google Ads targeting high-intent travellers to SEO, social media, and email campaigns. Everything works together to drive direct bookings and grow your brand.</p>
-      <div class="solution-stats">
-        <div class="sol-stat">
-          <div class="sol-stat-num">SEO 77</div>
-          <div class="sol-stat-label">Site score achieved</div>
-        </div>
-        <div class="sol-stat">
-          <div class="sol-stat-num">+30%</div>
-          <div class="sol-stat-label">Engagement growth</div>
-        </div>
-        <div class="sol-stat">
-          <div class="sol-stat-num">+15%</div>
-          <div class="sol-stat-label">Monthly enquiries</div>
-        </div>
-        <div class="sol-stat">
-          <div class="sol-stat-num">5ch</div>
-          <div class="sol-stat-label">Channels at once</div>
-        </div>
-      </div>
+      <p>We build full digital marketing systems for hotels, locally and internationally. Google Ads, SEO, social and email working together to drive direct bookings.</p>
+      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20talk%20about%20direct%20bookings%20for%20my%20property." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>Talk to us
+      </a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
-  <div class="section-header">
-    <div class="section-label">Services & Pricing</div>
-    <h2 class="section-title">Transparent packages.<br/>Real results.</h2>
-    <p class="section-sub">Straightforward monthly packages. Ad spend is billed separately and all prices exclude VAT. Scope is discussed and agreed before any engagement.</p>
+<!-- ═══ RESULTS ═══ -->
+<section id="results" aria-labelledby="results-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Case studies</p>
+      <h2 class="sec-title" id="results-t">Real work. Real numbers.</h2>
+      <p class="sec-sub">Every figure below is taken from the client's own analytics, and the screenshots are unedited.</p>
+    </div>
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-top">
+          <h3 class="case-name">Karen Plains Hotel</h3>
+          <p class="case-meta">Hospitality · Karen, Nairobi · Ongoing</p>
+          <p class="case-role">Growth Manager Consultant</p>
+        </div>
+        <div class="case-figs">
+          <div class="case-fig"><div class="v">50&#8202;&rarr;&#8202;60%</div><div class="k">Occupancy rate</div></div>
+          <div class="case-fig"><div class="v" data-to="23" data-dec="0" data-suf="K">23K</div><div class="k">Active users, 90 days</div></div>
+          <div class="case-fig"><div class="v" data-to="25" data-dec="0" data-suf="K">25K</div><div class="k">Sessions, 90 days</div></div>
+          <div class="case-fig"><div class="v" data-to="98.1" data-dec="1" data-suf="%">98.1%</div><div class="k">Engagement rate, 90 days</div></div>
+          <div class="case-fig"><div class="v" data-to="86.4" data-dec="1" data-suf="K">86.4K</div><div class="k">Search impressions, 3 months</div></div>
+          <div class="case-fig"><div class="v" data-to="8.5" data-dec="1">8.5</div><div class="k">Avg. Google position</div></div>
+        </div>
+        <div class="case-body">
+          <ul class="case-list">
+            <li>Built the full marketing infrastructure from the ground up: Google Ads, Meta, SEO, social and email.</li>
+            <li>Producing 4&ndash;5 short-form videos per week for Reels and TikTok.</li>
+            <li>Running high-intent Google Ads targeting travellers searching near Karen, Giraffe Centre and Nairobi National Park.</li>
+            <li>Weekly performance reports delivered to hotel management across all channels.</li>
+          </ul>
+          <figure class="proof">
+            <picture>
+              <source type="image/avif" srcset="assets/proof/karen-plains-ga4.avif"/>
+              <source type="image/webp" srcset="assets/proof/karen-plains-ga4.webp"/>
+              <img src="assets/proof/karen-plains-ga4.png" width="757" height="404" loading="lazy" decoding="async"
+                   alt="Google Analytics 4 showing 23K active users, 25K sessions and a 98.1% engagement rate over 90 days"/>
+            </picture>
+            <figcaption>Google Analytics 4 · 90-day overview · account name cropped<br/>
+              <span class="fig-note">Previous period near zero. The property had no active digital marketing before this engagement.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3 class="case-name">L'Aziz Suites</h3>
+          <p class="case-meta">Hospitality · Parklands, Nairobi · Digital transformation</p>
+          <p class="case-role">Digital Marketing Consultant</p>
+        </div>
+        <div class="case-figs">
+          <div class="case-fig"><div class="v" data-to="77" data-dec="0" data-suf="/100">77/100</div><div class="k">SEO site score</div></div>
+          <div class="case-fig"><div class="v" data-to="7.42" data-dec="2" data-suf="%">7.42%</div><div class="k">Google Ads CTR</div></div>
+          <div class="case-fig"><div class="v" data-to="14" data-dec="0">14</div><div class="k">Audit checks passed</div></div>
+        </div>
+        <div class="case-body">
+          <ul class="case-list">
+            <li>Revived a dormant digital presence and rebuilt strategy from zero across all platforms.</li>
+            <li>Managed Google Ads and Meta campaigns targeting short-stay and long-stay guests.</li>
+            <li>Achieved an SEO site score of 77/100, increasing organic visibility significantly.</li>
+            <li>Managed WordPress (Divi) website updates and landing page conversion optimisation.</li>
+          </ul>
+          <figure class="proof">
+            <picture>
+              <source type="image/avif" srcset="assets/proof/laziz-seo-score.avif"/>
+              <source type="image/webp" srcset="assets/proof/laziz-seo-score.webp"/>
+              <img src="assets/proof/laziz-seo-score.png" width="986" height="638" loading="lazy" decoding="async"
+                   alt="SEO site audit scoring 77 out of 100, rated Excellent, with 14 good results"/>
+            </picture>
+            <figcaption>SEO site audit · score card</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3 class="case-name">Smoove Africa</h3>
+          <p class="case-meta">Retail &amp; e-commerce · Nairobi · Full-time role</p>
+          <p class="case-role">Digital Marketing &amp; Sales Assistant</p>
+        </div>
+        <div class="case-figs">
+          <div class="case-fig"><div class="v" data-to="9.36" data-dec="2" data-suf="K">9.36K</div><div class="k">Ad clicks</div></div>
+          <div class="case-fig"><div class="v" data-to="114" data-dec="0" data-suf="K">114K</div><div class="k">Impressions</div></div>
+          <div class="case-fig"><div class="v" data-to="8.20" data-dec="2" data-suf="%">8.20%</div><div class="k">Google Ads CTR</div></div>
+          <div class="case-fig"><div class="v up" data-to="30" data-dec="0" data-pre="+" data-suf="%">+30%</div><div class="k">Online engagement</div></div>
+        </div>
+        <div class="case-body">
+          <ul class="case-list">
+            <li>Planned and executed Google Ads and Meta campaigns to drive product enquiries.</li>
+            <li>Contributed to approximately 30% growth in online engagement across key channels.</li>
+            <li>Supported a 15% increase in monthly enquiries through improved campaign performance.</li>
+            <li>Worked closely with the sales team to improve lead follow-up and conversion flow.</li>
+          </ul>
+          <figure class="proof">
+            <picture>
+              <source type="image/avif" srcset="assets/proof/smoove-google-ads.avif"/>
+              <source type="image/webp" srcset="assets/proof/smoove-google-ads.webp"/>
+              <img src="assets/proof/smoove-google-ads.png" width="1200" height="435" loading="lazy" decoding="async"
+                   alt="Google Ads dashboard showing 9.36K clicks, 114K impressions and an 8.20% click-through rate"/>
+            </picture>
+            <figcaption>Google Ads · clicks, impressions and CTR (spend redacted)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+    </div>
   </div>
+</section>
 
-  <div class="packages-grid">
-    <!-- STARTER -->
-    <div class="pkg-card">
-      <div class="pkg-header">
-        <div class="pkg-tier">Getting Started</div>
-        <div class="pkg-name">Starter</div>
-        <div class="pkg-price">
-          <span class="pkg-currency">$</span>
-          <span class="pkg-amount">350</span>
-          <span class="pkg-period">/month</span>
+<!-- ═══ PRICING ═══ -->
+<section class="band-light" id="pricing" aria-labelledby="pricing-t">
+  <div class="wrap">
+    <div class="price-head">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">Services &amp; pricing</p>
+        <h2 class="sec-title" id="pricing-t">Transparent packages.</h2>
+        <p class="sec-sub">Monthly retainers, no lock-in. Every package includes onboarding, strategy and reporting.</p>
+      </div>
+      <div class="cur-switch" role="group" aria-label="Show prices in">
+        <button type="button" class="cur-btn" data-cur="KES" aria-pressed="true">KES</button>
+        <button type="button" class="cur-btn" data-cur="USD" aria-pressed="false">USD</button>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-top">
+          <p class="tier-kind">Getting started</p>
+          <h3 class="tier-name">Starter</h3>
+          <p class="tier-price">
+            <span class="tier-cur" data-cur-for="starter">KES</span>
+            <span class="tier-amt" data-amt-for="starter">45,000</span>
+            <span class="tier-per">/month</span>
+          </p>
+          <p class="tier-for">For small hotels, new properties or a pilot run: one channel done properly.</p>
         </div>
-        <p class="pkg-desc">For small hotels, new businesses, or a pilot run: one channel done properly.</p>
-      </div>
-      <div class="pkg-divider"></div>
-      <div class="pkg-features">
-        <ul>
-          <li>1 ad channel: Google Ads or Meta Ads</li>
-          <li>Campaign setup & ongoing management</li>
-          <li>Audience & creative testing</li>
-          <li>Initial review of your current marketing</li>
-          <li>Monthly report on what is working</li>
-          <li class="muted">Both ad channels managed</li>
-          <li class="muted">Social media management</li>
-          <li class="muted">Email & WhatsApp messaging</li>
-          <li class="muted">Video, SEO & influencer campaigns</li>
-        </ul>
-      </div>
-      <div class="pkg-footer">
-        <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'm%20interested%20in%20the%20Starter%20package." target="_blank" class="btn-pkg btn-pkg-outline">Get Started →</a>
-      </div>
-    </div>
-
-    <!-- GROWTH (FEATURED) -->
-    <div class="pkg-card featured">
-      <div class="pkg-badge">Most Popular</div>
-      <div class="pkg-header">
-        <div class="pkg-tier">For Growing Brands</div>
-        <div class="pkg-name">Growth</div>
-        <div class="pkg-price">
-          <span class="pkg-currency">$</span>
-          <span class="pkg-amount">650</span>
-          <span class="pkg-period">/month</span>
+        <div class="tier-feats">
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>One ad channel, Google Ads or Meta Ads</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Campaign setup and ongoing management</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Review of your current marketing</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Monthly performance report</li>
+          </ul>
         </div>
-        <p class="pkg-desc">For hotels, suites, and online stores: paid media, social and website working together.</p>
-      </div>
-      <div class="pkg-divider"></div>
-      <div class="pkg-features">
-        <ul>
-          <li>Google Ads and Meta Ads, both managed</li>
-          <li>Social media management, 3 posts per week</li>
-          <li>Email and WhatsApp messaging to your audience</li>
-          <li>Website updates and improvements included</li>
-          <li>Weekly report with clear numbers and next steps</li>
-          <li>Initial review of your current marketing</li>
-          <li>Audience & creative testing across channels</li>
-          <li class="muted">4–5 short videos produced every week</li>
-          <li class="muted">SEO, blog content & influencer campaigns</li>
-        </ul>
-      </div>
-      <div class="pkg-footer">
-        <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'm%20interested%20in%20the%20Growth%20package." target="_blank" class="btn-pkg btn-pkg-gold">Get Started →</a>
-      </div>
-    </div>
-
-    <!-- SCALE -->
-    <div class="pkg-card">
-      <div class="pkg-header">
-        <div class="pkg-tier">Full-Service</div>
-        <div class="pkg-name">Scale</div>
-        <div class="pkg-price">
-          <span class="pkg-currency">$</span>
-          <span class="pkg-amount">1,000</span>
-          <span class="pkg-period">/month</span>
+        <div class="tier-foot">
+          <a class="btn btn-dark btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
+          </a>
         </div>
-        <p class="pkg-desc">For multi-location brands and fast-growing businesses: your entire marketing operation handled.</p>
       </div>
-      <div class="pkg-divider"></div>
-      <div class="pkg-features">
-        <ul>
-          <li>Everything in Growth, plus:</li>
-          <li>4 to 5 short videos produced every week</li>
-          <li>Google ranking improvements and blog content</li>
-          <li>Social media, 5 posts per week with videos</li>
-          <li>Influencer campaigns managed end to end</li>
-          <li>Weekly call to review strategy and results</li>
-          <li>Priority WhatsApp support</li>
-          <li>Competitor monitoring & insights</li>
-        </ul>
-      </div>
-      <div class="pkg-footer">
-        <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'm%20interested%20in%20the%20Scale%20package." target="_blank" class="btn-pkg btn-pkg-outline">Get Started →</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- AUDIT BAR -->
-  <div class="audit-bar">
-    <div class="audit-bar-text">
-      <h3>Not sure where to start? Begin with an Audit.</h3>
-      <p>A comprehensive review of your digital presence, including website, ads, SEO, social media and booking funnel, with a prioritised action plan delivered within 5 business days.</p>
+      <div class="tier featured">
+        <p class="tier-flag">Most popular</p>
+        <div class="tier-top">
+          <p class="tier-kind">For growing brands</p>
+          <h3 class="tier-name">Growth</h3>
+          <p class="tier-price">
+            <span class="tier-cur" data-cur-for="growth">KES</span>
+            <span class="tier-amt" data-amt-for="growth">80,000</span>
+            <span class="tier-per">/month</span>
+          </p>
+          <p class="tier-for">For hotels and suites ready to run paid, social and site as one system.</p>
+        </div>
+        <div class="tier-feats">
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Google Ads and Meta Ads, both managed</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media management, 3 posts per week</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Email and WhatsApp campaigns to your list</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Website updates and improvements</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing across channels</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly report with numbers and next steps</li>
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-top">
+          <p class="tier-kind">Full service</p>
+          <h3 class="tier-name">Scale</h3>
+          <p class="tier-price">
+            <span class="tier-cur" data-cur-for="scale">KES</span>
+            <span class="tier-amt" data-amt-for="scale">130,000</span>
+            <span class="tier-per">/month</span>
+          </p>
+          <p class="tier-for">For multi-location and fast-growing brands: the entire operation handled.</p>
+        </div>
+        <div class="tier-feats">
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Everything in Growth</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>4&ndash;5 short videos produced every week</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>SEO, Google ranking and blog content</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media, 5 posts per week with video</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Influencer campaigns managed end to end</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly strategy call and priority support</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Competitor monitoring and insights</li>
+          </ul>
+        </div>
+        <div class="tier-foot">
+          <a class="btn btn-dark btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
-    <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+
+    <div class="audit">
       <div>
-        <div class="audit-price">$150</div>
-        <div style="font-size:0.7rem;color:rgba(254,252,248,0.3);margin-top:0.2rem;">One-time · No commitment</div>
+        <h3>Not sure where to start? Begin with an audit.</h3>
+        <p>A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days.</p>
       </div>
-      <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" class="btn-gold" style="flex-shrink:0;">Book an Audit →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTS / TRUSTED BY -->
-<section class="clients-band">
-  <div class="clients-band-label">Trusted by leading properties &amp; brands</div>
-  <div class="clients-logos">
-    <div class="client-tile">
-      <img src="assets/logos/karen-plains.png" alt="Karen Plains Hotel" onerror="this.style.display='none'"/>
-      <div class="client-tile-name">Karen Plains Hotel</div>
-      <div class="client-tile-loc">Karen, Nairobi</div>
-    </div>
-    <div class="client-tile" style="background:#000;">
-      <img src="assets/logos/laziz-suites.png" alt="L'Aziz Suites" onerror="this.style.display='none'" style="max-height:56px;"/>
-      <div class="client-tile-name" style="color:rgba(255,255,255,0.8);">L'Aziz Suites</div>
-      <div class="client-tile-loc" style="color:rgba(255,255,255,0.45);">Parklands, Nairobi</div>
-    </div>
-    <div class="client-tile">
-      <img src="assets/logos/smoove.png" alt="Smoove Africa" onerror="this.style.display='none'"/>
-      <div class="client-tile-name">Smoove Africa</div>
-      <div class="client-tile-loc">Nairobi</div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="results-section" id="results">
-  <div class="section-header">
-    <div class="section-label">Case Studies</div>
-    <h2 class="section-title section-title-light">Real work.<br/>Real results.</h2>
-  </div>
-  <div class="results-grid">
-
-    <div class="result-card">
-      <div class="result-left">
-        <div class="result-client">Karen Plains Hotel</div>
-        <div class="result-industry">Hospitality · Karen, Nairobi</div>
-        <div class="result-tag">Ongoing Engagement</div>
-      </div>
-      <div class="result-right">
-        <div class="result-role">Growth Manager Consultant</div>
-        <div class="result-metrics">
-          <div class="result-metric">
-            <div class="result-metric-num">5</div>
-            <div class="result-metric-label">Channels managed</div>
-          </div>
-          <div class="result-metric">
-            <div class="result-metric-num">4–5</div>
-            <div class="result-metric-label">Videos/week</div>
-          </div>
-          <div class="result-metric">
-            <div class="result-metric-num">Weekly</div>
-            <div class="result-metric-label">Reports delivered</div>
-          </div>
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+        <div>
+          <p class="audit-price"><span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span></p>
+          <p class="audit-note">One-time · no commitment</p>
         </div>
-        <ul class="result-list">
-          <li>Built full digital marketing infrastructure from the ground up: Google Ads, Meta, SEO, social, email</li>
-          <li>Producing 4–5 short-form videos per week for Reels and TikTok</li>
-          <li>Running high-intent Google Ads targeting travellers searching near Karen, Giraffe Centre and Nairobi National Park</li>
-          <li>Weekly performance reports delivered to hotel management across all channels</li>
-        </ul>
+        <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Book an audit
+        </a>
       </div>
     </div>
-
-    <div class="result-card">
-      <div class="result-left">
-        <div class="result-client">L'Aziz Suites</div>
-        <div class="result-industry">Hospitality · Nairobi</div>
-        <div class="result-tag">Digital Transformation</div>
-      </div>
-      <div class="result-right">
-        <div class="result-role">Digital Marketing Consultant</div>
-        <div class="result-metrics">
-          <div class="result-metric">
-            <div class="result-metric-num">77</div>
-            <div class="result-metric-label">SEO site score</div>
-          </div>
-          <div class="result-metric">
-            <div class="result-metric-num">↑</div>
-            <div class="result-metric-label">Booking enquiries</div>
-          </div>
-          <div class="result-metric">
-            <div class="result-metric-num">Full</div>
-            <div class="result-metric-label">Digital rebuild</div>
-          </div>
-        </div>
-        <ul class="result-list">
-          <li>Revived a dormant digital presence and rebuilt strategy from zero across all platforms</li>
-          <li>Managed Google Ads and Meta campaigns targeting short-stay and long-stay guests</li>
-          <li>Achieved an SEO site score of 77/100, increasing organic visibility significantly</li>
-          <li>Managed WordPress (Divi) website updates and landing page conversion optimisation</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="result-card">
-      <div class="result-left">
-        <div class="result-client">Smoove Africa</div>
-        <div class="result-industry">Retail & E-commerce · Nairobi</div>
-        <div class="result-tag">Full-time Role</div>
-      </div>
-      <div class="result-right">
-        <div class="result-role">Digital Marketing & Sales Assistant</div>
-        <div class="result-metrics">
-          <div class="result-metric">
-            <div class="result-metric-num">+30%</div>
-            <div class="result-metric-label">Online engagement</div>
-          </div>
-          <div class="result-metric">
-            <div class="result-metric-num">+15%</div>
-            <div class="result-metric-label">Monthly enquiries</div>
-          </div>
-        </div>
-        <ul class="result-list">
-          <li>Planned and executed Google Ads and Meta campaigns to drive product enquiries</li>
-          <li>Contributed to approximately 30% growth in online engagement across key channels</li>
-          <li>Supported a 15% increase in monthly enquiries through improved campaign performance</li>
-          <li>Worked closely with the sales team to improve lead follow-up and conversion flow</li>
-        </ul>
-      </div>
-    </div>
-
+    <p class="fineprint">Ad spend is billed separately and all prices exclude VAT. Scope is agreed before any engagement.</p>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process-section" id="process">
-  <div class="section-header">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">From first call to full execution<br/>in under two weeks.</h2>
-  </div>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="process-step-num">1</div>
-      <div class="process-step-title">Discovery Call</div>
-      <p class="process-step-text">A free 30-minute call to understand your hotel, current challenges, goals and budget. No sales pressure, just honest strategy.</p>
+<!-- ═══ PROCESS ═══ -->
+<section class="band-light" id="process" aria-labelledby="process-t" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="sec-title" id="process-t">From first call to full execution in under two weeks.</h2>
     </div>
-    <div class="process-step">
-      <div class="process-step-num">2</div>
-      <div class="process-step-title">Audit & Strategy</div>
-      <p class="process-step-text">A full review of your digital presence: ads, website, SEO, social. We identify the gaps and build a clear 90-day plan.</p>
-    </div>
-    <div class="process-step">
-      <div class="process-step-num">3</div>
-      <div class="process-step-title">Launch & Execute</div>
-      <p class="process-step-text">Campaigns go live, content starts publishing, SEO improvements begin. Everything built around driving direct bookings.</p>
-    </div>
-    <div class="process-step">
-      <div class="process-step-num">4</div>
-      <div class="process-step-title">Report & Optimise</div>
-      <p class="process-step-text">Weekly or monthly reports with real numbers. We optimise continuously and keep you informed. No black boxes.</p>
-    </div>
+    <ol class="steps">
+      <li class="step">
+        <p class="step-n">Step 01</p>
+        <h3>Discovery call</h3>
+        <p>A free 30-minute call to understand your property, goals and budget. No sales pressure, just honest strategy.</p>
+      </li>
+      <li class="step">
+        <p class="step-n">Step 02</p>
+        <h3>Audit &amp; strategy</h3>
+        <p>A full review of your ads, website, SEO and social. We identify the gaps and build a clear 90-day plan.</p>
+      </li>
+      <li class="step">
+        <p class="step-n">Step 03</p>
+        <h3>Launch &amp; execute</h3>
+        <p>Campaigns go live, content starts publishing, SEO work begins. Everything built around direct bookings.</p>
+      </li>
+      <li class="step">
+        <p class="step-n">Step 04</p>
+        <h3>Report &amp; optimise</h3>
+        <p>Weekly or monthly reports with real numbers. We optimise continuously and keep you informed.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-grid">
-    <div class="about-image-box">
-      <div class="about-initials">ZD</div>
+<!-- ═══ ABOUT ═══ -->
+<section id="about" aria-labelledby="about-t">
+  <div class="wrap about-grid">
+    <div class="about-mark" role="img" aria-label="Zevara Digital monogram">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><use href="#i-star"/></svg>
     </div>
     <div>
-      <div class="section-label">About</div>
-      <div class="about-name">Zevara Digital</div>
-      <div class="about-title">Hospitality & Travel Marketing Agency · Nairobi, Kenya</div>
-      <p class="about-text">Zevara Digital is a hospitality and travel marketing agency based in Nairobi, Kenya. We build full digital marketing systems for hotels, suites, lodges and travel businesses, locally and internationally.</p>
-      <p class="about-text">We understand the local market, the booking behaviour, and the challenges of building direct revenue in a market dominated by OTAs. Every client gets a clear strategy, honest reporting, and marketing that actually drives bookings.</p>
-      <div class="cert-pills">
-        <span class="cert-pill">Google: Fundamentals of Digital Marketing</span>
-        <span class="cert-pill">Google: YouTube Marketing</span>
-        <span class="cert-pill">Reuters: Digital & Social Media Marketing</span>
-        <span class="cert-pill">atingi: Digital & Social Media Marketing</span>
-        <span class="cert-pill">atingi: Artificial Intelligence</span>
+      <p class="eyebrow">About</p>
+      <h2 class="about-name display" id="about-t">Zevara Digital</h2>
+      <p class="about-role">Hospitality &amp; travel marketing · Nairobi, Kenya</p>
+      <p>Zevara Digital is a hospitality and travel marketing agency based in Nairobi, Kenya. We build full digital marketing systems for hotels, suites, lodges and travel businesses, locally and internationally.</p>
+      <p>We understand the local market, the booking behaviour, and the challenges of building direct revenue where OTAs dominate. Every client gets a clear strategy, honest reporting, and marketing that drives bookings.</p>
+      <div class="pills">
+        <span class="pill">Google: Fundamentals of Digital Marketing</span>
+        <span class="pill">Google: YouTube Marketing</span>
+        <span class="pill">Reuters: Digital &amp; Social Media Marketing</span>
+        <span class="pill">atingi: Digital &amp; Social Media Marketing</span>
+        <span class="pill">atingi: Artificial Intelligence</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUE CALLOUT -->
-<div class="marque-callout">
-  <div class="marque-callout-text">
-    <h3>Also: We built free marketing tools for hotels.</h3>
-    <p>Marque is our free platform for hospitality marketers. Generate weekly reports, Google & Meta ad copy, and social captions in seconds. Built from real experience managing hotel marketing.</p>
-  </div>
-  <a href="/marque/" class="btn-navy">Explore Marque →</a>
-</div>
-
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="section-header">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common questions,<br/>straight answers.</h2>
-  </div>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <div class="faq-q">How do I know this will work for my hotel?</div>
-      <div class="faq-a">Start with a Digital Audit ($150). You'll get a full diagnosis of what's working, what isn't, and a clear action plan before committing to a monthly retainer. It removes the risk.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">We already use Booking.com and Expedia. Do we still need this?</div>
-      <div class="faq-a">Especially then. OTAs take 15–25% per booking. Every direct booking you generate saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How long before I see results?</div>
-      <div class="faq-a">Paid ads (Google and Meta) show results within 2–4 weeks once campaigns are optimised. SEO and content take 2–3 months to build momentum. We're transparent about timelines from day one.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you require a long-term contract?</div>
-      <div class="faq-a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. We believe the results should be the reason you stay, not a contract.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What does the ad spend cover? Is it included in the package fee?</div>
-      <div class="faq-a">The package fee covers strategy, management and reporting. Ad spend (Google and Meta budget) is paid directly by you to the platforms. We recommend a budget based on your goals and advise you throughout.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you work with hotels outside Nairobi?</div>
-      <div class="faq-a">Yes. Digital marketing works remotely. We work with properties across Kenya and beyond, serving clients locally and internationally. If you have a hotel, we can help.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div class="section-label">Ready?</div>
-  <h2 class="cta-title">Let's build your hotel's direct booking engine.</h2>
-  <p class="cta-sub">Book a free 30-minute strategy call. No commitment. We'll tell you exactly what we'd do for your property and what it would cost.</p>
-  <div class="cta-buttons">
-    <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" class="btn-gold">Book on WhatsApp →</a>
-    <a href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry" class="btn-ghost">Send an Email</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-grid">
+<!-- ═══ MARQUE ═══ -->
+<aside class="marque" aria-labelledby="marque-t">
+  <div class="marque-in">
     <div>
-      <div class="section-label">Contact</div>
-      <h2 class="section-title">Get in touch.</h2>
-      <p class="section-sub">Prefer to reach out directly? Use any of the channels below. WhatsApp gets the fastest response.</p>
-      <div class="contact-methods">
-        <a href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital,%20I'd%20like%20to%20discuss%20hotel%20marketing." target="_blank" class="contact-method">
-          <div class="contact-method-icon">💬</div>
-          <div class="contact-method-text">
-            <div class="contact-method-label">WhatsApp (fastest)</div>
-            <div class="contact-method-value">+254 702 256 764</div>
-          </div>
+      <h3 id="marque-t">We also built free tools for hotel marketers.</h3>
+      <p>Marque generates weekly reports, Google and Meta ad copy, and social captions in seconds. Built from real experience running hotel marketing.</p>
+    </div>
+    <a class="btn btn-line" href="/marque/">Explore Marque <svg aria-hidden="true"><use href="#i-arr"/></svg></a>
+  </div>
+</aside>
+
+<!-- ═══ FAQ ═══ -->
+<section class="band-light" id="faq" aria-labelledby="faq-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="sec-title" id="faq-t">Common questions, straight answers.</h2>
+    </div>
+    <div class="faq">
+      <details class="q">
+        <summary>How do I know this will work for my hotel?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Start with an audit (<span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span>). You get a full diagnosis of what is working, what is not, and a clear action plan before committing to a retainer.</p>
+      </details>
+      <details class="q">
+        <summary>We already use Booking.com and Expedia. Do we still need this?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Especially then. OTAs take 15&ndash;25% per booking, so every direct booking saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</p>
+      </details>
+      <details class="q">
+        <summary>How long before I see results?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Paid ads show results within 2&ndash;4 weeks once campaigns are optimised. SEO and content take 2&ndash;3 months to build momentum. We are transparent about timelines from day one.</p>
+      </details>
+      <details class="q">
+        <summary>Do you require a long-term contract?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. The results should be the reason you stay, not a contract.</p>
+      </details>
+      <details class="q">
+        <summary>Is ad spend included in the package fee?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">No. The package fee covers strategy, management and reporting. Ad spend is paid directly by you to Google and Meta, and we recommend a budget based on your goals.</p>
+      </details>
+      <details class="q">
+        <summary>Do you work with hotels outside Nairobi?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Yes. Digital marketing works remotely. We work with properties across Kenya and beyond, serving clients locally and internationally.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT / THE DESK ═══ -->
+<section id="contact" aria-labelledby="contact-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Contact</p>
+      <h2 class="sec-title" id="contact-t">Let's build your direct booking engine.</h2>
+      <p class="sec-sub">We respond within 24 hours on weekdays. WhatsApp gets the fastest response.</p>
+    </div>
+    <div class="desk-grid">
+      <div class="desk-primary">
+        <h3>Start a conversation on WhatsApp.</h3>
+        <p class="lede">Tell us about your property and what you want to grow. We will tell you exactly what we would do and what it would cost, free.</p>
+        <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Message us on WhatsApp
         </a>
-        <a href="mailto:maningisylvester@gmail.com" class="contact-method">
-          <div class="contact-method-icon">📧</div>
-          <div class="contact-method-text">
-            <div class="contact-method-label">Email</div>
-            <div class="contact-method-value">maningisylvester@gmail.com</div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" class="contact-method">
-          <div class="contact-method-icon">🔗</div>
-          <div class="contact-method-text">
-            <div class="contact-method-label">LinkedIn</div>
-            <div class="contact-method-value">maningisylvesterdigitalmarketer</div>
-          </div>
-        </a>
-        <div class="contact-method" style="cursor:default;">
-          <div class="contact-method-icon">📍</div>
-          <div class="contact-method-text">
-            <div class="contact-method-label">Location</div>
-            <div class="contact-method-value">Nairobi, Kenya</div>
+        <p class="desk-num">+254 702 256 764</p>
+        <div class="picks">
+          <p class="picks-t">Or start with a specific request</p>
+          <div class="pick-row">
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">Free strategy call</a>
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener">Starter package</a>
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener">Growth package</a>
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener">Scale package</a>
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener">Digital audit</a>
+            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%20have%20a%20question%20about%20hotel%20marketing." target="_blank" rel="noopener">Something else</a>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="section-label" style="margin-top:0;">Send a Message</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem;">Tell us about your hotel.</h3>
-      <p style="font-size:0.83rem;color:var(--text-2);margin-bottom:0;">We respond within 24 hours on weekdays.</p>
-      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Your name" required/></div>
-          <div class="form-group"><label>Hotel / Property</label><input type="text" placeholder="Hotel name" required/></div>
+
+      <div class="channels">
+        <a class="chan" href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry">
+          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <span><span class="chan-k">Email</span><span class="chan-v">maningisylvester@gmail.com</span></span>
+        </a>
+        <a class="chan" href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener">
+          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-li"/></svg></span>
+          <span><span class="chan-k">LinkedIn</span><span class="chan-v">maningisylvesterdigitalmarketer</span></span>
+        </a>
+        <div class="chan">
+          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <span><span class="chan-k">Based in</span><span class="chan-v">Nairobi, Kenya</span></span>
         </div>
-        <div class="form-group"><label>Email or WhatsApp</label><input type="text" placeholder="Email or +254..." required/></div>
-        <div class="form-group">
-          <label>I'm interested in</label>
-          <select>
-            <option>A free strategy call</option>
-            <option>The Starter Package ($350/mo)</option>
-            <option>The Growth Package ($650/mo)</option>
-            <option>The Scale Package ($1,000/mo)</option>
-            <option>A Digital Marketing Audit ($150)</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Tell me about your property</label><textarea placeholder="Location, current challenges, what you're hoping to achieve..."></textarea></div>
-        <button type="submit" class="btn-submit">Send Message →</button>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">
-    <a href="/" class="footer-logo" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
-      <svg viewBox="0 0 36 36" width="20" height="20" style="flex-shrink:0;" aria-hidden="true">
-        <path d="M18 1 L14.5 18 L18 14.5 Z" fill="#C4643A"/>
-        <path d="M18 1 L21.5 18 L18 14.5 Z" fill="#8B3B1C"/>
-        <path d="M18 35 L14.5 18 L18 21.5 Z" fill="#C4643A"/>
-        <path d="M18 35 L21.5 18 L18 21.5 Z" fill="#8B3B1C"/>
-        <path d="M1 18 L18 14.5 L14.5 18 Z" fill="#C4643A"/>
-        <path d="M1 18 L18 21.5 L14.5 18 Z" fill="#8B3B1C"/>
-        <path d="M35 18 L18 14.5 L21.5 18 Z" fill="#C4643A"/>
-        <path d="M35 18 L18 21.5 L21.5 18 Z" fill="#8B3B1C"/>
-        <circle cx="18" cy="18" r="2" fill="#F5F0E8"/>
-      </svg>
-      <span style="font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FEFCF8;">Zevara<span style="color:#C4643A;"> Digital</span></span>
-    </a>
-    <p class="footer-tagline">Hospitality and travel marketing agency based in Nairobi, serving clients locally and internationally.</p>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-foot">
+  <div class="foot-in">
+    <div>
+      <a href="/" class="brand">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-star"/></svg>
+        <span class="brand-name">Zevara<i> Digital</i></span><span class="vh">, home</span>
+      </a>
+      <p class="foot-tag">Hospitality and travel marketing agency based in Nairobi, serving clients locally and internationally.</p>
+    </div>
+    <div>
+      <p class="foot-t">Services</p>
+      <ul class="foot-l">
+        <li><a href="#pricing">Starter package</a></li>
+        <li><a href="#pricing">Growth package</a></li>
+        <li><a href="#pricing">Scale package</a></li>
+        <li><a href="#pricing">Digital audit</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-t">Work</p>
+      <ul class="foot-l">
+        <li><a href="#results">Karen Plains Hotel</a></li>
+        <li><a href="#results">L'Aziz Suites</a></li>
+        <li><a href="#results">Smoove Africa</a></li>
+        <li><a href="/marque/">Marque platform</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-t">Connect</p>
+      <ul class="foot-l">
+        <li><a href="https://wa.me/254702256764" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:maningisylvester@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/portfolio/">Personal portfolio</a></li>
+      </ul>
+    </div>
   </div>
-  <div>
-    <div class="footer-col-title">Services</div>
-    <ul class="footer-links">
-      <li><a href="#services">Starter Package</a></li>
-      <li><a href="#services">Growth Package</a></li>
-      <li><a href="#services">Scale Package</a></li>
-      <li><a href="#services">Digital Audit</a></li>
-    </ul>
-  </div>
-  <div>
-    <div class="footer-col-title">Work</div>
-    <ul class="footer-links">
-      <li><a href="#results">Karen Plains Hotel</a></li>
-      <li><a href="#results">L'Aziz Suites</a></li>
-      <li><a href="#results">Smoove Africa</a></li>
-      <li><a href="/marque/">Marque Platform</a></li>
-    </ul>
-  </div>
-  <div>
-    <div class="footer-col-title">Connect</div>
-    <ul class="footer-links">
-      <li><a href="https://wa.me/254702256764" target="_blank">WhatsApp</a></li>
-      <li><a href="mailto:maningisylvester@gmail.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank">LinkedIn</a></li>
-      <li><a href="/marque/">Free Tools: Marque</a></li>
-      <li><a href="/portfolio/">Personal Portfolio</a></li>
-    </ul>
-  </div>
-  <div class="footer-bottom">
+  <div class="foot-btm">
     <span>© 2026 Zevara Digital. All rights reserved. Nairobi, Kenya.</span>
     <span>Built for growth.</span>
   </div>
 </footer>
 
+<!-- ═══ STICKY MOBILE CTA ═══ -->
+<div class="sticky" id="sticky">
+  <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call
+  </a>
+</div>
+
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  var form = e.target;
-  var name = form.querySelector('input[placeholder="Your name"]').value;
-  var hotel = form.querySelector('input[placeholder="Hotel name"]').value;
-  var contact = form.querySelector('input[placeholder="Email or +254..."]').value;
-  var service = form.querySelector('select').value;
-  var message = form.querySelector('textarea').value;
-  var text = 'Hi Zevara Digital, my name is ' + name + ' from ' + hotel + '. I\'m interested in: ' + service + '. ' + (message ? 'Details: ' + message : '') + ' Contact: ' + contact;
-  window.open('https://wa.me/254702256764?text=' + encodeURIComponent(text), '_blank');
-}
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── nav ── */
+  var head = document.getElementById('head'),
+      btn  = document.getElementById('navBtn');
+  function setNav(open){
+    head.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function(){ setNav(!head.classList.contains('open')); });
+  document.getElementById('navPanel').addEventListener('click', function(e){
+    if (e.target.closest('a')) setNav(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && head.classList.contains('open')) { setNav(false); btn.focus(); }
+  });
+
+  /* ── currency ── */
+  var PRICE = {
+    starter:{KES:['KES','45,000'], USD:['$','350']},
+    growth: {KES:['KES','80,000'], USD:['$','650']},
+    scale:  {KES:['KES','130,000'],USD:['$','1,000']},
+    audit:  {KES:['KES','18,000'], USD:['$','150']}
+  };
+  function setCur(cur){
+    Object.keys(PRICE).forEach(function(k){
+      var p = PRICE[k][cur];
+      document.querySelectorAll('[data-cur-for="'+k+'"]').forEach(function(el){ el.textContent = p[0]; });
+      document.querySelectorAll('[data-amt-for="'+k+'"]').forEach(function(el){ el.textContent = p[1]; });
+    });
+    document.querySelectorAll('.cur-btn').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.cur === cur ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.cur-btn').forEach(function(b){
+    b.addEventListener('click', function(){ setCur(b.dataset.cur); });
+  });
+
+  /* ── the night report: count up ── */
+  function fmt(v, dec){
+    return v.toLocaleString('en-US',{minimumFractionDigits:dec, maximumFractionDigits:dec});
+  }
+  function run(el){
+    var to  = parseFloat(el.dataset.to),
+        dec = parseInt(el.dataset.dec || '0', 10),
+        pre = el.dataset.pre || '',
+        suf = el.dataset.suf || '',
+        dur = 1100, t0 = null;
+    function frame(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1),
+          e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + fmt(to * e, dec) + suf;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var figs = document.querySelectorAll('[data-to]');
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ run(en.target); io.unobserve(en.target); }
+      });
+    }, {threshold:0.45});
+    figs.forEach(function(f){ io.observe(f); });
+  }
+
+  /* ── sticky mobile cta ──
+     Shows once the hero is gone, but hides again whenever a section that
+     already carries its own WhatsApp button is on screen, so the user never
+     sees two competing WhatsApp CTAs at once. */
+  var sticky = document.getElementById('sticky');
+  if (sticky && 'IntersectionObserver' in window){
+    /* The bar yields to two things, by different rules.
+       1. Any other WhatsApp CTA anywhere on screen, so two never compete.
+       2. A proof figure only while it reaches into the strip of screen the
+          bar occupies, so a screenshot or its caption is never covered.
+          Suppressing on any visible figure would hide the bar for most of
+          the page and defeat the point of having it. */
+    var BAR_ZONE = 170,
+        ctas = [].slice.call(document.querySelectorAll('a[href*="wa.me"]'))
+                 .filter(function(a){ return !sticky.contains(a); }),
+        proofs = [].slice.call(document.querySelectorAll('.proof')),
+        ctaOnScreen = 0, ticking = false;
+
+    function proofInBarZone(){
+      var vh = window.innerHeight;
+      for (var i = 0; i < proofs.length; i++){
+        var r = proofs[i].getBoundingClientRect();
+        if (r.bottom > vh - BAR_ZONE && r.top < vh) return true;
+      }
+      return false;
+    }
+    function update(){
+      sticky.classList.toggle('show', ctaOnScreen === 0 && !proofInBarZone());
+    }
+    function schedule(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ ticking = false; update(); });
+    }
+    var ctaIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var was = en.target.__vis ? 1 : 0,
+            now = en.isIntersecting ? 1 : 0;
+        if (was !== now){ en.target.__vis = !!now; ctaOnScreen += now - was; }
+      });
+      update();
+    }, {rootMargin:'-56px 0px 0px 0px'});
+    ctas.forEach(function(a){ ctaIO.observe(a); });
+    window.addEventListener('scroll', schedule, {passive:true});
+    window.addEventListener('resize', schedule);
+    update();
+  }
+})();
 </script>
 
 </body>
