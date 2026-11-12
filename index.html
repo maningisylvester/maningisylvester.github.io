@@ -3,21 +3,73 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zevara Digital | Hospitality &amp; Travel Marketing Agency | Nairobi, Kenya</title>
-<meta name="description" content="We help hotels, suites and lodges get more direct bookings through Google Ads, Meta Ads, SEO, social media and content marketing. Based in Nairobi, serving clients locally and internationally."/>
-<meta name="theme-color" content="#0C1F26"/>
+<!--
+  ═══ SETTINGS: read this before renaming or moving domains ═══════════════════
+
+  SITE_URL = https://maningisylvester.github.io/
+    The only absolute URL in this file. Link previews (WhatsApp, LinkedIn,
+    Facebook) and search engines read these tags without running JavaScript,
+    so the value is written out literally rather than injected. When the
+    custom domain is live, find-and-replace the string above in this file.
+    It appears in exactly these places, all inside <head>:
+      1. <link rel="canonical">       2. og:url
+      3. og:image                      4. twitter:image
+      5. JSON-LD "url"                 6. JSON-LD "image"
+    Everything else (assets, internal links, /marque/) is relative and will
+    work on any domain unchanged.
+
+  PUBLIC NAME = "Maningi Sylvester"  (short form "Maningi" in WhatsApp greetings)
+    No business name is used anywhere. To rename later, find-and-replace
+    "Maningi Sylvester" first, then review "Hi Maningi" greetings separately
+    (they are URL-encoded as "Hi%20Maningi"). The full name appears in:
+      <title>, og:site_name, og:title, og:image:alt, twitter:title,
+      JSON-LD "name", nav wordmark, portrait alt text, about heading,
+      footer wordmark, copyright line.  (11 places)
+    "Hi%20Maningi" appears in all 19 pre-filled WhatsApp links, plus the
+    Visibility Check message builder in the <script> at the bottom
+    (search for: GREETING).
+  ═══════════════════════════════════════════════════════════════════════════ -->
+<title>Maningi Sylvester | Hotel marketing for direct bookings | Nairobi, Kenya</title>
+<meta name="description" content="I help hotels, suites and lodges get more direct bookings through Google Ads, Meta Ads, SEO, social media and content. Based in Nairobi, working with properties locally and internationally."/>
+<meta name="theme-color" content="#FBF6EE"/>
+<link rel="canonical" href="https://maningisylvester.github.io/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Maningi Sylvester"/>
+<meta property="og:title" content="Maningi Sylvester | Hotel marketing for direct bookings"/>
+<meta property="og:description" content="I help hotels get more direct bookings. Take the 60-second visibility check, or message me on WhatsApp."/>
+<meta property="og:url" content="https://maningisylvester.github.io/"/>
+<meta property="og:image" content="https://maningisylvester.github.io/assets/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Hotel terrace at golden hour, Maningi Sylvester hotel marketing"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Maningi Sylvester | Hotel marketing for direct bookings"/>
+<meta name="twitter:description" content="I help hotels get more direct bookings. Take the 60-second visibility check."/>
+<meta name="twitter:image" content="https://maningisylvester.github.io/assets/og-image.jpg"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person",
+ "name":"Maningi Sylvester",
+ "jobTitle":"Hotel and hospitality digital marketer",
+ "url":"https://maningisylvester.github.io/",
+ "image":"https://maningisylvester.github.io/assets/og-image.jpg",
+ "address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
+ "knowsAbout":["Google Ads","Meta Ads","SEO","Social media marketing","Hotel direct bookings"],
+ "sameAs":["https://www.linkedin.com/in/maningisylvesterdigitalmarketer"]}
+</script>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400-700.woff2" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-600.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/hanken-grotesk-400-700.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-serif-400.woff2" crossorigin/>
 <style>
-/* Self-hosted, latin subset, woff2 only. Same origin as the page, so no extra
-   DNS + TLS handshake to a third party and no render-blocking external CSS.
-   font-display:swap means text paints immediately in the fallback, never invisible. */
-@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;
-  src:url(assets/fonts/fraunces-600.woff2) format('woff2');
+/* Self-hosted, latin subset, woff2. font-display:swap paints text at once in
+   the fallback face, so text is never invisible while fonts load. */
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/instrument-serif-400.woff2) format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(assets/fonts/manrope-400-700.woff2) format('woff2');
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
+  src:url(assets/fonts/instrument-serif-400-italic.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(assets/fonts/hanken-grotesk-400-700.woff2) format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;
   src:url(assets/fonts/ibm-plex-mono-400.woff2) format('woff2');
@@ -25,643 +77,557 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;
   src:url(assets/fonts/ibm-plex-mono-500.woff2) format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-/* ═══ NIGHT ARRIVAL ═══════════════════════════════════════════
-   Portico   #0C1F26  deep petrol ground
-   Alcove    #13303A  raised surface
-   Lamplight #E8B563  warm brass, primary action
-   Verdigris #6FB09A  patina, positive movement
-   Limewash  #EAE7DF  plaster relief bands
-   Bone      #F4F1EA  text on dark
+
+/* ═══ GOLDEN HOUR ═════════════════════════════════════════════
+   Linen   #FBF6EE  warm off-white base
+   Apricot #FBE6D2  peach tint, alternating bands
+   Ink     #2A1B12  deep warm brown, all text
+   Ember   #F07A2A  saturated orange: arcs, fills, buttons (ink text only)
+   Burnt   #B4440F  deep orange: behind white text, and orange as text
+   Clay    #6E5547  muted secondary text
+   Marker  #DD5F14  hand-drawn annotations on white screenshots (3.67:1)
+   Rule: white text never sits on Ember (2.79:1). Ember is never text on light.
    ═════════════════════════════════════════════════════════════ */
 :root{
-  --portico:#0C1F26;
-  --portico-deep:#081519;
-  --alcove:#13303A;
-  --alcove-2:#1A3D49;
-  --lamplight:#E8B563;
-  --lamplight-hi:#F2C87F;
-  --verdigris:#6FB09A;
-  --limewash:#EAE7DF;
-  --limewash-2:#E0DCD2;
-  --bone:#F4F1EA;
-  --mist:#A8BEC4;
-  --hair:rgba(168,190,196,0.18);
-  --hair-dark:rgba(12,31,38,0.14);
-  --display:'Fraunces',Georgia,serif;
-  --body:'Manrope',system-ui,-apple-system,sans-serif;
+  --linen:#FBF6EE; --apricot:#FBE6D2; --sand:#F4EADC; --white:#FFFDF9;
+  --ink:#2A1B12; --ink-2:#3D2A1E; --clay:#6E5547;
+  --ember:#F07A2A; --ember-hi:#F58D45; --burnt:#B4440F; --marker:#DD5F14;
+  --line:rgba(42,27,18,0.12); --line-2:rgba(42,27,18,0.2);
+  --on-ink:#FBF6EE; --on-ink-2:#D9C9BC;
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  --pad:clamp(1.25rem,5vw,4.5rem);
-  --measure:1200px;
+  --pad:clamp(1.25rem,5vw,4.5rem); --measure:1200px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-body{
-  font-family:var(--body);font-size:16px;line-height:1.65;
-  background:var(--portico);color:var(--bone);
-  overflow-x:hidden;-webkit-font-smoothing:antialiased;
-}
+body{font-family:var(--body);font-size:16px;line-height:1.65;background:var(--linen);color:var(--ink);
+     -webkit-font-smoothing:antialiased;}
 img,svg{display:block;max-width:100%;}
 a{color:inherit;}
-
-/* focus: one visible treatment everywhere */
-:focus-visible{outline:2px solid var(--lamplight);outline-offset:3px;border-radius:3px;}
-.skip{
-  position:absolute;left:-9999px;top:0;z-index:200;
-  background:var(--lamplight);color:var(--portico);
-  padding:0.9rem 1.4rem;font-weight:700;font-size:0.85rem;text-decoration:none;
-}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px;}
+.on-dark :focus-visible{outline-color:var(--ember);}
+.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--ink);color:var(--on-ink);
+      padding:.9rem 1.4rem;font-weight:700;text-decoration:none;}
 .skip:focus{left:0;}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
-
-/* ── type roles ── */
-.display{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-0.015em;}
-.fig,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
-.eyebrow{
-  font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--lamplight);margin-bottom:1rem;
-}
-.wrap{max-width:var(--measure);margin-inline:auto;}
-section{padding:clamp(3.5rem,9vw,7rem) var(--pad);}
-/* clear the sticky header when jumping to an anchor */
 [id]{scroll-margin-top:5.5rem;}
-.sec-head{margin-bottom:clamp(2.25rem,5vw,3.5rem);max-width:640px;}
-.sec-title{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;letter-spacing:-0.015em;}
-.sec-sub{color:var(--mist);font-size:1rem;margin-top:1rem;max-width:52ch;}
+[hidden]{display:none !important;}
 
-/* ── light bands ── */
-.band-light{background:var(--limewash);color:var(--portico);}
-.band-light .sec-sub{color:#3C5058;}
-.band-light .eyebrow{color:#8A5A1E;}
+/* ── type ── */
+.mono,.fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--burnt);margin-bottom:.9rem;}
+.sec-title{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.04;letter-spacing:-.01em;}
+.sec-title em{font-style:italic;color:var(--burnt);}
+.sec-sub{color:var(--clay);font-size:1.02rem;margin-top:.9rem;max-width:54ch;}
+.wrap{max-width:var(--measure);margin-inline:auto;}
+/* overflow-x:clip contains the wide arc shapes sideways while still letting each
+   band's arc rise visibly into the section above (clip, unlike hidden, does not
+   force the other axis to scroll). */
+section{padding:clamp(3.5rem,9vw,6.5rem) var(--pad);position:relative;overflow-x:clip;}
+.sec-head{margin-bottom:clamp(2rem,5vw,3rem);max-width:660px;}
+
+/* ── the arc motif: bands rise into the section above on a shallow curve ── */
+.band{background:var(--apricot);}
+.arc-top::before{
+  content:'';position:absolute;left:-15%;right:-15%;top:-38px;height:76px;
+  background:inherit;border-radius:50% 50% 0 0 / 100% 100% 0 0;pointer-events:none;
+}
+.arc-top>*{position:relative;}
 
 /* ── buttons ── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;
-  min-height:52px;padding:0.9rem 1.6rem;
-  font-family:var(--body);font-size:0.92rem;font-weight:700;letter-spacing:0.01em;
-  text-decoration:none;border-radius:4px;border:2px solid transparent;
-  cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s;
-}
-.btn svg{width:19px;height:19px;flex-shrink:0;}
-.btn-brass{background:var(--lamplight);color:var(--portico);border-color:var(--lamplight);}
-.btn-brass:hover{background:var(--lamplight-hi);border-color:var(--lamplight-hi);transform:translateY(-1px);}
-.btn-line{background:transparent;color:var(--bone);border-color:rgba(244,241,234,0.4);}
-.btn-line:hover{border-color:var(--bone);transform:translateY(-1px);}
-.btn-dark{background:var(--portico);color:var(--bone);border-color:var(--portico);}
-.btn-dark:hover{background:var(--alcove);border-color:var(--alcove);transform:translateY(-1px);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;
+     padding:.85rem 1.5rem;font-family:var(--body);font-size:1rem;font-weight:700;text-decoration:none;
+     border-radius:999px;border:2px solid transparent;cursor:pointer;
+     transition:background .18s,border-color .18s,transform .18s;}
+.btn svg{width:20px;height:20px;flex-shrink:0;}
+.btn-ember{background:var(--ember);color:var(--ink);border-color:var(--ember);}
+.btn-ember:hover{background:var(--ember-hi);border-color:var(--ember-hi);transform:translateY(-1px);}
+.btn-burnt{background:var(--burnt);color:#fff;border-color:var(--burnt);}
+.btn-burnt:hover{background:#9C3A0C;border-color:#9C3A0C;}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2);}
+.btn-ghost:hover{border-color:var(--ink);}
 .btn-full{width:100%;}
-.textlink{
-  display:inline-flex;align-items:center;gap:0.45rem;min-height:44px;
-  color:var(--bone);font-size:0.92rem;font-weight:500;
-  text-decoration:none;border-bottom:1px solid rgba(244,241,234,0.35);
-}
-.textlink:hover{border-bottom-color:var(--lamplight);color:var(--lamplight);}
-.textlink svg{width:15px;height:15px;}
+.textlink{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;color:var(--ink);font-weight:700;
+          text-decoration:underline;text-decoration-color:var(--ember);text-decoration-thickness:2px;text-underline-offset:5px;}
+.textlink:hover{text-decoration-color:var(--burnt);color:var(--burnt);}
 
 /* ── nav ── */
-.site-head{
-  position:sticky;top:0;z-index:100;
-  background:rgba(8,21,25,0.92);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--hair);
-}
-.nav-inner{
-  max-width:var(--measure);margin-inline:auto;
-  padding:0.7rem var(--pad);
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-}
-.brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;min-height:44px;}
-.brand-mark{width:24px;height:24px;flex-shrink:0;}
-.brand-name{
-  font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--bone);
-}
-.brand-name i{color:var(--lamplight);font-style:normal;}
-.nav-toggle{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:44px;height:44px;background:none;border:1px solid var(--hair);border-radius:4px;
-  color:var(--bone);cursor:pointer;
-}
+.site-head{position:sticky;top:0;z-index:100;background:rgba(251,246,238,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav-inner{max-width:var(--measure);margin-inline:auto;padding:.65rem var(--pad);display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;min-height:44px;}
+.brand svg{width:30px;height:20px;flex-shrink:0;}
+.brand-name{font-family:var(--display);font-size:1.4rem;line-height:1;color:var(--ink);}
+.nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;
+            border:1px solid var(--line-2);border-radius:999px;color:var(--ink);cursor:pointer;}
 .nav-toggle svg{width:20px;height:20px;}
 .nav-toggle .x{display:none;}
-.site-head.open .nav-toggle .x{display:block;}
-.site-head.open .nav-toggle .bars{display:none;}
-.nav-panel{
-  display:none;position:absolute;left:0;right:0;top:100%;
-  background:var(--portico-deep);border-bottom:1px solid var(--hair);
-  padding:0.5rem var(--pad) 1.25rem;
-}
+.site-head.open .nav-toggle .x{display:block;} .site-head.open .nav-toggle .bars{display:none;}
+.nav-panel{display:none;position:absolute;left:0;right:0;top:100%;background:var(--linen);border-bottom:1px solid var(--line);padding:.5rem var(--pad) 1.25rem;}
 .site-head.open .nav-panel{display:block;}
 .nav-list{list-style:none;display:flex;flex-direction:column;}
-.nav-list a{
-  display:flex;align-items:center;min-height:48px;
-  font-size:0.9rem;font-weight:500;color:var(--mist);text-decoration:none;
-  border-bottom:1px solid var(--hair);
-}
-.nav-list a:hover{color:var(--bone);}
+.nav-list a{display:flex;align-items:center;min-height:48px;font-weight:600;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line);}
+.nav-list a:hover{color:var(--burnt);}
 .nav-panel .btn{margin-top:1rem;}
 
 /* ── hero ── */
-.hero{
-  position:relative;isolation:isolate;overflow:hidden;
-  min-height:min(94svh,780px);display:flex;align-items:center;
-  padding:clamp(3rem,10vw,6rem) var(--pad) clamp(3rem,8vw,5rem);
-}
-.hero-media{position:absolute;inset:0;z-index:-2;}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:58% center;}
-.hero-scrim{
-  position:absolute;inset:0;z-index:-1;
-  background:
-    linear-gradient(100deg,rgba(8,21,25,0.94) 0%,rgba(8,21,25,0.82) 38%,rgba(8,21,25,0.42) 72%,rgba(8,21,25,0.30) 100%),
-    radial-gradient(1100px 520px at 8% 12%,rgba(232,181,99,0.16) 0%,transparent 62%);
-}
-.hero-inner{max-width:var(--measure);margin-inline:auto;width:100%;}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:0.55rem;
-  font-size:0.66rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--bone);border:1px solid rgba(244,241,234,0.32);
-  padding:0.5rem 1rem;border-radius:2rem;margin-bottom:1.75rem;
-}
-.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--lamplight);flex-shrink:0;}
-.hero h1{
-  font-family:var(--display);font-weight:600;
-  font-size:clamp(2.6rem,8.5vw,5.2rem);line-height:1.03;letter-spacing:-0.025em;
-  max-width:15ch;margin-bottom:1.4rem;
-}
-.hero h1 em{font-style:normal;font-weight:600;color:var(--lamplight);}
-.hero-sub{font-size:clamp(1rem,2.2vw,1.12rem);color:#DCE6E8;max-width:50ch;margin-bottom:2.25rem;}
-.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;}
+.hero{padding-top:clamp(2.25rem,7vw,5rem);padding-bottom:clamp(2rem,5vw,4rem);overflow:hidden;}
+.hero-grid{max-width:var(--measure);margin-inline:auto;display:grid;gap:1.75rem;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+          text-transform:uppercase;color:var(--ink-2);margin-bottom:1.1rem;}
+.hero-tag i{width:9px;height:9px;border-radius:50%;background:var(--ember);flex-shrink:0;}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.9rem,10.5vw,5.6rem);line-height:.98;letter-spacing:-.015em;max-width:12ch;margin-bottom:1.1rem;}
+.hero h1 em{font-style:italic;color:var(--burnt);}
+.hero-sub{font-size:clamp(1.02rem,2.4vw,1.15rem);color:var(--ink-2);max-width:46ch;margin-bottom:1.6rem;}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.4rem;}
+.hero-art{position:relative;}
+.sun{position:absolute;border-radius:50%;pointer-events:none;
+     background:radial-gradient(circle at 50% 50%,var(--ember) 0 46%,rgba(240,122,42,.32) 47%,rgba(240,122,42,0) 70%);}
+.hero-art .sun{width:min(78vw,300px);aspect-ratio:1;right:-12%;bottom:-48%;opacity:.9;}
+.hero-grid>div:first-child{position:relative;z-index:1;}
+.arch{display:block;position:relative;overflow:hidden;border-radius:999px 999px 18px 18px;aspect-ratio:780/400;border:5px solid var(--white);box-shadow:0 18px 50px rgba(110,60,20,.18);}
+.arch img{width:100%;height:100%;object-fit:cover;}
 
-/* ── the night report ── */
-.report{background:var(--portico-deep);border-block:1px solid var(--hair);padding:clamp(2.25rem,6vw,3.25rem) var(--pad);}
-.report-head{
-  font-family:var(--mono);font-size:0.68rem;font-weight:500;
-  letter-spacing:0.16em;text-transform:uppercase;color:var(--mist);
-  margin-bottom:1.75rem;line-height:1.7;
-}
-.live{
-  display:inline-block;vertical-align:middle;
-  width:7px;height:7px;border-radius:50%;background:var(--verdigris);
-  margin-right:0.7rem;margin-top:-2px;animation:pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(111,176,154,0.45);}50%{opacity:.65;box-shadow:0 0 0 6px rgba(111,176,154,0);}}
-.readout{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:6px;overflow:hidden;
-}
-.cell{background:var(--portico);padding:1.15rem 1.1rem;}
-.cell-fig{
-  font-family:var(--mono);font-variant-numeric:tabular-nums;
-  font-size:clamp(1.35rem,4.6vw,1.9rem);font-weight:500;line-height:1.1;
-  color:var(--lamplight);letter-spacing:-0.02em;
-}
-.cell-fig.up{color:var(--verdigris);}
-.cell-label{font-size:0.72rem;color:var(--bone);margin-top:0.45rem;font-weight:500;line-height:1.35;}
-.cell-src{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--mist);margin-top:0.2rem;}
-.report-logos{
-  display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem;margin-top:1.5rem;
-}
-.logo-chip{
-  display:flex;align-items:center;gap:0.65rem;
-  background:var(--alcove);border:1px solid var(--hair);border-radius:5px;
-  padding:0.6rem 0.9rem;flex:1 1 100%;
-}
-@media(min-width:600px){.logo-chip{flex:1 1 0;min-width:150px;}}
-.logo-chip picture{flex-shrink:0;display:block;}
-.logo-chip img{width:30px;height:30px;object-fit:contain;border-radius:3px;background:#fff;padding:2px;}
+/* ── proof strip ── */
+.strip{padding-top:0;padding-bottom:clamp(2.5rem,6vw,4rem);}
+.strip-head{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem;}
+.readout{display:grid;grid-template-columns:repeat(2,1fr);background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+.cell{padding:1.05rem 1.1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.cell-fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(1.4rem,5vw,2rem);font-weight:500;line-height:1.1;letter-spacing:-.02em;color:var(--ink);}
+.cell-fig::before{content:'';display:block;width:22px;height:11px;border-radius:22px 22px 0 0;background:var(--ember);margin-bottom:.55rem;}
+.cell-label{font-size:.8rem;font-weight:600;color:var(--ink-2);margin-top:.35rem;line-height:1.3;}
+.cell-src{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--clay);margin-top:.2rem;}
+.logos{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem;}
+.logo-chip{display:flex;align-items:center;gap:.6rem;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem .4rem .45rem;flex:1 1 100%;}
+.logo-chip picture{flex-shrink:0;}
+.logo-chip img{width:30px;height:30px;object-fit:contain;border-radius:50%;background:#fff;padding:2px;border:1px solid var(--line);}
 .logo-chip img.on-dark{background:#000;}
-.logo-chip span{font-size:0.74rem;font-weight:600;color:var(--bone);line-height:1.3;}
-.logo-chip em{display:block;font-style:normal;font-size:0.66rem;color:var(--mist);font-weight:400;}
+.logo-chip span{font-size:.8rem;font-weight:700;color:var(--ink);line-height:1.25;}
+.logo-chip em{display:block;font-style:normal;font-weight:400;font-size:.72rem;color:var(--clay);}
 
-/* ── problem ── */
-.problem-grid{display:grid;gap:2.5rem;}
-.plist{display:flex;flex-direction:column;gap:0.85rem;margin-top:2rem;}
-.pitem{display:flex;gap:1rem;background:var(--alcove);border:1px solid var(--hair);border-radius:6px;padding:1.15rem;}
-.pitem .icon{width:22px;height:22px;color:var(--lamplight);flex-shrink:0;margin-top:2px;}
-.pitem h3{font-size:0.95rem;font-weight:700;margin-bottom:0.3rem;}
-.pitem p{font-size:0.87rem;color:var(--mist);}
-.solution{
-  background:linear-gradient(158deg,var(--alcove-2),var(--alcove));
-  border:1px solid var(--hair);border-left:3px solid var(--lamplight);
-  border-radius:6px;padding:clamp(1.5rem,4vw,2.25rem);
-}
-.solution h3{font-family:var(--display);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.75rem);line-height:1.2;margin-bottom:1rem;}
-.solution p{color:var(--mist);font-size:0.95rem;margin-bottom:1.5rem;}
+/* ── visibility check ── */
+.check-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:clamp(1.25rem,4vw,2rem);max-width:760px;box-shadow:0 10px 40px rgba(110,60,20,.08);}
+.check-intro{display:grid;gap:1rem;align-items:center;}
+.check-intro h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,6vw,2.6rem);line-height:1.05;}
+.check-intro h2 em{font-style:italic;color:var(--burnt);}
+.check-intro p{color:var(--clay);font-size:.95rem;}
+.honest{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);}
+.gauge{width:100%;max-width:150px;height:auto;margin-inline:auto;overflow:visible;}
+.gauge .track{fill:none;stroke:var(--sand);stroke-width:14;stroke-linecap:round;}
+.gauge .fill{fill:none;stroke:var(--ember);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1);}
+.gauge-num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:22px;fill:var(--ink);}
+.gauge-of{font-family:var(--mono);font-size:10px;fill:var(--clay);letter-spacing:.08em;}
+.stepper{margin-top:1.25rem;border-top:1px solid var(--line);padding-top:1.25rem;}
+.step-meta{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.75rem;}
+.step-count{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--clay);}
+.bar{height:6px;background:var(--sand);border-radius:6px;overflow:hidden;margin-bottom:1.1rem;}
+.bar i{display:block;height:100%;width:0;background:var(--ember);border-radius:6px;transition:width .35s ease;}
+.q-set{border:0;}
+.q-set legend{font-size:clamp(1.1rem,3.6vw,1.3rem);font-weight:700;line-height:1.35;margin-bottom:1rem;padding:0;}
+.q-help{font-size:.88rem;color:var(--clay);margin:-.5rem 0 1rem;}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+.choice{position:relative;}
+.choice input{position:absolute;opacity:0;width:1px;height:1px;}
+.choice span{display:flex;align-items:center;justify-content:center;min-height:52px;padding:.5rem;text-align:center;
+             border:2px solid var(--line-2);border-radius:14px;font-weight:700;cursor:pointer;background:var(--linen);transition:background .15s,border-color .15s;}
+.choice input:checked+span{background:var(--ember);border-color:var(--ember);color:var(--ink);}
+.choice input:focus-visible+span{outline:3px solid var(--ink);outline-offset:3px;}
+.choice span:hover{border-color:var(--ink);}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;}
+.linkbtn{background:none;border:0;min-height:44px;padding:0 .25rem;font:inherit;font-weight:700;color:var(--ink);cursor:pointer;
+         text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;}
+.linkbtn:disabled{opacity:.35;cursor:default;}
+.result{margin-top:1.25rem;border-top:1px solid var(--line);padding-top:1.25rem;}
+.result-band{font-family:var(--display);font-size:clamp(1.7rem,5vw,2.2rem);line-height:1.1;text-align:center;margin-top:.25rem;}
+.result-band.low{color:var(--burnt);}
+.gaps-t{font-weight:700;margin:1.1rem 0 .5rem;}
+.gaps{list-style:none;display:grid;gap:.5rem;}
+.gaps li{display:flex;gap:.6rem;background:var(--linen);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;font-size:.92rem;}
+.gaps li::before{content:'';width:12px;height:6px;margin-top:.55em;flex-shrink:0;border-radius:12px 12px 0 0;background:var(--ember);}
+.gaps em{font-style:normal;color:var(--clay);font-size:.82rem;}
+.field{display:grid;gap:.35rem;margin:1.1rem 0;}
+.field label{font-weight:700;font-size:.9rem;}
+.field input{min-height:48px;padding:.6rem .9rem;border:2px solid var(--line-2);border-radius:12px;font:inherit;background:var(--linen);color:var(--ink);}
+.field input:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink);}
+.result-actions{display:grid;gap:.6rem;}
+.next{font-size:.88rem;color:var(--clay);margin-top:.9rem;text-align:center;}
+.next a{color:var(--burnt);font-weight:700;}
+
+/* ── problem / solution ── */
+.problem-grid{display:grid;gap:2.25rem;}
+.plist{display:grid;gap:.75rem;margin-top:1.75rem;}
+.pitem{display:flex;gap:.9rem;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.1rem;}
+.pitem svg{width:24px;height:24px;color:var(--burnt);flex-shrink:0;margin-top:2px;}
+.pitem h3{font-size:1rem;font-weight:700;margin-bottom:.25rem;}
+.pitem p{font-size:.92rem;color:var(--clay);}
+.solution{position:relative;overflow:hidden;background:var(--ink);color:var(--on-ink);border-radius:22px;padding:clamp(1.5rem,4vw,2.25rem);}
+.solution .sun{width:340px;aspect-ratio:1;right:-120px;top:-170px;opacity:.85;}
+.solution>*{position:relative;}
+.solution .eyebrow{color:var(--ember);}
+.solution h3{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,4.5vw,2.2rem);line-height:1.1;margin-bottom:.8rem;}
+.solution p{color:var(--on-ink-2);margin-bottom:1.4rem;}
 
 /* ── results ── */
-.cases{display:flex;flex-direction:column;gap:1.25rem;}
-.case{background:var(--alcove);border:1px solid var(--hair);border-radius:8px;overflow:hidden;}
-.case-top{padding:clamp(1.35rem,4vw,2rem);}
-.case-name{font-family:var(--display);font-weight:600;font-size:1.4rem;line-height:1.2;}
-.case-meta{
-  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--lamplight);margin-top:0.35rem;
-}
-.case-role{font-size:0.8rem;color:var(--mist);margin-top:0.5rem;}
-.case-figs{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
-  background:var(--alcove);border-top:1px solid var(--hair);
-}
-/* Dividers live on the cells, not on grid gaps, so an odd metric count
-   leaves plain surface rather than a mismatched empty track. */
-.case-fig{
-  background:var(--alcove);padding:1rem 1.1rem;
-  border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
-}
-.case-fig .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.3rem;font-weight:500;color:var(--lamplight);line-height:1.1;}
-.case-fig .v.up{color:var(--verdigris);}
-.case-fig .k{font-size:0.7rem;color:var(--mist);margin-top:0.3rem;line-height:1.3;}
-.case-body{padding:clamp(1.35rem,4vw,2rem);}
-.case-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-.case-list li{position:relative;padding-left:1.1rem;font-size:0.88rem;color:#C9D8DB;}
-.case-list li::before{content:'';position:absolute;left:0;top:0.62em;width:5px;height:1px;background:var(--lamplight);}
-.proof{margin-top:1.5rem;}
-.proof img{
-  width:100%;height:auto;border-radius:6px;
-  border:1px solid var(--hair);background:#fff;
-}
-.fig-note{display:inline-block;margin-top:0.4rem;text-transform:none;letter-spacing:0.01em;font-family:var(--body);font-size:0.74rem;color:var(--mist);line-height:1.55;max-width:62ch;}
-.proof figcaption{
-  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--mist);margin-top:0.7rem;
-}
+.cases{display:grid;gap:1.25rem;}
+.case{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;}
+.case-top{padding:clamp(1.3rem,4vw,1.9rem);}
+.case-name{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,4.5vw,2.1rem);line-height:1.1;}
+.case-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--burnt);margin-top:.35rem;}
+.case-role{font-size:.88rem;color:var(--clay);margin-top:.35rem;}
+.case-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));border-top:1px solid var(--line);}
+.case-fig{padding:1rem 1.1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.case-fig .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.35rem;font-weight:500;line-height:1.1;color:var(--ink);}
+.case-fig .k{font-size:.76rem;color:var(--clay);margin-top:.3rem;line-height:1.3;}
+.case-body{padding:clamp(1.3rem,4vw,1.9rem);}
+.case-list{list-style:none;display:grid;gap:.55rem;}
+.case-list li{position:relative;padding-left:1.25rem;font-size:.94rem;color:var(--ink-2);}
+.case-list li::before{content:'';position:absolute;left:0;top:.62em;width:10px;height:5px;border-radius:10px 10px 0 0;background:var(--ember);}
+.proof{margin-top:1.4rem;}
+.shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;}
+.shot img{width:100%;height:auto;}
+/* Annotation layer. A percentage viewBox stretched over the image keeps every
+   mark pinned to the same pixels of the screenshot at any width. It is a
+   separate overlay; the image file and its redactions are never touched. */
+.annot{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+.annot path{fill:none;stroke:var(--marker);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+.note{position:absolute;transform:translateY(-50%);background:var(--ember);color:var(--ink);font-family:var(--body);
+      font-weight:700;font-size:clamp(.62rem,2.2vw,.8rem);line-height:1.2;padding:.22em .6em;border-radius:999px;white-space:nowrap;
+      box-shadow:0 2px 8px rgba(42,27,18,.18);rotate:-2deg;}
+.proof figcaption{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--clay);margin-top:.7rem;}
+.fig-note{display:block;margin-top:.35rem;text-transform:none;letter-spacing:.01em;font-family:var(--body);font-size:.84rem;color:var(--ink-2);}
 
 /* ── pricing ── */
-.price-head{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:flex-end;margin-bottom:2.25rem;}
-.cur-switch{display:inline-flex;background:var(--limewash-2);border:1px solid var(--hair-dark);border-radius:5px;padding:3px;gap:3px;}
-.cur-btn{
-  min-height:44px;min-width:64px;padding:0 1rem;border:none;border-radius:3px;
-  background:transparent;color:#3C5058;cursor:pointer;
-  font-family:var(--mono);font-size:0.8rem;font-weight:500;letter-spacing:0.06em;
-}
-.cur-btn[aria-pressed="true"]{background:var(--portico);color:var(--bone);}
+.price-head{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;}
+.cur-switch{display:inline-flex;background:var(--sand);border-radius:999px;padding:4px;gap:4px;}
+.cur-btn{min-height:44px;min-width:68px;padding:0 1rem;border:0;border-radius:999px;background:transparent;color:var(--ink-2);cursor:pointer;
+         font-family:var(--mono);font-size:.82rem;font-weight:500;letter-spacing:.06em;}
+.cur-btn[aria-pressed="true"]{background:var(--ink);color:var(--on-ink);}
 .tiers{display:grid;gap:1.25rem;}
-.tier{
-  background:#fff;border:1px solid var(--hair-dark);border-radius:8px;
-  display:flex;flex-direction:column;position:relative;
-}
-.tier.featured{border-color:var(--portico);box-shadow:0 10px 40px rgba(12,31,38,0.14);}
-.tier-flag{
-  position:absolute;top:-1px;right:1.25rem;
-  background:var(--portico);color:var(--lamplight);
-  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
-  padding:0.3rem 0.7rem;border-radius:0 0 4px 4px;
-}
-.tier-top{padding:1.75rem 1.5rem 1.35rem;}
-.tier-kind{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:#8A5A1E;}
-.tier-name{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--portico);margin:0.4rem 0 0.9rem;}
-.tier-price{display:flex;align-items:baseline;gap:0.35rem;flex-wrap:wrap;}
-.tier-cur{font-family:var(--mono);font-size:0.82rem;font-weight:500;color:#52646B;}
-.tier-amt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:2.1rem;font-weight:500;color:var(--portico);line-height:1;letter-spacing:-0.02em;}
-.tier-per{font-family:var(--mono);font-size:0.75rem;color:#52646B;}
-.tier-for{font-size:0.85rem;color:#3C5058;margin-top:0.8rem;}
-.tier-feats{padding:1.35rem 1.5rem;flex:1;border-top:1px solid var(--hair-dark);}
-.tier-feats ul{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
-.tier-feats li{display:flex;gap:0.6rem;font-size:0.87rem;color:#2C3E45;}
-.tier-feats svg{width:16px;height:16px;color:#2E7D5E;flex-shrink:0;margin-top:3px;}
+.tier{background:var(--white);border:1px solid var(--line);border-radius:22px;display:flex;flex-direction:column;position:relative;}
+.tier.featured{border:2px solid var(--ember);box-shadow:0 14px 44px rgba(240,122,42,.18);}
+.tier-flag{position:absolute;top:-14px;left:1.5rem;background:var(--ember);color:var(--ink);font-family:var(--mono);font-weight:500;font-size:.68rem;
+           letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;}
+.tier-top{padding:1.75rem 1.5rem 1.25rem;}
+.tier-kind{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--burnt);}
+.tier-name{font-family:var(--display);font-weight:400;font-size:2rem;margin:.25rem 0 .75rem;line-height:1;}
+.tier-price{display:flex;align-items:baseline;gap:.35rem;flex-wrap:wrap;}
+.tier-cur{font-family:var(--mono);font-size:.86rem;font-weight:500;color:var(--clay);}
+.tier-amt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:2.15rem;font-weight:500;line-height:1;letter-spacing:-.02em;}
+.tier-per{font-family:var(--mono);font-size:.78rem;color:var(--clay);}
+.tier-for{font-size:.92rem;color:var(--ink-2);margin-top:.75rem;}
+.tier-feats{padding:1.25rem 1.5rem;flex:1;border-top:1px solid var(--line);}
+.tier-feats ul{list-style:none;display:grid;gap:.6rem;}
+.tier-feats li{display:flex;gap:.6rem;font-size:.92rem;color:var(--ink-2);}
+.tier-feats svg{width:16px;height:16px;color:var(--burnt);flex-shrink:0;margin-top:4px;}
 .tier-foot{padding:0 1.5rem 1.5rem;}
-.audit{
-  margin-top:1.5rem;background:var(--portico);color:var(--bone);
-  border-radius:8px;padding:clamp(1.5rem,4vw,2rem);
-  display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;
-}
-.audit h3{font-family:var(--display);font-weight:600;font-size:1.35rem;margin-bottom:0.4rem;}
-.audit p{font-size:0.87rem;color:var(--mist);max-width:56ch;}
-.audit-price{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.7rem;font-weight:500;color:var(--lamplight);white-space:nowrap;}
-.audit-note{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mist);margin-top:0.2rem;}
-.fineprint{font-size:0.8rem;color:#52646B;margin-top:1.25rem;}
+.audit{margin-top:1.5rem;position:relative;overflow:hidden;background:var(--ink);color:var(--on-ink);border-radius:22px;padding:clamp(1.5rem,4vw,2rem);
+       display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:center;}
+.audit .sun{width:300px;aspect-ratio:1;left:-140px;bottom:-200px;opacity:.6;}
+.audit>*{position:relative;}
+.audit h3{font-family:var(--display);font-weight:400;font-size:1.75rem;line-height:1.1;margin-bottom:.35rem;}
+.audit p{font-size:.92rem;color:var(--on-ink-2);max-width:54ch;}
+.audit-price{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.75rem;font-weight:500;color:var(--ember);white-space:nowrap;}
+.audit-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-ink-2);margin-top:.15rem;}
+.fineprint{font-size:.85rem;color:var(--clay);margin-top:1.1rem;}
 
 /* ── process ── */
-.steps{display:grid;gap:1.25rem;counter-reset:step;}
-.step{background:#fff;border:1px solid var(--hair-dark);border-radius:8px;padding:1.5rem;}
-.step-n{
-  font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;
-  color:#8A5A1E;display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;
-}
-.step-n::after{content:'';flex:1;height:1px;background:var(--hair-dark);}
-.step h3{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--portico);margin-bottom:0.45rem;}
-.step p{font-size:0.86rem;color:#3C5058;}
+.steps{display:grid;gap:1rem;list-style:none;}
+.step{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:1.4rem;}
+.step-n{font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.08em;color:var(--burnt);display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+.step-n::after{content:'';flex:1;height:1px;background:var(--line);}
+.step h3{font-family:var(--display);font-weight:400;font-size:1.55rem;line-height:1.1;margin-bottom:.35rem;}
+.step p{font-size:.92rem;color:var(--ink-2);}
 
 /* ── about ── */
-.about-grid{display:grid;gap:2.25rem;align-items:center;}
-.about-mark{
-  aspect-ratio:4/5;border-radius:8px;position:relative;overflow:hidden;
-  background:linear-gradient(158deg,var(--alcove-2),var(--portico-deep));
-  border:1px solid var(--hair);
-  display:flex;align-items:center;justify-content:center;
-}
-.about-mark::after{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(420px 300px at 62% 34%,rgba(232,181,99,0.18),transparent 68%);
-}
-.about-mark svg{width:44%;height:auto;position:relative;}
-.about-name{font-family:var(--display);font-weight:600;font-size:clamp(1.75rem,4.5vw,2.35rem);}
-.about-role{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--lamplight);margin:0.4rem 0 1.25rem;}
-.about-grid p{color:var(--mist);margin-bottom:1rem;font-size:0.95rem;}
-.pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
-.pill{font-size:0.72rem;font-weight:500;color:var(--bone);background:var(--alcove);border:1px solid var(--hair);border-radius:2rem;padding:0.4rem 0.85rem;}
-
-/* ── marque ── */
-.marque{
-  background:var(--alcove);border-block:1px solid var(--hair);
-  padding:clamp(2rem,5vw,2.75rem) var(--pad);
-}
-.marque-in{max-width:var(--measure);margin-inline:auto;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;}
-.marque h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:0.35rem;}
-.marque p{font-size:0.87rem;color:var(--mist);max-width:56ch;}
+.about-grid{display:grid;gap:2rem;align-items:start;}
+.portrait{position:relative;aspect-ratio:4/5;max-width:380px;border-radius:999px 999px 22px 22px;overflow:hidden;
+          background:linear-gradient(180deg,var(--apricot),var(--sand));border:5px solid var(--white);box-shadow:0 18px 50px rgba(110,60,20,.15);}
+.portrait .sun{width:150%;aspect-ratio:1;left:-25%;bottom:-95%;}
+.portrait .mono-mark{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-family:var(--display);font-size:clamp(4rem,14vw,6rem);color:var(--ink);line-height:1;}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.about-name{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3rem);line-height:1;}
+.about-role{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--burnt);margin:.5rem 0 1.1rem;}
+.about-copy p{color:var(--ink-2);margin-bottom:.9rem;}
+.subhead{font-weight:700;font-size:.9rem;margin:1.5rem 0 .6rem;}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;}
+.skill{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:.75rem .85rem;}
+.skill b{display:block;font-size:.9rem;}
+.skill span{font-size:.8rem;color:var(--clay);line-height:1.4;display:block;margin-top:.15rem;}
+.pills{display:flex;flex-wrap:wrap;gap:.45rem;}
+.pill{font-size:.8rem;font-weight:600;color:var(--ink-2);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.4rem .85rem;}
+.marque{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:2.25rem;background:var(--white);border:1px dashed var(--line-2);border-radius:18px;padding:1.1rem 1.25rem;}
+.marque b{display:block;}
+.marque span{font-size:.9rem;color:var(--clay);}
 
 /* ── faq ── */
-.faq{display:grid;gap:0.75rem;}
-.q{background:#fff;border:1px solid var(--hair-dark);border-radius:6px;overflow:hidden;}
-.q summary{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.1rem 1.25rem;min-height:56px;cursor:pointer;list-style:none;
-  font-size:0.94rem;font-weight:700;color:var(--portico);
-}
+.faq{display:grid;gap:.6rem;}
+.q{background:var(--white);border:1px solid var(--line);border-radius:16px;}
+.q summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;min-height:56px;cursor:pointer;list-style:none;font-weight:700;}
 .q summary::-webkit-details-marker{display:none;}
-.q summary .chev{width:18px;height:18px;flex-shrink:0;color:#8A5A1E;transition:transform .2s;}
-.q[open] summary .chev{transform:rotate(180deg);}
-.q .a{padding:0 1.25rem 1.25rem;font-size:0.89rem;color:#3C5058;}
+.q summary svg{width:18px;height:18px;flex-shrink:0;color:var(--burnt);transition:transform .2s;}
+.q[open] summary svg{transform:rotate(180deg);}
+.q .a{padding:0 1.2rem 1.2rem;font-size:.95rem;color:var(--ink-2);}
 
-/* ── contact / the desk ── */
-.desk-grid{display:grid;gap:2rem;align-items:start;}
-.desk-primary{
-  background:linear-gradient(158deg,var(--alcove-2),var(--alcove));
-  border:1px solid var(--hair);border-radius:8px;padding:clamp(1.5rem,4vw,2rem);
-}
-.desk-primary h3{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,3.6vw,1.8rem);line-height:1.18;margin-bottom:0.6rem;}
-.desk-primary .lede{color:var(--mist);font-size:0.94rem;margin-bottom:1.5rem;}
-.desk-num{font-family:var(--mono);font-size:0.8rem;color:var(--mist);margin-top:0.9rem;text-align:center;}
-.picks{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--hair);}
-.picks-t{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.8rem;}
-.pick-row{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.pick{
-  display:inline-flex;align-items:center;min-height:44px;padding:0.5rem 0.9rem;
-  background:rgba(244,241,234,0.06);border:1px solid var(--hair);border-radius:2rem;
-  font-size:0.8rem;font-weight:500;color:var(--bone);text-decoration:none;
-  transition:border-color .18s,background .18s;
-}
-.pick:hover{border-color:var(--lamplight);background:rgba(232,181,99,0.12);}
-.channels{display:flex;flex-direction:column;gap:0.75rem;}
-.chan{
-  display:flex;align-items:center;gap:1rem;min-height:64px;
-  padding:0.9rem 1.1rem;background:var(--alcove);
-  border:1px solid var(--hair);border-radius:6px;text-decoration:none;
-  transition:border-color .18s,transform .18s;
-}
-a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
-.chan-ic{
-  width:42px;height:42px;border-radius:50%;flex-shrink:0;
-  background:rgba(232,181,99,0.13);color:var(--lamplight);
-  display:flex;align-items:center;justify-content:center;
-}
-.chan-ic svg{width:19px;height:19px;}
-.chan-k{display:block;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mist);}
-.chan-v{display:block;font-size:0.88rem;font-weight:600;color:var(--bone);word-break:break-word;margin-top:0.15rem;}
+/* ── closing + contact ── */
+.closing{background:var(--ink);color:var(--on-ink);overflow:hidden;}
+.closing .sun{width:min(130vw,760px);aspect-ratio:1;left:50%;translate:-50% 0;bottom:-78%;opacity:.95;}
+.closing .wrap{position:relative;}
+.closing .eyebrow{color:var(--ember);}
+.closing .sec-title em{color:var(--ember);}
+.closing .sec-sub{color:var(--on-ink-2);}
+.desk{display:grid;gap:1.25rem;align-items:start;}
+.desk-main{background:rgba(251,246,238,.06);border:1px solid rgba(251,246,238,.16);border-radius:22px;padding:clamp(1.4rem,4vw,2rem);backdrop-filter:blur(6px);}
+.desk-main h3{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,4.5vw,2.1rem);line-height:1.1;margin-bottom:.5rem;}
+.desk-main .lede{color:var(--on-ink-2);margin-bottom:1.3rem;}
+.desk-num{font-family:var(--mono);font-size:.84rem;color:var(--on-ink-2);text-align:center;margin-top:.8rem;}
+.picks-t{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-ink-2);margin:1.4rem 0 .7rem;}
+.pick-row{display:flex;flex-wrap:wrap;gap:.45rem;}
+.pick{display:inline-flex;align-items:center;min-height:44px;padding:.45rem .95rem;border:1px solid rgba(251,246,238,.28);border-radius:999px;
+      font-size:.86rem;font-weight:600;color:var(--on-ink);text-decoration:none;}
+.pick:hover{border-color:var(--ember);color:var(--ember);}
+.channels{display:grid;gap:.6rem;}
+.chan{display:flex;align-items:center;gap:.9rem;min-height:64px;padding:.85rem 1rem;background:rgba(251,246,238,.06);border:1px solid rgba(251,246,238,.16);border-radius:16px;text-decoration:none;color:var(--on-ink);}
+a.chan:hover{border-color:var(--ember);}
+.chan-ic{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:var(--ember);color:var(--ink);display:flex;align-items:center;justify-content:center;}
+.chan-ic svg{width:18px;height:18px;}
+.chan-k{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-2);}
+.chan-v{display:block;font-weight:700;word-break:break-word;margin-top:.1rem;}
 
 /* ── footer ── */
-.site-foot{background:var(--portico-deep);border-top:1px solid var(--hair);padding:clamp(2.5rem,6vw,3.5rem) var(--pad) 2rem;}
-.foot-in{max-width:var(--measure);margin-inline:auto;display:grid;gap:2rem;}
-.foot-tag{font-size:0.82rem;color:var(--mist);max-width:34ch;margin-top:0.8rem;}
-.foot-t{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lamplight);margin-bottom:0.9rem;}
-.foot-l{list-style:none;display:flex;flex-direction:column;}
-.foot-l a{display:flex;align-items:center;min-height:44px;font-size:0.84rem;color:var(--mist);text-decoration:none;}
-.foot-l a:hover{color:var(--bone);}
-.foot-btm{
-  max-width:var(--measure);margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--hair);
-  display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem;justify-content:space-between;
-  font-size:0.78rem;color:var(--mist);
-}
+.site-foot{background:#1E130C;color:var(--on-ink-2);padding:clamp(2.25rem,6vw,3rem) var(--pad) 1.75rem;}
+.foot-in{max-width:var(--measure);margin-inline:auto;display:grid;gap:1.75rem;}
+.site-foot .brand-name{color:var(--on-ink);}
+.foot-tag{font-size:.9rem;max-width:36ch;margin-top:.6rem;}
+.foot-t{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-bottom:.6rem;}
+.foot-l{list-style:none;}
+.foot-l a{display:flex;align-items:center;min-height:44px;font-size:.92rem;color:var(--on-ink-2);text-decoration:none;}
+.foot-l a:hover{color:var(--on-ink);}
+.foot-btm{max-width:var(--measure);margin:1.75rem auto 0;padding-top:1.25rem;border-top:1px solid rgba(251,246,238,.14);font-size:.84rem;}
 
-/* ── sticky mobile cta ── */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;
-  padding:0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom,0px));
-  background:rgba(8,21,25,0.96);backdrop-filter:blur(12px);
-  border-top:1px solid var(--hair);
-  transform:translateY(115%);transition:transform .28s ease;
-}
+/* ── sticky mobile bar ── */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;padding:.6rem .9rem calc(.6rem + env(safe-area-inset-bottom,0px));
+        background:rgba(251,246,238,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(115%);transition:transform .28s ease;}
 .sticky.show{transform:none;}
 
 /* ═══ breakpoints ═══ */
 @media(min-width:600px){
   .readout{grid-template-columns:repeat(4,1fr);}
-  .tiers{grid-template-columns:repeat(2,1fr);}
-  .steps{grid-template-columns:repeat(2,1fr);}
+  .logo-chip{flex:1 1 0;}
+  .tiers,.steps{grid-template-columns:repeat(2,1fr);}
+  .skills{grid-template-columns:repeat(3,1fr);}
   .foot-in{grid-template-columns:repeat(2,1fr);}
+  .check-intro.has-gauge{grid-template-columns:1fr 200px;}
+  .gauge{max-width:200px;}
 }
 @media(min-width:900px){
   .nav-toggle{display:none;}
-  .nav-panel{display:block;position:static;background:none;border:none;padding:0;}
-  .nav-list{flex-direction:row;align-items:center;gap:1.6rem;}
-  .nav-list a{
-    min-height:44px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;
-    text-transform:uppercase;border-bottom:none;padding-inline:0.15rem;
-  }
-  .nav-panel{display:flex !important;align-items:center;gap:1.6rem;}
-  .nav-panel .btn{margin-top:0;min-height:44px;padding:0.55rem 1.2rem;font-size:0.8rem;}
-  .problem-grid{grid-template-columns:1.05fr 0.95fr;gap:3.5rem;align-items:center;}
+  .nav-panel{display:flex !important;align-items:center;gap:1.5rem;position:static;background:none;border:0;padding:0;}
+  .nav-list{flex-direction:row;gap:1.4rem;}
+  .nav-list a{min-height:44px;min-width:44px;justify-content:center;border-bottom:0;font-size:.95rem;}
+  .nav-panel .btn{margin-top:0;min-height:44px;padding:.5rem 1.2rem;font-size:.92rem;}
+  .hero-grid{grid-template-columns:1.1fr .9fr;gap:3rem;}
+  .arch{aspect-ratio:4/5;border-radius:999px 999px 24px 24px;max-width:460px;margin-left:auto;}
+  .hero-art .sun{right:-30%;bottom:-24%;width:640px;}
+  .problem-grid{grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;}
   .tiers{grid-template-columns:repeat(3,1fr);}
   .steps{grid-template-columns:repeat(4,1fr);}
   .faq{grid-template-columns:1fr 1fr;}
-  .about-grid{grid-template-columns:0.72fr 1.28fr;gap:3.5rem;}
-  .desk-grid{grid-template-columns:1.15fr 0.85fr;gap:2.5rem;}
-  .foot-in{grid-template-columns:1.6fr 1fr 1fr 1fr;}
-  .case{display:grid;grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:.7fr 1.3fr;gap:3.5rem;}
+  .desk{grid-template-columns:1.2fr .8fr;gap:1.75rem;}
+  .foot-in{grid-template-columns:1.6fr 1fr 1fr;}
 }
 @media(max-width:899px){
   .sticky{display:block;}
   body{padding-bottom:5rem;}
-  /* Moving proof above the fold was the point of the restructure, so on phones
-     the hero yields enough height for the top of the Night Report to peek up. */
-  .hero{min-height:80vh;min-height:80svh;
-        padding-top:clamp(2.5rem,13vw,4rem);padding-bottom:clamp(2rem,7vw,3rem);}
-  /* Narrow screens put text across the full width of the photo, including its
-     sunlit areas, so the angled desktop scrim is not enough. Flatten it. */
-  .hero-scrim{
-    background:
-      linear-gradient(180deg,rgba(8,21,25,0.90) 0%,rgba(8,21,25,0.84) 50%,rgba(8,21,25,0.92) 100%),
-      radial-gradient(680px 420px at 18% 14%,rgba(232,181,99,0.15) 0%,transparent 66%);
-  }
 }
-
-/* ═══ reduced motion ═══ */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  *,*::before,*::after{
-    animation-duration:.01ms !important;animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;scroll-behavior:auto !important;
-  }
-  .live{animation:none;}
-  .sticky{transition:none;}
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
 }
 </style>
 </head>
 <body>
-
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- icon sprite -->
 <svg style="display:none" aria-hidden="true" focusable="false">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
   <symbol id="i-li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6 6 4-4 8 8"/><path d="M21 12v5h-5"/></symbol>
-  <symbol id="i-stack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 12h7M4 17h13"/><path d="m17 5 4 14"/></symbol>
-  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9S14.5 21.3 12 21c-2.5-2.7-3.8-5.8-3.8-9S9.5 5.7 12 3Z"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
-  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
-  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-star" viewBox="0 0 36 36"><path d="M18 1 L14.5 18 L18 14.5 Z" fill="#E8B563"/><path d="M18 1 L21.5 18 L18 14.5 Z" fill="#A9702C"/><path d="M18 35 L14.5 18 L18 21.5 Z" fill="#E8B563"/><path d="M18 35 L21.5 18 L18 21.5 Z" fill="#A9702C"/><path d="M1 18 L18 14.5 L14.5 18 Z" fill="#E8B563"/><path d="M1 18 L18 21.5 L14.5 18 Z" fill="#A9702C"/><path d="M35 18 L18 14.5 L21.5 18 Z" fill="#E8B563"/><path d="M35 18 L18 21.5 L21.5 18 Z" fill="#A9702C"/><circle cx="18" cy="18" r="2" fill="#F4F1EA"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6 6 4-4 8 8"/><path d="M21 12v5h-5"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 12h7M4 17h13"/><path d="m17 5 4 14"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9S14.5 21.3 12 21c-2.5-2.7-3.8-5.8-3.8-9S9.5 5.7 12 3Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 30 20"><path d="M2 18a13 13 0 0 1 26 0Z" fill="#F07A2A"/><path d="M1 18.5h28" stroke="#2A1B12" stroke-width="2" stroke-linecap="round"/></symbol>
 </svg>
 
-<!-- ═══ NAV ═══ -->
 <header class="site-head" id="head">
   <div class="nav-inner">
-    <a href="/" class="brand">
-      <svg class="brand-mark" aria-hidden="true"><use href="#i-star"/></svg>
-      <span class="brand-name">Zevara<i> Digital</i></span><span class="vh">, home</span>
+    <a href="./" class="brand">
+      <svg aria-hidden="true"><use href="#i-sun"/></svg>
+      <span class="brand-name">Maningi Sylvester</span><span class="vh">, home</span>
     </a>
     <button class="nav-toggle" id="navBtn" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
-      <svg class="bars" aria-hidden="true"><use href="#i-menu"/></svg>
-      <svg class="x" aria-hidden="true"><use href="#i-x"/></svg>
+      <svg class="bars" aria-hidden="true"><use href="#i-menu"/></svg><svg class="x" aria-hidden="true"><use href="#i-x"/></svg>
     </button>
     <nav class="nav-panel" id="navPanel" aria-label="Main">
       <ul class="nav-list">
+        <li><a href="#check">Visibility check</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#process">Process</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp us
+      <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp me
       </a>
     </nav>
   </div>
 </header>
-<noscript><style>.nav-toggle{display:none}.nav-panel{display:flex!important;flex-wrap:wrap;gap:1rem;position:static;background:none;border:none;padding:0 0 1rem}.nav-list{flex-direction:row;flex-wrap:wrap;gap:1rem}.nav-list a{border-bottom:none}</style></noscript>
+<noscript><style>.nav-toggle{display:none}.nav-panel{display:flex!important;flex-wrap:wrap;gap:1rem;position:static;border:0;padding:0 0 1rem}.nav-list{flex-direction:row;flex-wrap:wrap;gap:1rem}.nav-list a{border-bottom:0}</style></noscript>
 
 <main id="main">
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" aria-labelledby="h1">
-  <picture class="hero-media">
-    <source type="image/avif" media="(max-width:640px)"  srcset="assets/hero-m.avif"/>
-    <source type="image/webp" media="(max-width:640px)"  srcset="assets/hero-m.webp"/>
-    <source type="image/avif" media="(max-width:1280px)" srcset="assets/hero-t.avif"/>
-    <source type="image/webp" media="(max-width:1280px)" srcset="assets/hero-t.webp"/>
-    <source type="image/avif" srcset="assets/hero-d.avif"/>
-    <source type="image/webp" srcset="assets/hero-d.webp"/>
-    <img src="assets/hero-fallback.jpg" width="1400" height="904" fetchpriority="high" decoding="async"
-         alt="A guest reading on a quiet hotel terrace at golden hour"/>
-  </picture>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <p class="hero-tag"><span class="dot" aria-hidden="true"></span>Hospitality &amp; Travel Marketing Agency · Nairobi</p>
-    <h1 id="h1" class="display">We get hotels <em>more direct bookings.</em></h1>
-    <p class="hero-sub">Full-service digital marketing for hotels, suites and lodges, locally and internationally. Google Ads, Meta, SEO, social and content, all under one agency.</p>
-    <div class="hero-actions">
-      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call
-      </a>
-      <a class="textlink" href="#results">See the numbers <svg aria-hidden="true"><use href="#i-down"/></svg></a>
+  <div class="hero-grid">
+    <div>
+      <p class="hero-tag"><i aria-hidden="true"></i>Hotel marketing · Nairobi, Kenya</p>
+      <h1 id="h1">I get hotels <em>more direct bookings.</em></h1>
+      <p class="hero-sub">Google Ads, Meta, SEO, social and content for hotels, suites and lodges, locally and internationally. One person, accountable for the numbers.</p>
+      <div class="hero-actions">
+        <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call
+        </a>
+        <a class="textlink" href="#check">Take the 60-second check <svg aria-hidden="true" width="16" height="16"><use href="#i-down"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="sun" aria-hidden="true"></div>
+      <picture class="arch">
+        <source type="image/avif" media="(min-width:900px)" srcset="assets/photos/hero-arch.avif"/>
+        <source type="image/webp" media="(min-width:900px)" srcset="assets/photos/hero-arch.webp"/>
+        <source type="image/jpeg" media="(min-width:900px)" srcset="assets/photos/hero-arch.jpg"/>
+        <source type="image/avif" srcset="assets/photos/hero-wide.avif"/>
+        <source type="image/webp" srcset="assets/photos/hero-wide.webp"/>
+        <img src="assets/photos/hero-wide.jpg" width="780" height="400" fetchpriority="high" decoding="async"
+             alt="A guest reading on a quiet hotel terrace at golden hour"/>
+      </picture>
     </div>
   </div>
 </section>
 
-<!-- ═══ THE NIGHT REPORT (proof) ═══ -->
-<section class="report" aria-labelledby="report-t">
+<!-- ═══ PROOF STRIP ═══ -->
+<section class="strip" aria-labelledby="strip-t">
   <div class="wrap">
-    <p class="report-head" id="report-t"><span class="live" aria-hidden="true"></span>Client performance · measured, not estimated</p>
+    <p class="strip-head" id="strip-t">Client results · measured, not estimated</p>
     <div class="readout">
-      <div class="cell">
-        <div class="cell-fig" data-to="23" data-dec="0" data-suf="K">23K</div>
-        <div class="cell-label">Active users</div>
-        <div class="cell-src">Karen Plains · GA4 · 90 days</div>
-      </div>
-      <div class="cell">
-        <div class="cell-fig" data-to="86.4" data-dec="1" data-suf="K">86.4K</div>
-        <div class="cell-label">Search impressions</div>
-        <div class="cell-src">Karen Plains · 3 months</div>
-      </div>
-      <div class="cell">
-        <div class="cell-fig" data-to="77" data-dec="0" data-suf="/100">77/100</div>
-        <div class="cell-label">SEO site score</div>
-        <div class="cell-src">L'Aziz Suites</div>
-      </div>
-      <div class="cell">
-        <div class="cell-fig" data-to="8.20" data-dec="2" data-suf="%">8.20%</div>
-        <div class="cell-label">Google Ads CTR</div>
-        <div class="cell-src">Smoove Africa</div>
-      </div>
+      <div class="cell"><div class="cell-fig" data-to="23" data-dec="0" data-suf="K">23K</div><div class="cell-label">Active users</div><div class="cell-src">Karen Plains · GA4 · 90 days</div></div>
+      <div class="cell"><div class="cell-fig" data-to="86.4" data-dec="1" data-suf="K">86.4K</div><div class="cell-label">Search impressions</div><div class="cell-src">Karen Plains · 3 months</div></div>
+      <div class="cell"><div class="cell-fig" data-to="77" data-dec="0" data-suf="/100">77/100</div><div class="cell-label">SEO site score</div><div class="cell-src">L'Aziz Suites</div></div>
+      <div class="cell"><div class="cell-fig" data-to="8.20" data-dec="2" data-suf="%">8.20%</div><div class="cell-label">Google Ads CTR</div><div class="cell-src">Smoove Africa</div></div>
     </div>
-    <div class="report-logos">
-      <div class="logo-chip">
-        <picture><source type="image/webp" srcset="assets/logos/karen-plains-sm.webp"/><img src="assets/logos/karen-plains-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
-        <span>Karen Plains Hotel<em>Karen, Nairobi</em></span>
-      </div>
-      <div class="logo-chip">
-        <picture><source type="image/webp" srcset="assets/logos/laziz-suites-sm.webp"/><img class="on-dark" src="assets/logos/laziz-suites-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
-        <span>L'Aziz Suites<em>Parklands, Nairobi</em></span>
-      </div>
-      <div class="logo-chip">
-        <picture><source type="image/webp" srcset="assets/logos/smoove-sm.webp"/><img src="assets/logos/smoove-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture>
-        <span>Smoove Africa<em>Nairobi</em></span>
-      </div>
+    <div class="logos">
+      <div class="logo-chip"><picture><source type="image/webp" srcset="assets/logos/karen-plains-sm.webp"/><img src="assets/logos/karen-plains-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture><span>Karen Plains Hotel<em>Karen, Nairobi</em></span></div>
+      <div class="logo-chip"><picture><source type="image/webp" srcset="assets/logos/laziz-suites-sm.webp"/><img class="on-dark" src="assets/logos/laziz-suites-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture><span>L'Aziz Suites<em>Parklands, Nairobi</em></span></div>
+      <div class="logo-chip"><picture><source type="image/webp" srcset="assets/logos/smoove-sm.webp"/><img src="assets/logos/smoove-sm.png" width="30" height="30" loading="lazy" decoding="async" alt=""/></picture><span>Smoove Africa<em>Nairobi</em></span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROBLEM ═══ -->
+<!-- ═══ 60-SECOND VISIBILITY CHECK ═══ -->
+<section class="band arc-top" id="check" aria-labelledby="check-t">
+  <div class="wrap">
+    <div class="check-card">
+      <div class="check-intro" id="checkIntro">
+        <div>
+          <p class="eyebrow">60-second visibility check</p>
+          <h2 id="check-t">Where is your hotel <em>leaking bookings?</em></h2>
+          <p>Ten yes-or-no questions about the things that quietly send guests to the OTAs.</p>
+          <p class="honest" style="margin-top:.6rem">A quick self-check, not an audit · nothing is stored</p>
+        </div>
+        <svg class="gauge" id="gauge" viewBox="0 0 200 118" role="img" aria-labelledby="gaugeLabel" hidden>
+          <title id="gaugeLabel">Score gauge</title>
+          <path class="track" d="M20 104 A80 80 0 0 1 180 104"/>
+          <path class="fill" id="gaugeFill" d="M20 104 A80 80 0 0 1 180 104" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+          <text class="gauge-num" id="gaugeNum" x="100" y="96" text-anchor="middle">0</text>
+          <text class="gauge-of" x="100" y="112" text-anchor="middle">OUT OF 10</text>
+        </svg>
+      </div>
+
+      <!-- Shown when JavaScript is unavailable or fails: the check needs it, the conversation does not. -->
+      <div id="checkFallback" style="margin-top:1.1rem">
+        <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quick%20check%20of%20where%20my%20hotel%20is%20losing%20direct%20bookings." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Ask me on WhatsApp instead
+        </a>
+      </div>
+      <button type="button" class="btn btn-ember" id="checkStart" style="margin-top:1.1rem" aria-controls="stepper" aria-expanded="false" hidden>Start the check</button>
+
+      <form id="stepper" class="stepper" hidden novalidate>
+        <div class="step-meta"><span class="step-count" id="stepCount">Question 1 of 10</span></div>
+        <div class="bar" aria-hidden="true"><i id="stepBar"></i></div>
+        <div id="qHost"></div>
+        <div class="step-nav">
+          <button type="button" class="linkbtn" id="stepBack">Back</button>
+          <button type="button" class="linkbtn" id="stepNext" disabled>Next</button>
+        </div>
+      </form>
+
+      <div id="result" class="result" hidden tabindex="-1">
+        <p class="result-band" id="resultBand"></p>
+        <p class="gaps-t" id="gapsTitle">Your biggest gaps</p>
+        <ul class="gaps" id="gaps"></ul>
+        <div class="field">
+          <label for="hotelName">Hotel name <span style="font-weight:400;color:var(--clay)">(optional)</span></label>
+          <input id="hotelName" name="hotel" type="text" autocomplete="organization" maxlength="80"/>
+        </div>
+        <div class="result-actions">
+          <a class="btn btn-ember btn-full" id="resultWa" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Send my result on WhatsApp</a>
+          <button type="button" class="btn btn-ghost btn-full" id="retake">Retake the check</button>
+        </div>
+        <p class="next">Want the full picture? The <a href="#audit">KES 18,000 audit</a> reviews everything with a prioritised plan.</p>
+      </div>
+      <p class="vh" aria-live="polite" id="announce"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM / SOLUTION ═══ -->
 <section id="problem" aria-labelledby="problem-t">
   <div class="wrap problem-grid">
     <div>
       <p class="eyebrow">The problem</p>
-      <h2 class="sec-title" id="problem-t">Most hotels are leaving bookings on the table</h2>
+      <h2 class="sec-title" id="problem-t">Most hotels are leaving bookings <em>on the table</em></h2>
       <div class="plist">
-        <div class="pitem">
-          <svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg>
-          <div>
-            <h3>Too dependent on OTAs</h3>
-            <p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p>
-          </div>
-        </div>
-        <div class="pitem">
-          <svg class="icon" aria-hidden="true"><use href="#i-stack"/></svg>
-          <div>
-            <h3>No marketing infrastructure</h3>
-            <p>No Google Ads, inconsistent social media, no email list, no SEO. The booking pipeline is unpredictable and hard to scale.</p>
-          </div>
-        </div>
-        <div class="pitem">
-          <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
-          <div>
-            <h3>Playbooks built for the wrong market</h3>
-            <p>Generic agencies apply one-size-fits-all playbooks that ignore your market and your guests' booking behaviour. The strategy needs to fit the context.</p>
-          </div>
-        </div>
+        <div class="pitem"><svg aria-hidden="true"><use href="#i-trend"/></svg><div><h3>Too dependent on OTAs</h3><p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p></div></div>
+        <div class="pitem"><svg aria-hidden="true"><use href="#i-stack"/></svg><div><h3>No marketing infrastructure</h3><p>No Google Ads, inconsistent social media, no email list, no SEO. The booking pipeline is unpredictable and hard to scale.</p></div></div>
+        <div class="pitem"><svg aria-hidden="true"><use href="#i-globe"/></svg><div><h3>Playbooks built for the wrong market</h3><p>Generic agencies apply one-size-fits-all playbooks that ignore your market and your guests' booking behaviour. The strategy needs to fit the context.</p></div></div>
       </div>
     </div>
-    <div class="solution">
+    <div class="solution on-dark">
+      <div class="sun" aria-hidden="true"></div>
       <p class="eyebrow">The solution</p>
-      <h3>An agency that understands hospitality, and this market.</h3>
-      <p>We build full digital marketing systems for hotels, locally and internationally. Google Ads, SEO, social and email working together to drive direct bookings.</p>
-      <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20talk%20about%20direct%20bookings%20for%20my%20property." target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg>Talk to us
+      <h3>A marketer who understands hospitality, and this market.</h3>
+      <p>I build full digital marketing systems for hotels, locally and internationally. Google Ads, SEO, social and email working together to drive direct bookings.</p>
+      <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20talk%20about%20direct%20bookings%20for%20my%20property." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>Talk to me
       </a>
     </div>
   </div>
 </section>
 
 <!-- ═══ RESULTS ═══ -->
-<section id="results" aria-labelledby="results-t">
+<section class="band arc-top" id="results" aria-labelledby="results-t">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Case studies</p>
-      <h2 class="sec-title" id="results-t">Real work. Real numbers.</h2>
-      <p class="sec-sub">Every figure below is taken from the client's own analytics, and the screenshots are unedited.</p>
+      <h2 class="sec-title" id="results-t">Real work. <em>Real numbers.</em></h2>
+      <p class="sec-sub">Every figure below is taken from the client's own analytics, and the screenshots are unedited apart from the redactions noted.</p>
     </div>
     <div class="cases">
 
@@ -687,13 +653,20 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
             <li>Weekly performance reports delivered to hotel management across all channels.</li>
           </ul>
           <figure class="proof">
-            <picture>
-              <source type="image/avif" srcset="assets/proof/karen-plains-ga4.avif"/>
-              <source type="image/webp" srcset="assets/proof/karen-plains-ga4.webp"/>
-              <img src="assets/proof/karen-plains-ga4.png" width="757" height="404" loading="lazy" decoding="async"
-                   alt="Google Analytics 4 showing 23K active users, 25K sessions and a 98.1% engagement rate over 90 days"/>
-            </picture>
-            <figcaption>Google Analytics 4 · 90-day overview · account name cropped<br/>
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/karen-plains-ga4.avif"/>
+                <source type="image/webp" srcset="assets/proof/karen-plains-ga4.webp"/>
+                <img src="assets/proof/karen-plains-ga4.png" width="757" height="404" loading="lazy" decoding="async"
+                     alt="Google Analytics 4 showing 23K active users, 25K sessions and a 98.1% engagement rate over 90 days"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M52.70 45.31 L51.97 46.01 L51.17 46.44 L50.44 47.01 L49.66 47.39 L48.86 47.76 L48.02 47.99 L47.18 47.75 L46.33 47.57 L45.41 47.47 L44.64 46.73 L43.85 45.99 L43.35 44.75 L42.77 43.67 L42.34 42.41 L42.20 40.97 L41.91 39.66 L41.89 38.26 L42.15 36.91 L42.27 35.60 L42.33 34.24 L42.49 32.87 L42.94 31.69 L43.40 30.50 L43.89 29.30 L44.58 28.40 L45.30 27.50 L46.10 26.81 L46.99 26.41 L47.90 26.41 L48.80 26.54 L49.66 26.90 L50.49 27.33 L51.24 28.05 L51.91 28.90 L52.69 29.48 L53.28 30.50 L53.88 31.50 L54.31 32.71 L54.95 33.83 L55.29 35.21 L55.34 36.69 L55.47 38.17 L55.48 39.70 L55.23 41.16 L54.87 42.57 L54.22 43.70 L53.67 44.86 L52.93 45.73 L52.12 46.37 L51.38 47.09 L50.60 47.72 L49.75 48.13 L48.88 48.31"/><path d="M47.88 69.32 L47.92 69.79 L48.13 70.25 L48.38 70.71 L47.49 71.16 L46.23 71.57 L44.46 71.93 L42.91 72.29 L40.99 72.60 L38.92 72.88 L36.55 73.10 L34.33 73.36 L31.82 73.55 L29.19 73.75 L26.33 73.88 L23.33 73.90 L20.40 73.81 L17.54 73.67 L14.93 73.44 L12.65 73.13 L10.64 72.80 L8.71 72.46 L7.48 72.05 L6.42 71.64 L5.28 71.23 L5.03 70.79 L4.68 70.35 L4.84 69.91 L5.17 69.47 L5.43 69.01 L6.45 68.57 L7.51 68.12 L9.01 67.69 L11.40 67.38 L14.17 67.16 L16.70 66.89 L19.70 66.79 L22.71 66.75 L25.68 66.75 L28.56 66.84 L31.36 66.95 L33.93 67.15 L36.76 67.25 L39.32 67.47 L41.34 67.80 L43.97 68.05 L46.01 68.41 L47.53 68.83 L48.86 69.28 L49.58 69.75 L50.14 70.24 L49.44 70.73 L48.85 71.21 L47.20 71.63"/>
+              </svg>
+              <span class="note" style="left:56.5%;top:31%">Peak: June</span>
+              <span class="note" style="left:7%;top:58%">Before: near zero</span>
+            </div>
+            <figcaption>Google Analytics 4 · 90-day overview · account name cropped
               <span class="fig-note">Previous period near zero. The property had no active digital marketing before this engagement.</span>
             </figcaption>
           </figure>
@@ -719,12 +692,16 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
             <li>Managed WordPress (Divi) website updates and landing page conversion optimisation.</li>
           </ul>
           <figure class="proof">
-            <picture>
-              <source type="image/avif" srcset="assets/proof/laziz-seo-score.avif"/>
-              <source type="image/webp" srcset="assets/proof/laziz-seo-score.webp"/>
-              <img src="assets/proof/laziz-seo-score.png" width="986" height="638" loading="lazy" decoding="async"
-                   alt="SEO site audit scoring 77 out of 100, rated Excellent, with 14 good results"/>
-            </picture>
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/laziz-seo-score.avif"/>
+                <source type="image/webp" srcset="assets/proof/laziz-seo-score.webp"/>
+                <img src="assets/proof/laziz-seo-score.png" width="986" height="638" loading="lazy" decoding="async"
+                     alt="SEO site audit scoring 77 out of 100, rated Excellent, with 14 good results"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M26.52 65.45 L24.75 65.44 L22.98 65.32 L21.29 64.86 L19.84 63.97 L18.48 63.09 L17.02 62.36 L16.13 61.10 L15.22 59.94 L14.09 58.88 L13.60 57.53 L12.85 56.24 L12.57 54.83 L12.23 53.38 L12.43 51.92 L12.45 50.38 L12.89 48.87 L13.88 47.57 L14.92 46.31 L16.29 45.30 L17.98 44.68 L19.43 43.84 L21.14 43.49 L22.87 43.36 L24.55 43.37 L26.22 43.03 L27.88 43.31 L29.59 43.45 L31.31 43.76 L32.93 44.37 L34.58 45.05 L35.85 46.16 L37.25 47.21 L38.10 48.61 L39.02 49.99 L39.37 51.54 L39.07 53.13 L38.89 54.63 L38.50 56.07 L38.25 57.54 L37.26 58.78 L36.48 60.07 L35.38 61.18 L34.36 62.37 L33.08 63.39 L31.67 64.32 L30.15 65.21 L28.42 65.80 L26.60 66.28 L24.70 66.26 L22.80 66.14 L21.00 65.61 L19.30 64.92 L17.88 63.87"/></svg>
+              <span class="note" style="left:9%;top:91%">Score: 77/100</span>
+            </div>
             <figcaption>SEO site audit · score card</figcaption>
           </figure>
         </div>
@@ -740,7 +717,7 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
           <div class="case-fig"><div class="v" data-to="9.36" data-dec="2" data-suf="K">9.36K</div><div class="k">Ad clicks</div></div>
           <div class="case-fig"><div class="v" data-to="114" data-dec="0" data-suf="K">114K</div><div class="k">Impressions</div></div>
           <div class="case-fig"><div class="v" data-to="8.20" data-dec="2" data-suf="%">8.20%</div><div class="k">Google Ads CTR</div></div>
-          <div class="case-fig"><div class="v up" data-to="30" data-dec="0" data-pre="+" data-suf="%">+30%</div><div class="k">Online engagement</div></div>
+          <div class="case-fig"><div class="v" data-to="30" data-dec="0" data-pre="+" data-suf="%">+30%</div><div class="k">Online engagement</div></div>
         </div>
         <div class="case-body">
           <ul class="case-list">
@@ -750,12 +727,16 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
             <li>Worked closely with the sales team to improve lead follow-up and conversion flow.</li>
           </ul>
           <figure class="proof">
-            <picture>
-              <source type="image/avif" srcset="assets/proof/smoove-google-ads.avif"/>
-              <source type="image/webp" srcset="assets/proof/smoove-google-ads.webp"/>
-              <img src="assets/proof/smoove-google-ads.png" width="1200" height="435" loading="lazy" decoding="async"
-                   alt="Google Ads dashboard showing 9.36K clicks, 114K impressions and an 8.20% click-through rate"/>
-            </picture>
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/smoove-google-ads.avif"/>
+                <source type="image/webp" srcset="assets/proof/smoove-google-ads.webp"/>
+                <img src="assets/proof/smoove-google-ads.png" width="1200" height="435" loading="lazy" decoding="async"
+                     alt="Google Ads dashboard showing 9.36K clicks, 114K impressions and an 8.20% click-through rate"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M43.59 30.17 L42.71 30.19 L41.86 29.85 L41.06 29.40 L40.28 28.96 L39.51 28.47 L38.87 27.72 L38.26 26.92 L37.80 25.97 L37.22 25.11 L36.83 24.07 L36.49 22.97 L36.25 21.81 L36.12 20.59 L35.99 19.32 L36.23 18.09 L36.60 16.94 L37.11 15.89 L37.84 15.10 L38.51 14.32 L39.20 13.60 L39.96 13.05 L40.75 12.58 L41.57 12.24 L42.44 12.25 L43.29 11.92 L44.18 11.87 L45.07 12.04 L45.92 12.44 L46.81 12.84 L47.53 13.63 L48.35 14.30 L48.90 15.36 L49.26 16.55 L49.47 17.78 L49.76 18.95 L49.72 20.20 L49.73 21.40 L49.59 22.58 L49.31 23.71 L49.03 24.83 L48.73 25.97 L48.26 27.02 L47.69 27.97 L47.07 28.92 L46.38 29.84 L45.46 30.19 L44.56 30.56 L43.64 30.90 L42.69 30.70 L41.77 30.51 L40.91 30.04 L40.12 29.42 L39.30 28.94"/></svg>
+              <span class="note" style="left:36%;top:44%">CTR: 8.20%</span>
+            </div>
             <figcaption>Google Ads · clicks, impressions and CTR (spend redacted)</figcaption>
           </figure>
         </div>
@@ -766,12 +747,12 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
 </section>
 
 <!-- ═══ PRICING ═══ -->
-<section class="band-light" id="pricing" aria-labelledby="pricing-t">
+<section id="pricing" aria-labelledby="pricing-t">
   <div class="wrap">
     <div class="price-head">
       <div class="sec-head" style="margin-bottom:0">
         <p class="eyebrow">Services &amp; pricing</p>
-        <h2 class="sec-title" id="pricing-t">Transparent packages.</h2>
+        <h2 class="sec-title" id="pricing-t">Transparent <em>packages.</em></h2>
         <p class="sec-sub">Monthly retainers, no lock-in. Every package includes onboarding, strategy and reporting.</p>
       </div>
       <div class="cur-switch" role="group" aria-label="Show prices in">
@@ -779,107 +760,69 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
         <button type="button" class="cur-btn" data-cur="USD" aria-pressed="false">USD</button>
       </div>
     </div>
-
     <div class="tiers">
       <div class="tier">
         <div class="tier-top">
           <p class="tier-kind">Getting started</p>
           <h3 class="tier-name">Starter</h3>
-          <p class="tier-price">
-            <span class="tier-cur" data-cur-for="starter">KES</span>
-            <span class="tier-amt" data-amt-for="starter">45,000</span>
-            <span class="tier-per">/month</span>
-          </p>
+          <p class="tier-price"><span class="tier-cur" data-cur-for="starter">KES</span><span class="tier-amt" data-amt-for="starter">45,000</span><span class="tier-per">/month</span></p>
           <p class="tier-for">For small hotels, new properties or a pilot run: one channel done properly.</p>
         </div>
-        <div class="tier-feats">
-          <ul>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>One ad channel, Google Ads or Meta Ads</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Campaign setup and ongoing management</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Review of your current marketing</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Monthly performance report</li>
-          </ul>
-        </div>
-        <div class="tier-foot">
-          <a class="btn btn-dark btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
-          </a>
-        </div>
+        <div class="tier-feats"><ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>One ad channel, Google Ads or Meta Ads</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Campaign setup and ongoing management</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Review of your current marketing</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Monthly performance report</li>
+        </ul></div>
+        <div class="tier-foot"><a class="btn btn-ghost btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</a></div>
       </div>
-
       <div class="tier featured">
         <p class="tier-flag">Most popular</p>
         <div class="tier-top">
           <p class="tier-kind">For growing brands</p>
           <h3 class="tier-name">Growth</h3>
-          <p class="tier-price">
-            <span class="tier-cur" data-cur-for="growth">KES</span>
-            <span class="tier-amt" data-amt-for="growth">80,000</span>
-            <span class="tier-per">/month</span>
-          </p>
+          <p class="tier-price"><span class="tier-cur" data-cur-for="growth">KES</span><span class="tier-amt" data-amt-for="growth">80,000</span><span class="tier-per">/month</span></p>
           <p class="tier-for">For hotels and suites ready to run paid, social and site as one system.</p>
         </div>
-        <div class="tier-feats">
-          <ul>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Google Ads and Meta Ads, both managed</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media management, 3 posts per week</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Email and WhatsApp campaigns to your list</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Website updates and improvements</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing across channels</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly report with numbers and next steps</li>
-          </ul>
-        </div>
-        <div class="tier-foot">
-          <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
-          </a>
-        </div>
+        <div class="tier-feats"><ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Google Ads and Meta Ads, both managed</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media management, 3 posts per week</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Email and WhatsApp campaigns to your list</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Website updates and improvements</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Audience and creative testing across channels</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly report with numbers and next steps</li>
+        </ul></div>
+        <div class="tier-foot"><a class="btn btn-ember btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</a></div>
       </div>
-
       <div class="tier">
         <div class="tier-top">
           <p class="tier-kind">Full service</p>
           <h3 class="tier-name">Scale</h3>
-          <p class="tier-price">
-            <span class="tier-cur" data-cur-for="scale">KES</span>
-            <span class="tier-amt" data-amt-for="scale">130,000</span>
-            <span class="tier-per">/month</span>
-          </p>
+          <p class="tier-price"><span class="tier-cur" data-cur-for="scale">KES</span><span class="tier-amt" data-amt-for="scale">130,000</span><span class="tier-per">/month</span></p>
           <p class="tier-for">For multi-location and fast-growing brands: the entire operation handled.</p>
         </div>
-        <div class="tier-feats">
-          <ul>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Everything in Growth</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>4&ndash;5 short videos produced every week</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>SEO, Google ranking and blog content</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media, 5 posts per week with video</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Influencer campaigns managed end to end</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly strategy call and priority support</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Competitor monitoring and insights</li>
-          </ul>
-        </div>
-        <div class="tier-foot">
-          <a class="btn btn-dark btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp
-          </a>
-        </div>
+        <div class="tier-feats"><ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Everything in Growth</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>4&ndash;5 short videos produced every week</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>SEO, Google ranking and blog content</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Social media, 5 posts per week with video</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Influencer campaigns managed end to end</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Weekly strategy call and priority support</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Competitor monitoring and insights</li>
+        </ul></div>
+        <div class="tier-foot"><a class="btn btn-ghost btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enquire on WhatsApp</a></div>
       </div>
     </div>
-
-    <div class="audit">
+    <div class="audit on-dark" id="audit">
+      <div class="sun" aria-hidden="true"></div>
       <div>
         <h3>Not sure where to start? Begin with an audit.</h3>
         <p>A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days.</p>
       </div>
-      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
-        <div>
-          <p class="audit-price"><span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span></p>
-          <p class="audit-note">One-time · no commitment</p>
-        </div>
-        <a class="btn btn-brass" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>Book an audit
-        </a>
+      <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+        <div><p class="audit-price"><span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span></p><p class="audit-note">One-time · no commitment</p></div>
+        <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Book an audit</a>
       </div>
     </div>
     <p class="fineprint">Ad spend is billed separately and all prices exclude VAT. Scope is agreed before any engagement.</p>
@@ -887,33 +830,17 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
 </section>
 
 <!-- ═══ PROCESS ═══ -->
-<section class="band-light" id="process" aria-labelledby="process-t" style="padding-top:0">
+<section class="band arc-top" id="process" aria-labelledby="process-t">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">How it works</p>
-      <h2 class="sec-title" id="process-t">From first call to full execution in under two weeks.</h2>
+      <h2 class="sec-title" id="process-t">From first call to full execution <em>in under two weeks.</em></h2>
     </div>
     <ol class="steps">
-      <li class="step">
-        <p class="step-n">Step 01</p>
-        <h3>Discovery call</h3>
-        <p>A free 30-minute call to understand your property, goals and budget. No sales pressure, just honest strategy.</p>
-      </li>
-      <li class="step">
-        <p class="step-n">Step 02</p>
-        <h3>Audit &amp; strategy</h3>
-        <p>A full review of your ads, website, SEO and social. We identify the gaps and build a clear 90-day plan.</p>
-      </li>
-      <li class="step">
-        <p class="step-n">Step 03</p>
-        <h3>Launch &amp; execute</h3>
-        <p>Campaigns go live, content starts publishing, SEO work begins. Everything built around direct bookings.</p>
-      </li>
-      <li class="step">
-        <p class="step-n">Step 04</p>
-        <h3>Report &amp; optimise</h3>
-        <p>Weekly or monthly reports with real numbers. We optimise continuously and keep you informed.</p>
-      </li>
+      <li class="step"><p class="step-n">Step 01</p><h3>Discovery call</h3><p>A free 30-minute call to understand your property, goals and budget. No sales pressure, just honest strategy.</p></li>
+      <li class="step"><p class="step-n">Step 02</p><h3>Audit &amp; strategy</h3><p>A full review of your ads, website, SEO and social. I identify the gaps and build a clear 90-day plan.</p></li>
+      <li class="step"><p class="step-n">Step 03</p><h3>Launch &amp; execute</h3><p>Campaigns go live, content starts publishing, SEO work begins. Everything built around direct bookings.</p></li>
+      <li class="step"><p class="step-n">Step 04</p><h3>Report &amp; optimise</h3><p>Weekly or monthly reports with real numbers. I optimise continuously and keep you informed.</p></li>
     </ol>
   </div>
 </section>
@@ -921,115 +848,102 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
 <!-- ═══ ABOUT ═══ -->
 <section id="about" aria-labelledby="about-t">
   <div class="wrap about-grid">
-    <div class="about-mark" role="img" aria-label="Zevara Digital monogram">
-      <svg viewBox="0 0 36 36" aria-hidden="true"><use href="#i-star"/></svg>
+    <div class="portrait">
+      <div class="sun" aria-hidden="true"></div>
+      <span class="mono-mark" aria-hidden="true">MS</span>
+      <!-- Portrait slot: drop a photo at assets/photos/maningi-portrait.jpg (4:5, about 800x1000).
+           If the file is missing the image removes itself and the monogram shows instead. -->
+      <img src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async"
+           alt="Portrait of Maningi Sylvester" onerror="this.remove()"/>
     </div>
-    <div>
+    <div class="about-copy">
       <p class="eyebrow">About</p>
-      <h2 class="about-name display" id="about-t">Zevara Digital</h2>
-      <p class="about-role">Hospitality &amp; travel marketing · Nairobi, Kenya</p>
-      <p>Zevara Digital is a hospitality and travel marketing agency based in Nairobi, Kenya. We build full digital marketing systems for hotels, suites, lodges and travel businesses, locally and internationally.</p>
-      <p>We understand the local market, the booking behaviour, and the challenges of building direct revenue where OTAs dominate. Every client gets a clear strategy, honest reporting, and marketing that drives bookings.</p>
+      <h2 class="about-name" id="about-t">Maningi Sylvester</h2>
+      <p class="about-role">Hotel &amp; hospitality marketing · Nairobi, Kenya</p>
+      <p>I am a digital marketer based in Nairobi, Kenya. I build full digital marketing systems for hotels, suites, lodges and travel businesses, locally and internationally.</p>
+      <p>I understand the local market, the booking behaviour, and the challenges of building direct revenue where OTAs dominate. Every client gets a clear strategy, honest reporting, and marketing that drives bookings.</p>
+
+      <p class="subhead">What I work in</p>
+      <div class="skills">
+        <div class="skill"><b>Paid media</b><span>Google Ads, Meta Ads, budgets, A/B testing</span></div>
+        <div class="skill"><b>SEO</b><span>On-page, keywords, content, Search Console</span></div>
+        <div class="skill"><b>Analytics</b><span>GA4, Tag Manager, funnels, reporting</span></div>
+        <div class="skill"><b>Social media</b><span>Reels, TikTok, planning, community</span></div>
+        <div class="skill"><b>Email</b><span>Segmentation, automation, repeat guests</span></div>
+        <div class="skill"><b>Website &amp; CMS</b><span>WordPress (Divi), Shopify, landing pages</span></div>
+      </div>
+
+      <p class="subhead">Certifications</p>
       <div class="pills">
         <span class="pill">Google: Fundamentals of Digital Marketing</span>
         <span class="pill">Google: YouTube Marketing</span>
         <span class="pill">Reuters: Digital &amp; Social Media Marketing</span>
+        <span class="pill">Reuters: Introduction to Digital Journalism</span>
         <span class="pill">atingi: Digital &amp; Social Media Marketing</span>
-        <span class="pill">atingi: Artificial Intelligence</span>
+        <span class="pill">atingi: How to Get Involved in Artificial Intelligence</span>
+      </div>
+
+      <div class="marque">
+        <div><b>I also built free tools for hotel marketers.</b><span>Marque writes weekly reports, ad copy and social captions in seconds.</span></div>
+        <a class="textlink" href="marque/">Explore Marque <svg aria-hidden="true" width="16" height="16"><use href="#i-arr"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MARQUE ═══ -->
-<aside class="marque" aria-labelledby="marque-t">
-  <div class="marque-in">
-    <div>
-      <h3 id="marque-t">We also built free tools for hotel marketers.</h3>
-      <p>Marque generates weekly reports, Google and Meta ad copy, and social captions in seconds. Built from real experience running hotel marketing.</p>
-    </div>
-    <a class="btn btn-line" href="/marque/">Explore Marque <svg aria-hidden="true"><use href="#i-arr"/></svg></a>
-  </div>
-</aside>
-
 <!-- ═══ FAQ ═══ -->
-<section class="band-light" id="faq" aria-labelledby="faq-t">
+<section class="band arc-top" id="faq" aria-labelledby="faq-t">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">FAQ</p>
-      <h2 class="sec-title" id="faq-t">Common questions, straight answers.</h2>
+      <h2 class="sec-title" id="faq-t">Common questions, <em>straight answers.</em></h2>
     </div>
     <div class="faq">
-      <details class="q">
-        <summary>How do I know this will work for my hotel?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Start with an audit (<span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span>). You get a full diagnosis of what is working, what is not, and a clear action plan before committing to a retainer.</p>
-      </details>
-      <details class="q">
-        <summary>We already use Booking.com and Expedia. Do we still need this?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Especially then. OTAs take 15&ndash;25% per booking, so every direct booking saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</p>
-      </details>
-      <details class="q">
-        <summary>How long before I see results?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Paid ads show results within 2&ndash;4 weeks once campaigns are optimised. SEO and content take 2&ndash;3 months to build momentum. We are transparent about timelines from day one.</p>
-      </details>
-      <details class="q">
-        <summary>Do you require a long-term contract?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. The results should be the reason you stay, not a contract.</p>
-      </details>
-      <details class="q">
-        <summary>Is ad spend included in the package fee?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">No. The package fee covers strategy, management and reporting. Ad spend is paid directly by you to Google and Meta, and we recommend a budget based on your goals.</p>
-      </details>
-      <details class="q">
-        <summary>Do you work with hotels outside Nairobi?<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Yes. Digital marketing works remotely. We work with properties across Kenya and beyond, serving clients locally and internationally.</p>
-      </details>
+      <details class="q"><summary>How do I know this will work for my hotel?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Start with an audit (<span data-cur-for="audit">KES</span> <span data-amt-for="audit">18,000</span>). You get a full diagnosis of what is working, what is not, and a clear action plan before committing to a retainer.</p></details>
+      <details class="q"><summary>We already use Booking.com and Expedia. Do we still need this?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Especially then. OTAs take 15&ndash;25% per booking, so every direct booking saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</p></details>
+      <details class="q"><summary>How long before I see results?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Paid ads show results within 2&ndash;4 weeks once campaigns are optimised. SEO and content take 2&ndash;3 months to build momentum. I am transparent about timelines from day one.</p></details>
+      <details class="q"><summary>Do you require a long-term contract?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. The results should be the reason you stay, not a contract.</p></details>
+      <details class="q"><summary>Is ad spend included in the package fee?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">No. The package fee covers strategy, management and reporting. Ad spend is paid directly by you to Google and Meta, and I recommend a budget based on your goals.</p></details>
+      <details class="q"><summary>Do you work with hotels outside Nairobi?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p class="a">Yes. Digital marketing works remotely. I work with properties across Kenya and beyond, serving clients locally and internationally.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT / THE DESK ═══ -->
-<section id="contact" aria-labelledby="contact-t">
+<!-- ═══ CLOSING + CONTACT ═══ -->
+<section class="closing on-dark" id="contact" aria-labelledby="contact-t">
+  <div class="sun" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Contact</p>
-      <h2 class="sec-title" id="contact-t">Let's build your direct booking engine.</h2>
-      <p class="sec-sub">We respond within 24 hours on weekdays. WhatsApp gets the fastest response.</p>
+      <h2 class="sec-title" id="contact-t">Let's build your <em>direct booking engine.</em></h2>
+      <p class="sec-sub">I respond within 24 hours on weekdays. WhatsApp gets the fastest response.</p>
     </div>
-    <div class="desk-grid">
-      <div class="desk-primary">
+    <div class="desk">
+      <div class="desk-main">
         <h3>Start a conversation on WhatsApp.</h3>
-        <p class="lede">Tell us about your property and what you want to grow. We will tell you exactly what we would do and what it would cost, free.</p>
-        <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>Message us on WhatsApp
-        </a>
+        <p class="lede">Tell me about your property and what you want to grow. I will tell you exactly what I would do and what it would cost, free.</p>
+        <a class="btn btn-ember btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Message me on WhatsApp</a>
         <p class="desk-num">+254 702 256 764</p>
-        <div class="picks">
-          <p class="picks-t">Or start with a specific request</p>
-          <div class="pick-row">
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">Free strategy call</a>
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener">Starter package</a>
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener">Growth package</a>
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener">Scale package</a>
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener">Digital audit</a>
-            <a class="pick" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%20have%20a%20question%20about%20hotel%20marketing." target="_blank" rel="noopener">Something else</a>
-          </div>
+        <p class="picks-t">Or start with a specific request</p>
+        <div class="pick-row">
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">Free strategy call</a>
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Starter%20package." target="_blank" rel="noopener">Starter package</a>
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Growth%20package." target="_blank" rel="noopener">Growth package</a>
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27m%20interested%20in%20the%20Scale%20package." target="_blank" rel="noopener">Scale package</a>
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20Digital%20Marketing%20Audit%20for%20my%20hotel." target="_blank" rel="noopener">Digital audit</a>
+          <a class="pick" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%20have%20a%20question%20about%20hotel%20marketing." target="_blank" rel="noopener">Something else</a>
         </div>
       </div>
-
       <div class="channels">
-        <a class="chan" href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry">
-          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
-          <span><span class="chan-k">Email</span><span class="chan-v">maningisylvester@gmail.com</span></span>
-        </a>
-        <a class="chan" href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener">
-          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-li"/></svg></span>
-          <span><span class="chan-k">LinkedIn</span><span class="chan-v">maningisylvesterdigitalmarketer</span></span>
-        </a>
-        <div class="chan">
-          <span class="chan-ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
-          <span><span class="chan-k">Based in</span><span class="chan-v">Nairobi, Kenya</span></span>
-        </div>
+        <a class="chan" href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry"><span class="chan-ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span><span class="chan-k">Email</span><span class="chan-v">maningisylvester@gmail.com</span></span></a>
+        <a class="chan" href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener"><span class="chan-ic"><svg aria-hidden="true"><use href="#i-li"/></svg></span><span><span class="chan-k">LinkedIn</span><span class="chan-v">maningisylvesterdigitalmarketer</span></span></a>
+        <div class="chan"><span class="chan-ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span><span class="chan-k">Based in</span><span class="chan-v">Nairobi, Kenya</span></span></div>
       </div>
     </div>
   </div>
@@ -1037,177 +951,236 @@ a.chan:hover{border-color:var(--lamplight);transform:translateX(3px);}
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="site-foot">
+<footer class="site-foot on-dark">
   <div class="foot-in">
     <div>
-      <a href="/" class="brand">
-        <svg class="brand-mark" aria-hidden="true"><use href="#i-star"/></svg>
-        <span class="brand-name">Zevara<i> Digital</i></span><span class="vh">, home</span>
-      </a>
-      <p class="foot-tag">Hospitality and travel marketing agency based in Nairobi, serving clients locally and internationally.</p>
-    </div>
-    <div>
-      <p class="foot-t">Services</p>
-      <ul class="foot-l">
-        <li><a href="#pricing">Starter package</a></li>
-        <li><a href="#pricing">Growth package</a></li>
-        <li><a href="#pricing">Scale package</a></li>
-        <li><a href="#pricing">Digital audit</a></li>
-      </ul>
+      <a href="./" class="brand"><svg aria-hidden="true"><use href="#i-sun"/></svg><span class="brand-name">Maningi Sylvester</span><span class="vh">, home</span></a>
+      <p class="foot-tag">Hotel and hospitality marketing from Nairobi, for properties locally and internationally.</p>
     </div>
     <div>
       <p class="foot-t">Work</p>
       <ul class="foot-l">
-        <li><a href="#results">Karen Plains Hotel</a></li>
-        <li><a href="#results">L'Aziz Suites</a></li>
-        <li><a href="#results">Smoove Africa</a></li>
-        <li><a href="/marque/">Marque platform</a></li>
+        <li><a href="#check">Visibility check</a></li>
+        <li><a href="#results">Case studies</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="marque/">Marque tools</a></li>
       </ul>
     </div>
     <div>
       <p class="foot-t">Connect</p>
       <ul class="foot-l">
-        <li><a href="https://wa.me/254702256764" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%20have%20a%20question%20about%20hotel%20marketing." target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="mailto:maningisylvester@gmail.com">Email</a></li>
         <li><a href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="/portfolio/">Personal portfolio</a></li>
       </ul>
     </div>
   </div>
-  <div class="foot-btm">
-    <span>© 2026 Zevara Digital. All rights reserved. Nairobi, Kenya.</span>
-    <span>Built for growth.</span>
-  </div>
+  <p class="foot-btm">© 2026 Maningi Sylvester. All rights reserved. Nairobi, Kenya.</p>
 </footer>
 
-<!-- ═══ STICKY MOBILE CTA ═══ -->
 <div class="sticky" id="sticky">
-  <a class="btn btn-brass btn-full" href="https://wa.me/254702256764?text=Hi%20Zevara%20Digital%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">
-    <svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call
-  </a>
+  <a class="btn btn-ember btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Book a free strategy call</a>
 </div>
 
 <script>
 (function(){
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(id){ return document.getElementById(id); };
 
   /* ── nav ── */
-  var head = document.getElementById('head'),
-      btn  = document.getElementById('navBtn');
+  var head = $('head'), navBtn = $('navBtn');
   function setNav(open){
     head.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
-  btn.addEventListener('click', function(){ setNav(!head.classList.contains('open')); });
-  document.getElementById('navPanel').addEventListener('click', function(e){
-    if (e.target.closest('a')) setNav(false);
-  });
+  navBtn.addEventListener('click', function(){ setNav(!head.classList.contains('open')); });
+  $('navPanel').addEventListener('click', function(e){ if (e.target.closest('a')) setNav(false); });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && head.classList.contains('open')) { setNav(false); btn.focus(); }
+    if (e.key === 'Escape' && head.classList.contains('open')){ setNav(false); navBtn.focus(); }
   });
 
   /* ── currency ── */
-  var PRICE = {
-    starter:{KES:['KES','45,000'], USD:['$','350']},
-    growth: {KES:['KES','80,000'], USD:['$','650']},
-    scale:  {KES:['KES','130,000'],USD:['$','1,000']},
-    audit:  {KES:['KES','18,000'], USD:['$','150']}
-  };
-  function setCur(cur){
-    Object.keys(PRICE).forEach(function(k){
-      var p = PRICE[k][cur];
-      document.querySelectorAll('[data-cur-for="'+k+'"]').forEach(function(el){ el.textContent = p[0]; });
-      document.querySelectorAll('[data-amt-for="'+k+'"]').forEach(function(el){ el.textContent = p[1]; });
-    });
-    document.querySelectorAll('.cur-btn').forEach(function(b){
-      b.setAttribute('aria-pressed', b.dataset.cur === cur ? 'true' : 'false');
-    });
-  }
+  var PRICE = { starter:{KES:['KES','45,000'],USD:['$','350']}, growth:{KES:['KES','80,000'],USD:['$','650']},
+                scale:{KES:['KES','130,000'],USD:['$','1,000']}, audit:{KES:['KES','18,000'],USD:['$','150']} };
   document.querySelectorAll('.cur-btn').forEach(function(b){
-    b.addEventListener('click', function(){ setCur(b.dataset.cur); });
+    b.addEventListener('click', function(){
+      var cur = b.dataset.cur;
+      Object.keys(PRICE).forEach(function(k){
+        document.querySelectorAll('[data-cur-for="'+k+'"]').forEach(function(el){ el.textContent = PRICE[k][cur][0]; });
+        document.querySelectorAll('[data-amt-for="'+k+'"]').forEach(function(el){ el.textContent = PRICE[k][cur][1]; });
+      });
+      document.querySelectorAll('.cur-btn').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
   });
 
-  /* ── the night report: count up ── */
-  function fmt(v, dec){
-    return v.toLocaleString('en-US',{minimumFractionDigits:dec, maximumFractionDigits:dec});
-  }
+  /* ── count-up on figures ── */
+  function fmt(v,d){ return v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
   function run(el){
-    var to  = parseFloat(el.dataset.to),
-        dec = parseInt(el.dataset.dec || '0', 10),
-        pre = el.dataset.pre || '',
-        suf = el.dataset.suf || '',
-        dur = 1100, t0 = null;
-    function frame(ts){
+    var to=parseFloat(el.dataset.to), d=+(el.dataset.dec||0), pre=el.dataset.pre||'', suf=el.dataset.suf||'', t0=null;
+    (function frame(ts){
       if (t0 === null) t0 = ts;
-      var p = Math.min((ts - t0) / dur, 1),
-          e = 1 - Math.pow(1 - p, 3);
-      el.textContent = pre + fmt(to * e, dec) + suf;
+      var p = Math.min((ts-t0)/1100,1), e = 1-Math.pow(1-p,3);
+      el.textContent = pre + fmt(to*e,d) + suf;
       if (p < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
+    })(performance.now());
   }
-  var figs = document.querySelectorAll('[data-to]');
   if (!reduce && 'IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting){ run(en.target); io.unobserve(en.target); }
-      });
-    }, {threshold:0.45});
-    figs.forEach(function(f){ io.observe(f); });
+    var cio = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting){ run(en.target); cio.unobserve(en.target);} }); },{threshold:.45});
+    document.querySelectorAll('[data-to]').forEach(function(f){ cio.observe(f); });
   }
 
-  /* ── sticky mobile cta ──
-     Shows once the hero is gone, but hides again whenever a section that
-     already carries its own WhatsApp button is on screen, so the user never
-     sees two competing WhatsApp CTAs at once. */
-  var sticky = document.getElementById('sticky');
-  if (sticky && 'IntersectionObserver' in window){
-    /* The bar yields to two things, by different rules.
-       1. Any other WhatsApp CTA anywhere on screen, so two never compete.
-       2. A proof figure only while it reaches into the strip of screen the
-          bar occupies, so a screenshot or its caption is never covered.
-          Suppressing on any visible figure would hide the bar for most of
-          the page and defeat the point of having it. */
-    var BAR_ZONE = 170,
-        ctas = [].slice.call(document.querySelectorAll('a[href*="wa.me"]'))
-                 .filter(function(a){ return !sticky.contains(a); }),
-        proofs = [].slice.call(document.querySelectorAll('.proof')),
-        ctaOnScreen = 0, ticking = false;
+  /* ── 60-second visibility check ──
+     Client-side only. Nothing leaves the page unless the owner taps the
+     WhatsApp button, and nothing is stored. Questions are equal weight;
+     "not sure" scores zero, because an owner who cannot see a channel is
+     not using it. Gaps are ranked by booking impact (rank, lower = bigger). */
+  var GREETING = 'Hi Maningi';
+  var Q = [
+    {q:'Are your opening hours, phone number and address identical on Google, Instagram and your website?', gap:'Contact details differ across Google, Instagram and your site', rank:4},
+    {q:'Have you claimed your Google Business Profile, with photos from the last 12 months?', gap:'Google Business Profile unclaimed or photos out of date', rank:3},
+    {q:'Have you claimed and do you manage your TripAdvisor and OTA listings yourself?', gap:'TripAdvisor and OTA listings not claimed or managed', rank:10},
+    {q:'Do you have 50 or more Google reviews?', gap:'Fewer than 50 Google reviews', rank:7},
+    {q:'Do you reply to your reviews, good and bad?', gap:'Reviews go unanswered', rank:8},
+    {q:'Can a guest reach your direct booking link in one tap on their phone?', gap:'No one-tap direct booking link on mobile', rank:1},
+    {q:'Does your website load quickly on mobile data?', gap:'Website is slow on mobile data', rank:5},
+    {q:'Does your website have a WhatsApp click-to-chat button?', gap:'No WhatsApp click-to-chat on your website', rank:6},
+    {q:'Do you collect guest emails or phone numbers for repeat marketing?', gap:'Guest contacts not collected for repeat stays', rank:9},
+    {q:'Do you track which bookings come from which marketing channel?', gap:'Booking conversions are not tracked', rank:2}
+  ];
+  var CHOICES = [['yes','Yes'],['no','No'],['unsure','Not sure']];
+  var BANDS = [{min:8,label:'Solid'},{min:5,label:'Getting there'},{min:0,label:'Likely leaking bookings'}];
 
-    function proofInBarZone(){
-      var vh = window.innerHeight;
-      for (var i = 0; i < proofs.length; i++){
-        var r = proofs[i].getBoundingClientRect();
-        if (r.bottom > vh - BAR_ZONE && r.top < vh) return true;
-      }
+  var answers = new Array(Q.length), idx = 0;
+  var startBtn=$('checkStart'), stepper=$('stepper'), host=$('qHost'), back=$('stepBack'),
+      result=$('result'), gauge=$('gauge'), gFill=$('gaugeFill'), gNum=$('gaugeNum'), announce=$('announce');
+
+  function score(){ return answers.filter(function(a){ return a === 'yes'; }).length; }
+  function setGauge(n){ gFill.setAttribute('stroke-dashoffset', String(100 - n*10)); gNum.textContent = String(n); }
+
+  function renderQ(){
+    var item = Q[idx];
+    host.innerHTML = '';
+    var fs = document.createElement('fieldset'); fs.className = 'q-set';
+    var lg = document.createElement('legend'); lg.id = 'qLegend'; lg.textContent = item.q; fs.appendChild(lg);
+    var wrap = document.createElement('div'); wrap.className = 'choices';
+    CHOICES.forEach(function(c){
+      var lab = document.createElement('label'); lab.className = 'choice';
+      var inp = document.createElement('input'); inp.type='radio'; inp.name='q'+idx; inp.value=c[0];
+      if (answers[idx] === c[0]) inp.checked = true;
+      var sp = document.createElement('span'); sp.textContent = c[1];
+      lab.appendChild(inp); lab.appendChild(sp); wrap.appendChild(lab);
+      inp.addEventListener('change', function(){ choose(c[0]); });
+    });
+    fs.appendChild(wrap); host.appendChild(fs);
+    $('stepCount').textContent = 'Question ' + (idx+1) + ' of ' + Q.length;
+    $('stepBar').style.width = (idx/Q.length*100) + '%';
+    back.disabled = idx === 0;
+    $('stepNext').disabled = !answers[idx];
+    $('stepNext').textContent = idx === Q.length-1 ? 'See my result' : 'Next';
+  }
+  /* Auto-advance on tap. Arrow keys also change a radio selection, so an
+     answer chosen by arrow key is recorded but does not advance; the
+     keyboard user commits with Enter, Space or the Next button. */
+  var advTimer = null, viaArrow = false;
+  host.addEventListener('keydown', function(e){
+    viaArrow = /^Arrow/.test(e.key);
+    if ((e.key === 'Enter') && e.target.name && answers[idx]){ e.preventDefault(); advance(); }
+  });
+  host.addEventListener('pointerdown', function(){ viaArrow = false; });
+  function advance(){
+    clearTimeout(advTimer);
+    if (idx < Q.length-1){ idx++; renderQ(); focusFirst(); } else { finish(); }
+  }
+  function choose(v){
+    answers[idx] = v; setGauge(score()); $('stepNext').disabled = false;
+    if (viaArrow) return;
+    clearTimeout(advTimer);
+    advTimer = setTimeout(advance, reduce ? 0 : 280);
+  }
+  function focusFirst(){
+    var sel = host.querySelector('input:checked') || host.querySelector('input');
+    if (sel) sel.focus({preventScroll:true});
+  }
+  function bandFor(n){ for (var i=0;i<BANDS.length;i++) if (n >= BANDS[i].min) return BANDS[i].label; }
+  function topGaps(){
+    var g = [];
+    Q.forEach(function(item,i){ if (answers[i] !== 'yes') g.push({t:item.gap, unsure:answers[i]==='unsure', rank:item.rank}); });
+    g.sort(function(a,b){ return (a.unsure - b.unsure) || (a.rank - b.rank); });
+    return g.slice(0,3);
+  }
+  function waHref(){
+    var n = score(), band = bandFor(n), gaps = topGaps(), hotel = $('hotelName').value.trim();
+    var msg = GREETING + ', I did your 60-second visibility check' + (hotel ? ' for ' + hotel : '') + '. ' +
+              'My score: ' + n + '/10 (' + band + ').' +
+              (gaps.length ? ' Top gaps: ' + gaps.map(function(x){ return x.t; }).join('; ') + '.' : '') +
+              ' Can we talk about fixing them?';
+    return 'https://wa.me/254702256764?text=' + encodeURIComponent(msg);
+  }
+  function finish(){
+    var n = score(), band = bandFor(n), gaps = topGaps();
+    stepper.hidden = true; result.hidden = false;
+    $('stepBar').style.width = '100%';
+    var b = $('resultBand'); b.textContent = n + '/10 · ' + band; b.className = 'result-band' + (n < 5 ? ' low' : '');
+    var ul = $('gaps'); ul.innerHTML = '';
+    $('gapsTitle').hidden = !gaps.length;
+    gaps.forEach(function(x){
+      var li = document.createElement('li');
+      li.appendChild(document.createTextNode(x.t));
+      if (x.unsure){ var em=document.createElement('em'); em.textContent=' (you were not sure)'; li.appendChild(em); }
+      ul.appendChild(li);
+    });
+    if (!gaps.length){ var li=document.createElement('li'); li.textContent='No gaps ticked. Worth confirming with a full audit.'; ul.appendChild(li); }
+    $('resultWa').href = waHref();
+    announce.textContent = 'Your score is ' + n + ' out of 10: ' + band + '.' + (gaps.length ? ' Biggest gaps: ' + gaps.map(function(x){return x.t;}).join('; ') + '.' : '');
+    result.focus({preventScroll:true});
+  }
+  $('stepNext').addEventListener('click', function(){ if (answers[idx]) advance(); });
+  $('hotelName').addEventListener('input', function(){ $('resultWa').href = waHref(); });
+  back.addEventListener('click', function(){ if (idx > 0){ clearTimeout(advTimer); idx--; renderQ(); focusFirst(); } });
+  $('retake').addEventListener('click', function(){
+    answers = new Array(Q.length); idx = 0; setGauge(0);
+    result.hidden = true; stepper.hidden = false; renderQ(); focusFirst();
+  });
+  startBtn.addEventListener('click', function(){
+    startBtn.hidden = true; startBtn.setAttribute('aria-expanded','true');
+    stepper.hidden = false; gauge.removeAttribute('hidden'); /* SVG has no .hidden property */
+    $('checkIntro').classList.add('has-gauge');
+    renderQ(); focusFirst();
+  });
+  /* JS is running: swap the plain WhatsApp fallback for the interactive check. */
+  $('checkFallback').hidden = true; startBtn.hidden = false;
+
+  /* ── sticky mobile bar ──
+     Yields to (1) any other WhatsApp CTA on screen, so two never compete,
+     and (2) a proof figure, or the open check, reaching into the bar's strip,
+     so a screenshot, its caption or the check's controls are never covered. */
+  var sticky = $('sticky');
+  if (sticky && 'IntersectionObserver' in window){
+    var BAR_ZONE = 170, onScreen = 0, ticking = false,
+        proofs = [].slice.call(document.querySelectorAll('.proof, #stepper, #result'));
+    function proofInZone(){
+      var vh = innerHeight;
+      for (var i=0;i<proofs.length;i++){ var r=proofs[i].getBoundingClientRect(); if (r.height && r.bottom > vh-BAR_ZONE && r.top < vh) return true; }
       return false;
     }
-    function update(){
-      sticky.classList.toggle('show', ctaOnScreen === 0 && !proofInBarZone());
-    }
-    function schedule(){
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function(){ ticking = false; update(); });
-    }
-    var ctaIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        var was = en.target.__vis ? 1 : 0,
-            now = en.isIntersecting ? 1 : 0;
-        if (was !== now){ en.target.__vis = !!now; ctaOnScreen += now - was; }
-      });
+    function update(){ sticky.classList.toggle('show', onScreen === 0 && !proofInZone()); }
+    function schedule(){ if (ticking) return; ticking = true; requestAnimationFrame(function(){ ticking=false; update(); }); }
+    var ctaIO = new IntersectionObserver(function(es){
+      es.forEach(function(en){ var was=en.target.__v?1:0, now=en.isIntersecting?1:0; if (was!==now){ en.target.__v=!!now; onScreen += now-was; } });
       update();
     }, {rootMargin:'-56px 0px 0px 0px'});
-    ctas.forEach(function(a){ ctaIO.observe(a); });
-    window.addEventListener('scroll', schedule, {passive:true});
-    window.addEventListener('resize', schedule);
+    /* The check's own CTAs live inside it; observe them too so the bar
+       never doubles a visible check button. */
+    [].slice.call(document.querySelectorAll('a[href*="wa.me"], #checkStart'))
+      .filter(function(a){ return !sticky.contains(a); })
+      .forEach(function(a){ ctaIO.observe(a); });
+    addEventListener('scroll', schedule, {passive:true});
+    addEventListener('resize', schedule);
     update();
   }
 })();
 </script>
-
 </body>
 </html>
