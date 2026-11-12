@@ -714,7 +714,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
         </fieldset>
 
         <div class="calc-out" id="calcOut">
-          <p class="headline" id="cHead">About <span class="m">KES 2,523,000</span> a year goes to OTA commission.</p>
+          <p class="headline" id="cHead">With these example figures, about <span class="m">KES 2,523,000</span> a year would go to OTA commission.</p>
           <div class="split">
             <svg class="ring" viewBox="0 0 200 118" aria-hidden="true">
               <path class="base" id="ringBase" d="M20 104 A80 80 0 0 1 180 104"/>
@@ -1004,10 +1004,13 @@ kept if moved  = OTA revenue × shift % × commission %</p>
     <div class="portrait">
       <div class="sun" aria-hidden="true"></div>
       <span class="mono-mark" aria-hidden="true">MS</span>
-      <!-- Portrait slot: drop a photo at assets/photos/maningi-portrait.jpg (4:5, about 800x1000).
-           If the file is missing the image removes itself and the monogram shows instead. -->
-      <img src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async"
-           alt="Portrait of Maningi Sylvester" onerror="this.remove()"/>
+      <!-- Portrait slot. The MS monogram shows until a photo exists. To add one:
+           save it as assets/photos/maningi-portrait.jpg (4:5, about 800x1000),
+           then remove the comment markers around the <img> line below.
+           It stays commented out until then, so browsers never request a
+           missing file.
+      <img src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Maningi Sylvester" onerror="this.remove()"/>
+      -->
     </div>
     <div class="about-copy">
       <p class="eyebrow">About</p>
@@ -1340,7 +1343,12 @@ kept if moved  = OTA revenue × shift % × commission %</p>
 
   var calcForm = $('calcForm');
   if (calcForm){
-    var CUR = 'KES', EXAMPLE_RATE = {KES:8000, USD:80}, rateTouched = false, liveTimer = null;
+    var CUR = 'KES', EXAMPLE_RATE = {KES:8000, USD:80}, rateTouched = false, edited = false, liveTimer = null;
+    /* Until the visitor changes a figure, the numbers are ours, not theirs, so
+       the result is worded as an example and the WhatsApp message carries no
+       figures. Any edit flips this for good, even if the value is set back to
+       the example, because by then the visitor has chosen it. */
+    function markEdited(){ edited = true; $('calcExample').hidden = true; }
     var F = { rooms:$('cRooms'), rate:$('cRate'), occupancy:$('cOcc'), otaShare:$('cShare') };
     var money = function(v){ return (CUR === 'KES' ? 'KES ' : '$') + v.toLocaleString('en-US'); };
     var about = function(v){ var k = Math.round(v / 1000) * 1000; return (v > 0 && k === 0) ? 'less than ' + money(1000) : 'about ' + money(k); };
@@ -1399,16 +1407,19 @@ kept if moved  = OTA revenue × shift % × commission %</p>
       head.innerHTML = ''; second.innerHTML = '';
       var p1 = about(res.paid), p2 = about(res.kept);
       var cap = function(t){ return t.charAt(0).toUpperCase() + t.slice(1); };
-      head.append(cap(p1.split(/(?=KES|\$)/)[0]), mono(p1.replace(/^.*?(?=KES|\$)/, '')), ' a year goes to OTA commission.');
+      if (edited) head.append(cap(p1.split(/(?=KES|\$)/)[0]), mono(p1.replace(/^.*?(?=KES|\$)/, '')), ' a year goes to OTA commission.');
+      else head.append('With these example figures, ' + p1.split(/(?=KES|\$)/)[0], mono(p1.replace(/^.*?(?=KES|\$)/, '')), ' a year would go to OTA commission.');
       second.append('What-if: moving ' + shift + '% of those bookings direct would keep ' + p2.split(/(?=KES|\$)/)[0], mono(p2.replace(/^.*?(?=KES|\$)/, '')), ' a year.');
       var zero = res.paid <= 0;
       base.classList.toggle('zero', zero);
       kept.style.visibility = zero ? 'hidden' : 'visible';
       kept.setAttribute('stroke-dashoffset', String(100 - shift));
       var hotel = $('calcHotel').value.trim();
-      var msg = GREETING + ', I ran the commission calculator' + (hotel ? ' for ' + hotel : '') + '. ' +
-                cap(p1) + ' a year goes to OTAs on ' + vals.rooms.toLocaleString('en-US') + (vals.rooms === 1 ? ' room' : ' rooms') +
-                '. I would like to talk about moving some of that direct.';
+      var msg = edited
+        ? GREETING + ', I ran the commission calculator' + (hotel ? ' for ' + hotel : '') + '. ' +
+          cap(p1) + ' a year goes to OTAs on ' + vals.rooms.toLocaleString('en-US') + (vals.rooms === 1 ? ' room' : ' rooms') +
+          '. I would like to talk about moving some of that direct.'
+        : GREETING + ", I tried the commission calculator and I'd like to talk about getting more direct bookings.";
       $('calcWa').href = 'https://wa.me/254702256764?text=' + encodeURIComponent(msg);
       announce2(head.textContent + ' ' + second.textContent);
     }
@@ -1425,7 +1436,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
                 : (d && +d > +el.dataset.max) ? 'Maximum is ' + (+el.dataset.max).toLocaleString('en-US') + '.' : '';
         if (why) el._why = why;
         if (k === 'rate') rateTouched = true;
-        reformat(el); $('calcExample').hidden = true; recalc();
+        markEdited(); reformat(el); recalc();
       });
       F[k].addEventListener('focus', function(){ F[k]._why = ''; });
       F[k].addEventListener('blur', function(){
@@ -1433,8 +1444,8 @@ kept if moved  = OTA revenue × shift % × commission %</p>
         if (r.ok){ F[k].value = r.value.toLocaleString('en-US'); recalc(); }
       });
     });
-    $('cComm').addEventListener('input', recalc);
-    calcForm.querySelectorAll('input[name="cShift"]').forEach(function(x){ x.addEventListener('change', recalc); });
+    $('cComm').addEventListener('input', function(){ markEdited(); recalc(); });
+    calcForm.querySelectorAll('input[name="cShift"]').forEach(function(x){ x.addEventListener('change', function(){ markEdited(); recalc(); }); });
     $('calcHotel').addEventListener('input', recalc);
     calcForm.addEventListener('submit', function(e){ e.preventDefault(); });
     document.addEventListener('currencychange', function(e){
