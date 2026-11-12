@@ -253,6 +253,58 @@ section{padding:clamp(3.5rem,9vw,6.5rem) var(--pad);position:relative;overflow-x
 .next{font-size:.88rem;color:var(--clay);margin-top:.9rem;text-align:center;}
 .next a{color:var(--burnt);font-weight:700;}
 
+/* ── tools: visibility check + commission calculator share one section ──
+   Cards align to the top and never stretch, so the check expanding in place
+   cannot resize or move the calculator beside it. */
+.tools{display:grid;gap:1.25rem;align-items:start;}
+.tools .check-card{max-width:none;}
+.example{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--clay);margin-top:1rem;}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.25rem .75rem;margin-top:.55rem;}
+.cfield{display:grid;gap:.3rem;align-content:start;}
+.cfield label{font-weight:700;font-size:.86rem;line-height:1.25;}
+.u{font-family:var(--mono);font-weight:500;font-size:.76rem;color:var(--clay);}
+.cfield input{min-height:48px;width:100%;padding:.5rem .75rem;border:2px solid var(--line-2);border-radius:12px;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.02rem;background:var(--linen);color:var(--ink);}
+.cfield input:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink);}
+.cfield input[aria-invalid="true"]{border-color:var(--burnt);}
+.hint{font-size:.74rem;line-height:1.3;color:var(--burnt);min-height:1.05rem;}
+.slider{margin-top:.5rem;}
+.slider-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
+.slider-head label{font-weight:700;font-size:.86rem;}
+.slider-head output{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:1.05rem;}
+.slider input[type=range]{width:100%;height:44px;accent-color:var(--burnt);background:transparent;cursor:pointer;}
+.whatif{border:0;margin-top:.35rem;}
+.whatif legend{font-weight:700;font-size:.86rem;margin-bottom:.45rem;padding:0;}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;}
+.seg label{position:relative;}
+.seg input{position:absolute;opacity:0;width:1px;height:1px;}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:44px;border:2px solid var(--line-2);border-radius:999px;
+  font-family:var(--mono);font-weight:500;cursor:pointer;background:var(--linen);}
+.seg input:checked+span{background:var(--ember);border-color:var(--ember);color:var(--ink);}
+.seg input:focus-visible+span{outline:3px solid var(--ink);outline-offset:3px;}
+.calc-out{margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem;}
+.split{display:grid;grid-template-columns:96px 1fr;gap:.9rem;align-items:center;margin-top:.6rem;}
+.ring{width:96px;height:auto;overflow:visible;}
+.ring .base{fill:none;stroke:var(--ember);stroke-width:16;}
+.ring .base.zero{stroke:var(--sand);}
+.ring .kept{fill:none;stroke:var(--ink);stroke-width:16;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1);}
+.ring-num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:26px;fill:var(--ink);}
+.ring-of{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--clay);}
+.headline{font-weight:700;font-size:1.08rem;line-height:1.35;}
+.second{color:var(--ink-2);font-size:.93rem;line-height:1.45;}
+.m{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-top:.75rem;font-size:.76rem;color:var(--clay);}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:.35rem;vertical-align:-1px;}
+.caveat{margin-top:.85rem;font-size:.84rem;line-height:1.5;color:var(--ink-2);background:var(--linen);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;}
+.how{margin-top:.9rem;border-top:1px solid var(--line);}
+.how summary{display:flex;align-items:center;justify-content:space-between;min-height:48px;cursor:pointer;list-style:none;font-weight:700;font-size:.92rem;}
+.how summary::-webkit-details-marker{display:none;}
+.how summary svg{width:18px;height:18px;color:var(--burnt);transition:transform .2s;}
+.how[open] summary svg{transform:rotate(180deg);}
+.formula{font-family:var(--mono);font-size:.78rem;line-height:1.75;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;}
+.formula-note{font-size:.84rem;color:var(--clay);margin-top:.5rem;}
+.problem-link{margin-top:.35rem;font-size:.9rem;}
+
 /* ── problem / solution ── */
 .problem-grid{display:grid;gap:2.25rem;}
 .plist{display:grid;gap:.75rem;margin-top:1.75rem;}
@@ -432,6 +484,8 @@ a.chan:hover{border-color:var(--ember);}
   .tiers{grid-template-columns:repeat(3,1fr);}
   .steps{grid-template-columns:repeat(4,1fr);}
   .faq{grid-template-columns:1fr 1fr;}
+  .tools{grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .tools .check-intro.has-gauge{grid-template-columns:1fr 140px;}
   .about-grid{grid-template-columns:.7fr 1.3fr;gap:3.5rem;}
   .desk{grid-template-columns:1.2fr .8fr;gap:1.75rem;}
   .foot-in{grid-template-columns:1.6fr 1fr 1fr;}
@@ -542,7 +596,7 @@ a.chan:hover{border-color:var(--ember);}
 
 <!-- ═══ 60-SECOND VISIBILITY CHECK ═══ -->
 <section class="band arc-top" id="check" aria-labelledby="check-t">
-  <div class="wrap">
+  <div class="wrap tools">
     <div class="check-card">
       <div class="check-intro has-gauge" id="checkIntro">
         <div>
@@ -594,6 +648,105 @@ a.chan:hover{border-color:var(--ember);}
       </div>
       <p class="vh" aria-live="polite" id="announce"></p>
     </div>
+
+    <!-- ═══ OTA COMMISSION CALCULATOR ═══ -->
+    <div class="check-card calc" id="calculator" role="region" aria-labelledby="calc-t">
+      <div class="check-intro">
+        <div>
+          <p class="eyebrow">OTA commission calculator</p>
+          <h2 id="calc-t">What do the OTAs <em>cost you a year?</em></h2>
+          <p>Your rooms and rates in, the yearly commission out, plus a what-if for moving some bookings direct.</p>
+          <p class="honest" style="margin-top:.6rem">Runs on your phone · nothing is stored or sent</p>
+        </div>
+      </div>
+
+      <!-- Shown when JavaScript is unavailable or fails: the formula still works on paper. -->
+      <div id="calcFallback">
+        <p class="formula" style="margin-top:1rem">annual revenue = rooms × rate × occupancy × 365
+OTA revenue    = annual revenue × OTA share
+paid to OTAs   = OTA revenue × commission %
+kept if moved  = OTA revenue × shift % × commission %</p>
+        <p class="formula-note">This is before the cost of winning those bookings, so it is a ceiling, not profit. Commission base and rates vary by contract. Check yours.</p>
+        <a class="btn btn-ember" style="margin-top:1rem" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20work%20out%20what%20OTA%20commission%20costs%20my%20hotel%20each%20year." target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Work it out with me on WhatsApp
+        </a>
+      </div>
+
+      <form id="calcForm" hidden novalidate>
+        <p class="example" id="calcExample">Example figures. Replace them with yours.</p>
+        <div class="calc-grid">
+          <div class="cfield">
+            <label for="cRooms">Rooms</label>
+            <input id="cRooms" type="text" inputmode="numeric" autocomplete="off" maxlength="5" value="20"
+                   data-min="1" data-max="1000" data-name="Rooms" aria-describedby="cRoomsHint"/>
+            <p class="hint" id="cRoomsHint"></p>
+          </div>
+          <div class="cfield">
+            <label for="cRate">Avg nightly rate <span class="u" data-calc-cur>KES</span></label>
+            <input id="cRate" type="text" inputmode="numeric" autocomplete="off" maxlength="11" value="8,000"
+                   data-min="1" data-max="9999999" data-name="Rate" aria-describedby="cRateHint"/>
+            <p class="hint" id="cRateHint"></p>
+          </div>
+          <div class="cfield">
+            <label for="cOcc">Avg occupancy <span class="u">%</span></label>
+            <input id="cOcc" type="text" inputmode="numeric" autocomplete="off" maxlength="3" value="60"
+                   data-min="1" data-max="100" data-name="Occupancy" aria-describedby="cOccHint"/>
+            <p class="hint" id="cOccHint"></p>
+          </div>
+          <div class="cfield">
+            <label for="cShare">Booked via OTAs <span class="u">%</span></label>
+            <input id="cShare" type="text" inputmode="numeric" autocomplete="off" maxlength="3" value="40"
+                   data-min="0" data-max="100" data-name="OTA share" aria-describedby="cShareHint"/>
+            <p class="hint" id="cShareHint"></p>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="slider-head"><label for="cComm">OTA commission</label><output id="cCommOut" for="cComm">18%</output></div>
+          <input id="cComm" type="range" min="10" max="25" step="0.5" value="18" aria-valuetext="18 percent"/>
+        </div>
+        <fieldset class="whatif">
+          <legend>What-if: move this share of OTA bookings direct</legend>
+          <div class="seg">
+            <label><input type="radio" name="cShift" value="10"/><span>10%</span></label>
+            <label><input type="radio" name="cShift" value="20" checked/><span>20%</span></label>
+            <label><input type="radio" name="cShift" value="30"/><span>30%</span></label>
+          </div>
+        </fieldset>
+
+        <div class="calc-out" id="calcOut">
+          <p class="headline" id="cHead">With these example figures, about <span class="m">KES 2,523,000</span> a year would go to OTA commission.</p>
+          <div class="split">
+            <svg class="ring" viewBox="0 0 200 118" aria-hidden="true">
+              <path class="base" id="ringBase" d="M20 104 A80 80 0 0 1 180 104"/>
+              <path class="kept" id="ringKept" d="M20 104 A80 80 0 0 1 180 104" pathLength="100" stroke-dasharray="100" stroke-dashoffset="80"/>
+              <text class="ring-num" id="ringNum" x="100" y="94" text-anchor="middle">20%</text>
+              <text class="ring-of" x="100" y="112" text-anchor="middle">WHAT-IF</text>
+            </svg>
+            <div>
+              <p class="second" id="cSecond">What-if: moving 20% of those bookings direct would keep about <span class="m">KES 505,000</span> a year.</p>
+            </div>
+          </div>
+          <p class="legend"><span><i style="background:var(--ember)"></i>Paid to OTAs</span><span><i style="background:var(--ink)"></i>Kept in the what-if</span></p>
+          <p class="caveat">This is before the cost of winning those bookings, so it is a ceiling, not profit. Commission base and rates vary by contract. Check yours.</p>
+        </div>
+        <p class="vh" aria-live="polite" id="calcLive"></p>
+
+        <div class="field" style="margin:.9rem 0 .75rem">
+          <label for="calcHotel">Hotel name <span style="font-weight:400;color:var(--clay)">(optional)</span></label>
+          <input id="calcHotel" type="text" autocomplete="organization" maxlength="80"/>
+        </div>
+        <a class="btn btn-ember btn-full" id="calcWa" href="https://wa.me/254702256764" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Send these figures on WhatsApp</a>
+
+        <details class="how">
+          <summary>How this is calculated<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p class="formula">annual revenue = rooms × rate × occupancy × 365
+OTA revenue    = annual revenue × OTA share
+paid to OTAs   = OTA revenue × commission %
+kept if moved  = OTA revenue × shift % × commission %</p>
+          <p class="formula-note">Figures are rounded to the nearest 1,000. The shift is a what-if scenario, not a forecast.</p>
+        </details>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -604,7 +757,7 @@ a.chan:hover{border-color:var(--ember);}
       <p class="eyebrow">The problem</p>
       <h2 class="sec-title" id="problem-t">Most hotels are leaving bookings <em>on the table</em></h2>
       <div class="plist">
-        <div class="pitem"><svg aria-hidden="true"><use href="#i-trend"/></svg><div><h3>Too dependent on OTAs</h3><p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p></div></div>
+        <div class="pitem"><svg aria-hidden="true"><use href="#i-trend"/></svg><div><h3>Too dependent on OTAs</h3><p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p><p class="problem-link"><a class="textlink" href="#calculator">Work out what OTAs cost you a year</a></p></div></div>
         <div class="pitem"><svg aria-hidden="true"><use href="#i-stack"/></svg><div><h3>No marketing infrastructure</h3><p>No Google Ads, inconsistent social media, no email list, no SEO. The booking pipeline is unpredictable and hard to scale.</p></div></div>
         <div class="pitem"><svg aria-hidden="true"><use href="#i-globe"/></svg><div><h3>Playbooks built for the wrong market</h3><p>Generic agencies apply one-size-fits-all playbooks that ignore your market and your guests' booking behaviour. The strategy needs to fit the context.</p></div></div>
       </div>
@@ -851,10 +1004,13 @@ a.chan:hover{border-color:var(--ember);}
     <div class="portrait">
       <div class="sun" aria-hidden="true"></div>
       <span class="mono-mark" aria-hidden="true">MS</span>
-      <!-- Portrait slot: drop a photo at assets/photos/maningi-portrait.jpg (4:5, about 800x1000).
-           If the file is missing the image removes itself and the monogram shows instead. -->
-      <img src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async"
-           alt="Portrait of Maningi Sylvester" onerror="this.remove()"/>
+      <!-- Portrait slot. The MS monogram shows until a photo exists. To add one:
+           save it as assets/photos/maningi-portrait.jpg (4:5, about 800x1000),
+           then remove the comment markers around the <img> line below.
+           It stays commented out until then, so browsers never request a
+           missing file.
+      <img src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Maningi Sylvester" onerror="this.remove()"/>
+      -->
     </div>
     <div class="about-copy">
       <p class="eyebrow">About</p>
@@ -1012,6 +1168,7 @@ a.chan:hover{border-color:var(--ember);}
         document.querySelectorAll('[data-amt-for="'+k+'"]').forEach(function(el){ el.textContent = PRICE[k][cur][1]; });
       });
       document.querySelectorAll('.cur-btn').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      document.dispatchEvent(new CustomEvent('currencychange', {detail: cur}));
     });
   });
 
@@ -1169,6 +1326,139 @@ a.chan:hover{border-color:var(--ember);}
   /* JS is running: swap the plain WhatsApp fallback for the interactive check. */
   $('checkFallback').hidden = true; startBtn.hidden = false;
 
+
+  /* ── OTA commission calculator ──
+     Client-side only; nothing is stored or sent until the owner taps
+     WhatsApp. The maths is a pure function over percentages, accepting any
+     shift even though the UI offers 10, 20 and 30. Results are rounded to the
+     cent internally to avoid floating-point dust, then to 1,000 for display. */
+  function otaMaths(i){
+    var r2 = function(x){ return Math.round(x * 100) / 100; };
+    var annual = i.rooms * i.rate * i.occupancy * 365 / 100;
+    var ota    = annual * i.otaShare / 100;
+    return { annual: r2(annual), otaRevenue: r2(ota),
+             paid: r2(ota * i.commission / 100), kept: r2(ota * i.shift * i.commission / 10000) };
+  }
+  window.otaMaths = otaMaths;   /* exposed for testing; reads nothing from the page */
+
+  var calcForm = $('calcForm');
+  if (calcForm){
+    var CUR = 'KES', EXAMPLE_RATE = {KES:8000, USD:80}, rateTouched = false, edited = false, liveTimer = null;
+    /* Until the visitor changes a figure, the numbers are ours, not theirs, so
+       the result is worded as an example and the WhatsApp message carries no
+       figures. Any edit flips this for good, even if the value is set back to
+       the example, because by then the visitor has chosen it. */
+    function markEdited(){ edited = true; $('calcExample').hidden = true; }
+    var F = { rooms:$('cRooms'), rate:$('cRate'), occupancy:$('cOcc'), otaShare:$('cShare') };
+    var money = function(v){ return (CUR === 'KES' ? 'KES ' : '$') + v.toLocaleString('en-US'); };
+    var about = function(v){ var k = Math.round(v / 1000) * 1000; return (v > 0 && k === 0) ? 'less than ' + money(1000) : 'about ' + money(k); };
+
+    /* Digits only, thousands separators as they type, caret kept in place. */
+    function readField(el){
+      var raw = el.value, min = +el.dataset.min, max = +el.dataset.max, hint = '', invalid = false;
+      if (/[^\d,\s]/.test(raw)) hint = 'Numbers only.';
+      var digits = raw.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+      if (digits === ''){ hint = 'Enter a number.'; invalid = true; return {ok:false, hint:hint, invalid:invalid}; }
+      var v = Math.min(+digits, 999999999);
+      if (v > max){ v = max; hint = 'Maximum is ' + max.toLocaleString('en-US') + '.'; }
+      else if (v < min){ hint = 'Minimum is ' + min.toLocaleString('en-US') + '.'; v = min; }
+      /* The field is tidied as they type, so remember why: a stripped minus or
+         letter, or a value cut back to the maximum, still gets explained. */
+      if (!hint && el._why) hint = el._why;
+      return {ok:true, value:v, digits:digits, hint:hint, invalid:invalid};
+    }
+    function reformat(el){
+      var pos = el.selectionStart == null ? el.value.length : el.selectionStart,
+          before = el.value.slice(0, pos).replace(/\D/g, '').length,
+          digits = el.value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+      if (digits && +digits > +el.dataset.max) digits = el.dataset.max;   /* clamp as they type */
+      var out = digits ? (+digits).toLocaleString('en-US') : '';
+      if (out === el.value) return;
+      el.value = out;
+      var i = 0, c = 0; while (i < out.length && c < Math.min(before, digits.length)){ if (/\d/.test(out[i])) c++; i++; }
+      if (document.activeElement === el) el.setSelectionRange(i, i);
+    }
+    function setHint(el, r){
+      var h = $(el.id + 'Hint'); h.textContent = r.hint || '';
+      el.setAttribute('aria-invalid', r.invalid ? 'true' : 'false');
+    }
+    function shiftVal(){ var c = calcForm.querySelector('input[name="cShift"]:checked'); return c ? +c.value : 20; }
+
+    function recalc(){
+      var vals = {}, allOk = true;
+      Object.keys(F).forEach(function(k){
+        var r = readField(F[k]); setHint(F[k], r);
+        if (r.ok) vals[k] = r.value; else allOk = false;
+      });
+      var comm = +$('cComm').value, shift = shiftVal();
+      $('cCommOut').textContent = comm + '%';
+      $('cComm').setAttribute('aria-valuetext', comm + ' percent');
+      $('ringNum').textContent = shift + '%';
+      var head = $('cHead'), second = $('cSecond'), base = $('ringBase'), kept = $('ringKept');
+      if (!allOk){
+        head.textContent = 'Add your figures above to see the result.';
+        second.textContent = '';
+        base.classList.add('zero'); kept.style.visibility = 'hidden';
+        $('calcWa').href = 'https://wa.me/254702256764?text=' + encodeURIComponent(GREETING + ', I would like to work out what OTA commission costs my hotel each year.');
+        announce2('Add your figures to see the result.');
+        return;
+      }
+      var res = otaMaths({rooms:vals.rooms, rate:vals.rate, occupancy:vals.occupancy, otaShare:vals.otaShare, commission:comm, shift:shift});
+      head.innerHTML = ''; second.innerHTML = '';
+      var p1 = about(res.paid), p2 = about(res.kept);
+      var cap = function(t){ return t.charAt(0).toUpperCase() + t.slice(1); };
+      if (edited) head.append(cap(p1.split(/(?=KES|\$)/)[0]), mono(p1.replace(/^.*?(?=KES|\$)/, '')), ' a year goes to OTA commission.');
+      else head.append('With these example figures, ' + p1.split(/(?=KES|\$)/)[0], mono(p1.replace(/^.*?(?=KES|\$)/, '')), ' a year would go to OTA commission.');
+      second.append('What-if: moving ' + shift + '% of those bookings direct would keep ' + p2.split(/(?=KES|\$)/)[0], mono(p2.replace(/^.*?(?=KES|\$)/, '')), ' a year.');
+      var zero = res.paid <= 0;
+      base.classList.toggle('zero', zero);
+      kept.style.visibility = zero ? 'hidden' : 'visible';
+      kept.setAttribute('stroke-dashoffset', String(100 - shift));
+      var hotel = $('calcHotel').value.trim();
+      var msg = edited
+        ? GREETING + ', I ran the commission calculator' + (hotel ? ' for ' + hotel : '') + '. ' +
+          cap(p1) + ' a year goes to OTAs on ' + vals.rooms.toLocaleString('en-US') + (vals.rooms === 1 ? ' room' : ' rooms') +
+          '. I would like to talk about moving some of that direct.'
+        : GREETING + ", I tried the commission calculator and I'd like to talk about getting more direct bookings.";
+      $('calcWa').href = 'https://wa.me/254702256764?text=' + encodeURIComponent(msg);
+      announce2(head.textContent + ' ' + second.textContent);
+    }
+    function mono(t){ var s = document.createElement('span'); s.className = 'm'; s.textContent = t; return s; }
+    /* The visible result updates instantly; the spoken version waits for a pause in typing. */
+    function announce2(t){ clearTimeout(liveTimer); liveTimer = setTimeout(function(){ $('calcLive').textContent = t; }, 700); }
+
+    Object.keys(F).forEach(function(k){
+      F[k].addEventListener('input', function(){
+        var el = F[k], raw = el.value, d = raw.replace(/\D/g, '');
+        /* A reason persists for the rest of this edit, so typing "-5" (two
+           keystrokes) still explains that the minus was dropped. */
+        var why = /[^\d,\s]/.test(raw) ? 'Numbers only.'
+                : (d && +d > +el.dataset.max) ? 'Maximum is ' + (+el.dataset.max).toLocaleString('en-US') + '.' : '';
+        if (why) el._why = why;
+        if (k === 'rate') rateTouched = true;
+        markEdited(); reformat(el); recalc();
+      });
+      F[k].addEventListener('focus', function(){ F[k]._why = ''; });
+      F[k].addEventListener('blur', function(){
+        var r = readField(F[k]);
+        if (r.ok){ F[k].value = r.value.toLocaleString('en-US'); recalc(); }
+      });
+    });
+    $('cComm').addEventListener('input', function(){ markEdited(); recalc(); });
+    calcForm.querySelectorAll('input[name="cShift"]').forEach(function(x){ x.addEventListener('change', function(){ markEdited(); recalc(); }); });
+    $('calcHotel').addEventListener('input', recalc);
+    calcForm.addEventListener('submit', function(e){ e.preventDefault(); });
+    document.addEventListener('currencychange', function(e){
+      CUR = e.detail;
+      document.querySelectorAll('[data-calc-cur]').forEach(function(el){ el.textContent = CUR; });
+      /* No conversion: the maths works in any currency. Only an untouched example rate is swapped. */
+      if (!rateTouched) F.rate.value = EXAMPLE_RATE[CUR].toLocaleString('en-US');
+      recalc();
+    });
+    $('calcFallback').hidden = true; calcForm.hidden = false;
+    recalc();
+  }
+
   /* ── sticky mobile bar ──
      Yields to (1) any other WhatsApp CTA on screen, so two never compete,
      and (2) a proof figure, or the open check, reaching into the bar's strip,
@@ -1176,7 +1466,7 @@ a.chan:hover{border-color:var(--ember);}
   var sticky = $('sticky');
   if (sticky && 'IntersectionObserver' in window){
     var BAR_ZONE = 170, onScreen = 0, ticking = false,
-        proofs = [].slice.call(document.querySelectorAll('.proof, #stepper, #result'));
+        proofs = [].slice.call(document.querySelectorAll('.proof, #stepper, #result, #calcForm'));
     function proofInZone(){
       var vh = innerHeight;
       for (var i=0;i<proofs.length;i++){ var r=proofs[i].getBoundingClientRect(); if (r.height && r.bottom > vh-BAR_ZONE && r.top < vh) return true; }
