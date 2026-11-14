@@ -71,7 +71,7 @@
   background, under about 10 KB. The existing three are written into the HTML
   above (karen-plains-sm, laziz-suites-sm, smoove-sm, each as .png with a
   .webp twin); a missing one would show as a broken image, so keep the files.
-  Only yeza.png is optional and checked at build time.
+  Only yeza.png (with an optional yeza.webp twin) is checked at build time.
   ═══════════════════════════════════════════════════════════════════════════ -->
 <title>Maningi Sylvester | Hotel marketing for direct bookings | Nairobi, Kenya</title>
 <meta name="description" content="I help hotels, suites and lodges get more direct bookings through Google Ads, Meta Ads, SEO, social media and content. Based in Nairobi, working with properties locally and internationally."/>
@@ -206,6 +206,8 @@ section+section{border-top:1px solid var(--line);}
 .hero h1 em{font-style:italic;color:var(--burnt);}
 .hero-sub{font-size:clamp(1.03rem,2.4vw,1.15rem);color:var(--ink-2);max-width:44ch;margin:1.25rem 0 1.6rem;}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;}
+.hero-ota{margin-top:1.4rem;max-width:52ch;color:var(--ink-2);font-size:.95rem;}
+.hero-ota .textlink{display:inline-flex;}
 .hero-photo{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;margin-top:clamp(2rem,5vw,3rem);}
 
 /* ── proof strip: the one dark band ── */
@@ -218,6 +220,7 @@ section+section{border-top:1px solid var(--line);}
 .cell-fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(2rem,8vw,3.2rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--on-ink);}
 .cell-label{font-size:.88rem;font-weight:600;color:var(--on-ink);margin-top:.55rem;}
 .cell-src{font-size:.8rem;color:var(--on-ink-2);margin-top:.15rem;}
+.readout-3 .cell:last-child{grid-column:1 / -1;border-right:0;padding-left:0;}
 
 /* ── client row ── */
 .clients{padding-top:1.6rem;padding-bottom:1.6rem;}
@@ -320,28 +323,17 @@ section+section{border-top:1px solid var(--line);}
 .formula{font-family:var(--mono);font-size:.78rem;line-height:1.75;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;}
 .formula-note{font-size:.86rem;color:var(--clay);margin-top:.5rem;}
 
-/* ── problem: statements divided by rules ── */
-.statements{border-top:1px solid var(--line);}
-.statement{padding:1.25rem 0;border-bottom:1px solid var(--line);}
-.statement h3{font-size:1.08rem;font-weight:700;margin-bottom:.3rem;}
-.statement p{color:var(--ink-2);max-width:60ch;}
-.answer{margin-top:2rem;}
-.answer h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,4.5vw,2.1rem);line-height:1.1;margin-bottom:.6rem;}
-.answer p{color:var(--ink-2);max-width:58ch;margin-bottom:1.1rem;}
-
 /* ── case studies: editorial spreads ── */
 .spreads{display:grid;gap:clamp(2.5rem,7vw,4.5rem);margin-top:clamp(1.5rem,4vw,2.5rem);}
 .spread{border-top:2px solid var(--ink);padding-top:1.25rem;}
 .spread h3{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,7vw,3.4rem);line-height:1;letter-spacing:-.01em;}
 .context{color:var(--clay);font-size:.95rem;margin-top:.45rem;}
-.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:1.25rem;border-top:1px solid var(--line);}
-.case-fig{padding:.9rem 1rem .9rem 0;border-bottom:1px solid var(--line);}
-.case-fig .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(1.5rem,5vw,1.9rem);line-height:1.05;letter-spacing:-.02em;}
-.case-fig .k{font-size:.8rem;color:var(--clay);margin-top:.3rem;line-height:1.3;}
-.did{list-style:none;margin-top:1.25rem;max-width:70ch;}
-.did li{padding-left:1.1rem;position:relative;margin-top:.45rem;color:var(--ink-2);}
-.did li::before{content:'';position:absolute;left:0;top:.72em;width:.5rem;height:2px;background:var(--burnt);}
 .proof{margin-top:1.5rem;}
+.result-line{font-size:clamp(1.05rem,2.6vw,1.2rem);font-weight:600;line-height:1.45;margin-top:.9rem;max-width:62ch;}
+.scope{color:var(--ink-2);font-size:.95rem;margin-top:.45rem;max-width:70ch;}
+.menu-link{margin-top:.75rem;}
+.thumbs{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:.75rem;}
+.thumbs img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);}
 .shot{position:relative;border:1px solid var(--line);background:#fff;}
 .shot img{width:100%;height:auto;}
 /* Annotation layer: a percentage viewBox stretched over the image keeps every
@@ -351,61 +343,35 @@ section+section{border-top:1px solid var(--line);}
 .note{position:absolute;transform:translateY(-50%);background:var(--ember);color:var(--ink);font-family:var(--body);font-weight:700;
       font-size:clamp(.62rem,2.2vw,.8rem);line-height:1.2;padding:.22em .55em;border-radius:var(--r);white-space:nowrap;rotate:-2deg;}
 .proof figcaption{font-size:.84rem;color:var(--clay);margin-top:.6rem;}
-.fig-note{display:block;margin-top:.25rem;color:var(--ink-2);}
 .extlink{display:inline-flex;align-items:center;min-height:44px;color:var(--burnt);font-weight:700;}
 
 /* ── services: a ruled list ── */
 .svc-list{list-style:none;border-top:1px solid var(--line);margin-top:clamp(1.5rem,4vw,2.25rem);}
-.svc{display:grid;gap:.6rem;padding:1.4rem 0;border-bottom:1px solid var(--line);}
+.svc{display:grid;gap:.75rem;padding:1.1rem 0;border-bottom:1px solid var(--line);}
+.svc-line{color:var(--ink-2);max-width:64ch;}
+.svc-line strong{color:var(--ink);}
 .svc.rec{border-left:4px solid var(--ember);padding-left:1rem;}
-.svc-name{font-family:var(--display);font-size:clamp(1.8rem,5vw,2.3rem);line-height:1;}
-.svc-rec{font-size:.86rem;font-weight:700;color:var(--burnt);margin-top:.35rem;}
-.svc-for{color:var(--ink-2);}
-.svc-inc{list-style:none;color:var(--ink-2);font-size:.94rem;}
-.svc-inc li{padding:.18rem 0;}
-.svc-inc li+li{border-top:1px solid var(--line);}
+.svc-rec{display:block;font-size:.86rem;font-weight:700;color:var(--burnt);margin-top:.3rem;}
 .svc-cta{align-self:start;}
-.svc-name-sm{font-size:clamp(1.45rem,4.2vw,1.75rem);line-height:1.15;}
 .svc-note{color:var(--ink-2);max-width:62ch;margin-top:1.4rem;}
 .svc-small{font-size:.88rem;color:var(--clay);margin-top:.5rem;max-width:62ch;}
-
-/* ── process: a plain numbered list ── */
-.steps{list-style:none;counter-reset:step;margin-top:clamp(1.5rem,4vw,2.25rem);border-top:1px solid var(--line);}
-.step{counter-increment:step;display:grid;grid-template-columns:3rem 1fr;gap:.25rem 1rem;padding:1.15rem 0;border-bottom:1px solid var(--line);}
-.step::before{content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:1rem;color:var(--burnt);padding-top:.35rem;grid-row:span 2;}
-.step h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;}
-.step p{color:var(--ink-2);}
 
 /* ── about ── */
 .about{display:grid;gap:1.75rem;}
 .portrait{width:100%;max-width:380px;height:auto;aspect-ratio:4/5;object-fit:cover;}
 .about-role{color:var(--clay);font-size:.95rem;margin:.4rem 0 1.1rem;}
+.about .skills{margin-top:1.5rem;}
+.certs{margin-top:1.1rem;font-size:.9rem;line-height:1.55;color:var(--ink-2);max-width:70ch;}
+.certs strong{color:var(--ink);}
 .about .prose{max-width:62ch;color:var(--ink-2);}
-.subhead{font-size:.95rem;font-weight:700;margin:1.75rem 0 .5rem;}
 .skills{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);}
 .skills div{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.93rem;}
 .skills dt{font-weight:700;} .skills dd{color:var(--ink-2);}
-.certs{list-style:none;border-top:1px solid var(--line);}
-.certs li{padding:.5rem 0;border-bottom:1px solid var(--line);font-size:.93rem;color:var(--ink-2);}
-.marque{margin-top:1.75rem;font-size:.95rem;color:var(--ink-2);}
-
-/* ── faq ── */
-.faq{border-top:1px solid var(--line);}
-.q{border-bottom:1px solid var(--line);}
-.q summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;min-height:56px;cursor:pointer;list-style:none;font-weight:700;}
-.q summary::-webkit-details-marker{display:none;}
-.q summary svg{width:18px;height:18px;flex-shrink:0;color:var(--burnt);transition:transform .2s;}
-.q[open] summary svg{transform:rotate(180deg);}
-.q .a{padding:0 0 1.1rem;color:var(--ink-2);max-width:62ch;}
 
 /* ── contact ── */
-.contact-grid{display:grid;gap:2rem;margin-top:clamp(1.25rem,4vw,2rem);}
+.contact-grid{display:grid;gap:2rem;}
+.contact-btn{margin-top:1.4rem;}
 .desk-num{font-family:var(--mono);color:var(--clay);margin-top:.7rem;}
-.picks-t{font-size:.9rem;font-weight:700;margin:1.6rem 0 .3rem;}
-.picks{list-style:none;border-top:1px solid var(--line);}
-.picks a{display:flex;align-items:center;justify-content:space-between;min-height:48px;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;}
-.picks a:hover{color:var(--burnt);}
-.picks svg{width:16px;height:16px;color:var(--burnt);}
 .channels{list-style:none;border-top:1px solid var(--line);}
 .chan{display:flex;align-items:center;gap:.85rem;min-height:60px;padding:.6rem 0;border-bottom:1px solid var(--line);text-decoration:none;}
 a.chan:hover .chan-v{color:var(--burnt);}
@@ -431,6 +397,8 @@ a.chan:hover .chan-v{color:var(--burnt);}
 /* ═══ breakpoints ═══ */
 @media(min-width:600px){
   .readout{grid-template-columns:repeat(4,1fr);}
+  .readout-3{grid-template-columns:repeat(3,1fr);}
+  .readout-3 .cell:last-child{grid-column:auto;}
   .cell{padding:1.1rem 1.25rem;border-right:1px solid var(--line-ink);}
   .cell:nth-child(odd){padding-left:1.25rem;} .cell:first-child{padding-left:0;} .cell:last-child{border-right:0;}
   .client-list{grid-template-columns:repeat(4,1fr);}
@@ -450,13 +418,9 @@ a.chan:hover .chan-v{color:var(--burnt);}
   .ed{grid-template-columns:minmax(0,1fr) minmax(0,2.3fr);gap:3.5rem;align-items:start;}
   .tools{grid-template-columns:1fr 1fr;gap:1.5rem;}
   .tools .check-intro.has-gauge{grid-template-columns:1fr 140px;}
-  .figrow{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
-  .svc{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;gap:2rem;align-items:start;}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0 1.5rem;border-top:0;}
-  .step{grid-template-columns:1fr;border-top:1px solid var(--ink);border-bottom:0;}
-  .step::before{grid-row:auto;padding-top:0;}
+  .svc{grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;}
   .about.has-portrait{grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:3.5rem;}
-  .contact-grid{grid-template-columns:1fr 1fr;gap:3.5rem;}
+  .contact-grid{grid-template-columns:1fr 1fr;gap:3.5rem;align-items:end;}
 }
 @media(max-width:899px){
   .sticky{display:block;}
@@ -476,7 +440,6 @@ a.chan:hover .chan-v{color:var(--burnt);}
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
   <symbol id="i-li" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
@@ -496,7 +459,7 @@ a.chan:hover .chan-v{color:var(--burnt);}
     <nav class="nav-panel" id="navPanel" aria-label="Main">
       <ul class="nav-list">
         <li><a href="#check">Visibility check</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -523,6 +486,7 @@ a.chan:hover .chan-v{color:var(--burnt);}
       </a>
       <a class="textlink" href="#check">Take the 60-second check <svg aria-hidden="true"><use href="#i-down"/></svg></a>
     </div>
+    <p class="hero-ota">Booking.com and Expedia take 15&ndash;25% of every booking. <a class="textlink" href="#calculator">Work out what that costs you a year</a></p>
     <!-- Optional hero photo. Jekyll renders this only if assets/photos/hero.jpg
          exists at build time; otherwise nothing is output and nothing is
          requested. When you add the file, describe the photo in the alt text. -->
@@ -535,11 +499,10 @@ a.chan:hover .chan-v{color:var(--burnt);}
 <section class="proof-band dark" aria-labelledby="strip-t">
   <div class="wrap">
     <p class="eyebrow" id="strip-t">Client results · measured, not estimated</p>
-    <div class="readout">
+    <div class="readout readout-3">
       <div class="cell"><div class="cell-fig" data-to="23" data-dec="0" data-suf="K">23K</div><div class="cell-label">Active users</div><div class="cell-src">Karen Plains · GA4 · 90 days</div></div>
       <div class="cell"><div class="cell-fig" data-to="86.4" data-dec="1" data-suf="K">86.4K</div><div class="cell-label">Search impressions</div><div class="cell-src">Karen Plains · 3 months</div></div>
       <div class="cell"><div class="cell-fig" data-to="77" data-dec="0" data-suf="/100">77/100</div><div class="cell-label">SEO site score</div><div class="cell-src">L'Aziz Suites</div></div>
-      <div class="cell"><div class="cell-fig" data-to="8.20" data-dec="2" data-suf="%">8.20%</div><div class="cell-label">Google Ads CTR</div><div class="cell-src">Smoove Africa</div></div>
     </div>
   </div>
 </section>
@@ -550,11 +513,11 @@ a.chan:hover .chan-v{color:var(--burnt);}
     <p class="clients-t" id="clients-t">Hotels and brands I&#39;ve worked with</p>
     <ul class="client-list">
       <li class="client"><picture><source type="image/webp" srcset="assets/logos/karen-plains-sm.webp"/><img src="assets/logos/karen-plains-sm.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture><span>Karen Plains Hotel<em>Karen, Nairobi</em></span></li>
+      <!-- Yeza logo renders only if assets/logos/yeza.png exists at build time; otherwise text only. -->
+      {% assign yezaLogo = site.static_files | where: "path", "/assets/logos/yeza.png" | first %}{% assign yezaWebp = site.static_files | where: "path", "/assets/logos/yeza.webp" | first %}
+      <li class="client" id="client-yeza">{% if yezaLogo %}<picture>{% if yezaWebp %}<source type="image/webp" srcset="assets/logos/yeza.webp"/>{% endif %}<img src="assets/logos/yeza.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture>{% endif %}<span>Yeza Garden Hotel<em>Hurlingham, Nairobi</em></span></li>
       <li class="client"><picture><source type="image/webp" srcset="assets/logos/laziz-suites-sm.webp"/><img class="on-dark" src="assets/logos/laziz-suites-sm.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture><span>L'Aziz Suites<em>Parklands, Nairobi</em></span></li>
       <li class="client"><picture><source type="image/webp" srcset="assets/logos/smoove-sm.webp"/><img src="assets/logos/smoove-sm.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture><span>Smoove Africa<em>Nairobi</em></span></li>
-      <!-- Yeza logo renders only if assets/logos/yeza.png exists at build time; otherwise text only. -->
-      {% assign yezaLogo = site.static_files | where: "path", "/assets/logos/yeza.png" | first %}
-      <li class="client" id="client-yeza">{% if yezaLogo %}<img src="assets/logos/yeza.png" width="28" height="28" loading="lazy" decoding="async" alt=""/>{% endif %}<span>Yeza Garden Hotel<em>Hurlingham, Nairobi</em></span></li>
     </ul>
   </div>
 </section>
@@ -722,56 +685,20 @@ kept if moved  = OTA revenue × shift % × commission %</p>
   </div>
 </section>
 
-<!-- ═══ PROBLEM ═══ -->
-<section id="problem" aria-labelledby="problem-t">
-  <div class="wrap ed">
-    <div>
-      <p class="kicker">The problem</p>
-      <h2 id="problem-t">Most hotels leave bookings <em>on the table.</em></h2>
-    </div>
-    <div>
-      <div class="statements">
-        <div class="statement"><h3>Too dependent on OTAs</h3><p>Booking.com and Expedia take 15&ndash;25% per booking. Without a direct booking strategy, you are building their business, not yours.</p><p><a class="textlink" href="#calculator">Work out what OTAs cost you a year</a></p></div>
-        <div class="statement"><h3>No marketing infrastructure</h3><p>No Google Ads, inconsistent social media, no email list, no SEO. The booking pipeline is unpredictable and hard to scale.</p></div>
-        <div class="statement"><h3>Playbooks built for the wrong market</h3><p>Generic agencies ignore your market and your guests' booking behaviour. The strategy has to fit the context.</p></div>
-      </div>
-      <div class="answer">
-        <p class="kicker">What I do about it</p>
-        <h3>A marketer who understands hospitality and this market.</h3>
-        <p>I build full digital marketing systems for hotels, locally and internationally: Google Ads, SEO, social and email, working together to drive direct bookings.</p>
-        <a class="btn btn-ember" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20talk%20about%20direct%20bookings%20for%20my%20property." target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>Talk to me
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RESULTS ═══ -->
-<section id="results" aria-labelledby="results-t">
+<!-- ═══ WORK ═══ -->
+<section id="work" aria-labelledby="work-t">
+  <span id="results" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="kicker">Case studies</p>
-    <h2 id="results-t">Results from <em>client accounts.</em></h2>
-    <p class="lede">Every figure comes from the client's own analytics. The screenshots are unedited apart from the redactions noted.</p>
+    <p class="kicker">Work</p>
+    <h2 id="work-t">Results from <em>client accounts.</em></h2>
+    <p class="lede">Every figure comes from the client's own analytics, with its date window. Screenshots are unedited apart from the redactions noted.</p>
     <div class="spreads">
 
-      <article class="spread">
+      <article class="spread" id="case-karen">
         <h3>Karen Plains Hotel</h3>
         <p class="context">Hospitality · Karen, Nairobi · Ongoing · Growth Manager Consultant</p>
-        <div class="figrow">
-          <div class="case-fig"><div class="v">50&#8202;&rarr;&#8202;60%</div><div class="k">Occupancy rate</div></div>
-          <div class="case-fig"><div class="v" data-to="23" data-dec="0" data-suf="K">23K</div><div class="k">Active users, 90 days</div></div>
-          <div class="case-fig"><div class="v" data-to="25" data-dec="0" data-suf="K">25K</div><div class="k">Sessions, 90 days</div></div>
-          <div class="case-fig"><div class="v" data-to="98.1" data-dec="1" data-suf="%">98.1%</div><div class="k">Engagement rate, 90 days</div></div>
-          <div class="case-fig"><div class="v" data-to="86.4" data-dec="1" data-suf="K">86.4K</div><div class="k">Search impressions, 3 months</div></div>
-          <div class="case-fig"><div class="v" data-to="8.5" data-dec="1">8.5</div><div class="k">Avg. Google position</div></div>
-        </div>
-        <ul class="did">
-          <li>Built the full marketing infrastructure from the ground up: Google Ads, Meta, SEO, social and email.</li>
-          <li>Producing 4&ndash;5 short-form videos per week for Reels and TikTok.</li>
-          <li>Running high-intent Google Ads targeting travellers searching near Karen, Giraffe Centre and Nairobi National Park.</li>
-          <li>Weekly performance reports delivered to hotel management across all channels.</li>
-        </ul>
+        <p class="result-line">Occupancy from 50% to 60%. 23K active users and 25K sessions in 90 days, from near zero before.</p>
+        <p class="scope">Google Ads, Meta, SEO, social, email and 4&ndash;5 short videos a week.</p>
           <figure class="proof">
             <div class="shot">
               <picture>
@@ -792,91 +719,55 @@ kept if moved  = OTA revenue × shift % × commission %</p>
           </figure>
       </article>
 
-      <article class="spread">
-        <h3>L'Aziz Suites</h3>
-        <p class="context">Hospitality · Parklands, Nairobi · Digital transformation · Digital Marketing Consultant</p>
-        <div class="figrow">
-          <div class="case-fig"><div class="v" data-to="77" data-dec="0" data-suf="/100">77/100</div><div class="k">SEO site score</div></div>
-          <div class="case-fig"><div class="v" data-to="7.42" data-dec="2" data-suf="%">7.42%</div><div class="k">Google Ads CTR</div></div>
-          <div class="case-fig"><div class="v" data-to="14" data-dec="0">14</div><div class="k">Audit checks passed</div></div>
-        </div>
-        <ul class="did">
-          <li>Revived a dormant digital presence and rebuilt strategy from zero across all platforms.</li>
-          <li>Managed Google Ads and Meta campaigns targeting short-stay and long-stay guests.</li>
-          <li>Achieved an SEO site score of 77/100, increasing organic visibility significantly.</li>
-          <li>Managed WordPress (Divi) website updates and landing page conversion optimisation.</li>
-        </ul>
-          <figure class="proof">
-            <div class="shot">
-              <picture>
-                <source type="image/avif" srcset="assets/proof/laziz-seo-score.avif"/>
-                <source type="image/webp" srcset="assets/proof/laziz-seo-score.webp"/>
-                <img src="assets/proof/laziz-seo-score.png" width="986" height="638" loading="lazy" decoding="async"
-                     alt="SEO site audit scoring 77 out of 100, rated Excellent, with 14 good results"/>
-              </picture>
-              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M26.52 65.45 L24.75 65.44 L22.98 65.32 L21.29 64.86 L19.84 63.97 L18.48 63.09 L17.02 62.36 L16.13 61.10 L15.22 59.94 L14.09 58.88 L13.60 57.53 L12.85 56.24 L12.57 54.83 L12.23 53.38 L12.43 51.92 L12.45 50.38 L12.89 48.87 L13.88 47.57 L14.92 46.31 L16.29 45.30 L17.98 44.68 L19.43 43.84 L21.14 43.49 L22.87 43.36 L24.55 43.37 L26.22 43.03 L27.88 43.31 L29.59 43.45 L31.31 43.76 L32.93 44.37 L34.58 45.05 L35.85 46.16 L37.25 47.21 L38.10 48.61 L39.02 49.99 L39.37 51.54 L39.07 53.13 L38.89 54.63 L38.50 56.07 L38.25 57.54 L37.26 58.78 L36.48 60.07 L35.38 61.18 L34.36 62.37 L33.08 63.39 L31.67 64.32 L30.15 65.21 L28.42 65.80 L26.60 66.28 L24.70 66.26 L22.80 66.14 L21.00 65.61 L19.30 64.92 L17.88 63.87"/></svg>
-              <span class="note" style="left:9%;top:91%">Score: 77/100</span>
-            </div>
-            <figcaption>SEO site audit · score card</figcaption>
-          </figure>
-      </article>
-
-      <article class="spread">
-        <h3>Smoove Africa</h3>
-        <p class="context">Retail &amp; e-commerce · Nairobi · Full-time role until March 2026 · Digital Marketing &amp; Sales Assistant</p>
-        <div class="figrow">
-          <div class="case-fig"><div class="v" data-to="9.36" data-dec="2" data-suf="K">9.36K</div><div class="k">Ad clicks</div></div>
-          <div class="case-fig"><div class="v" data-to="114" data-dec="0" data-suf="K">114K</div><div class="k">Impressions</div></div>
-          <div class="case-fig"><div class="v" data-to="8.20" data-dec="2" data-suf="%">8.20%</div><div class="k">Google Ads CTR</div></div>
-          <div class="case-fig"><div class="v" data-to="30" data-dec="0" data-pre="+" data-suf="%">+30%</div><div class="k">Online engagement</div></div>
-        </div>
-        <ul class="did">
-          <li>Planned and executed Google Ads and Meta campaigns to drive product enquiries.</li>
-          <li>Contributed to approximately 30% growth in online engagement across key channels.</li>
-          <li>Supported a 15% increase in monthly enquiries through improved campaign performance.</li>
-          <li>Worked closely with the sales team to improve lead follow-up and conversion flow.</li>
-        </ul>
-          <figure class="proof">
-            <div class="shot">
-              <picture>
-                <source type="image/avif" srcset="assets/proof/smoove-google-ads.avif"/>
-                <source type="image/webp" srcset="assets/proof/smoove-google-ads.webp"/>
-                <img src="assets/proof/smoove-google-ads.png" width="1200" height="435" loading="lazy" decoding="async"
-                     alt="Google Ads dashboard showing 9.36K clicks, 114K impressions and an 8.20% click-through rate"/>
-              </picture>
-              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M43.59 30.17 L42.71 30.19 L41.86 29.85 L41.06 29.40 L40.28 28.96 L39.51 28.47 L38.87 27.72 L38.26 26.92 L37.80 25.97 L37.22 25.11 L36.83 24.07 L36.49 22.97 L36.25 21.81 L36.12 20.59 L35.99 19.32 L36.23 18.09 L36.60 16.94 L37.11 15.89 L37.84 15.10 L38.51 14.32 L39.20 13.60 L39.96 13.05 L40.75 12.58 L41.57 12.24 L42.44 12.25 L43.29 11.92 L44.18 11.87 L45.07 12.04 L45.92 12.44 L46.81 12.84 L47.53 13.63 L48.35 14.30 L48.90 15.36 L49.26 16.55 L49.47 17.78 L49.76 18.95 L49.72 20.20 L49.73 21.40 L49.59 22.58 L49.31 23.71 L49.03 24.83 L48.73 25.97 L48.26 27.02 L47.69 27.97 L47.07 28.92 L46.38 29.84 L45.46 30.19 L44.56 30.56 L43.64 30.90 L42.69 30.70 L41.77 30.51 L40.91 30.04 L40.12 29.42 L39.30 28.94"/></svg>
-              <span class="note" style="left:36%;top:44%">CTR: 8.20%</span>
-            </div>
-            <figcaption>Google Ads · clicks, impressions and CTR (spend redacted)</figcaption>
-          </figure>
-      </article>
-
       <article class="spread" id="case-yeza">
         <h3>Yeza Garden Hotel</h3>
         <p class="context">Boutique hotel, Hurlingham, Nairobi, ongoing since September 2026 · Digital Marketing Consultant</p>
-        <!-- ═══ YEZA: OPTIONAL FIGURES AND SCREENSHOT ═══════════════════════════
-             No measured results yet, so nothing is shown. When there are, remove
-             the comment markers around this block and fill in real figures.
-             Do not leave a figure empty: delete any you do not have.
-        <div class="figrow">
-          <div class="case-fig"><div class="v">VALUE</div><div class="k">LABEL</div></div>
-        </div>
-        ...and after the list below:
-        <figure class="proof">
-          <div class="shot"><img src="assets/proof/yeza-FILE.png" width="W" height="H" loading="lazy" decoding="async" alt="DESCRIBE"/></div>
-          <figcaption>SOURCE · WHAT IT SHOWS</figcaption>
-        </figure>
-        ════════════════════════════════════════════════════════════════════ -->
-        <ul class="did">
-          <li>SEO and Google Ads</li>
-          <li>Meta Ads, with the Meta Pixel installed for conversion tracking</li>
-          <li>Social media management</li>
-          <li>Booking.com listing optimisation</li>
-          <li>Analytics and reporting</li>
-          <li>Glovo and Bolt Food listings</li>
-          <li>Built a digital in-room dining menu</li>
-        </ul>
-        <p style="margin-top:1rem"><a class="extlink" href="https://yeza-menu.netlify.app" target="_blank" rel="noopener">See the in-room dining menu I built</a></p>
+        <p class="result-line">626 users and 734 sessions (GA4, Sep 1 to Nov 14, 2026). 110 clicks and 2.41K impressions from Google Search, 4.6% CTR, average position 2.8 (last 3 months).</p>
+        <p class="scope">SEO, Google Ads, Meta Ads with the Meta Pixel, social media, Booking.com, Glovo and Bolt Food listings, analytics and reporting.</p>
+          <figure class="proof">
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/yeza-ga4.avif"/>
+                <source type="image/webp" srcset="assets/proof/yeza-ga4.webp"/>
+                <img src="assets/proof/yeza-ga4.png" width="802" height="418" loading="lazy" decoding="async"
+                     alt="Google Analytics 4 for Yeza Garden Hotel, Sep 1 to Nov 14, 2026, showing 626 active users and 734 sessions"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M10.90 13.01 L11.27 13.75 L11.48 14.59 L11.63 15.46 L11.65 16.35 L11.51 17.21 L11.35 18.03 L11.21 18.86 L10.87 19.57 L10.54 20.27 L10.22 21.01 L9.74 21.57 L9.27 22.16 L8.71 22.58 L8.12 22.95 L7.47 23.09 L6.82 23.23 L6.17 23.16 L5.55 22.87 L4.96 22.51 L4.44 22.01 L4.02 21.37 L3.57 20.81 L3.24 20.11 L2.98 19.37 L2.78 18.62 L2.50 17.86 L2.43 17.03 L2.37 16.18 L2.42 15.31 L2.61 14.48 L2.87 13.67 L3.29 13.00 L3.73 12.35 L4.29 11.90 L4.84 11.47 L5.45 11.23 L6.09 11.19 L6.70 11.13 L7.30 11.15 L7.93 11.14 L8.52 11.40 L9.12 11.65 L9.68 12.08 L10.23 12.55 L10.69 13.18 L11.08 13.90 L11.39 14.68 L11.58 15.54 L11.69 16.42 L11.63 17.31 L11.54 18.17"/><path d="M47.16 13.22 L47.49 13.93 L47.84 14.66 L48.00 15.50 L48.19 16.34 L48.20 17.23 L48.09 18.11 L47.94 18.98 L47.60 19.74 L47.24 20.48 L46.75 21.05 L46.24 21.55 L45.71 22.00 L45.15 22.38 L44.54 22.53 L43.95 22.71 L43.33 22.86 L42.70 22.91 L42.08 22.75 L41.47 22.49 L40.85 22.20 L40.37 21.60 L39.85 21.06 L39.53 20.30 L39.28 19.50 L39.11 18.68 L39.02 17.85 L38.97 17.03 L39.11 16.22 L39.20 15.41 L39.39 14.63 L39.66 13.90 L39.95 13.17 L40.37 12.55 L40.81 11.95 L41.32 11.43 L41.89 10.98 L42.52 10.78 L43.17 10.72 L43.82 10.75 L44.45 10.98 L45.04 11.33 L45.61 11.69 L46.11 12.21 L46.54 12.82 L46.98 13.40 L47.35 14.08 L47.71 14.79 L47.96 15.58 L48.10 16.44 L48.26 17.31 L48.15 18.19"/></svg>
+              <span class="note" style="left:6%;top:45%">Sep 1 to Nov 14, 2026</span>
+            </div>
+            <figcaption>Google Analytics 4 · Sep 1 to Nov 14, 2026</figcaption>
+          </figure>
+          <figure class="proof">
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/yeza-search-console.avif"/>
+                <source type="image/webp" srcset="assets/proof/yeza-search-console.webp"/>
+                <img src="assets/proof/yeza-search-console.png" width="1510" height="522" loading="lazy" decoding="async"
+                     alt="Google Search Console for Yeza Garden Hotel, last 3 months, showing 110 clicks, 2.41K impressions, 4.6% average CTR and an average position of 2.8"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M6.46 21.83 L6.63 22.52 L6.77 23.22 L6.81 23.96 L6.85 24.69 L6.85 25.42 L6.78 26.14 L6.72 26.88 L6.59 27.60 L6.42 28.29 L6.14 28.86 L5.86 29.42 L5.51 29.84 L5.16 30.25 L4.76 30.44 L4.34 30.43 L3.94 30.51 L3.55 30.36 L3.18 30.10 L2.83 29.81 L2.51 29.41 L2.20 29.00 L1.88 28.58 L1.64 28.00 L1.41 27.41 L1.23 26.74 L1.13 26.02 L1.05 25.28 L1.08 24.52 L1.15 23.77 L1.34 23.10 L1.55 22.47 L1.82 21.92 L2.10 21.42 L2.42 21.02 L2.76 20.68 L3.09 20.29 L3.46 20.05 L3.85 19.91 L4.25 19.86 L4.66 19.95 L5.05 20.13 L5.44 20.42 L5.78 20.86 L6.11 21.32 L6.34 21.96 L6.57 22.60 L6.68 23.34 L6.81 24.04 L6.86 24.78 L6.81 25.51 L6.81 26.24"/><path d="M19.81 21.97 L20.12 22.56 L20.35 23.23 L20.55 23.93 L20.60 24.68 L20.65 25.45 L20.59 26.21 L20.45 26.96 L20.25 27.69 L19.89 28.28 L19.54 28.85 L19.09 29.27 L18.63 29.63 L18.16 29.92 L17.68 30.16 L17.17 30.26 L16.67 30.24 L16.16 30.26 L15.65 30.15 L15.12 30.04 L14.63 29.73 L14.18 29.31 L13.79 28.79 L13.47 28.16 L13.22 27.49 L13.08 26.75 L13.06 26.00 L13.02 25.27 L13.12 24.56 L13.23 23.86 L13.41 23.20 L13.64 22.56 L13.91 21.95 L14.21 21.37 L14.59 20.87 L15.02 20.44 L15.47 20.01 L15.99 19.79 L16.53 19.67 L17.07 19.75 L17.60 19.94 L18.10 20.20 L18.53 20.66 L18.97 21.05 L19.33 21.58 L19.64 22.15 L19.94 22.74 L20.22 23.35 L20.41 24.04 L20.58 24.76 L20.67 25.52 L20.65 26.29"/><path d="M22.40 1.83 L22.64 2.37 L22.81 2.95 L22.83 3.55 L22.90 4.13 L22.87 4.72 L22.80 5.29 L22.64 5.85 L22.46 6.40 L22.25 6.95 L21.98 7.48 L21.58 7.88 L21.16 8.27 L20.67 8.53 L20.17 8.75 L19.64 8.83 L19.11 8.75 L18.60 8.69 L18.13 8.41 L17.65 8.24 L17.22 7.95 L16.86 7.56 L16.46 7.22 L16.13 6.78 L15.80 6.31 L15.63 5.76 L15.45 5.20 L15.34 4.60 L15.39 3.99 L15.53 3.41 L15.75 2.87 L15.96 2.32 L16.34 1.90 L16.69 1.48 L17.15 1.22 L17.56 0.89 L18.02 0.66 L18.49 0.48 L19.00 0.45 L19.51 0.36 L20.02 0.42 L20.56 0.48 L21.04 0.74 L21.53 1.00 L21.90 1.46 L22.27 1.92 L22.54 2.45 L22.67 3.05 L22.82 3.62 L22.91 4.20 L22.87 4.79 L22.82 5.36"/></svg>
+              <span class="note" style="left:58%;top:5%">Last 3 months</span>
+            </div>
+            <figcaption>Google Search Console · web search · last 3 months</figcaption>
+          </figure>
+        <p class="menu-link"><a class="extlink" href="https://yeza-menu.netlify.app" target="_blank" rel="noopener">See the in-room dining menu I built</a></p>
+        <!-- Design samples: up to three thumbnails. Each renders only if its PNG exists at build time
+             (assets/proof/yeza-design-1..3, each as .avif, .webp and .png, 4:3, 800x600). With none present
+             the list itself is not output, so there is no empty gap. Describe each sample in its alt text. -->
+        {% assign d1 = site.static_files | where: "path", "/assets/proof/yeza-design-1.png" | first %}
+        {% assign d2 = site.static_files | where: "path", "/assets/proof/yeza-design-2.png" | first %}
+        {% assign d3 = site.static_files | where: "path", "/assets/proof/yeza-design-3.png" | first %}
+        {% if d1 or d2 or d3 %}<ul class="thumbs">
+          {% if d1 %}<li><picture><source type="image/avif" srcset="assets/proof/yeza-design-1.avif"/><source type="image/webp" srcset="assets/proof/yeza-design-1.webp"/><img src="assets/proof/yeza-design-1.png" width="800" height="600" loading="lazy" decoding="async" alt="Design sample 1 for Yeza Garden Hotel"/></picture></li>{% endif %}
+          {% if d2 %}<li><picture><source type="image/avif" srcset="assets/proof/yeza-design-2.avif"/><source type="image/webp" srcset="assets/proof/yeza-design-2.webp"/><img src="assets/proof/yeza-design-2.png" width="800" height="600" loading="lazy" decoding="async" alt="Design sample 2 for Yeza Garden Hotel"/></picture></li>{% endif %}
+          {% if d3 %}<li><picture><source type="image/avif" srcset="assets/proof/yeza-design-3.avif"/><source type="image/webp" srcset="assets/proof/yeza-design-3.webp"/><img src="assets/proof/yeza-design-3.png" width="800" height="600" loading="lazy" decoding="async" alt="Design sample 3 for Yeza Garden Hotel"/></picture></li>{% endif %}
+        </ul>{% endif %}
+      </article>
+
+      <article class="spread spread-text" id="case-laziz">
+        <h3>L'Aziz Suites</h3>
+        <p class="context">Hospitality · Parklands, Nairobi · Digital transformation · Digital Marketing Consultant</p>
+        <p class="result-line">SEO site score of 77/100 with 14 audit checks passed, and a 7.42% Google Ads CTR, after rebuilding a dormant digital presence from zero.</p>
       </article>
 
     </div>
@@ -889,48 +780,21 @@ kept if moved  = OTA revenue × shift % × commission %</p>
   <div class="wrap">
     <p class="kicker">Services</p>
     <h2 id="services-t">How I can <em>work with you.</em></h2>
-    <p class="lede">No lock-in. Every engagement includes onboarding, strategy and reporting.</p>
+    <p class="lede">No lock-in: monthly retainers need 30 days notice. Every engagement includes onboarding, strategy and reporting.</p>
     <ul class="svc-list">
-      <li class="svc" data-package="Starter">
-        <div><h3 class="svc-name">Starter</h3></div>
-        <div><p class="svc-for">For small hotels, new properties or a pilot run: one channel done properly.</p>
-          <ul class="svc-inc"><li>One ad channel, Google Ads or Meta Ads</li><li>Campaign setup and ongoing management</li><li>Audience and creative testing</li><li>Review of your current marketing</li><li>Monthly performance report</li></ul></div>
-        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Starter%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a>
-      </li>
-      <li class="svc rec" data-package="Growth">
-        <div><h3 class="svc-name">Growth</h3><p class="svc-rec">Where I&#39;d start most hotels</p></div>
-        <div><p class="svc-for">For hotels and suites ready to run paid, social and site as one system.</p>
-          <ul class="svc-inc"><li>Google Ads and Meta Ads, both managed</li><li>Social media management, 3 posts per week</li><li>Email and WhatsApp campaigns to your list</li><li>Website updates and improvements</li><li>Audience and creative testing across channels</li><li>Weekly report with numbers and next steps</li></ul></div>
-        <a class="btn btn-ember svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Growth%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a>
-      </li>
-      <li class="svc" data-package="Scale">
-        <div><h3 class="svc-name">Scale</h3></div>
-        <div><p class="svc-for">For multi-location and fast-growing brands: the entire operation handled.</p>
-          <ul class="svc-inc"><li>Everything in Growth</li><li>4&ndash;5 short videos produced every week</li><li>SEO, Google ranking and blog content</li><li>Social media, 5 posts per week with video</li><li>Influencer campaigns managed end to end</li><li>Weekly strategy call and priority support</li><li>Competitor monitoring and insights</li></ul></div>
-        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Scale%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a>
-      </li>
-      <li class="svc" id="audit" data-package="Audit">
-        <div><h3 class="svc-name svc-name-sm">Not sure where to start? Begin with an audit.</h3></div>
-        <div><p class="svc-for">A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days. Quoted per property.</p></div>
-        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20ask%20about%20an%20audit%20for%20my%20hotel.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask about an audit</a>
-      </li>
+      <li class="svc" data-package="Starter"><p class="svc-line"><strong>Starter:</strong> one ad channel, Google Ads or Meta Ads, set up, managed and reported monthly.</p>
+        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Starter%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a></li>
+      <li class="svc rec" data-package="Growth"><p class="svc-line"><strong>Growth:</strong> Google Ads and Meta Ads, social media, email and WhatsApp campaigns and website updates, reported weekly. <span class="svc-rec">Where I&#39;d start most hotels</span></p>
+        <a class="btn btn-ember svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Growth%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a></li>
+      <li class="svc" data-package="Scale"><p class="svc-line"><strong>Scale:</strong> everything in Growth, plus weekly short videos, SEO and blog content, and influencer campaigns.</p>
+        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Scale%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a></li>
+      <li class="svc" data-package="Design"><p class="svc-line"><strong>Design:</strong> social creatives, menus and promo material for hotels</p>
+        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20design%20work.%0AProperty%3A%0AWhat%20I%20need%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask for a quote</a></li>
+      <li class="svc" id="audit" data-package="Audit"><p class="svc-line"><strong>Not sure where to start? Begin with an audit.</strong> A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days. Quoted per property.</p>
+        <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20ask%20about%20an%20audit%20for%20my%20hotel.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask about an audit</a></li>
     </ul>
     <p class="svc-note">Every engagement is quoted for your property and goals. Tell me about yours on WhatsApp and I'll come back with a clear figure.</p>
     <p class="svc-small">Ad spend is paid directly to Google and Meta and is not part of my fee. Scope is agreed before any engagement.</p>
-  </div>
-</section>
-
-<!-- ═══ PROCESS ═══ -->
-<section id="process" aria-labelledby="process-t">
-  <div class="wrap">
-    <p class="kicker">How it works</p>
-    <h2 id="process-t">From first call to full execution <em>in under two weeks.</em></h2>
-    <ol class="steps">
-      <li class="step"><h3>Discovery call</h3><p>A free 30-minute call about your property, goals and budget. No sales pressure.</p></li>
-      <li class="step"><h3>Audit &amp; strategy</h3><p>I review your ads, website, SEO and social, find the gaps and build a clear 90-day plan.</p></li>
-      <li class="step"><h3>Launch &amp; execute</h3><p>Campaigns go live, content starts publishing and SEO work begins, all built around direct bookings.</p></li>
-      <li class="step"><h3>Report &amp; optimise</h3><p>Weekly or monthly reports with real numbers. I optimise continuously and keep you informed.</p></li>
-    </ol>
   </div>
 </section>
 
@@ -938,7 +802,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
 {% assign portrait = site.static_files | where: "path", "/assets/photos/maningi-portrait.jpg" | first %}
 <section id="about" aria-labelledby="about-t">
   <!-- Portrait renders only if assets/photos/maningi-portrait.jpg exists at
-       build time (4:5, about 800x1000). Until then About is text only. -->
+       build time (4:5, 800x1000). Without it About is text only. -->
   <div class="wrap about{% if portrait %} has-portrait{% endif %}">
     {% if portrait %}<img class="portrait" src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Maningi Sylvester"/>{% endif %}
     <div>
@@ -946,10 +810,9 @@ kept if moved  = OTA revenue × shift % × commission %</p>
       <h2 id="about-t">Maningi Sylvester</h2>
       <p class="about-role">Hotel and hospitality marketing, Nairobi, Kenya</p>
       <div class="prose">
-        <p>I am a digital marketer based in Nairobi. I build full digital marketing systems for hotels, suites, lodges and travel businesses, locally and internationally.</p>
-        <p>I know the local market, how guests book, and how hard it is to build direct revenue where OTAs dominate. Every client gets a clear strategy, honest reporting, and marketing that drives bookings.</p>
+        <p>I am a digital marketer based in Nairobi. I build full digital marketing systems for hotels, suites and lodges, locally and internationally, with a clear strategy and honest reporting.</p>
+        <p>Previously Digital Marketing &amp; Sales Assistant at Smoove Africa, a Nairobi retailer (full-time, until March 2026).</p>
       </div>
-      <p class="subhead">What I work in</p>
       <dl class="skills">
         <div><dt>Paid media</dt><dd>Google Ads, Meta Ads, budgets, A/B testing</dd></div>
         <div><dt>SEO</dt><dd>On-page, keywords, content, Search Console</dd></div>
@@ -958,72 +821,26 @@ kept if moved  = OTA revenue × shift % × commission %</p>
         <div><dt>Email</dt><dd>Segmentation, automation, repeat guests</dd></div>
         <div><dt>Website &amp; CMS</dt><dd>WordPress (Divi), Shopify, landing pages</dd></div>
       </dl>
-      <p class="subhead">Certifications</p>
-      <ul class="certs">
-        <li>Google: Fundamentals of Digital Marketing</li>
-        <li>Google: YouTube Marketing</li>
-        <li>Reuters: Digital &amp; Social Media Marketing</li>
-        <li>Reuters: Introduction to Digital Journalism</li>
-        <li>atingi: Digital &amp; Social Media Marketing</li>
-        <li>atingi: How to Get Involved in Artificial Intelligence</li>
-      </ul>
-      <p class="marque">I also built free tools for hotel marketers. <a class="textlink" href="marque/">Explore Marque <svg aria-hidden="true"><use href="#i-arr"/></svg></a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══ -->
-<section id="faq" aria-labelledby="faq-t">
-  <div class="wrap ed">
-    <div>
-      <p class="kicker">FAQ</p>
-      <h2 id="faq-t">Questions hotel owners <em>ask me.</em></h2>
-    </div>
-    <div class="faq">
-      <details class="q"><summary>How much does it cost?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">It depends on the property, the channels and the ad budget. I quote after a short conversation, so you only pay for what you need. Message me on WhatsApp for a figure.</p></details>
-      <details class="q"><summary>How do I know this will work for my hotel?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Start with an audit. You get a full diagnosis of what is working, what is not, and a clear action plan before committing to a retainer.</p></details>
-      <details class="q"><summary>We already use Booking.com and Expedia. Do we still need this?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Especially then. OTAs take 15&ndash;25% per booking, so every direct booking saves you that commission. The goal is to reduce OTA dependence, not replace it overnight.</p></details>
-      <details class="q"><summary>How long before I see results?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Paid ads show results within 2&ndash;4 weeks once campaigns are optimised. SEO and content take 2&ndash;3 months to build momentum. I am transparent about timelines from day one.</p></details>
-      <details class="q"><summary>Do you require a long-term contract?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">No long-term lock-in. Monthly retainers require 30 days notice to cancel. The results should be the reason you stay, not a contract.</p></details>
-      <details class="q"><summary>Is ad spend included in your fee?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">No. My fee covers strategy, management and reporting. You pay ad spend directly to Google and Meta, and I recommend a budget based on your goals.</p></details>
-      <details class="q"><summary>Do you work with hotels outside Nairobi?<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="a">Yes. Digital marketing works remotely. I work with properties across Kenya and beyond, locally and internationally.</p></details>
+      <p class="certs"><strong>Certifications:</strong> Google (Fundamentals of Digital Marketing; YouTube Marketing), Reuters (Digital &amp; Social Media Marketing; Introduction to Digital Journalism), atingi (Digital &amp; Social Media Marketing; How to Get Involved in Artificial Intelligence).</p>
     </div>
   </div>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" aria-labelledby="contact-t">
-  <div class="wrap">
-    <p class="kicker">Contact</p>
-    <h2 id="contact-t">Let's build your <em>direct booking engine.</em></h2>
-    <p class="lede">I respond within 24 hours on weekdays. WhatsApp is fastest.</p>
-    <div class="contact-grid">
-      <div>
-        <a class="btn btn-ember btn-full" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Message me on WhatsApp</a>
-        <p class="desk-num">+254 702 256 764</p>
-        <p class="picks-t">Or start with a specific request</p>
-        <ul class="picks">
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener">Free strategy call<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Starter%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener">Starter package<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Growth%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener">Growth package<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20a%20quote%20for%20the%20Scale%20package.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener">Scale package<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20ask%20about%20an%20audit%20for%20my%20hotel.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener">Digital audit<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-          <li><a href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%20have%20a%20question%20about%20hotel%20marketing." target="_blank" rel="noopener">Something else<svg aria-hidden="true"><use href="#i-arr"/></svg></a></li>
-        </ul>
-      </div>
-      <ul class="channels">
-        <li><a class="chan" href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry"><svg aria-hidden="true"><use href="#i-mail"/></svg><span><span class="chan-k">Email</span><span class="chan-v">maningisylvester@gmail.com</span></span></a></li>
-        <li><a class="chan" href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"/></svg><span><span class="chan-k">LinkedIn</span><span class="chan-v">maningisylvesterdigitalmarketer</span></span></a></li>
-        <li><div class="chan"><svg aria-hidden="true"><use href="#i-pin"/></svg><span><span class="chan-k">Based in</span><span class="chan-v">Nairobi, Kenya</span></span></div></li>
-      </ul>
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker">Contact</p>
+      <h2 id="contact-t">Let's build your <em>direct booking engine.</em></h2>
+      <p class="lede">I respond within 24 hours on weekdays. WhatsApp is fastest.</p>
+      <a class="btn btn-ember contact-btn" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20book%20a%20free%20strategy%20call%20for%20my%20hotel." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Message me on WhatsApp</a>
+      <p class="desk-num">+254 702 256 764</p>
     </div>
+    <ul class="channels">
+      <li><a class="chan" href="mailto:maningisylvester@gmail.com?subject=Hotel%20Marketing%20Enquiry"><svg aria-hidden="true"><use href="#i-mail"/></svg><span><span class="chan-k">Email</span><span class="chan-v">maningisylvester@gmail.com</span></span></a></li>
+      <li><a class="chan" href="https://www.linkedin.com/in/maningisylvesterdigitalmarketer" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-li"/></svg><span><span class="chan-k">LinkedIn</span><span class="chan-v">maningisylvesterdigitalmarketer</span></span></a></li>
+      <li><div class="chan"><svg aria-hidden="true"><use href="#i-pin"/></svg><span><span class="chan-k">Based in</span><span class="chan-v">Nairobi, Kenya</span></span></div></li>
+    </ul>
   </div>
 </section>
 
@@ -1039,7 +856,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
       <p class="foot-t">Work</p>
       <ul class="foot-l">
         <li><a href="#check">Visibility check</a></li>
-        <li><a href="#results">Case studies</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="marque/">Marque tools</a></li>
       </ul>
