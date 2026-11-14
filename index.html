@@ -82,20 +82,21 @@
 <meta property="og:title" content="Maningi Sylvester | Hotel marketing for direct bookings"/>
 <meta property="og:description" content="I help hotels get more direct bookings. Take the 60-second visibility check, or message me on WhatsApp."/>
 <meta property="og:url" content="https://maningisylvester.github.io/"/>
-<meta property="og:image" content="https://maningisylvester.github.io/assets/og-card.png"/>
+<meta property="og:image" content="https://maningisylvester.github.io/assets/og-card-2.jpg"/>
+<meta property="og:image:type" content="image/jpeg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="Maningi Sylvester: I get hotels more direct bookings."/>
+<meta property="og:image:alt" content="Maningi Sylvester, I get hotels more direct bookings, with his portrait"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Maningi Sylvester | Hotel marketing for direct bookings"/>
 <meta name="twitter:description" content="I help hotels get more direct bookings. Take the 60-second visibility check."/>
-<meta name="twitter:image" content="https://maningisylvester.github.io/assets/og-card.png"/>
+<meta name="twitter:image" content="https://maningisylvester.github.io/assets/og-card-2.jpg"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
  "name":"Maningi Sylvester",
  "jobTitle":"Hotel and hospitality digital marketer",
  "url":"https://maningisylvester.github.io/",
- "image":"https://maningisylvester.github.io/assets/og-card.png",
+ "image":"https://maningisylvester.github.io/assets/og-card-2.jpg",
  "address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},
  "knowsAbout":["Google Ads","Meta Ads","SEO","Social media marketing","Hotel direct bookings"],
  "sameAs":["https://www.linkedin.com/in/maningisylvesterdigitalmarketer"]}
@@ -123,8 +124,7 @@
   src:url(assets/fonts/ibm-plex-mono-500.woff2) format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 /* ═══ GOLDEN HOUR, editorial ══════════════════════════════════
-   Linen #FBF6EE base · Apricot #FBE6D2 tool band · Ink #2A1B12 text and the
-   one dark band · Ember #F07A2A orange (ink text only) · Burnt #B4440F orange
+   Linen #FBF6EE base · Apricot #FBE6D2 tool band · Ink #2A1B12 text · Ember #F07A2A orange (ink text only) · Burnt #B4440F orange
    as text and behind white · Clay #6E5547 secondary · Marker #DD5F14 notes.
    Structure comes from rules, whitespace and type scale. Corners 4px at most,
    no shadows, no gradients. Boxes only for the check and the calculator.
@@ -134,7 +134,7 @@
   --ink:#2A1B12; --ink-2:#3D2A1E; --clay:#6E5547;
   --ember:#F07A2A; --ember-hi:#F58D45; --burnt:#B4440F; --marker:#DD5F14;
   --line:rgba(42,27,18,0.14); --line-2:rgba(42,27,18,0.24);
-  --on-ink:#FBF6EE; --on-ink-2:#D9C9BC; --line-ink:rgba(251,246,238,0.18);
+  --on-ink:#FBF6EE;
   --r:4px;
   --display:'Instrument Serif',Georgia,'Times New Roman',serif;
   --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -147,7 +147,6 @@ body{font-family:var(--body);font-size:16px;line-height:1.6;background:var(--lin
 img,svg{display:block;max-width:100%;}
 a{color:inherit;}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:var(--r);}
-.dark :focus-visible{outline-color:var(--ember);}
 .skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--ink);color:var(--on-ink);padding:.9rem 1.4rem;font-weight:700;text-decoration:none;}
 .skip:focus{left:0;}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
@@ -210,19 +209,19 @@ section+section{border-top:1px solid var(--line);}
 .hero-ota .textlink{display:inline-flex;}
 .hero-photo{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;margin-top:clamp(2rem,5vw,3rem);}
 
-/* ── proof strip: the one dark band ── */
-.proof-band{background:var(--ink);color:var(--on-ink);padding-top:clamp(2rem,5vw,3rem);padding-bottom:clamp(2rem,5vw,3rem);}
-.proof-band .eyebrow{color:var(--on-ink-2);}
-.readout{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-ink);}
-.cell{padding:1.1rem 1rem 1.1rem 0;border-bottom:1px solid var(--line-ink);}
-.cell:nth-child(odd){border-right:1px solid var(--line-ink);}
+/* ── proof strip: on the page background, hairlines only ── */
+/* No fill, no frame: the figures sit on the page and continue the hero. */
+.proof-band{padding-top:0;padding-bottom:0;border-top:0;}
+.readout{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2);}
+.cell{padding:1.1rem 1rem 1.1rem 0;border-bottom:1px solid var(--line-2);}
+.cell:nth-child(odd){border-right:1px solid var(--line);}
 .cell:nth-child(even){padding-left:1rem;}
-.cell-fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(2rem,8vw,3.2rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--on-ink);}
-.cell-label{font-size:.88rem;font-weight:600;color:var(--on-ink);margin-top:.55rem;}
-.cell-src{font-size:.8rem;color:var(--on-ink-2);margin-top:.15rem;}
+.cell-fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(2rem,8vw,3.2rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--ink);}
+.cell-label{font-size:.88rem;font-weight:600;color:var(--ink);margin-top:.55rem;}
+.cell-src{font-size:.8rem;color:var(--clay);margin-top:.15rem;}
 
 /* ── client row ── */
-.clients{padding-top:1.6rem;padding-bottom:1.6rem;}
+.clients{padding-top:clamp(1.6rem,4vw,2.25rem);padding-bottom:1.6rem;border-top:0;}
 .clients-t{font-size:.86rem;color:var(--clay);margin-bottom:.6rem;}
 .client-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);}
 .client{display:flex;align-items:center;gap:.6rem;min-height:56px;padding:.55rem .25rem;border-bottom:1px solid var(--line);font-weight:700;font-size:.9rem;line-height:1.25;}
@@ -398,7 +397,7 @@ a.chan:hover .chan-v{color:var(--burnt);}
 /* ═══ breakpoints ═══ */
 @media(min-width:600px){
   .readout{grid-template-columns:repeat(4,1fr);}
-  .cell{padding:1.1rem 1.25rem;border-right:1px solid var(--line-ink);}
+  .cell{padding:1.1rem 1.25rem;border-right:1px solid var(--line);}
   .cell:nth-child(odd){padding-left:1.25rem;} .cell:first-child{padding-left:0;} .cell:last-child{border-right:0;}
   .client-list{grid-template-columns:repeat(4,1fr);}
   .client{padding-right:1rem;}
@@ -494,8 +493,8 @@ a.chan:hover .chan-v{color:var(--burnt);}
   </div>
 </section>
 
-<!-- ═══ PROOF STRIP: the page's one dark band ═══ -->
-<section class="proof-band dark" aria-labelledby="strip-t">
+<!-- ═══ PROOF STRIP: figures on the page, hairlines only ═══ -->
+<section class="proof-band" aria-labelledby="strip-t">
   <div class="wrap">
     <p class="eyebrow" id="strip-t">Client results · measured, not estimated</p>
     <div class="readout">
@@ -751,10 +750,23 @@ kept if moved  = OTA revenue × shift % × commission %</p>
         </ul>{% endif %}
       </article>
 
-      <article class="spread spread-text" id="case-laziz">
+      <article class="spread" id="case-laziz">
         <h3>L'Aziz Suites</h3>
         <p class="context">Hospitality · Parklands, Nairobi · Digital transformation · Digital Marketing Consultant</p>
         <p class="result-line">SEO site score of 77/100 with 14 audit checks passed, and a 7.42% Google Ads CTR, after rebuilding a dormant digital presence from zero.</p>
+          <figure class="proof">
+            <div class="shot">
+              <picture>
+                <source type="image/avif" srcset="assets/proof/laziz-seo-score.avif"/>
+                <source type="image/webp" srcset="assets/proof/laziz-seo-score.webp"/>
+                <img src="assets/proof/laziz-seo-score.png" width="986" height="638" loading="lazy" decoding="async"
+                     alt="SEO site audit scoring 77 out of 100, rated Excellent, with 14 good results"/>
+              </picture>
+              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M26.52 65.45 L24.75 65.44 L22.98 65.32 L21.29 64.86 L19.84 63.97 L18.48 63.09 L17.02 62.36 L16.13 61.10 L15.22 59.94 L14.09 58.88 L13.60 57.53 L12.85 56.24 L12.57 54.83 L12.23 53.38 L12.43 51.92 L12.45 50.38 L12.89 48.87 L13.88 47.57 L14.92 46.31 L16.29 45.30 L17.98 44.68 L19.43 43.84 L21.14 43.49 L22.87 43.36 L24.55 43.37 L26.22 43.03 L27.88 43.31 L29.59 43.45 L31.31 43.76 L32.93 44.37 L34.58 45.05 L35.85 46.16 L37.25 47.21 L38.10 48.61 L39.02 49.99 L39.37 51.54 L39.07 53.13 L38.89 54.63 L38.50 56.07 L38.25 57.54 L37.26 58.78 L36.48 60.07 L35.38 61.18 L34.36 62.37 L33.08 63.39 L31.67 64.32 L30.15 65.21 L28.42 65.80 L26.60 66.28 L24.70 66.26 L22.80 66.14 L21.00 65.61 L19.30 64.92 L17.88 63.87"/></svg>
+              <span class="note" style="left:9%;top:91%">Score: 77/100</span>
+            </div>
+            <figcaption>SEO site audit · score card</figcaption>
+          </figure>
       </article>
 
     </div>
