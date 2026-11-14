@@ -7,6 +7,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<!--
+  JEKYLL DEPENDENCY. Read this before hosting the site anywhere other than GitHub Pages.
+
+  This page relies on the Jekyll build that GitHub Pages runs on every push. Two parts of
+  the file are Jekyll-only:
+    1. The five-line header that opens the file (a "---" line, three "#" comment lines, a
+       second "---" line). It must stay on line 1 or Jekyll ignores the whole file.
+    2. Three Liquid blocks (curly brace + percent sign tags) that check, at build time,
+       whether an optional file exists before writing its image tag. Search the file for:
+         "if heroPhoto"   hero photo, assets/photos/hero.jpg
+         "if yezaLogo"    Yeza logo, assets/logos/yeza.png
+         "if portrait"    About portrait, assets/photos/maningi-portrait.jpg
+                          (also toggles the "has-portrait" class on the About wrapper)
+
+  On a host that does not run Jekyll (Netlify or Cloudflare without a Jekyll build, plain
+  file hosting) these parts are NOT processed: the header and the tags print as visible text
+  and the image tags are always written, so missing files are requested.
+
+  To remove the dependency: delete the five header lines; delete each "assign" line; for each
+  "if" block keep the image tag on its own if that file exists, or delete the block if it does
+  not; in the About wrapper, keep or delete the " has-portrait" class to match.
+
+  While the dependency remains, never add a .nojekyll file or a _config.yml that turns
+  processing off: either one switches Jekyll off on GitHub Pages too.
+-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!--
   ═══ SETTINGS: read this before renaming or moving domains ═══════════════════
@@ -514,7 +539,7 @@ a.chan:hover .chan-v{color:var(--burnt);}
 <!-- ═══ CLIENTS ═══ -->
 <section class="clients" aria-labelledby="clients-t">
   <div class="wrap">
-    <p class="clients-t" id="clients-t">Hotels and brands I work with</p>
+    <p class="clients-t" id="clients-t">Hotels and brands I&#39;ve worked with</p>
     <ul class="client-list">
       <li class="client"><picture><source type="image/webp" srcset="assets/logos/karen-plains-sm.webp"/><img src="assets/logos/karen-plains-sm.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture><span>Karen Plains Hotel<em>Karen, Nairobi</em></span></li>
       <li class="client"><picture><source type="image/webp" srcset="assets/logos/laziz-suites-sm.webp"/><img class="on-dark" src="assets/logos/laziz-suites-sm.png" width="28" height="28" loading="lazy" decoding="async" alt=""/></picture><span>L'Aziz Suites<em>Parklands, Nairobi</em></span></li>
@@ -790,7 +815,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
 
       <article class="spread">
         <h3>Smoove Africa</h3>
-        <p class="context">Retail &amp; e-commerce · Nairobi · Full-time role · Digital Marketing &amp; Sales Assistant</p>
+        <p class="context">Retail &amp; e-commerce · Nairobi · Full-time role until March 2026 · Digital Marketing &amp; Sales Assistant</p>
         <div class="figrow">
           <div class="case-fig"><div class="v" data-to="9.36" data-dec="2" data-suf="K">9.36K</div><div class="k">Ad clicks</div></div>
           <div class="case-fig"><div class="v" data-to="114" data-dec="0" data-suf="K">114K</div><div class="k">Impressions</div></div>
@@ -878,7 +903,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
       </li>
       <li class="svc" id="audit" data-package="Audit">
         <div><h3 class="svc-name svc-name-sm">Not sure where to start? Begin with an audit.</h3></div>
-        <div><p class="svc-for">A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days.</p></div>
+        <div><p class="svc-for">A full review of your website, ads, SEO, social and booking funnel, with a prioritised action plan delivered within 5 business days. Quoted per property.</p></div>
         <a class="btn btn-ghost svc-cta quote" href="https://wa.me/254702256764?text=Hi%20Maningi%2C%20I%27d%20like%20to%20ask%20about%20an%20audit%20for%20my%20hotel.%0AProperty%3A%0ARooms%3A%0AWhat%20I%20want%20to%20improve%3A" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Ask about an audit</a>
       </li>
     </ul>
