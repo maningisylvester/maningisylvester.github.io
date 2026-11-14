@@ -62,7 +62,7 @@
   checks for them, using the empty front matter at the top of this file).
   Until a file exists nothing renders and nothing is requested:
       assets/photos/hero.jpg               plain full-width hero photo
-      assets/photos/maningi-portrait.jpg   4:5 portrait beside About
+      assets/photos/maningi-portrait.jpg   4:5 portrait beside About (optional .avif and .webp twins, 760x950)
       assets/logos/yeza.png                Yeza logo in the client row
 
   CLIENT LOGOS (moved here from the old assets/logos/README.md, which was
@@ -220,7 +220,6 @@ section+section{border-top:1px solid var(--line);}
 .cell-fig{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(2rem,8vw,3.2rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--on-ink);}
 .cell-label{font-size:.88rem;font-weight:600;color:var(--on-ink);margin-top:.55rem;}
 .cell-src{font-size:.8rem;color:var(--on-ink-2);margin-top:.15rem;}
-.readout-3 .cell:last-child{grid-column:1 / -1;border-right:0;padding-left:0;}
 
 /* ── client row ── */
 .clients{padding-top:1.6rem;padding-bottom:1.6rem;}
@@ -358,7 +357,9 @@ section+section{border-top:1px solid var(--line);}
 
 /* ── about ── */
 .about{display:grid;gap:1.75rem;}
+#about{background:var(--apricot);}   /* matches the portrait backdrop, so the photo edge disappears */
 .portrait{width:100%;max-width:380px;height:auto;aspect-ratio:4/5;object-fit:cover;}
+picture.portrait-pic{display:block;max-width:380px;}
 .about-role{color:var(--clay);font-size:.95rem;margin:.4rem 0 1.1rem;}
 .about .skills{margin-top:1.5rem;}
 .certs{margin-top:1.1rem;font-size:.9rem;line-height:1.55;color:var(--ink-2);max-width:70ch;}
@@ -397,8 +398,6 @@ a.chan:hover .chan-v{color:var(--burnt);}
 /* ═══ breakpoints ═══ */
 @media(min-width:600px){
   .readout{grid-template-columns:repeat(4,1fr);}
-  .readout-3{grid-template-columns:repeat(3,1fr);}
-  .readout-3 .cell:last-child{grid-column:auto;}
   .cell{padding:1.1rem 1.25rem;border-right:1px solid var(--line-ink);}
   .cell:nth-child(odd){padding-left:1.25rem;} .cell:first-child{padding-left:0;} .cell:last-child{border-right:0;}
   .client-list{grid-template-columns:repeat(4,1fr);}
@@ -499,9 +498,10 @@ a.chan:hover .chan-v{color:var(--burnt);}
 <section class="proof-band dark" aria-labelledby="strip-t">
   <div class="wrap">
     <p class="eyebrow" id="strip-t">Client results · measured, not estimated</p>
-    <div class="readout readout-3">
+    <div class="readout">
       <div class="cell"><div class="cell-fig" data-to="23" data-dec="0" data-suf="K">23K</div><div class="cell-label">Active users</div><div class="cell-src">Karen Plains · GA4 · 90 days</div></div>
       <div class="cell"><div class="cell-fig" data-to="86.4" data-dec="1" data-suf="K">86.4K</div><div class="cell-label">Search impressions</div><div class="cell-src">Karen Plains · 3 months</div></div>
+      <div class="cell"><div class="cell-fig" data-to="626" data-dec="0">626</div><div class="cell-label">Users</div><div class="cell-src">Yeza Garden Hotel, GA4, Sep 1 to Nov 14, 2026</div></div>
       <div class="cell"><div class="cell-fig" data-to="77" data-dec="0" data-suf="/100">77/100</div><div class="cell-label">SEO site score</div><div class="cell-src">L'Aziz Suites</div></div>
     </div>
   </div>
@@ -697,7 +697,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
       <article class="spread" id="case-karen">
         <h3>Karen Plains Hotel</h3>
         <p class="context">Hospitality · Karen, Nairobi · Ongoing · Growth Manager Consultant</p>
-        <p class="result-line">Occupancy from 50% to 60%. 23K active users and 25K sessions in 90 days, from near zero before.</p>
+        <p class="result-line">Occupancy from 50% to 60%. 23K active users, 25K sessions and a 98.1% engagement rate in 90 days, from near zero before. Average Google position 8.5 over 3 months.</p>
         <p class="scope">Google Ads, Meta, SEO, social, email and 4&ndash;5 short videos a week.</p>
           <figure class="proof">
             <div class="shot">
@@ -736,19 +736,6 @@ kept if moved  = OTA revenue × shift % × commission %</p>
               <span class="note" style="left:6%;top:45%">Sep 1 to Nov 14, 2026</span>
             </div>
             <figcaption>Google Analytics 4 · Sep 1 to Nov 14, 2026</figcaption>
-          </figure>
-          <figure class="proof">
-            <div class="shot">
-              <picture>
-                <source type="image/avif" srcset="assets/proof/yeza-search-console.avif"/>
-                <source type="image/webp" srcset="assets/proof/yeza-search-console.webp"/>
-                <img src="assets/proof/yeza-search-console.png" width="1510" height="522" loading="lazy" decoding="async"
-                     alt="Google Search Console for Yeza Garden Hotel, last 3 months, showing 110 clicks, 2.41K impressions, 4.6% average CTR and an average position of 2.8"/>
-              </picture>
-              <svg class="annot" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M6.46 21.83 L6.63 22.52 L6.77 23.22 L6.81 23.96 L6.85 24.69 L6.85 25.42 L6.78 26.14 L6.72 26.88 L6.59 27.60 L6.42 28.29 L6.14 28.86 L5.86 29.42 L5.51 29.84 L5.16 30.25 L4.76 30.44 L4.34 30.43 L3.94 30.51 L3.55 30.36 L3.18 30.10 L2.83 29.81 L2.51 29.41 L2.20 29.00 L1.88 28.58 L1.64 28.00 L1.41 27.41 L1.23 26.74 L1.13 26.02 L1.05 25.28 L1.08 24.52 L1.15 23.77 L1.34 23.10 L1.55 22.47 L1.82 21.92 L2.10 21.42 L2.42 21.02 L2.76 20.68 L3.09 20.29 L3.46 20.05 L3.85 19.91 L4.25 19.86 L4.66 19.95 L5.05 20.13 L5.44 20.42 L5.78 20.86 L6.11 21.32 L6.34 21.96 L6.57 22.60 L6.68 23.34 L6.81 24.04 L6.86 24.78 L6.81 25.51 L6.81 26.24"/><path d="M19.81 21.97 L20.12 22.56 L20.35 23.23 L20.55 23.93 L20.60 24.68 L20.65 25.45 L20.59 26.21 L20.45 26.96 L20.25 27.69 L19.89 28.28 L19.54 28.85 L19.09 29.27 L18.63 29.63 L18.16 29.92 L17.68 30.16 L17.17 30.26 L16.67 30.24 L16.16 30.26 L15.65 30.15 L15.12 30.04 L14.63 29.73 L14.18 29.31 L13.79 28.79 L13.47 28.16 L13.22 27.49 L13.08 26.75 L13.06 26.00 L13.02 25.27 L13.12 24.56 L13.23 23.86 L13.41 23.20 L13.64 22.56 L13.91 21.95 L14.21 21.37 L14.59 20.87 L15.02 20.44 L15.47 20.01 L15.99 19.79 L16.53 19.67 L17.07 19.75 L17.60 19.94 L18.10 20.20 L18.53 20.66 L18.97 21.05 L19.33 21.58 L19.64 22.15 L19.94 22.74 L20.22 23.35 L20.41 24.04 L20.58 24.76 L20.67 25.52 L20.65 26.29"/><path d="M22.40 1.83 L22.64 2.37 L22.81 2.95 L22.83 3.55 L22.90 4.13 L22.87 4.72 L22.80 5.29 L22.64 5.85 L22.46 6.40 L22.25 6.95 L21.98 7.48 L21.58 7.88 L21.16 8.27 L20.67 8.53 L20.17 8.75 L19.64 8.83 L19.11 8.75 L18.60 8.69 L18.13 8.41 L17.65 8.24 L17.22 7.95 L16.86 7.56 L16.46 7.22 L16.13 6.78 L15.80 6.31 L15.63 5.76 L15.45 5.20 L15.34 4.60 L15.39 3.99 L15.53 3.41 L15.75 2.87 L15.96 2.32 L16.34 1.90 L16.69 1.48 L17.15 1.22 L17.56 0.89 L18.02 0.66 L18.49 0.48 L19.00 0.45 L19.51 0.36 L20.02 0.42 L20.56 0.48 L21.04 0.74 L21.53 1.00 L21.90 1.46 L22.27 1.92 L22.54 2.45 L22.67 3.05 L22.82 3.62 L22.91 4.20 L22.87 4.79 L22.82 5.36"/></svg>
-              <span class="note" style="left:58%;top:5%">Last 3 months</span>
-            </div>
-            <figcaption>Google Search Console · web search · last 3 months</figcaption>
           </figure>
         <p class="menu-link"><a class="extlink" href="https://yeza-menu.netlify.app" target="_blank" rel="noopener">See the in-room dining menu I built</a></p>
         <!-- Design samples: up to three thumbnails. Each renders only if its PNG exists at build time
@@ -804,7 +791,8 @@ kept if moved  = OTA revenue × shift % × commission %</p>
   <!-- Portrait renders only if assets/photos/maningi-portrait.jpg exists at
        build time (4:5, 800x1000). Without it About is text only. -->
   <div class="wrap about{% if portrait %} has-portrait{% endif %}">
-    {% if portrait %}<img class="portrait" src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Maningi Sylvester"/>{% endif %}
+    {% assign portraitAvif = site.static_files | where: "path", "/assets/photos/maningi-portrait.avif" | first %}{% assign portraitWebp = site.static_files | where: "path", "/assets/photos/maningi-portrait.webp" | first %}
+    {% if portrait %}<picture class="portrait-pic">{% if portraitAvif %}<source type="image/avif" srcset="assets/photos/maningi-portrait.avif"/>{% endif %}{% if portraitWebp %}<source type="image/webp" srcset="assets/photos/maningi-portrait.webp"/>{% endif %}<img class="portrait" src="assets/photos/maningi-portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Maningi Sylvester"/></picture>{% endif %}
     <div>
       <p class="kicker">About</p>
       <h2 id="about-t">Maningi Sylvester</h2>
@@ -1195,7 +1183,7 @@ kept if moved  = OTA revenue × shift % × commission %</p>
   var sticky = $('sticky');
   if (sticky && 'IntersectionObserver' in window){
     var BAR_ZONE = 170, onScreen = 0, ticking = false,
-        proofs = [].slice.call(document.querySelectorAll('.proof, #stepper, #result, #calcForm'));
+        proofs = [].slice.call(document.querySelectorAll('.proof, .readout, #stepper, #result, #calcForm'));
     function proofInZone(){
       var vh = innerHeight;
       for (var i=0;i<proofs.length;i++){ var r=proofs[i].getBoundingClientRect(); if (r.height && r.bottom > vh-BAR_ZONE && r.top < vh) return true; }
